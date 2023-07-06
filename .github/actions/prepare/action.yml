@@ -5,7 +5,8 @@ inputs:
   node-version:
     required: false
     description: "`node-version` passed to `actions/setup-node`."
-    default: latest
+    # Switch to latest once https://github.com/TypeStrong/ts-node/issues/1997 is resolved.
+    default: v18
 
 runs:
   using: "composite"
