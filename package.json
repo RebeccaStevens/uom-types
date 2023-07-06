@@ -1,16 +1,21 @@
 {
-  "name": "__package_name__",
+  "name": "uom-types",
   "version": "0.0.0-development",
   "private": true,
-  "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/RebeccaStevens/template-typescript-node-package#readme",
+  "description": "Typesafe units with no runtime overhead.",
+  "keywords": [
+    "uom",
+    "units",
+    "measure",
+    "types"
+  ],
+  "homepage": "https://github.com/RebeccaStevens/uom-types#readme",
   "bugs": {
-    "url": "https://github.com/RebeccaStevens/template-typescript-node-package/issues"
+    "url": "https://github.com/RebeccaStevens/uom-types/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RebeccaStevens/template-typescript-node-package"
+    "url": "git+https://github.com/RebeccaStevens/uom-types"
   },
   "license": "BSD-3-Clause",
   "author": {
