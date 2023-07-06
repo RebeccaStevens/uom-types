@@ -6,9 +6,15 @@ import rollupPluginDts from "rollup-plugin-dts";
 
 import pkg from "./package.json" assert { type: "json" };
 
-const common = defineConfig({
-  input: "src/index.ts",
+const entries = [
+  ["src/base/index.ts", pkg.exports["."]],
+  ["src/functions/index.ts", pkg.exports["./functions"]],
+  ["src/functions-ho/index.ts", pkg.exports["./functions/higher-order"]],
+  ["src/si-units/index.ts", pkg.exports["./si-units"]],
+  ["src/si-units/converters/index.ts", pkg.exports["./si-units/converters"]],
+] as const;
 
+const common = defineConfig({
   output: {
     sourcemap: false,
   },
@@ -26,19 +32,6 @@ const common = defineConfig({
 const runtimes = defineConfig({
   ...common,
 
-  output: [
-    {
-      ...common.output,
-      file: pkg.exports.import,
-      format: "esm",
-    },
-    {
-      ...common.output,
-      file: pkg.exports.require,
-      format: "cjs",
-    },
-  ],
-
   plugins: [
     rollupPluginAutoExternal(),
     rollupPluginNodeResolve(),
@@ -51,19 +44,6 @@ const runtimes = defineConfig({
 const types = defineConfig({
   ...common,
 
-  output: [
-    {
-      ...common.output,
-      file: pkg.exports.types.import,
-      format: "esm",
-    },
-    {
-      ...common.output,
-      file: pkg.exports.types.require,
-      format: "cjs",
-    },
-  ],
-
   plugins: [
     rollupPluginTypescript({
       tsconfig: "tsconfig.build.json",
@@ -72,4 +52,41 @@ const types = defineConfig({
   ] as Plugin[],
 });
 
-export default [runtimes, types];
+export default entries
+  .flatMap(([entry, output]) => [
+    "import" in output
+      ? {
+          ...runtimes,
+          input: entry,
+          output: [
+            {
+              file: output.import,
+              format: "esm",
+              sourcemap: false,
+            },
+            {
+              file: output.require,
+              format: "cjs",
+              sourcemap: false,
+            },
+          ],
+        }
+      : null,
+    {
+      ...types,
+      input: entry,
+      output: [
+        {
+          file: output.types.import,
+          format: "esm",
+          sourcemap: false,
+        },
+        {
+          file: output.types.require,
+          format: "cjs",
+          sourcemap: false,
+        },
+      ],
+    },
+  ])
+  .filter((v) => v !== null);

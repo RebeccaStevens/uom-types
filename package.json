@@ -24,12 +24,42 @@
   },
   "type": "module",
   "exports": {
-    "types": {
-      "import": "./dist/index.d.mts",
-      "require": "./dist/index.d.cts"
+    ".": {
+      "types": {
+        "import": "./dist/index.d.mts",
+        "require": "./dist/index.d.cts"
+      }
     },
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
+    "./functions": {
+      "types": {
+        "import": "./dist/functions.d.mts",
+        "require": "./dist/functions.d.cts"
+      },
+      "import": "./dist/functions.mjs",
+      "require": "./dist/functions.cjs"
+    },
+    "./functions/higher-order": {
+      "types": {
+        "import": "./dist/functions-ho.d.mts",
+        "require": "./dist/functions-ho.d.cts"
+      },
+      "import": "./dist/functions-ho.mjs",
+      "require": "./dist/functions-ho.cjs"
+    },
+    "./si-units": {
+      "types": {
+        "import": "./dist/si-units.d.mts",
+        "require": "./dist/si-units.d.cts"
+      }
+    },
+    "./si-units/converters": {
+      "types": {
+        "import": "./dist/si-units-converters.d.mts",
+        "require": "./dist/si-units-converters.d.cts"
+      },
+      "import": "./dist/si-units-converters.mjs",
+      "require": "./dist/si-units-converters.cjs"
+    }
   },
   "files": [
     "dist/",
@@ -110,5 +140,8 @@
     "tsconfig-paths": "4.2.0",
     "typescript": "5.1.6"
   },
-  "packageManager": "pnpm@8.6.6"
+  "packageManager": "pnpm@8.6.6",
+  "engines": {
+    "node": ">=16.0.0"
+  }
 }
