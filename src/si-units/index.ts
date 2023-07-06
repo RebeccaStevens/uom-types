@@ -1,3 +1,3 @@
-/* eslint-disable unicorn/no-empty-file */
+import { type Unit } from "uom-types";
 
-// Write me
+export type Decimal = Unit<{}>;

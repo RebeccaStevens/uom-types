@@ -25,12 +25,14 @@
   "type": "module",
   "exports": {
     ".": {
+      "default": "./src/base/index.ts",
       "types": {
         "import": "./dist/index.d.mts",
         "require": "./dist/index.d.cts"
       }
     },
     "./functions": {
+      "default": "./src/functions/index.ts",
       "types": {
         "import": "./dist/functions.d.mts",
         "require": "./dist/functions.d.cts"
@@ -39,6 +41,7 @@
       "require": "./dist/functions.cjs"
     },
     "./functions/higher-order": {
+      "default": "./src/functions-ho/index.ts",
       "types": {
         "import": "./dist/functions-ho.d.mts",
         "require": "./dist/functions-ho.d.cts"
@@ -47,12 +50,14 @@
       "require": "./dist/functions-ho.cjs"
     },
     "./si-units": {
+      "default": "./src/si-units/index.ts",
       "types": {
         "import": "./dist/si-units.d.mts",
         "require": "./dist/si-units.d.cts"
       }
     },
     "./si-units/converters": {
+      "default": "./src/si-units/converters/index.ts",
       "types": {
         "import": "./dist/si-units-converters.d.mts",
         "require": "./dist/si-units-converters.d.cts"
@@ -82,7 +87,9 @@
     "lint:prettier-fix": "prettier \"**/*\" --ignore-unknown --write",
     "lint:spelling": "cspell \"**\" \".github/**/*\"",
     "prepare": "husky install",
-    "release": "semantic-release",
+    "release": "pnpm run release:pre && pnpm run release:semantic",
+    "release:pre": "node --no-warnings=ExperimentalWarning --loader=ts-paths-esm-loader/transpile-only --experimental-specifier-resolution=node ./scripts/pre-release.ts",
+    "release:semantic": "semantic-release",
     "test": "pnpm run test:js",
     "test:js": "c8 ava",
     "type-check": "tsc --noEmit"

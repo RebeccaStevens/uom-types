@@ -1,3 +1,6 @@
+import assert from "node:assert/strict";
+import path from "node:path";
+
 import rollupPluginNodeResolve from "@rollup/plugin-node-resolve";
 import rollupPluginTypescript from "@rollup/plugin-typescript";
 import { defineConfig, type Plugin } from "rollup";
@@ -6,20 +9,39 @@ import rollupPluginDts from "rollup-plugin-dts";
 
 import pkg from "./package.json" assert { type: "json" };
 
-const entries = [
-  ["src/base/index.ts", pkg.exports["."]],
-  ["src/functions/index.ts", pkg.exports["./functions"]],
-  ["src/functions-ho/index.ts", pkg.exports["./functions/higher-order"]],
-  ["src/si-units/index.ts", pkg.exports["./si-units"]],
-  ["src/si-units/converters/index.ts", pkg.exports["./si-units/converters"]],
-] as const;
-
 const common = defineConfig({
   output: {
     sourcemap: false,
   },
 
-  external: [],
+  external: (
+    source: string,
+    importer: string | undefined,
+    isResolved: boolean,
+  ) => {
+    if (!isResolved || importer === undefined) {
+      return null;
+    }
+
+    assert(path.isAbsolute(source));
+    const relativeSource = path.relative(process.cwd(), source);
+    const relativeImporter = path.relative(process.cwd(), importer);
+
+    if (!relativeSource.startsWith("src/")) {
+      return null;
+    }
+
+    const sourceSubproject = relativeSource.slice(
+      4,
+      Math.max(0, relativeSource.indexOf("/", 4)),
+    );
+    const importerSubproject = relativeImporter.slice(
+      4,
+      Math.max(0, relativeImporter.indexOf("/", 4)),
+    );
+
+    return sourceSubproject !== importerSubproject;
+  },
 
   treeshake: {
     annotations: true,
@@ -52,20 +74,20 @@ const types = defineConfig({
   ] as Plugin[],
 });
 
-export default entries
-  .flatMap(([entry, output]) => [
-    "import" in output
+export default Object.values(pkg.exports)
+  .flatMap((pkgExports) => [
+    "import" in pkgExports
       ? {
           ...runtimes,
-          input: entry,
+          input: pkgExports.default,
           output: [
             {
-              file: output.import,
+              file: pkgExports.import,
               format: "esm",
               sourcemap: false,
             },
             {
-              file: output.require,
+              file: pkgExports.require,
               format: "cjs",
               sourcemap: false,
             },
@@ -74,15 +96,15 @@ export default entries
       : null,
     {
       ...types,
-      input: entry,
+      input: pkgExports.default,
       output: [
         {
-          file: output.types.import,
+          file: pkgExports.types.import,
           format: "esm",
           sourcemap: false,
         },
         {
-          file: output.types.require,
+          file: pkgExports.types.require,
           format: "cjs",
           sourcemap: false,
         },
