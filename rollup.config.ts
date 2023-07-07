@@ -49,7 +49,15 @@ const runtimes = defineConfig({
 const types = defineConfig({
   ...common,
 
-  plugins: [rollupPluginDts()] as Plugin[],
+  plugins: [
+    rollupPluginDts({
+      compilerOptions: {
+        paths: Object.fromEntries(
+          Object.entries(pkg.imports).map(([id, path]) => [id, [path]]),
+        ),
+      },
+    }),
+  ] as Plugin[],
 });
 
 export default Object.entries(pkg.exports).flatMap(
