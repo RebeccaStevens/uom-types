@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+## [1.0.3](https://github.com/RebeccaStevens/uom-types/compare/v1.0.2...v1.0.3) (2023-07-07)
+
+
+### Bug Fixes
+
+* re-fix dist file import paths ([137b8df](https://github.com/RebeccaStevens/uom-types/commit/137b8dff09690891e041be0ff8933e94e10a9451))
+
 ## [1.0.2](https://github.com/RebeccaStevens/uom-types/compare/v1.0.1...v1.0.2) (2023-07-07)
 
 
