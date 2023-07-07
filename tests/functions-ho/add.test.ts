@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { add } from "uom-types/functions/higher-order";
+
+import { type Unit } from "#uom-types";
+import { add } from "#uom-types/functions/higher-order";
 
 test("numbers", (t) => {
   t.is(add(1)(2), 3);

@@ -3,8 +3,8 @@ import {
   type Multiply,
   type Inverse,
   type UnknownUnit,
-} from "uom-types";
-import { type Decimal } from "uom-types/si-units";
+} from "#uom-types";
+import { type Decimal } from "#uom-types/si-units";
 
 type OperationIO<T extends number> = T extends UnknownUnit ? T : number;
 

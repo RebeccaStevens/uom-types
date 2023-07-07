@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { sub } from "uom-types/functions";
+
+import { type Unit } from "#uom-types";
+import { sub } from "#uom-types/functions";
 
 test("numbers", (t) => {
   t.is(sub(1, 2), -1);

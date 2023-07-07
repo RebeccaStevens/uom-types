@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { ceil } from "uom-types/functions";
+
+import { type Unit } from "#uom-types";
+import { ceil } from "#uom-types/functions";
 
 test("number", (t) => {
   t.is(ceil(4.123), 5);

@@ -1,3 +1,3 @@
-import { type Unit } from "uom-types";
+import { type Unit } from "#uom-types";
 
 export type Decimal = Unit<{}>;

@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { round } from "uom-types/functions";
+
+import { type Unit } from "#uom-types";
+import { round } from "#uom-types/functions";
 
 test("number", (t) => {
   t.is(round(4.123), 4);

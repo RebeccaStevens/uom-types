@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { sqrt } from "uom-types/functions";
+
+import { type Unit } from "#uom-types";
+import { sqrt } from "#uom-types/functions";
 
 test("number", (t) => {
   t.is(sqrt(4), 2);

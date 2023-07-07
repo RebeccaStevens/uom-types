@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { mul } from "uom-types/functions";
+
+import { type Unit } from "#uom-types";
+import { mul } from "#uom-types/functions";
 
 test("numbers", (t) => {
   t.is(mul(1, 2), 2);

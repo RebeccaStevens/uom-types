@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { floor } from "uom-types/functions";
+
+import { type Unit } from "#uom-types";
+import { floor } from "#uom-types/functions";
 
 test("number", (t) => {
   t.is(floor(4.123), 4);

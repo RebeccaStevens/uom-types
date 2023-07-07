@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { gte } from "uom-types/functions/higher-order";
+
+import { type Unit } from "#uom-types";
+import { gte } from "#uom-types/functions/higher-order";
 
 test("number", (t) => {
   t.is(gte(4)(4), true);

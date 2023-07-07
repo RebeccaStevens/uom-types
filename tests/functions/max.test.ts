@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { max } from "uom-types/functions";
+
+import { type Unit } from "#uom-types";
+import { max } from "#uom-types/functions";
 
 test("number", (t) => {
   const list = [1, 3, 6, 4, -5, 2];

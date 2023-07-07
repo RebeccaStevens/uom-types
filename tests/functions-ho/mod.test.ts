@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { mod } from "uom-types/functions/higher-order";
+
+import { type Unit } from "#uom-types";
+import { mod } from "#uom-types/functions/higher-order";
 
 test("numbers", (t) => {
   t.is(mod(3)(10), 1);

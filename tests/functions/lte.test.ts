@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { lte } from "uom-types/functions";
+
+import { type Unit } from "#uom-types";
+import { lte } from "#uom-types/functions";
 
 test("number", (t) => {
   t.is(lte(4, 4), true);

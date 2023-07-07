@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { div } from "uom-types/functions";
+
+import { type Unit } from "#uom-types";
+import { div } from "#uom-types/functions";
 
 test("numbers", (t) => {
   t.is(div(1, 2), 0.5);

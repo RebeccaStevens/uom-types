@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { pow } from "uom-types/functions/higher-order";
+
+import { type Unit } from "#uom-types";
+import { pow } from "#uom-types/functions/higher-order";
 
 test("numbers", (t) => {
   t.is(pow(-1)(4), 0.25);

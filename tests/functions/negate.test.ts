@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { negate } from "uom-types/functions";
+
+import { type Unit } from "#uom-types";
+import { negate } from "#uom-types/functions";
 
 test("number", (t) => {
   t.is(negate(4), -4);

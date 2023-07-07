@@ -1,6 +1,7 @@
 import test from "ava";
-import { type Unit } from "uom-types";
-import { modSafe } from "uom-types/functions/higher-order";
+
+import { type Unit } from "#uom-types";
+import { modSafe } from "#uom-types/functions/higher-order";
 
 test("numbers", (t) => {
   t.is(modSafe(3)(10), 1);
