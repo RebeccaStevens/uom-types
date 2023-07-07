@@ -7,10 +7,16 @@ import {
 } from "./core";
 
 export type BrandUnit<T extends Record<string, UnitValue>> = {
-  __exactKeys: keyof T;
-  __uom_types: {
-    [U in keyof T]: BrandUnitConfigValue<T[U]>;
-  };
+  __exactKeys: keyof ExcludeZeroExponentsKeys<T>;
+  __uom_types: RemoveNever<{
+    [U in keyof T]: U extends keyof ExcludeZeroExponentsKeys<T>
+      ? BrandUnitConfigValue<T[U]>
+      : never;
+  }>;
+};
+
+type RemoveNever<T> = {
+  [K in keyof T as [T[K]] extends [never] ? never : K]: T[K];
 };
 
 type BrandUnitConfigValue<T extends UnitValue> = ExcludeZeroExponents<T> & {
@@ -18,6 +24,10 @@ type BrandUnitConfigValue<T extends UnitValue> = ExcludeZeroExponents<T> & {
 };
 
 type GetUnitConfig<T> = T extends UnitFull<infer C> ? C : never;
+
+type ExcludeZeroExponentsKeys<T extends Record<string, UnitValue>> = {
+  [K in keyof T as T[K] extends { exponent: 0 } ? never : K]: T[K];
+};
 
 type ExcludeZeroExponents<T extends UnitValue> = {
   [K in keyof T as T[K] extends 0 ? never : K]: T[K];
@@ -37,11 +47,9 @@ type KeysOfKeyOfTwoObjects<A, B, K> = K extends keyof A
   ? keyof B[K]
   : never;
 
-export type Inverse<T extends number> = T extends Exponent
-  ? NegativeExponent<T>
-  : T extends UnknownUnit
+export type Inverse<T extends number> = T extends UnknownUnit
   ? InverseUnit<T>
-  : never;
+  : number;
 
 type NegativeExponent<T extends Exponent> = T extends -6
   ? 6
@@ -84,21 +92,19 @@ type InverseUnitCore<T extends UnknownUnit> = {
   };
 };
 
-export type Multiply<A extends number, B extends number> = A extends Exponent
-  ? B extends Exponent
-    ? SumExponents<A, B>
-    : never
-  : A extends UnknownUnit
+export type Multiply<A extends number, B extends number> = A extends UnknownUnit
   ? B extends UnknownUnit
     ? MultiplyUnits<A, B>
-    : never
-  : never;
+    : A
+  : B extends UnknownUnit
+  ? B
+  : number;
 
 type MultiplyUnits<
   A extends UnknownUnit,
   B extends UnknownUnit,
 > = MultiplyUnitsCore<A, B> extends Record<string, UnitValue>
-  ? Unit<MultiplyUnitsCore<A, B>>
+  ? Unit<FlatternAlias<MultiplyUnitsCore<A, B>>>
   : never;
 
 type MultiplyUnitsCore<A extends UnknownUnit, B extends UnknownUnit> = {
@@ -122,15 +128,13 @@ type MultiplyUnitsCore<A extends UnknownUnit, B extends UnknownUnit> = {
   };
 };
 
-export type Divide<A extends number, B extends number> = A extends Exponent
-  ? B extends Exponent
-    ? SubExponents<A, B>
-    : never
-  : A extends UnknownUnit
+export type Divide<A extends number, B extends number> = A extends UnknownUnit
   ? B extends UnknownUnit
     ? DivideUnits<A, B>
-    : never
-  : never;
+    : A
+  : B extends UnknownUnit
+  ? Inverse<B>
+  : number;
 
 type DivideUnits<A extends UnknownUnit, B extends UnknownUnit> = MultiplyUnits<
   A,
@@ -397,3 +401,9 @@ type SumExponents<A extends Exponent, B extends Exponent> = A extends -6
     ? A
     : never
   : never;
+
+/**
+ * Flatten a complex type such as a union or intersection of objects into a
+ * single object.
+ */
+export type FlatternAlias<T> = { [P in keyof T]: T[P] } & {};
