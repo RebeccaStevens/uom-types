@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+## [1.0.1](https://github.com/RebeccaStevens/uom-types/compare/v1.0.0...v1.0.1) (2023-07-07)
+
+
+### Bug Fixes
+
+* critical type bugs ([46ef7b9](https://github.com/RebeccaStevens/uom-types/commit/46ef7b928dbf217bf660af48a560ea7d0759c882))
+
+
+### Reverts
+
+* Revert "build: package.json" ([142c812](https://github.com/RebeccaStevens/uom-types/commit/142c81245086ff76aa22b477292df70159cd0674))
+
 # 1.0.0 (2023-07-06)
 
 
