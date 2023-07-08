@@ -1,3 +1,6 @@
+import assert from "node:assert/strict";
+import path from "node:path";
+
 import rollupPluginTypescript from "@rollup/plugin-typescript";
 import { defineConfig, type Plugin } from "rollup";
 import rollupPluginAutoExternal from "rollup-plugin-auto-external";
@@ -33,6 +36,35 @@ const common = defineConfig({
     moduleSideEffects: [],
     propertyReadSideEffects: false,
     unknownGlobalSideEffects: false,
+  },
+
+  external: (
+    source: string,
+    importer: string | undefined,
+    isResolved: boolean,
+  ) => {
+    if (!isResolved || importer === undefined) {
+      return null;
+    }
+
+    assert(path.isAbsolute(source));
+    const relativeSource = path.relative(process.cwd(), source);
+    const relativeImporter = path.relative(process.cwd(), importer);
+
+    if (!relativeSource.startsWith("src/")) {
+      return null;
+    }
+
+    const sourceSubproject = relativeSource.slice(
+      4,
+      Math.max(0, relativeSource.indexOf("/", 4)),
+    );
+    const importerSubproject = relativeImporter.slice(
+      4,
+      Math.max(0, relativeImporter.indexOf("/", 4)),
+    );
+
+    return sourceSubproject !== importerSubproject;
   },
 });
 
