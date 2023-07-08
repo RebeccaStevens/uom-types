@@ -14,15 +14,12 @@ test("numbers", (t) => {
 });
 
 test("unit by number", (t) => {
-  const a = 4 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>;
+  const a = 4 as Unit<{ a: -2; b: { exponent: 2; scale10: 2 } }>;
 
-  t.is(
-    pow(a, -1),
-    0.25 as Unit<{ a: -1; b: 2; c: { exponent: -2; scale10: -2 } }>,
-  );
+  t.is(pow(a, -1), 0.25 as Unit<{ a: 2; b: { exponent: -2; scale10: -2 } }>);
   t.is(pow(a, 0), 1 as Unit<{}>);
-  t.is(pow(a, 0.5), 2 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>);
-  t.is(pow(a, 1), 4 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>);
-  t.is(pow(a, 2), 16 as Unit<{ a: 2; b: -4; c: { exponent: 4; scale10: 4 } }>);
-  t.is(pow(a, 3), 64 as Unit<{ a: 3; b: -6; c: { exponent: 6; scale10: 6 } }>);
+  t.is(pow(a, 0.5), 2 as Unit<{ a: -1; b: { exponent: 1; scale10: 1 } }>);
+  t.is(pow(a, 1), 4 as Unit<{ a: -2; b: { exponent: 2; scale10: 2 } }>);
+  t.is(pow(a, 2), 16 as Unit<{ a: -4; b: { exponent: 4; scale10: 4 } }>);
+  t.is(pow(a, 3), 64 as Unit<{ a: -6; b: { exponent: 6; scale10: 6 } }>);
 });
