@@ -54,7 +54,12 @@ const filePaths = Object.values(pkg.exports).flatMap((pkgExports) => {
 for (const filePath of filePaths) {
   const ext = path.extname(filePath);
   const importStyle = getImportStyle(ext);
-  const fileContent = await fs.readFile(filePath, { encoding: "utf8" });
+  const fileContent = await fs
+    .readFile(filePath, { encoding: "utf8" })
+    .catch(() => null);
+  if (fileContent === null) {
+    continue;
+  }
   const updatedFileContent = [...filePathToReplacement.entries()].reduce(
     (content, [toReplace, importOptions]) => {
       const relFilePath = importOptions[importStyle];

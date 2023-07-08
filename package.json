@@ -84,8 +84,9 @@
     "prepare": "husky install",
     "release": "pnpm run release:semantic",
     "release:semantic": "semantic-release",
-    "test": "pnpm run test:js",
+    "test": "pnpm run test:js && pnpm run test:types",
     "test:js": "c8 ava",
+    "test:types": "tsd -t './dist/index.d.mts' -f 'tests/**/*.test-d.ts'",
     "type-check": "tsc --noEmit"
   },
   "devDependencies": {
@@ -138,6 +139,7 @@
     "ts-node": "10.9.1",
     "ts-paths-esm-loader": "1.4.3",
     "tsconfig-paths": "4.2.0",
+    "tsd": "0.28.1",
     "typescript": "5.1.6"
   },
   "packageManager": "pnpm@8.6.6",

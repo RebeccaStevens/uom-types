@@ -11,9 +11,9 @@ export type NegativeExponent<T extends Exponent> = T extends -6
   : T extends -2
   ? 2
   : T extends -1
-  ? 0
-  : T extends 0
   ? 1
+  : T extends 0
+  ? 0
   : T extends 1
   ? -1
   : T extends 2

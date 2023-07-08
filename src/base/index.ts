@@ -7,4 +7,5 @@ export type {
   MultiplyExponents,
   DivideExponents,
 } from "./exponents";
+export { MultiplyUnitExponents, DivideUnitExponents } from "./unit-exponents";
 export type { Multiply, Divide, Inverse } from "./units";
