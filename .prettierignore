@@ -2,3 +2,6 @@
 /coverage
 /dist/
 /pnpm-lock.yaml
+
+# Autogen files
+/src/base/exponents.ts

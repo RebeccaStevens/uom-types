@@ -67,10 +67,12 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm run build:node && pnpm run build-post",
+    "build": "pnpm run build-pre && pnpm run build:node && pnpm run build-post",
     "build-post": "node --no-warnings=ExperimentalWarning --loader=ts-paths-esm-loader/transpile-only --experimental-specifier-resolution=node ./scripts/post-build.ts",
+    "build-pre": "pnpm run generate-files",
     "build:node": "rimraf dist && rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "cz": "git-cz",
+    "generate-files": "node --no-warnings=ExperimentalWarning --loader=ts-paths-esm-loader/transpile-only --experimental-specifier-resolution=node ./scripts/generate-files.ts",
     "lint": "pnpm run lint:js && pnpm run lint:md && pnpm run lint:prettier && pnpm run lint:knip && pnpm run lint:spelling",
     "lint:js": "eslint .",
     "lint:js-fix": "eslint . --fix",
@@ -84,7 +86,8 @@
     "prepare": "husky install",
     "release": "pnpm run release:semantic",
     "release:semantic": "semantic-release",
-    "test": "pnpm run test:js && pnpm run test:types",
+    "test": "pnpm run test-pre && pnpm run test:js && pnpm run test:types",
+    "test-pre": "pnpm run generate-files",
     "test:js": "c8 ava",
     "test:types": "tsd -t './dist/index.d.mts' -f 'tests/**/*.test-d.ts'",
     "type-check": "tsc --noEmit"

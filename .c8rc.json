@@ -1,6 +1,7 @@
 {
   "all": true,
   "include": ["src/**/*"],
+  "exclude": ["src/base/exponents.ts"],
   "reporter": ["lcov", "text"],
   "check-coverage": false,
   "watermarks": {

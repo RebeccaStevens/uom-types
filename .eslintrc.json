@@ -14,7 +14,7 @@
   "parserOptions": {
     "project": ["./tsconfig.json"]
   },
-  "ignorePatterns": ["/coverage/", "/dist/"],
+  "ignorePatterns": ["/coverage/", "/dist/", "/src/base/exponents.ts"],
   "rules": {
     "import/extensions": "off",
     "n/no-extraneous-import": "off"
