@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+# [2.0.0](https://github.com/RebeccaStevens/uom-types/compare/v1.0.3...v2.0.0) (2023-07-08)
+
+
+### Bug Fixes
+
+* type issues found from tests ([6f15ac9](https://github.com/RebeccaStevens/uom-types/commit/6f15ac92642ef6e22a7de11667add3bf398beee1))
+
+
+* Merge pull request #2 from RebeccaStevens/type-tests ([4b590d3](https://github.com/RebeccaStevens/uom-types/commit/4b590d30a7e2a3e509c5200740db54dd05720b57)), closes [#2](https://github.com/RebeccaStevens/uom-types/issues/2)
+
+
+### BREAKING CHANGES
+
+* drop product function
+
 ## [1.0.3](https://github.com/RebeccaStevens/uom-types/compare/v1.0.2...v1.0.3) (2023-07-07)
 
 
