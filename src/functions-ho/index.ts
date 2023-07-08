@@ -1,4 +1,5 @@
 import {
+  type DivideUnitExponents,
   type Divide,
   type Multiply,
   type Inverse,
@@ -64,12 +65,14 @@ export function modSafe<T extends number>(
   return (b) => (((b % a) + a) % a) as OperationIO<T>;
 }
 
-type PowFunction<E extends number, B extends number> = E extends -1
+type PowFunction<E extends number, B extends number> = E extends UnknownUnit
+  ? never
+  : E extends -1
   ? (b: OperationIO<B>) => OperationIO<Inverse<B>>
   : E extends 0
-  ? (b: OperationIO<B>) => Decimal | 1
+  ? (b: OperationIO<B>) => OperationIO<B> extends UnknownUnit ? Decimal : 1
   : E extends 0.5
-  ? (b: OperationIO<B>) => OperationIO<Divide<B, 2>>
+  ? (b: OperationIO<B>) => OperationIO<DivideUnitExponents<B, 2>>
   : E extends 1
   ? (b: OperationIO<B>) => OperationIO<B>
   : E extends 2
@@ -83,10 +86,9 @@ type PowFunction<E extends number, B extends number> = E extends -1
 /**
  * Put a number to the power of the given value.
  */
-export function pow<E extends number, B extends number>(
-  exponent: E extends UnknownUnit ? never : E,
-): PowFunction<E, B> {
-  return ((base: OperationIO<B>) => base ** exponent) as PowFunction<E, B>;
+export function pow<E extends number>(exponent: E) {
+  return <B extends number>(base: Parameters<PowFunction<E, B>>[0]) =>
+    (base ** exponent) as ReturnType<PowFunction<E, B>>;
 }
 
 /**

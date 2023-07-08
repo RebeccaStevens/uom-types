@@ -1,4 +1,5 @@
 import {
+  type DivideUnitExponents,
   type Divide,
   type Multiply,
   type Inverse,
@@ -98,7 +99,7 @@ export function pow<B extends number>(
 export function pow<B extends number>(
   base: OperationIO<B>,
   exponent: 0.5,
-): OperationIO<Divide<B, 2>>;
+): OperationIO<DivideUnitExponents<B, 2>>;
 
 /**
  * Put a number to the power of 1.
@@ -146,7 +147,7 @@ export function pow(base: number, exponent: number): number {
  */
 export function sqrt<T extends number>(
   value: OperationIO<T>,
-): OperationIO<Divide<T, 2>> {
+): OperationIO<DivideUnitExponents<T, 2>> {
   return pow(value, 0.5);
 }
 
@@ -217,15 +218,6 @@ export function sum<T extends number>(
   values: ReadonlyArray<T>,
 ): OperationIO<T> {
   return values.reduce(add<number>, 0) as OperationIO<T>;
-}
-
-/**
- * Takes the product of all the values in the given collection.
- */
-export function product<T extends number>(
-  values: ReadonlyArray<T>,
-): OperationIO<T> {
-  return values.reduce(mul<number, number>, 1) as OperationIO<T>;
 }
 
 /**
