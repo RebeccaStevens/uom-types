@@ -22,13 +22,6 @@
     "email": "rebecca.stevens@outlook.co.nz"
   },
   "type": "module",
-  "imports": {
-    "#uom-types": "./src/base/index.ts",
-    "#uom-types/functions": "./src/functions/index.ts",
-    "#uom-types/functions/higher-order": "./src/functions-ho/index.ts",
-    "#uom-types/si-units": "./src/si-units/index.ts",
-    "#uom-types/si-units/converters": "./src/si-units-converters/index.ts"
-  },
   "exports": {
     ".": {
       "types": {
@@ -74,7 +67,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm run build:node",
+    "build": "pnpm run build:node && pnpm run build-post",
+    "build-post": "node --no-warnings=ExperimentalWarning --loader=ts-paths-esm-loader/transpile-only --experimental-specifier-resolution=node ./scripts/post-build.ts",
     "build:node": "rimraf dist && rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "cz": "git-cz",
     "lint": "pnpm run lint:js && pnpm run lint:md && pnpm run lint:prettier && pnpm run lint:knip && pnpm run lint:spelling",

@@ -24,7 +24,15 @@
     "sourceMap": false,
     "strict": true,
     "target": "ESNext",
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": true,
+    "baseUrl": ".",
+    "paths": {
+      "#uom-types": ["./src/base/index.ts"],
+      "#uom-types/functions": ["./src/functions/index.ts"],
+      "#uom-types/functions/higher-order": ["./src/functions-ho/index.ts"],
+      "#uom-types/si-units": ["./src/si-units/index.ts"],
+      "#uom-types/si-units/converters": ["./src/si-units-converters/index.ts"]
+    }
   },
   "exclude": ["dist/"]
 }
