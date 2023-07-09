@@ -4,8 +4,8 @@ import {
   type Multiply,
   type Inverse,
   type UnknownUnit,
+  type Unit,
 } from "#uom-types";
-import { type Decimal } from "#uom-types/units";
 
 type OperationIO<T extends number> = T extends UnknownUnit ? T : number;
 
@@ -91,7 +91,7 @@ export function pow<B extends number>(
 export function pow<B extends number>(
   base: OperationIO<B>,
   exponent: 0,
-): OperationIO<B> extends UnknownUnit ? Decimal : 1;
+): OperationIO<B> extends UnknownUnit ? Unit<{}> : 1;
 
 /**
  * Put a number to the power of 1/2.

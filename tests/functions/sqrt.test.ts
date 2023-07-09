@@ -8,7 +8,7 @@ test("number", (t) => {
 });
 
 test("unit", (t) => {
-  const a = 4 as Unit<{ a: -2; b: { exponent: 2; scale10: 2 } }>;
+  const a = 4 as Unit<{ a: -2; b: { exponent: 2; magnitude10: 2 } }>;
 
-  t.is(sqrt(a), 2 as Unit<{ a: -1; b: { exponent: 1; scale10: 1 } }>);
+  t.is(sqrt(a), 2 as Unit<{ a: -1; b: { exponent: 1; magnitude10: 1 } }>);
 });

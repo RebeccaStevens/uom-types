@@ -4,8 +4,8 @@ import {
   type Multiply,
   type Inverse,
   type UnknownUnit,
+  type Unit,
 } from "#uom-types";
-import { type Decimal } from "#uom-types/units";
 
 type OperationIO<T extends number> = T extends UnknownUnit ? T : number;
 
@@ -70,7 +70,7 @@ type PowFunction<E extends number, B extends number> = E extends UnknownUnit
   : E extends -1
   ? (b: OperationIO<B>) => OperationIO<Inverse<B>>
   : E extends 0
-  ? (b: OperationIO<B>) => OperationIO<B> extends UnknownUnit ? Decimal : 1
+  ? (b: OperationIO<B>) => OperationIO<B> extends UnknownUnit ? Unit<{}> : 1
   : E extends 0.5
   ? (b: OperationIO<B>) => OperationIO<DivideUnitExponents<B, 2>>
   : E extends 1

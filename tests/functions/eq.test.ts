@@ -11,8 +11,8 @@ test("number", (t) => {
 });
 
 test("unit", (t) => {
-  const a = 4 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>;
-  const b = 2 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>;
+  const a = 4 as Unit<{ a: 1; b: -2; c: { exponent: 2; magnitude10: 2 } }>;
+  const b = 2 as Unit<{ a: 1; b: -2; c: { exponent: 2; magnitude10: 2 } }>;
 
   t.is(eq(a, a), true);
   t.is(eq(b, b), true);
