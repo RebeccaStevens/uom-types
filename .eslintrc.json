@@ -14,14 +14,14 @@
   "parserOptions": {
     "project": ["./tsconfig.json"]
   },
-  "ignorePatterns": ["/coverage/", "/dist/", "/src/base/exponents.ts"],
+  "ignorePatterns": ["/coverage/", "/dist/", "/src/exponents.ts"],
   "rules": {
     "import/extensions": "off",
     "n/no-extraneous-import": "off"
   },
   "overrides": [
     {
-      "files": ["src/base/**/*"],
+      "files": ["src/*"],
       "rules": {
         "@typescript-eslint/naming-convention": "off"
       }

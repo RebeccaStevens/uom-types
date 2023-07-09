@@ -45,7 +45,7 @@ const content = (supportInverse ? withInverse : withoutInverse)
   .map((v) => `export ${v}`)
   .join("\n");
 
-await fs.writeFile("src/base/exponents.ts", content, { encoding: "utf8" });
+await fs.writeFile("src/exponents.ts", content, { encoding: "utf8" });
 
 function populateExponents() {
   for (const exponent of Array.from({ length: maxExponent + 1 }, (_, i) => i)) {

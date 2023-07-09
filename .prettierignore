@@ -4,4 +4,4 @@
 /pnpm-lock.yaml
 
 # Autogen files
-/src/base/exponents.ts
+/src/exponents.ts
