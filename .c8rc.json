@@ -1,7 +1,7 @@
 {
   "all": true,
   "include": ["src/**/*"],
-  "exclude": ["src/exponents.ts"],
+  "exclude": ["src/*.ts", "src/units/*.ts", "src/units/[!converters]*/*.ts"],
   "reporter": ["lcov", "text"],
   "check-coverage": false,
   "watermarks": {
