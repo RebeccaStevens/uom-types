@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import escapeStringRegexp from "escape-string-regexp";
+
 import pkg from "../package.json" assert { type: "json" };
 import tsConfigBase from "../tsconfig.base.json" assert { type: "json" };
 
@@ -64,8 +66,17 @@ for (const filePath of filePaths) {
     (content, [toReplace, importOptions]) => {
       const relFilePath = importOptions[importStyle];
       assert(relFilePath !== undefined);
-      const replacement = `./${path.relative("./dist", relFilePath)}`;
-      return content.replaceAll(toReplace, replacement);
+      const replacement = `./${path.relative(
+        path.dirname(filePath),
+        relFilePath,
+      )}`;
+      return content.replace(
+        new RegExp(
+          toReplace.split("*").map(escapeStringRegexp).join("(.*)"),
+          "u",
+        ),
+        replacement.replace("*", "$1"),
+      );
     },
     fileContent,
   );

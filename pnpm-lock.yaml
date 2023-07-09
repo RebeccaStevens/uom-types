@@ -65,6 +65,9 @@ devDependencies:
   cz-conventional-changelog:
     specifier: 3.3.0
     version: 3.3.0
+  escape-string-regexp:
+    specifier: 5.0.0
+    version: 5.0.0
   eslint:
     specifier: 8.44.0
     version: 8.44.0
@@ -110,6 +113,9 @@ devDependencies:
   eslint-plugin-unicorn:
     specifier: 47.0.0
     version: 47.0.0(eslint@8.44.0)
+  glob:
+    specifier: 10.3.3
+    version: 10.3.3
   husky:
     specifier: 8.0.3
     version: 8.0.3
@@ -790,7 +796,7 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       '@npmcli/name-from-folder': 2.0.0
-      glob: 10.3.1
+      glob: 10.3.3
       minimatch: 9.0.2
       read-package-json-fast: 3.0.2
     dev: true
@@ -3708,8 +3714,8 @@ packages:
       path-scurry: 1.10.0
     dev: true
 
-  /glob@10.3.1:
-    resolution: {integrity: sha512-9BKYcEeIs7QwlCYs+Y3GBvqAMISufUS0i2ELd11zpZjxI5V9iyRj0HgzB5/cLf2NY4vcYBTYzJ7GIui7j/4DOw==}
+  /glob@10.3.3:
+    resolution: {integrity: sha512-92vPiMb/iqpmEgsOoIDvTjc50wf9CCCvMzsi6W0JLPeUKE8TWP1a73PgqSrqy7iAZxaSD1YdzU7QZR5LF51MJw==}
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
     dependencies:
@@ -3717,7 +3723,7 @@ packages:
       jackspeak: 2.2.1
       minimatch: 9.0.2
       minipass: 5.0.0
-      path-scurry: 1.10.0
+      path-scurry: 1.10.1
     dev: true
 
   /glob@7.2.3:
@@ -5611,6 +5617,14 @@ packages:
       minipass: 5.0.0
     dev: true
 
+  /path-scurry@1.10.1:
+    resolution: {integrity: sha512-MkhCqzzBEpPvxxQ71Md0b1Kk51W01lrYvlMzSUaIzNsODdd7mqhiimSZlr+VegAz5Z6Vzt9Xg2ttE//XBhH3EQ==}
+    engines: {node: '>=16 || 14 >=14.17'}
+    dependencies:
+      lru-cache: 10.0.0
+      minipass: 5.0.0
+    dev: true
+
   /path-type@3.0.0:
     resolution: {integrity: sha512-T2ZUsdZFHgA3u4e5PfPbjd7HDDpxPnQb5jN0SrDsjNSuVXHJqtwTnWqG0B1jZrgmJ/7lj1EmVIByWt1gxGkWvg==}
     engines: {node: '>=4'}
@@ -5996,7 +6010,7 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      glob: 10.3.1
+      glob: 10.3.3
     dev: true
 
   /rollup-plugin-auto-external@2.0.0(rollup@3.26.1):

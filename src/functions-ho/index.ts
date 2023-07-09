@@ -5,7 +5,7 @@ import {
   type Inverse,
   type UnknownUnit,
 } from "#uom-types";
-import { type Decimal } from "#uom-types/si-units";
+import { type Decimal } from "#uom-types/units";
 
 type OperationIO<T extends number> = T extends UnknownUnit ? T : number;
 
