@@ -34,9 +34,11 @@
     "\\(#.+?\\)"
   ],
   "words": [
+    "atto",
     "bar",
     "baz",
     "corge",
+    "femto",
     "foo",
     "fred",
     "garply",
@@ -44,16 +46,25 @@
     "litecoin",
     "monero",
     "noreply",
+    "peta",
     "plugh",
+    "quecto",
+    "quetta",
     "quux",
     "qux",
     "Rebecca",
     "rebeccastevens",
+    "ronna",
+    "ronto",
     "sonarjs",
     "thud",
     "typesafe",
     "waldo",
-    "xyzzy"
+    "xyzzy",
+    "yocto",
+    "yotta",
+    "zepto",
+    "zetta"
   ],
   "overrides": [
     {

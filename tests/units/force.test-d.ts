@@ -1,13 +1,13 @@
 import { expectType } from "tsd";
 
-import { type Multiply } from "#uom-types";
+import { type MultiplyUnit } from "#uom-types";
 import {
   type MetersPerSecondPerSecond,
   type Kilograms,
   type Newtons,
 } from "#uom-types/units";
 
-type Newtons_DerivedFrom_Kilograms_By_MetersPerSecondPerSecond = Multiply<
+type Newtons_DerivedFrom_Kilograms_By_MetersPerSecondPerSecond = MultiplyUnit<
   Kilograms,
   MetersPerSecondPerSecond
 >;

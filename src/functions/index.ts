@@ -1,8 +1,8 @@
 import {
   type DivideUnitExponents,
-  type Divide,
-  type Multiply,
-  type Inverse,
+  type DivideUnit,
+  type MultiplyUnit,
+  type InverseUnit,
   type UnknownUnit,
   type Unit,
 } from "#uom-types";
@@ -35,8 +35,8 @@ export function sub<T extends number>(
 export function mul<A extends number, B extends number>(
   a: OperationIO<A>,
   b: OperationIO<B>,
-): OperationIO<Multiply<A, B>> {
-  return (a * b) as OperationIO<Multiply<A, B>>;
+): OperationIO<MultiplyUnit<A, B>> {
+  return (a * b) as OperationIO<MultiplyUnit<A, B>>;
 }
 
 /**
@@ -45,8 +45,8 @@ export function mul<A extends number, B extends number>(
 export function div<A extends number, B extends number>(
   a: OperationIO<A>,
   b: OperationIO<B>,
-): OperationIO<Divide<A, B>> {
-  return (a / b) as OperationIO<Divide<A, B>>;
+): OperationIO<DivideUnit<A, B>> {
+  return (a / b) as OperationIO<DivideUnit<A, B>>;
 }
 
 /**
@@ -83,7 +83,7 @@ export function modSafe<T extends number>(
 export function pow<B extends number>(
   base: OperationIO<B>,
   exponent: -1,
-): OperationIO<Inverse<B>>;
+): OperationIO<InverseUnit<B>>;
 
 /**
  * Put a number to the power of 0.
@@ -112,7 +112,7 @@ export function pow<E extends number>(base: OperationIO<E>, exponent: 1): E;
 export function pow<B extends number>(
   base: OperationIO<B>,
   exponent: 2,
-): OperationIO<Multiply<B, B>>;
+): OperationIO<MultiplyUnit<B, B>>;
 
 /**
  * Put a number to the power of 3.
@@ -120,7 +120,7 @@ export function pow<B extends number>(
 export function pow<B extends number>(
   base: OperationIO<B>,
   exponent: 3,
-): OperationIO<Multiply<B, Multiply<B, B>>>;
+): OperationIO<MultiplyUnit<B, MultiplyUnit<B, B>>>;
 
 /**
  * Put a number to the power of 4.
@@ -128,7 +128,7 @@ export function pow<B extends number>(
 export function pow<B extends number>(
   base: OperationIO<B>,
   exponent: 4,
-): OperationIO<Multiply<B, Multiply<B, Multiply<B, B>>>>;
+): OperationIO<MultiplyUnit<B, MultiplyUnit<B, MultiplyUnit<B, B>>>>;
 
 /**
  * Put one number to the power of the other.
@@ -156,7 +156,7 @@ export function sqrt<T extends number>(
  */
 export function inverse<T extends number>(
   value: OperationIO<T>,
-): OperationIO<Inverse<T>> {
+): OperationIO<InverseUnit<T>> {
   return pow(value, -1);
 }
 

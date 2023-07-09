@@ -11,7 +11,7 @@ test("numbers", (t) => {
 });
 
 test("unit by number", (t) => {
-  type TestUnit = Unit<{ a: 1; b: -2; c: { exponent: 3; magnitude10: 3 } }>;
+  type TestUnit = Unit<{ a: 1; b: -2; c: 3 }>;
 
   const a = 3 as TestUnit;
   const b = 2;
@@ -23,9 +23,9 @@ test("unit by number", (t) => {
 });
 
 test("unit by unit", (t) => {
-  const a = 3 as Unit<{ a: 1; b: 2; c: { exponent: 1; magnitude10: 3 } }>;
-  const b = 2 as Unit<{ a: 3; b: -2; c: { exponent: 3; magnitude10: 2 } }>;
-  const expected = 6 as Unit<{ a: 4; c: { exponent: 4; magnitude10: 5 } }>;
+  const a = 3 as Unit<{ a: 1; b: 2; c: 1 }>;
+  const b = 2 as Unit<{ a: 3; b: -2; c: 3 }>;
+  const expected = 6 as Unit<{ a: 4; c: 4 }>;
 
   const actual = mul(a, b);
 

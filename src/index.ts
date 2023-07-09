@@ -8,4 +8,4 @@ export type {
   DivideExponents,
 } from "./exponents";
 export { MultiplyUnitExponents, DivideUnitExponents } from "./unit-exponents";
-export type { Multiply, Divide, Inverse } from "./units";
+export type { MultiplyUnit, DivideUnit, InverseUnit } from "./units";

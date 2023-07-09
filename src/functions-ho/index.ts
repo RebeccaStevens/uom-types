@@ -1,8 +1,8 @@
 import {
   type DivideUnitExponents,
-  type Divide,
-  type Multiply,
-  type Inverse,
+  type DivideUnit,
+  type MultiplyUnit,
+  type InverseUnit,
   type UnknownUnit,
   type Unit,
 } from "#uom-types";
@@ -32,7 +32,7 @@ export function sub<T extends number>(
  */
 export function mul<A extends number>(
   a: OperationIO<A>,
-): <B extends number>(b: OperationIO<B>) => OperationIO<Multiply<B, A>> {
+): <B extends number>(b: OperationIO<B>) => OperationIO<MultiplyUnit<B, A>> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Casting to actual type fails for some reason.
   return (b) => (b * a) as any;
 }
@@ -42,7 +42,7 @@ export function mul<A extends number>(
  */
 export function div<A extends number>(
   a: OperationIO<A>,
-): <B extends number>(b: OperationIO<B>) => OperationIO<Divide<B, A>> {
+): <B extends number>(b: OperationIO<B>) => OperationIO<DivideUnit<B, A>> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Casting to actual type fails for some reason.
   return (b) => (b / a) as any;
 }
@@ -68,7 +68,7 @@ export function modSafe<T extends number>(
 type PowFunction<E extends number, B extends number> = E extends UnknownUnit
   ? never
   : E extends -1
-  ? (b: OperationIO<B>) => OperationIO<Inverse<B>>
+  ? (b: OperationIO<B>) => OperationIO<InverseUnit<B>>
   : E extends 0
   ? (b: OperationIO<B>) => OperationIO<B> extends UnknownUnit ? Unit<{}> : 1
   : E extends 0.5
@@ -76,11 +76,13 @@ type PowFunction<E extends number, B extends number> = E extends UnknownUnit
   : E extends 1
   ? (b: OperationIO<B>) => OperationIO<B>
   : E extends 2
-  ? (b: OperationIO<B>) => OperationIO<Multiply<B, B>>
+  ? (b: OperationIO<B>) => OperationIO<MultiplyUnit<B, B>>
   : E extends 3
-  ? (b: OperationIO<B>) => OperationIO<Multiply<B, Multiply<B, B>>>
+  ? (b: OperationIO<B>) => OperationIO<MultiplyUnit<B, MultiplyUnit<B, B>>>
   : E extends 4
-  ? (b: OperationIO<B>) => OperationIO<Multiply<B, Multiply<B, Multiply<B, B>>>>
+  ? (
+      b: OperationIO<B>,
+    ) => OperationIO<MultiplyUnit<B, MultiplyUnit<B, MultiplyUnit<B, B>>>>
   : (b: OperationIO<B>) => OperationIO<number>;
 
 /**

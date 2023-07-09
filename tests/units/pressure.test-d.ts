@@ -1,13 +1,13 @@
 import { expectType } from "tsd";
 
-import { type Divide } from "#uom-types";
+import { type DivideUnit } from "#uom-types";
 import {
   type SquareMeters,
   type Pascals,
   type Newtons,
 } from "#uom-types/units";
 
-type Pascals_DerivedFrom_Newtons_Per_SquareMeters = Divide<
+type Pascals_DerivedFrom_Newtons_Per_SquareMeters = DivideUnit<
   Newtons,
   SquareMeters
 >;

@@ -1,4 +1,4 @@
-import { type Unit, type UnitValue, type UnknownUnit } from "./core";
+import { type Unit, type UnknownUnit } from "./core";
 import {
   type DivideExponents,
   type Exponent,
@@ -7,49 +7,41 @@ import {
 import {
   type FlatternAlias,
   type GetUnitConfig,
-  type GetUnitValues,
+  type GetExponent,
 } from "./utils";
 
 export type MultiplyUnitExponents<
   A extends number,
   B extends 2,
 > = A extends UnknownUnit
-  ? MultiplyUnitExponentsCore<A, B> extends Record<string, UnitValue>
+  ? MultiplyUnitExponentsCore<A, B> extends Record<string, Exponent>
     ? Unit<FlatternAlias<MultiplyUnitExponentsCore<A, B>>>
     : never
   : number;
 
 type MultiplyUnitExponentsCore<A extends UnknownUnit, B extends 2> = {
-  [U in keyof GetUnitConfig<A>]: {
-    [E in keyof GetUnitConfig<A>[U]]: MultiplyExponents<
-      E extends keyof GetUnitValues<GetUnitConfig<A>, U>
-        ? GetUnitValues<GetUnitConfig<A>, U>[E] extends Exponent
-          ? GetUnitValues<GetUnitConfig<A>, U>[E]
-          : 0
-        : 0,
-      B
-    >;
-  };
+  [U in keyof GetUnitConfig<A>]: MultiplyExponents<
+    GetExponent<GetUnitConfig<A>, U> extends Exponent
+      ? GetExponent<GetUnitConfig<A>, U>
+      : 0,
+    B
+  >;
 };
 
 export type DivideUnitExponents<
   A extends number,
   B extends 2,
 > = A extends UnknownUnit
-  ? DivideUnitExponentsCore<A, B> extends Record<string, UnitValue>
+  ? DivideUnitExponentsCore<A, B> extends Record<string, Exponent>
     ? Unit<FlatternAlias<DivideUnitExponentsCore<A, B>>>
     : never
   : number;
 
 type DivideUnitExponentsCore<A extends UnknownUnit, B extends 2> = {
-  [U in keyof GetUnitConfig<A>]: {
-    [E in keyof GetUnitConfig<A>[U]]: DivideExponents<
-      E extends keyof GetUnitValues<GetUnitConfig<A>, U>
-        ? GetUnitValues<GetUnitConfig<A>, U>[E] extends Exponent
-          ? GetUnitValues<GetUnitConfig<A>, U>[E]
-          : 0
-        : 0,
-      B
-    >;
-  };
+  [U in keyof GetUnitConfig<A>]: DivideExponents<
+    GetExponent<GetUnitConfig<A>, U> extends Exponent
+      ? GetExponent<GetUnitConfig<A>, U>
+      : 0,
+    B
+  >;
 };

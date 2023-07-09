@@ -11,10 +11,7 @@ test("number", (t) => {
 });
 
 test("unit", (t) => {
-  const a = 4.123 as Unit<{ a: 1; b: -2; c: { exponent: 2; magnitude10: 2 } }>;
+  const a = 4.123 as Unit<{ a: 1; b: -2; c: 2 }>;
 
-  t.is(
-    round(a),
-    4 as Unit<{ a: 1; b: -2; c: { exponent: 2; magnitude10: 2 } }>,
-  );
+  t.is(round(a), 4 as Unit<{ a: 1; b: -2; c: 2 }>);
 });

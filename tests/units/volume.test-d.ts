@@ -1,6 +1,6 @@
 import { expectType } from "tsd";
 
-import { type Multiply } from "#uom-types";
+import { type MultiplyUnit } from "#uom-types";
 import {
   type CubicMeters,
   type SquareMeters,
@@ -11,15 +11,15 @@ import {
   type CubicCentiMeters,
 } from "#uom-types/units";
 
-type CubicMeters_DerivedFrom_Meters_Cubed = Multiply<
-  Multiply<Meters, Meters>,
+type CubicMeters_DerivedFrom_Meters_Cubed = MultiplyUnit<
+  MultiplyUnit<Meters, Meters>,
   Meters
 >;
 
 expectType<CubicMeters_DerivedFrom_Meters_Cubed>(0 as CubicMeters);
 expectType<CubicMeters>(0 as CubicMeters_DerivedFrom_Meters_Cubed);
 
-type CubicMeters_DerivedFrom_SquareMeters_By_Meters = Multiply<
+type CubicMeters_DerivedFrom_SquareMeters_By_Meters = MultiplyUnit<
   SquareMeters,
   Meters
 >;
