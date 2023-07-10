@@ -1,5 +1,14 @@
-import { type Unit } from "#uom-types";
+import { type SiUnit } from "./si-unit";
 
-export type Grams = Unit<{ Kilograms: 1; magnitude10: -3 }>;
+/**
+ * A unit of mass.
+ *
+ * @siunit
+ * @siunit
+ * @symbol `kg`
+ */
+export type Kilograms = SiUnit<{ Kilograms: 1 }>;
 
-export type Tonne = Unit<{ Kilograms: 1; magnitude10: 3 }>;
+export type Grams = SiUnit<{ Kilograms: 1; scalar10: -3 }>;
+
+export type Tonnes = SiUnit<{ Kilograms: 1; scalar10: 3 }>;

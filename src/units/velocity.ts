@@ -1,9 +1,10 @@
-import { type Unit } from "#uom-types";
+import { type SiUnit } from "./si-unit";
 
 /**
  * A unit of velocity.
  *
+ * @siunit
  * @symbol `m/s`
  * @derived
  */
-export type MetersPerSecond = Unit<{ Meters: 1; Seconds: -1 }>;
+export type MetersPerSecond = SiUnit<{ Meters: 1; Seconds: -1 }>;

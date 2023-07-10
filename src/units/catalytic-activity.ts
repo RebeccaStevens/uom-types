@@ -1,9 +1,10 @@
-import { type Unit } from "#uom-types";
+import { type SiUnit } from "./si-unit";
 
 /**
  * A unit of catalytic activity.
  *
+ * @siunit
  * @symbol `kat`
  * @derived
  */
-export type Katal = Unit<{ Moles: 1; Second: -1 }>;
+export type Katals = SiUnit<{ Moles: 1; Seconds: -1 }>;

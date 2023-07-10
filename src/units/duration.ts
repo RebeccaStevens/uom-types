@@ -1,17 +1,27 @@
 import { type Unit } from "#uom-types";
 
-export type Minutes = Unit<{ Seconds: 1; magnitude60: 1 }>;
-export type Hours = Unit<{ Seconds: 1; magnitude60: 2 }>;
-export type Day = Unit<{ Seconds: 1; magnitude60: 2; magnitude24: 1 }>;
-export type Week = Unit<{
+import { type SiUnit } from "./si-unit";
+
+/**
+ * A unit of time.
+ *
+ * @siunit
+ * @symbol `s`
+ */
+export type Seconds = SiUnit<{ Seconds: 1 }>;
+
+export type Minutes = Unit<{ Seconds: 1; scalar60: 1 }>;
+export type Hours = Unit<{ Seconds: 1; scalar60: 2 }>;
+export type Days = Unit<{ Seconds: 1; scalar60: 2; scalar24: 1 }>;
+export type Weeks = Unit<{
   Seconds: 1;
-  magnitude60: 2;
-  magnitude24: 1;
-  magnitude7: 1;
+  scalar60: 2;
+  scalar24: 1;
+  scalar7: 1;
 }>;
-export type Year = Unit<{
+export type Years = Unit<{
   Seconds: 1;
-  magnitude60: 2;
-  magnitude24: 1;
-  "magnitude365.25": 1;
+  scalar60: 2;
+  scalar24: 1;
+  "scalar365.25": 1;
 }>;

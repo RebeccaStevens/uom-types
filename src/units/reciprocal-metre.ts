@@ -1,7 +1,8 @@
-import { type Unit } from "#uom-types";
+import { type SiUnit } from "./si-unit";
 
 /**
+ * @siunit
  * @symbol `1/m`
  * @derived
  */
-export type ReciprocalMeter = Unit<{ Meters: -1 }>;
+export type ReciprocalMeter = SiUnit<{ Meters: -1 }>;

@@ -1,9 +1,10 @@
-import { type Unit } from "#uom-types";
+import { type SiUnit } from "./si-unit";
 
 /**
+ * @siunit
  * @derived
  */
-export type Henries = Unit<{
+export type Henries = SiUnit<{
   Kilograms: 1;
   Meters: 2;
   Seconds: -2;

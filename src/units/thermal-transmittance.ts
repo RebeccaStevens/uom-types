@@ -1,12 +1,13 @@
-import { type Unit } from "#uom-types";
+import { type SiUnit } from "./si-unit";
 
 /**
  * Units for thermal transmittance.
  *
+ * @siunit
  * @derived
  */
-export type WattsPerSquareMeterPerKelvin = Unit<{
+export type WattsPerSquareMeterPerKelvin = SiUnit<{
   Kilograms: 1;
   Seconds: -3;
-  Kalvin: -1;
+  Kelvin: -1;
 }>;

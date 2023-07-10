@@ -1,17 +1,19 @@
-import { type Unit } from "#uom-types";
+import { type SiUnit } from "./si-unit";
 
 /**
  * A unit of density.
  *
+ * @siunit
  * @symbol `kg/m³`
  * @derived
  */
-export type KilogramsPerCubicMeter = Unit<{ Kilograms: 1; Meters: -3 }>;
+export type KilogramsPerCubicMeter = SiUnit<{ Kilograms: 1; Meters: -3 }>;
 
 /**
  * A unit of surface density.
  *
+ * @siunit
  * @symbol `kg/m²`
  * @derived
  */
-export type KilogramsPerSquareMeter = Unit<{ Kilograms: 1; Meters: -2 }>;
+export type KilogramsPerSquareMeter = SiUnit<{ Kilograms: 1; Meters: -2 }>;

@@ -1,7 +1,8 @@
-import { type Unit } from "#uom-types";
+import { type SiUnit } from "./si-unit";
 
 /**
+ * @siunit
  * @symbol `A/m`
  * @derived
  */
-export type AmperesPerMeter = Unit<{ Amperes: 1; Meters: -1 }>;
+export type AmperesPerMeter = SiUnit<{ Amperes: 1; Meters: -1 }>;

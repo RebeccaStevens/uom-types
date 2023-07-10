@@ -1,8 +1,9 @@
-import { type Unit } from "#uom-types";
+import { type SiUnit } from "./si-unit";
 
 /**
  * A unit of Intensity.
  *
+ * @siunit
  * @derived
  */
-export type WattsPerSquareMeter = Unit<{ Kilograms: 1; Seconds: -3 }>;
+export type WattsPerSquareMeter = SiUnit<{ Kilograms: 1; Seconds: -3 }>;

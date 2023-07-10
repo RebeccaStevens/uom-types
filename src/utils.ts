@@ -29,3 +29,7 @@ export type KeysOfTwoObjects<A, B> = keyof A | keyof B;
  * single object.
  */
 export type FlatternAlias<T> = { [P in keyof T]: T[P] } & {};
+
+export type Exactify<T, X extends T> = T & {
+  [K in keyof X]: K extends keyof T ? X[K] : never;
+};
