@@ -39,22 +39,22 @@
     },
     "./functions/higher-order": {
       "types": {
-        "import": "./dist/functions-ho.d.mts",
-        "require": "./dist/functions-ho.d.cts"
+        "import": "./dist/functions-higher-order.d.mts",
+        "require": "./dist/functions-higher-order.d.cts"
       },
-      "import": "./dist/functions-ho.mjs",
-      "require": "./dist/functions-ho.cjs"
+      "import": "./dist/functions-higher-order.mjs",
+      "require": "./dist/functions-higher-order.cjs"
     },
     "./units": {
       "types": {
-        "import": "./dist/units/index.d.mts",
-        "require": "./dist/units/index.d.cts"
+        "import": "./dist/units.d.mts",
+        "require": "./dist/units.d.cts"
       }
     },
     "./units/converters": {
       "types": {
-        "import": "./dist/units/converters.d.mts",
-        "require": "./dist/units/converters.d.cts"
+        "import": "./dist/units-converters.d.mts",
+        "require": "./dist/units-converters.d.cts"
       }
     }
   },
@@ -65,8 +65,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm run build-pre && pnpm run build:node && pnpm run build-post",
-    "build-post": "node --no-warnings=ExperimentalWarning --loader=ts-paths-esm-loader/transpile-only --experimental-specifier-resolution=node ./scripts/post-build.ts",
+    "build": "pnpm run build-pre && pnpm run build:node",
     "build-pre": "pnpm run generate-files",
     "build:node": "rimraf dist && rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "cz": "git-cz",
