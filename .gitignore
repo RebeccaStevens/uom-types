@@ -7,3 +7,4 @@ node_modules/
 
 # Autogen files
 /src/exponents.ts
+/src/units/prefixes.ts

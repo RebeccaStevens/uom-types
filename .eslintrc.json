@@ -14,14 +14,19 @@
   "parserOptions": {
     "project": ["./tsconfig.json"]
   },
-  "ignorePatterns": ["/coverage/", "/dist/", "/src/exponents.ts"],
+  "ignorePatterns": [
+    "/coverage/",
+    "/dist/",
+    "/src/exponents.ts",
+    "/src/units/prefixes.ts"
+  ],
   "rules": {
     "@typescript-eslint/naming-convention": "off",
     "import/extensions": "off",
     "jsdoc/check-tag-names": [
       "error",
       {
-        "definedTags": ["siunit", "derived", "symbol"]
+        "definedTags": ["derived", "siprefix", "siunit", "symbol"]
       }
     ],
     "n/no-extraneous-import": "off",
