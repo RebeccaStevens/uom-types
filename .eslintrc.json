@@ -18,13 +18,14 @@
   "rules": {
     "@typescript-eslint/naming-convention": "off",
     "import/extensions": "off",
-    "n/no-extraneous-import": "off",
     "jsdoc/check-tag-names": [
       "error",
       {
         "definedTags": ["siunit", "derived", "symbol"]
       }
-    ]
+    ],
+    "n/no-extraneous-import": "off",
+    "unicorn/no-empty-file": "warn"
   },
   "overrides": [
     {
