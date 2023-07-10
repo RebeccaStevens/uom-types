@@ -9,5 +9,6 @@ export type Unit<T extends Record<string, Exponent>> = number &
 
 export type UnknownUnit = number &
   Readonly<{
-    __uom_types: Record<string, {}>;
+    __uom_types__exactKeys: string;
+    __uom_types__components: Record<string, Exponent>;
   }>;

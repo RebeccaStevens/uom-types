@@ -7,8 +7,8 @@ import {
 import {
   type GetUnitConfig,
   type FlatternAlias,
-  type KeysOfTwoObjects,
   type GetExponent,
+  type ExcludeNullUnits,
 } from "./utils";
 
 export type InverseUnit<T extends number> = T extends UnknownUnit
@@ -27,7 +27,7 @@ export type MultiplyUnit<
 > = A extends UnknownUnit
   ? B extends UnknownUnit
     ? MultiplyUnitsCore<A, B> extends Record<string, Exponent>
-      ? Unit<FlatternAlias<MultiplyUnitsCore<A, B>>>
+      ? Unit<FlatternAlias<ExcludeNullUnits<MultiplyUnitsCore<A, B>>>>
       : never
     : A
   : B extends UnknownUnit

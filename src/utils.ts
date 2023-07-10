@@ -2,16 +2,17 @@ import { type Unit } from "./core";
 import { type Exponent } from "./exponents";
 
 export type BrandUnit<T extends Record<string, Exponent>> = {
-  __uom_types: RemoveNeverValues<{
+  __uom_types__exactKeys: keyof ExcludeNullUnits<T>;
+  __uom_types__components: RemoveNeverValues<{
     [U in keyof T]: U extends keyof ExcludeNullUnits<T> ? T[U] : never;
   }>;
 };
 
-type RemoveNeverValues<T> = {
+export type RemoveNeverValues<T> = {
   [K in keyof T as [T[K]] extends [never] ? never : K]: T[K];
 };
 
-type ExcludeNullUnits<U extends Record<string, Exponent>> = {
+export type ExcludeNullUnits<U extends Record<string, Exponent>> = {
   [S in keyof U as U[S] extends 0 ? never : S]: U[S];
 };
 
@@ -21,8 +22,6 @@ export type GetExponent<
   C extends Record<string, Exponent>,
   S,
 > = S extends keyof C ? C[S] : 0;
-
-export type KeysOfTwoObjects<A, B> = keyof A | keyof B;
 
 /**
  * Flatten a complex type such as a union or intersection of objects into a
