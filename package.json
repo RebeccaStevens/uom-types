@@ -80,7 +80,7 @@
     "lint:prettier": "prettier \"**/*\" --ignore-unknown --list-different",
     "lint:prettier-fix": "prettier \"**/*\" --ignore-unknown --write",
     "lint:spelling": "cspell \"**\" \".github/**/*\"",
-    "prepare": "husky install",
+    "prepare": "husky install && pnpm run generate-files",
     "release": "pnpm run release:semantic",
     "release:semantic": "semantic-release",
     "test": "pnpm run test-pre && pnpm run test:js && pnpm run test:types",
