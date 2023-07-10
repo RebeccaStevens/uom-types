@@ -1,12 +1,10 @@
 import fs from "node:fs/promises";
 
 const maxExponent = 12;
-const supportInverse = false as boolean;
 const supportMultiples = [2];
 
 const exponents = new Set<number | string>();
 const exponentToNegitive = new Map<number | string, number | string>();
-const exponentToInverse = new Map<number | string, number | string>();
 
 populateExponents();
 
@@ -16,32 +14,19 @@ const integerExponents = [...exponents.values()].filter(
 
 const exponentTypeDefintion = getExponentTypeDefintion();
 const negativeExponentTypeDefintion = getNegativeExponentTypeDefintion();
-const inverseExponentTypeDefintion = getInverseExponentTypeDefintion();
 const sumExponentsTypeDefintion = getSumExponentsTypeDefintion();
 const subExponentsTypeDefintion = getSubExponentsTypeDefintion();
 const multiplyExponentsTypeDefintion = getMultiplyExponentsTypeDefintion();
 const divideExponentsTypeDefintion = getDivideExponentsTypeDefintion();
 
-const withInverse = [
-  exponentTypeDefintion,
-  negativeExponentTypeDefintion,
-  inverseExponentTypeDefintion,
-  sumExponentsTypeDefintion,
-  subExponentsTypeDefintion,
-  multiplyExponentsTypeDefintion,
-  divideExponentsTypeDefintion,
-];
-
-const withoutInverse = [
+const content = [
   exponentTypeDefintion,
   negativeExponentTypeDefintion,
   sumExponentsTypeDefintion,
   subExponentsTypeDefintion,
   multiplyExponentsTypeDefintion,
   divideExponentsTypeDefintion,
-];
-
-const content = (supportInverse ? withInverse : withoutInverse)
+]
   .map((v) => `export ${v}`)
   .join("\n");
 
@@ -52,9 +37,6 @@ function populateExponents() {
     if (exponent === 0) {
       exponents.add(0);
       exponentToNegitive.set(0, 0);
-      if (supportInverse) {
-        exponentToInverse.set(0, 0);
-      }
       continue;
     }
 
@@ -66,11 +48,6 @@ function populateExponents() {
 
       exponentToNegitive.set(exponent, negativeExponent);
       exponentToNegitive.set(negativeExponent, exponent);
-
-      if (supportInverse) {
-        exponentToInverse.set(exponent, exponent);
-        exponentToInverse.set(negativeExponent, negativeExponent);
-      }
       continue;
     }
 
@@ -79,22 +56,6 @@ function populateExponents() {
 
     exponentToNegitive.set(exponent, negativeExponent);
     exponentToNegitive.set(negativeExponent, exponent);
-
-    if (supportInverse) {
-      const inverseExponent = `"1/${exponent}"`;
-      const negativeInverseExponent = `"-1/${exponent}"`;
-
-      exponents.add(inverseExponent);
-      exponents.add(negativeInverseExponent);
-
-      exponentToNegitive.set(inverseExponent, negativeInverseExponent);
-      exponentToNegitive.set(negativeInverseExponent, inverseExponent);
-
-      exponentToInverse.set(exponent, inverseExponent);
-      exponentToInverse.set(negativeExponent, negativeInverseExponent);
-      exponentToInverse.set(inverseExponent, exponent);
-      exponentToInverse.set(negativeInverseExponent, negativeExponent);
-    }
   }
 }
 
@@ -109,17 +70,6 @@ function getNegativeExponentTypeDefintion() {
     .map(
       ([exponent, negativeExponent]) =>
         `T extends ${exponent} ? ${negativeExponent} :`,
-    )
-    .join(" ")} never;`;
-}
-
-function getInverseExponentTypeDefintion() {
-  return `type InverseExponent<T extends Exponent> = ${[
-    ...exponentToInverse.entries(),
-  ]
-    .map(
-      ([exponent, inverseExponent]) =>
-        `T extends ${exponent} ? ${inverseExponent} :`,
     )
     .join(" ")} never;`;
 }
@@ -145,9 +95,6 @@ function getSubExponentsTypeDefintion() {
 function getMultiplyExponentsTypeDefintion() {
   return `type MultiplyExponents<A extends Exponent, B extends Exponent> = ${supportMultiples
     .map((a) => {
-      const inverseA = exponentToInverse.get(a);
-      const v = inverseA === undefined ? "" : `B extends ${inverseA} ? 1 :`;
-
       return `A extends ${a} ? ${integerExponents
         .map((b) => {
           const product = a * b;
@@ -156,7 +103,7 @@ function getMultiplyExponentsTypeDefintion() {
             : null;
         })
         .filter(isNotNull)
-        .join(" ")}${v} never :`;
+        .join(" ")} never :`;
     })
     .join(" ")} never;`;
 }
@@ -166,14 +113,8 @@ function getDivideExponentsTypeDefintion() {
     .map((b) => {
       return `B extends ${b} ? ${integerExponents
         .map((a) => {
-          const inverseB = exponentToInverse.get(b);
-
           const result = a / b;
-          return exponents.has(result)
-            ? `A extends ${a} ? ${result} :`
-            : a === 1 && inverseB !== undefined
-            ? `A extends 1 ? ${inverseB} : `
-            : null;
+          return exponents.has(result) ? `A extends ${a} ? ${result} :` : null;
         })
         .filter(isNotNull)
         .join(" ")} never :`;
