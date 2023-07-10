@@ -65,9 +65,6 @@ devDependencies:
   cz-conventional-changelog:
     specifier: 3.3.0
     version: 3.3.0
-  escape-string-regexp:
-    specifier: 5.0.0
-    version: 5.0.0
   eslint:
     specifier: 8.44.0
     version: 8.44.0
@@ -113,9 +110,6 @@ devDependencies:
   eslint-plugin-unicorn:
     specifier: 47.0.0
     version: 47.0.0(eslint@8.44.0)
-  glob:
-    specifier: 10.3.3
-    version: 10.3.3
   husky:
     specifier: 8.0.3
     version: 8.0.3
