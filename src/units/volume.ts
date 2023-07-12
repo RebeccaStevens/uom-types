@@ -1,4 +1,22 @@
-import { type SiUnit } from "./si-unit";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
+
+import { type SiUnitClass } from "./si-unit";
+
+export type VolumeUnitClass = SiUnitClass<{
+  Meters: 3;
+}>;
+
+export type Volume = AbstractUnit<VolumeUnitClass>;
+
+export type VolumeUnit<M extends Record<string, Exponent>> = Unit<
+  VolumeUnitClass,
+  UnitMeta<M>
+>;
 
 /**
  * A unit of volume.
@@ -7,7 +25,7 @@ import { type SiUnit } from "./si-unit";
  * @symbol `m³`
  * @derived
  */
-export type CubicMeters = SiUnit<{ Meters: 3 }>;
+export type CubicMeters = VolumeUnit<{}>;
 
 /**
  * A unit of volume.
@@ -16,7 +34,7 @@ export type CubicMeters = SiUnit<{ Meters: 3 }>;
  * @symbol `cm³`
  * @derived
  */
-export type CubicCentiMeters = SiUnit<{ Meters: 3; scalar10: -6 }>;
+export type CubicCentiMeters = VolumeUnit<{ scalar10: -6 }>;
 
 /**
  * A unit of volume.
@@ -25,4 +43,4 @@ export type CubicCentiMeters = SiUnit<{ Meters: 3; scalar10: -6 }>;
  * @symbol `l`
  * @derived
  */
-export type Liters = SiUnit<{ Meters: 3; scalar10: -3 }>;
+export type Liters = VolumeUnit<{ scalar10: -3 }>;

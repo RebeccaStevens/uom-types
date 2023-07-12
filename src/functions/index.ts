@@ -1,13 +1,17 @@
 import {
+  type AbstractUnitCore,
   type DivideUnitExponents,
   type DivideUnit,
   type MultiplyUnit,
   type InverseUnit,
-  type UnknownUnit,
-  type Unit,
+  type UnitCore,
 } from "#uom-types";
 
-type OperationIO<T extends number> = T extends UnknownUnit ? T : number;
+type OperationIO<T extends number> = T extends UnitCore<any, any>
+  ? T
+  : T extends AbstractUnitCore<any>
+  ? T
+  : number;
 
 /**
  * Add two values together.
@@ -33,20 +37,20 @@ export function sub<T extends number>(
  * Multiple two values together.
  */
 export function mul<A extends number, B extends number>(
-  a: OperationIO<A>,
-  b: OperationIO<B>,
-): OperationIO<MultiplyUnit<A, B>> {
-  return (a * b) as OperationIO<MultiplyUnit<A, B>>;
+  a: A,
+  b: B,
+): MultiplyUnit<A, B> {
+  return (a * b) as MultiplyUnit<A, B>;
 }
 
 /**
  * Divide one value by another.
  */
 export function div<A extends number, B extends number>(
-  a: OperationIO<A>,
-  b: OperationIO<B>,
-): OperationIO<DivideUnit<A, B>> {
-  return (a / b) as OperationIO<DivideUnit<A, B>>;
+  a: A,
+  b: B,
+): DivideUnit<A, B> {
+  return (a / b) as DivideUnit<A, B>;
 }
 
 /**
@@ -80,62 +84,63 @@ export function modSafe<T extends number>(
 /**
  * Put a number to the power of -1.
  */
-export function pow<B extends number>(
-  base: OperationIO<B>,
-  exponent: -1,
-): OperationIO<InverseUnit<B>>;
+export function pow<B extends number>(base: B, exponent: -1): InverseUnit<B>;
 
 /**
  * Put a number to the power of 0.
  */
 export function pow<B extends number>(
-  base: OperationIO<B>,
+  base: B,
   exponent: 0,
-): OperationIO<B> extends UnknownUnit ? Unit<{}> : 1;
-
+): B extends UnitCore<any>
+  ? UnitCore<{}>
+  : B extends AbstractUnitCore<any>
+  ? AbstractUnitCore<{}>
+  : 1;
 /**
  * Put a number to the power of 1/2.
  */
 export function pow<B extends number>(
-  base: OperationIO<B>,
+  base: B,
   exponent: 0.5,
-): OperationIO<DivideUnitExponents<B, 2>>;
+): DivideUnitExponents<B, 2>;
 
 /**
  * Put a number to the power of 1.
  */
-export function pow<E extends number>(base: OperationIO<E>, exponent: 1): E;
+export function pow<E extends number>(base: E, exponent: 1): E;
 
 /**
  * Put a number to the power of 2.
  */
-export function pow<B extends number>(
-  base: OperationIO<B>,
-  exponent: 2,
-): OperationIO<MultiplyUnit<B, B>>;
+export function pow<B extends number>(base: B, exponent: 2): MultiplyUnit<B, B>;
 
 /**
  * Put a number to the power of 3.
  */
 export function pow<B extends number>(
-  base: OperationIO<B>,
+  base: B,
   exponent: 3,
-): OperationIO<MultiplyUnit<B, MultiplyUnit<B, B>>>;
+): MultiplyUnit<B, MultiplyUnit<B, B>>;
 
 /**
  * Put a number to the power of 4.
  */
 export function pow<B extends number>(
-  base: OperationIO<B>,
+  base: B,
   exponent: 4,
-): OperationIO<MultiplyUnit<B, MultiplyUnit<B, MultiplyUnit<B, B>>>>;
+): MultiplyUnit<B, MultiplyUnit<B, MultiplyUnit<B, B>>>;
 
 /**
  * Put one number to the power of the other.
  */
 export function pow<B extends number, E extends number>(
-  base: OperationIO<B>,
-  exponent: E extends UnknownUnit ? never : E,
+  base: B,
+  exponent: E extends UnitCore<any>
+    ? never
+    : E extends AbstractUnitCore<any>
+    ? never
+    : E,
 ): number;
 
 export function pow(base: number, exponent: number): number {
@@ -145,18 +150,14 @@ export function pow(base: number, exponent: number): number {
 /**
  * Take the square root of the given value.
  */
-export function sqrt<T extends number>(
-  value: OperationIO<T>,
-): OperationIO<DivideUnitExponents<T, 2>> {
+export function sqrt<T extends number>(value: T): DivideUnitExponents<T, 2> {
   return pow(value, 0.5);
 }
 
 /**
  * Inverse the given value.
  */
-export function inverse<T extends number>(
-  value: OperationIO<T>,
-): OperationIO<InverseUnit<T>> {
+export function inverse<T extends number>(value: T): InverseUnit<T> {
   return pow(value, -1);
 }
 
@@ -223,34 +224,49 @@ export function sum<T extends number>(
 /**
  * Equal: Compare if two values are equal.
  */
-export function eq<A extends number>(a: OperationIO<A>, b: A): boolean {
+export function eq<T extends number>(
+  a: OperationIO<T>,
+  b: OperationIO<T>,
+): boolean {
   return a === b;
 }
 
 /**
  * Greater Than: Compare if the first value is greater than the second.
  */
-export function gt<A extends number>(a: OperationIO<A>, b: A): boolean {
+export function gt<T extends number>(
+  a: OperationIO<T>,
+  b: OperationIO<T>,
+): boolean {
   return a > b;
 }
 
 /**
  * Greater Than or Equal: Compare if the first value is greater than or equal to the second.
  */
-export function gte<A extends number>(a: OperationIO<A>, b: A): boolean {
+export function gte<T extends number>(
+  a: OperationIO<T>,
+  b: OperationIO<T>,
+): boolean {
   return a >= b;
 }
 
 /**
  * Less Than: Compare if the first value is less than the second.
  */
-export function lt<A extends number>(a: OperationIO<A>, b: A): boolean {
+export function lt<T extends number>(
+  a: OperationIO<T>,
+  b: OperationIO<T>,
+): boolean {
   return a < b;
 }
 
 /**
  * Less Than or Equal: Compare if the first value is less than or equal to the second.
  */
-export function lte<A extends number>(a: OperationIO<A>, b: A): boolean {
+export function lte<T extends number>(
+  a: OperationIO<T>,
+  b: OperationIO<T>,
+): boolean {
   return a <= b;
 }

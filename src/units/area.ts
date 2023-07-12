@@ -1,4 +1,20 @@
-import { type SiUnit } from "./si-unit";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
+
+import { type SiUnitClass } from "./si-unit";
+
+export type AreaUnitClass = SiUnitClass<{ Meters: 2 }>;
+
+export type Area = AbstractUnit<AreaUnitClass>;
+
+export type AreaUnit<M extends Record<string, Exponent>> = Unit<
+  AreaUnitClass,
+  UnitMeta<M>
+>;
 
 /**
  * A unit of area.
@@ -7,7 +23,7 @@ import { type SiUnit } from "./si-unit";
  * @symbol `m²`
  * @derived
  */
-export type SquareMeters = SiUnit<{ Meters: 2 }>;
+export type SquareMeters = AreaUnit<{}>;
 
 /**
  * A unit of area equal to 100 Square Meters.
@@ -16,7 +32,7 @@ export type SquareMeters = SiUnit<{ Meters: 2 }>;
  * @symbol `are`
  * @derived
  */
-export type Ares = SiUnit<{ Meters: 2; scalar10: 2 }>;
+export type Ares = AreaUnit<{ scale10: 2 }>;
 
 /**
  * A unit of area equal to 10,000 Square Meters.
@@ -25,4 +41,4 @@ export type Ares = SiUnit<{ Meters: 2; scalar10: 2 }>;
  * @symbol `ha`
  * @derived
  */
-export type Hectares = SiUnit<{ Meters: 2; scalar10: 4 }>;
+export type Hectares = AreaUnit<{ scale10: 4 }>;

@@ -1,4 +1,11 @@
-export type { Unit, UnknownUnit } from "./core";
+export type {
+  AbstractUnit,
+  Unit,
+  AbstractUnitCore,
+  UnitCore,
+  UnitMeta,
+  UnitClass,
+} from "./core";
 export type {
   Exponent,
   NegativeExponent,

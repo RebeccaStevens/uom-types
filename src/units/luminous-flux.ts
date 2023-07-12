@@ -1,4 +1,20 @@
-import { type SiUnit } from "./si-unit";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
+
+import { type SiUnitClass } from "./si-unit";
+
+export type LuminousFluxUnitClass = SiUnitClass<{ Candelas: 1 }>;
+
+export type LuminousFlux = AbstractUnit<LuminousFluxUnitClass>;
+
+export type LuminousFluxUnit<M extends Record<string, Exponent>> = Unit<
+  LuminousFluxUnitClass,
+  UnitMeta<M>
+>;
 
 /**
  * A unit of luminous intensity.
@@ -6,7 +22,7 @@ import { type SiUnit } from "./si-unit";
  * @siunit
  * @symbol `cd`
  */
-export type Candelas = SiUnit<{ Candelas: 1 }>;
+export type Candelas = LuminousFluxUnit<{}>;
 
 /**
  * One Lumen is equal to the amount of light given out through a solid angle by a source of one
@@ -16,4 +32,4 @@ export type Candelas = SiUnit<{ Candelas: 1 }>;
  * @symbol `lx`
  * @derived
  */
-export type Lumens = SiUnit<{ Candelas: 1 }>; // Multiplied by Steradians
+export type Lumens = LuminousFluxUnit<{}>; // Multiplied by Steradians

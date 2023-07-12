@@ -1,14 +1,29 @@
-import { type Unit } from "#uom-types";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
 
-import { type SiUnit } from "./si-unit";
+import { type SiUnitClass } from "./si-unit";
 
+export type TemperatureUnitClass = SiUnitClass<{
+  Kelvin: 1;
+}>;
+
+export type Temperature = AbstractUnit<TemperatureUnitClass>;
+
+export type TemperatureUnit<M extends Record<string, Exponent>> = Unit<
+  TemperatureUnitClass,
+  UnitMeta<M>
+>;
 /**
  * A unit of thermodynamic temperature.
  *
  * @siunit
  * @symbol `K`
  */
-export type Kelvin = SiUnit<{ Kelvin: 1 }>;
+export type Kelvin = TemperatureUnit<{}>;
 
 /**
  * This is a unit of temperature such as the freezing point of water (at one atmosphere of pressure)
@@ -17,4 +32,4 @@ export type Kelvin = SiUnit<{ Kelvin: 1 }>;
  * @symbol `℃`
  * @derived
  */
-export type Celsius = Unit<{ Kelvin: 1; "offset273.15": 1 }>;
+export type Celsius = TemperatureUnit<{ "offset273.15": 1 }>;

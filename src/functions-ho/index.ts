@@ -1,13 +1,17 @@
 import {
+  type AbstractUnitCore,
   type DivideUnitExponents,
   type DivideUnit,
   type MultiplyUnit,
   type InverseUnit,
-  type UnknownUnit,
-  type Unit,
+  type UnitCore,
 } from "#uom-types";
 
-type OperationIO<T extends number> = T extends UnknownUnit ? T : number;
+type OperationIO<T extends number> = T extends UnitCore<any, any>
+  ? T
+  : T extends AbstractUnitCore<any>
+  ? T
+  : number;
 
 /**
  * Add a value by the given value.
@@ -31,8 +35,8 @@ export function sub<T extends number>(
  * Multiple a value by the given value.
  */
 export function mul<A extends number>(
-  a: OperationIO<A>,
-): <B extends number>(b: OperationIO<B>) => OperationIO<MultiplyUnit<B, A>> {
+  a: A,
+): <B extends number>(b: B) => MultiplyUnit<B, A> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Casting to actual type fails for some reason.
   return (b) => (b * a) as any;
 }
@@ -41,8 +45,8 @@ export function mul<A extends number>(
  * Divide one value by the given value.
  */
 export function div<A extends number>(
-  a: OperationIO<A>,
-): <B extends number>(b: OperationIO<B>) => OperationIO<DivideUnit<B, A>> {
+  a: A,
+): <B extends number>(b: B) => DivideUnit<B, A> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Casting to actual type fails for some reason.
   return (b) => (b / a) as any;
 }
@@ -65,25 +69,34 @@ export function modSafe<T extends number>(
   return (b) => (((b % a) + a) % a) as OperationIO<T>;
 }
 
-type PowFunction<E extends number, B extends number> = E extends UnknownUnit
+type PowFunction<E extends number, B extends number> = E extends UnitCore<
+  any,
+  any
+>
+  ? never
+  : E extends AbstractUnitCore<any>
   ? never
   : E extends -1
-  ? (b: OperationIO<B>) => OperationIO<InverseUnit<B>>
+  ? (b: B) => InverseUnit<B>
   : E extends 0
-  ? (b: OperationIO<B>) => OperationIO<B> extends UnknownUnit ? Unit<{}> : 1
-  : E extends 0.5
-  ? (b: OperationIO<B>) => OperationIO<DivideUnitExponents<B, 2>>
-  : E extends 1
-  ? (b: OperationIO<B>) => OperationIO<B>
-  : E extends 2
-  ? (b: OperationIO<B>) => OperationIO<MultiplyUnit<B, B>>
-  : E extends 3
-  ? (b: OperationIO<B>) => OperationIO<MultiplyUnit<B, MultiplyUnit<B, B>>>
-  : E extends 4
   ? (
-      b: OperationIO<B>,
-    ) => OperationIO<MultiplyUnit<B, MultiplyUnit<B, MultiplyUnit<B, B>>>>
-  : (b: OperationIO<B>) => OperationIO<number>;
+      b: B,
+    ) => B extends UnitCore<any>
+      ? UnitCore<{}>
+      : B extends AbstractUnitCore<any>
+      ? AbstractUnitCore<{}>
+      : 1
+  : E extends 0.5
+  ? (b: B) => DivideUnitExponents<B, 2>
+  : E extends 1
+  ? (b: B) => B
+  : E extends 2
+  ? (b: B) => MultiplyUnit<B, B>
+  : E extends 3
+  ? (b: B) => MultiplyUnit<B, MultiplyUnit<B, B>>
+  : E extends 4
+  ? (b: B) => MultiplyUnit<B, MultiplyUnit<B, MultiplyUnit<B, B>>>
+  : (b: B) => number;
 
 /**
  * Put a number to the power of the given value.

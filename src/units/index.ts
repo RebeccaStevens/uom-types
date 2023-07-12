@@ -30,7 +30,7 @@ export * from "./moment-of-inertia";
 export * from "./power";
 export * from "./prefixes";
 export * from "./pressure";
-export * from "./reciprocal-metre";
+export * from "./reciprocal-length";
 export * from "./si-unit";
 export * from "./temperature";
 export * from "./thermal-conductivity";

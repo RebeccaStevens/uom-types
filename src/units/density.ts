@@ -1,4 +1,25 @@
-import { type SiUnit } from "./si-unit";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
+
+import { type SiUnitClass } from "./si-unit";
+
+export type DensityUnitClass = SiUnitClass<{ Kilograms: 1; Meters: -3 }>;
+export type Density = AbstractUnit<SurfaceDensityUnitClass>;
+export type DensityUnit<M extends Record<string, Exponent>> = Unit<
+  DensityUnitClass,
+  UnitMeta<M>
+>;
+
+export type SurfaceDensityUnitClass = SiUnitClass<{ Kilograms: 1; Meters: -2 }>;
+export type SurfaceDensity = AbstractUnit<SurfaceDensityUnitClass>;
+export type SurfaceDensityUnit<M extends Record<string, Exponent>> = Unit<
+  SurfaceDensityUnitClass,
+  UnitMeta<M>
+>;
 
 /**
  * A unit of density.
@@ -7,7 +28,7 @@ import { type SiUnit } from "./si-unit";
  * @symbol `kg/m³`
  * @derived
  */
-export type KilogramsPerCubicMeter = SiUnit<{ Kilograms: 1; Meters: -3 }>;
+export type KilogramsPerCubicMeter = DensityUnit<{}>;
 
 /**
  * A unit of surface density.
@@ -16,4 +37,4 @@ export type KilogramsPerCubicMeter = SiUnit<{ Kilograms: 1; Meters: -3 }>;
  * @symbol `kg/m²`
  * @derived
  */
-export type KilogramsPerSquareMeter = SiUnit<{ Kilograms: 1; Meters: -2 }>;
+export type KilogramsPerSquareMeter = SurfaceDensityUnit<{}>;

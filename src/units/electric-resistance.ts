@@ -1,4 +1,25 @@
-import { type SiUnit } from "./si-unit";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
+
+import { type SiUnitClass } from "./si-unit";
+
+export type ElectricResistanceUnitClass = SiUnitClass<{
+  Kilograms: 1;
+  Meters: 2;
+  Seconds: -3;
+  Amperes: -2;
+}>;
+
+export type ElectricResistance = AbstractUnit<ElectricResistanceUnitClass>;
+
+export type ElectricResistanceUnit<M extends Record<string, Exponent>> = Unit<
+  ElectricResistanceUnitClass,
+  UnitMeta<M>
+>;
 
 /**
  * One Ohm is equal to the resistance of a conductor in which a current of one Amperes is produced
@@ -8,9 +29,4 @@ import { type SiUnit } from "./si-unit";
  * @symbol `Ω`
  * @derived
  */
-export type Ohms = SiUnit<{
-  Kilograms: 1;
-  Meters: 2;
-  Seconds: -3;
-  Amperes: -2;
-}>;
+export type Ohms = ElectricResistanceUnit<{}>;

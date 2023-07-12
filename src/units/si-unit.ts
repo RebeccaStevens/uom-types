@@ -1,4 +1,4 @@
-import { type Exponent, type Unit } from "#uom-types";
+import { type UnitClass, type Exponent } from "#uom-types";
 
 import { type Exactify } from "../utils";
 
@@ -9,10 +9,9 @@ type SiUnitKeys =
   | "Moles"
   | "Amperes"
   | "Candelas"
-  | "Kelvin"
-  | "scalar10";
+  | "Kelvin";
 
-export type SiUnit<T extends Exactify<SiUnitConfig, T>> = Unit<T>;
+export type SiUnitClass<T extends Exactify<SiUnitConfig, T>> = UnitClass<T>;
 
 type SiUnitConfig = {
   [K in SiUnitKeys]?: Exponent;

@@ -1,4 +1,25 @@
-import { type SiUnit } from "./si-unit";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
+
+import { type SiUnitClass } from "./si-unit";
+
+export type MagneticFluxUnitClass = SiUnitClass<{
+  Kilograms: 1;
+  Meters: 2;
+  Seconds: -2;
+  Amperes: -1;
+}>;
+
+export type MagneticFlux = AbstractUnit<MagneticFluxUnitClass>;
+
+export type MagneticFluxUnit<M extends Record<string, Exponent>> = Unit<
+  MagneticFluxUnitClass,
+  UnitMeta<M>
+>;
 
 /**
  * One Weber is equal to the magnetic flux that in linking a circuit of one turn produces in it an
@@ -8,9 +29,4 @@ import { type SiUnit } from "./si-unit";
  * @symbol `Wb`
  * @derived
  */
-export type Webers = SiUnit<{
-  Kilograms: 1;
-  Meters: 2;
-  Seconds: -2;
-  Amperes: -1;
-}>;
+export type Webers = MagneticFluxUnit<{}>;

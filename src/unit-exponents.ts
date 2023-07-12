@@ -1,47 +1,41 @@
-import { type Unit, type UnknownUnit } from "./core";
+import { type UnitCore } from "./core";
 import {
   type DivideExponents,
   type Exponent,
   type MultiplyExponents,
 } from "./exponents";
-import {
-  type FlatternAlias,
-  type GetUnitConfig,
-  type GetExponent,
-} from "./utils";
+import { type FlatternAlias, type GetExponent } from "./utils";
 
 export type MultiplyUnitExponents<
   A extends number,
   B extends 2,
-> = A extends UnknownUnit
-  ? MultiplyUnitExponentsCore<A, B> extends Record<string, Exponent>
-    ? Unit<FlatternAlias<MultiplyUnitExponentsCore<A, B>>>
-    : never
+> = A extends UnitCore<infer ACore, infer AMeta>
+  ? UnitCore<
+      FlatternAlias<MultiplyUnitExponentsCore<ACore, B>>,
+      FlatternAlias<MultiplyUnitExponentsCore<AMeta, B>>
+    >
   : number;
 
-type MultiplyUnitExponentsCore<A extends UnknownUnit, B extends 2> = {
-  [U in keyof GetUnitConfig<A>]: MultiplyExponents<
-    GetExponent<GetUnitConfig<A>, U> extends Exponent
-      ? GetExponent<GetUnitConfig<A>, U>
-      : 0,
-    B
-  >;
+type MultiplyUnitExponentsCore<
+  A extends Record<string, Exponent>,
+  B extends 2,
+> = {
+  [E in keyof A]: MultiplyExponents<GetExponent<A, E>, B>;
 };
 
 export type DivideUnitExponents<
   A extends number,
   B extends 2,
-> = A extends UnknownUnit
-  ? DivideUnitExponentsCore<A, B> extends Record<string, Exponent>
-    ? Unit<FlatternAlias<DivideUnitExponentsCore<A, B>>>
-    : never
+> = A extends UnitCore<infer ACore, infer AMeta>
+  ? UnitCore<
+      FlatternAlias<DivideUnitExponentsCore<ACore, B>>,
+      FlatternAlias<DivideUnitExponentsCore<AMeta, B>>
+    >
   : number;
 
-type DivideUnitExponentsCore<A extends UnknownUnit, B extends 2> = {
-  [U in keyof GetUnitConfig<A>]: DivideExponents<
-    GetExponent<GetUnitConfig<A>, U> extends Exponent
-      ? GetExponent<GetUnitConfig<A>, U>
-      : 0,
-    B
-  >;
+type DivideUnitExponentsCore<
+  A extends Record<string, Exponent>,
+  B extends 2,
+> = {
+  [E in keyof A]: DivideExponents<GetExponent<A, E>, B>;
 };

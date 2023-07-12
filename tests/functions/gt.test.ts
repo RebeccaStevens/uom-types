@@ -1,6 +1,6 @@
 import test from "ava";
 
-import { type Unit } from "#uom-types";
+import { type UnitCore } from "#uom-types";
 import { gt } from "#uom-types/functions";
 
 test("number", (t) => {
@@ -10,8 +10,8 @@ test("number", (t) => {
 });
 
 test("unit", (t) => {
-  const a = 4 as Unit<{ a: 1; b: -2; c: 2 }>;
-  const b = 2 as Unit<{ a: 1; b: -2; c: 2 }>;
+  const a = 4 as UnitCore<{ a: 1; b: -2; c: 2 }>;
+  const b = 2 as UnitCore<{ a: 1; b: -2; c: 2 }>;
 
   t.is(gt(a, a), false);
   t.is(gt(b, b), false);

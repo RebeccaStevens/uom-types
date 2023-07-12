@@ -1,6 +1,25 @@
-import { type Unit } from "#uom-types";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
 
-import { type SiUnit } from "./si-unit";
+import { type SiUnitClass } from "./si-unit";
+
+export type PlaneAngleUnitClass = SiUnitClass<{}>;
+export type PlaneAngle = AbstractUnit<PlaneAngleUnitClass>;
+export type PlaneAngleUnit<M extends Record<string, Exponent>> = Unit<
+  PlaneAngleUnitClass,
+  UnitMeta<M>
+>;
+
+export type SolidAngleUnitClass = SiUnitClass<{}>;
+export type SolidAngle = AbstractUnit<SolidAngleUnitClass>;
+export type SolidAngleUnit<M extends Record<string, Exponent>> = Unit<
+  SolidAngleUnitClass,
+  UnitMeta<M>
+>;
 
 /**
  * One radian is equal to the angle subtended at the centre of a circle by an
@@ -11,14 +30,14 @@ import { type SiUnit } from "./si-unit";
  * @siunit
  * @symbol `rad`
  */
-export type Radians = SiUnit<{}>;
+export type Radians = PlaneAngleUnit<{}>;
 
 /**
  * The total angle of a circle is 360 degrees.
  *
  * @symbol `°`
  */
-export type Degrees = Unit<{ "scalar360/2π": 1 }>;
+export type Degrees = PlaneAngleUnit<{ "scalar360/2π": 1 }>;
 
 /**
  * One steradian is the solid angle of a sphere subtended by a portion of the
@@ -29,4 +48,4 @@ export type Degrees = Unit<{ "scalar360/2π": 1 }>;
  * @siunit
  * @symbol `sr`
  */
-export type Steradians = SiUnit<{}>;
+export type Steradians = SolidAngleUnit<{}>;

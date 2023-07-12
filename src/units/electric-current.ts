@@ -1,4 +1,22 @@
-import { type SiUnit } from "./si-unit";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
+
+import { type SiUnitClass } from "./si-unit";
+
+export type ElectricCurrentUnitClass = SiUnitClass<{
+  Amperes: 1;
+}>;
+
+export type ElectricCurrent = AbstractUnit<ElectricCurrentUnitClass>;
+
+export type ElectricCurrentUnit<M extends Record<string, Exponent>> = Unit<
+  ElectricCurrentUnitClass,
+  UnitMeta<M>
+>;
 
 /**
  * A unit of electric current.
@@ -6,4 +24,4 @@ import { type SiUnit } from "./si-unit";
  * @siunit
  * @symbol `A`
  */
-export type Amperes = SiUnit<{ Amperes: 1 }>;
+export type Amperes = ElectricCurrentUnit<{}>;

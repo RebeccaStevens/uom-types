@@ -1,60 +1,63 @@
-import { type Unit, type UnknownUnit } from "./core";
+import { type AbstractUnitCore, type UnitCore } from "./core";
 import {
   type Exponent,
   type NegativeExponent,
   type SumExponents,
 } from "./exponents";
 import {
-  type GetUnitConfig,
   type FlatternAlias,
   type GetExponent,
   type ExcludeNullUnits,
 } from "./utils";
 
-export type InverseUnit<T extends number> = T extends UnknownUnit
-  ? InverseUnitCore<T> extends Record<string, Exponent>
-    ? Unit<FlatternAlias<InverseUnitCore<T>>>
-    : never
+export type InverseUnit<T extends number> = T extends UnitCore<
+  infer Config,
+  infer Meta
+>
+  ? UnitCore<
+      FlatternAlias<InverseUnitCore<Config>>,
+      FlatternAlias<InverseUnitCore<Meta>>
+    >
+  : T extends AbstractUnitCore<infer Config>
+  ? AbstractUnitCore<FlatternAlias<InverseUnitCore<Config>>>
   : number;
 
-type InverseUnitCore<T extends UnknownUnit> = {
-  [E in keyof GetUnitConfig<T>]: NegativeExponent<GetUnitConfig<T>[E]>;
+type InverseUnitCore<T extends Record<string, Exponent>> = {
+  [E in keyof T]: NegativeExponent<T[E]>;
 };
 
 export type MultiplyUnit<
   A extends number,
   B extends number,
-> = A extends UnknownUnit
-  ? B extends UnknownUnit
-    ? MultiplyUnitsCore<A, B> extends Record<string, Exponent>
-      ? Unit<FlatternAlias<ExcludeNullUnits<MultiplyUnitsCore<A, B>>>>
-      : never
+> = A extends UnitCore<infer AConfig, infer AMeta>
+  ? B extends UnitCore<infer BConfig, infer BMeta>
+    ? UnitCore<
+        FlatternAlias<MultiplyUnitsCore<AConfig, BConfig>>,
+        FlatternAlias<MultiplyUnitsCore<AMeta, BMeta>>
+      >
+    : B extends AbstractUnitCore<any>
+    ? never
     : A
-  : B extends UnknownUnit
+  : B extends UnitCore<any, any>
+  ? A extends AbstractUnitCore<any>
+    ? never
+    : B
+  : A extends AbstractUnitCore<infer AConfig>
+  ? B extends AbstractUnitCore<infer BConfig>
+    ? AbstractUnitCore<FlatternAlias<MultiplyUnitsCore<AConfig, BConfig>>>
+    : A
+  : B extends AbstractUnitCore<any>
   ? B
   : number;
 
-type MultiplyUnitsCore<A extends UnknownUnit, B extends UnknownUnit> = {
-  [S in keyof GetUnitConfig<A> | keyof GetUnitConfig<B>]: SumExponents<
-    GetExponent<GetUnitConfig<A>, S> extends Exponent
-      ? GetExponent<GetUnitConfig<A>, S>
-      : 0,
-    GetExponent<GetUnitConfig<B>, S> extends Exponent
-      ? GetExponent<GetUnitConfig<B>, S>
-      : 0
-  >;
-};
+type MultiplyUnitsCore<
+  A extends Record<string, Exponent>,
+  B extends Record<string, Exponent>,
+> = ExcludeNullUnits<{
+  [S in keyof A | keyof B]: SumExponents<GetExponent<A, S>, GetExponent<B, S>>;
+}>;
 
-export type DivideUnit<
-  A extends number,
-  B extends number,
-> = A extends UnknownUnit
-  ? B extends UnknownUnit
-    ? MultiplyUnit<
-        A,
-        InverseUnit<B> extends UnknownUnit ? InverseUnit<B> : never
-      >
-    : A
-  : B extends UnknownUnit
-  ? InverseUnit<B>
-  : number;
+export type DivideUnit<A extends number, B extends number> = MultiplyUnit<
+  A,
+  InverseUnit<B>
+>;

@@ -1,6 +1,20 @@
-import { type Unit } from "#uom-types";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
 
-import { type SiUnit } from "./si-unit";
+import { type SiUnitClass } from "./si-unit";
+
+export type DurationUnitClass = SiUnitClass<{ Seconds: 1 }>;
+
+export type Duration = AbstractUnit<DurationUnitClass>;
+
+export type DurationUnit<M extends Record<string, Exponent>> = Unit<
+  DurationUnitClass,
+  UnitMeta<M>
+>;
 
 /**
  * A unit of time.
@@ -8,19 +22,17 @@ import { type SiUnit } from "./si-unit";
  * @siunit
  * @symbol `s`
  */
-export type Seconds = SiUnit<{ Seconds: 1 }>;
+export type Seconds = DurationUnit<{}>;
 
-export type Minutes = Unit<{ Seconds: 1; scalar60: 1 }>;
-export type Hours = Unit<{ Seconds: 1; scalar60: 2 }>;
-export type Days = Unit<{ Seconds: 1; scalar60: 2; scalar24: 1 }>;
-export type Weeks = Unit<{
-  Seconds: 1;
+export type Minutes = DurationUnit<{ scalar60: 1 }>;
+export type Hours = DurationUnit<{ scalar60: 2 }>;
+export type Days = DurationUnit<{ scalar60: 2; scalar24: 1 }>;
+export type Weeks = DurationUnit<{
   scalar60: 2;
   scalar24: 1;
   scalar7: 1;
 }>;
-export type Years = Unit<{
-  Seconds: 1;
+export type Years = DurationUnit<{
   scalar60: 2;
   scalar24: 1;
   "scalar365.25": 1;

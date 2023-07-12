@@ -1,13 +1,13 @@
 import { expectType } from "tsd";
 
-import { type Unit } from "#uom-types";
+import { type UnitCore } from "#uom-types";
 import { modSafe } from "#uom-types/functions";
 
-declare const a: Unit<{ a: 1 }>;
+declare const a: UnitCore<{ a: 1 }>;
 
-expectType<Unit<{ a: 1 }>>(modSafe(a, a));
+expectType<UnitCore<{ a: 1 }>>(modSafe(a, a));
 
-declare const b: Unit<{ a: 2 }>;
+declare const b: UnitCore<{ a: 2 }>;
 
 // @ts-expect-error - Should not be able to mod different types.
 modSafe(a, b);

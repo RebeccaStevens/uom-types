@@ -1,4 +1,20 @@
-import { type SiUnit } from "./si-unit";
+import {
+  type AbstractUnit,
+  type Unit,
+  type UnitMeta,
+  type Exponent,
+} from "#uom-types";
+
+import { type SiUnitClass } from "./si-unit";
+
+export type IlluminanceUnitClass = SiUnitClass<{ Candelas: 1; Meters: -2 }>;
+
+export type Illuminance = AbstractUnit<IlluminanceUnitClass>;
+
+export type IlluminanceUnit<M extends Record<string, Exponent>> = Unit<
+  IlluminanceUnitClass,
+  UnitMeta<M>
+>;
 
 /**
  * One Lux is equal to one lumen per square meter.
@@ -7,11 +23,17 @@ import { type SiUnit } from "./si-unit";
  * @symbol `lx`
  * @derived
  */
-export type Luxes = SiUnit<{ Candelas: 1; Meters: -2 }>;
+export type Luxes = IlluminanceUnit<{}>;
+
+/**
+ * @siunit
+ * @derived
+ */
+export type LumensPerSquareMeter = Luxes;
 
 /**
  * @siunit
  * @symbol `cd/m²`
  * @derived
  */
-export type CandelasPerSquareMeter = SiUnit<{ Candelas: 1; Meters: -2 }>;
+export type CandelasPerSquareMeter = Luxes;
