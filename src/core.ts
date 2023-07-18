@@ -21,11 +21,16 @@ export type Unit<
   readonly __uom_types__unit_meta: UnitMeta<M>;
 };
 
-export type UnitClass<T extends Record<string, Exponent>> = UnitKeyValues<T>;
+export type UnitClass<T extends Record<string, Exponent>> = UnitKeyValues<T> & {
+  readonly __uno_types__unit_class_type: true;
+};
 
-export type UnitMeta<T extends Record<string, Exponent>> = UnitKeyValues<T>;
+export type UnitMeta<T extends Record<string, Exponent>> = UnitKeyValues<T> & {
+  readonly __uno_types__unit_meta_type: true;
+};
 
 export type NullMeta = {
+  readonly __uno_types__unit_meta_type: true;
   readonly __uom_types__keys: never;
   readonly __uom_types__value: {};
 };
@@ -53,5 +58,9 @@ type UnknownUnitKeyValues = {
   readonly __uom_types__value: {};
 };
 
-export type UnknownUnitClass = UnknownUnitKeyValues;
-export type UnknownUnitMeta = UnknownUnitKeyValues;
+export type UnknownUnitClass = UnknownUnitKeyValues & {
+  readonly __uno_types__unit_class_type: true;
+};
+export type UnknownUnitMeta = UnknownUnitKeyValues & {
+  readonly __uno_types__unit_meta_type: true;
+};
