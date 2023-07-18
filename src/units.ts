@@ -1,13 +1,18 @@
-import { type AbstractUnitCore, type UnitCore } from "./core";
+import {
+  type AbstractUnitCore,
+  type UnitCore,
+  type UnknownAbstractUnit,
+  type UnknownUnit,
+} from "./core";
 import {
   type Exponent,
   type NegativeExponent,
   type SumExponents,
 } from "./exponents";
 import {
+  type ExcludeNullUnits,
   type FlatternAlias,
   type GetExponent,
-  type ExcludeNullUnits,
 } from "./utils";
 
 export type InverseUnit<T extends number> = T extends UnitCore<
@@ -35,18 +40,18 @@ export type MultiplyUnit<
         FlatternAlias<MultiplyUnitsCore<AConfig, BConfig>>,
         FlatternAlias<MultiplyUnitsCore<AMeta, BMeta>>
       >
-    : B extends AbstractUnitCore<any>
+    : B extends UnknownAbstractUnit
     ? never
     : A
-  : B extends UnitCore<any, any>
-  ? A extends AbstractUnitCore<any>
+  : B extends UnknownUnit
+  ? A extends UnknownAbstractUnit
     ? never
     : B
   : A extends AbstractUnitCore<infer AConfig>
   ? B extends AbstractUnitCore<infer BConfig>
     ? AbstractUnitCore<FlatternAlias<MultiplyUnitsCore<AConfig, BConfig>>>
     : A
-  : B extends AbstractUnitCore<any>
+  : B extends UnknownAbstractUnit
   ? B
   : number;
 

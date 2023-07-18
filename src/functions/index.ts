@@ -1,27 +1,29 @@
 import {
   type AbstractUnitCore,
-  type DivideUnitExponents,
   type DivideUnit,
-  type MultiplyUnit,
+  type DivideUnitExponents,
   type InverseUnit,
+  type MultiplyUnit,
   type UnitCore,
+  type UnknownAbstractUnit,
+  type UnknownUnit,
 } from "#uom-types";
 
-type OperationIO<T extends number> = T extends UnitCore<any, any>
+type OperationIO<T extends number> = T extends UnknownUnit
   ? T
-  : T extends AbstractUnitCore<any>
+  : T extends UnknownAbstractUnit
   ? T
   : number;
 
 /**
  * Add two values with the same units together.
  */
-export function add<T extends UnitCore<any, any>>(a: T, b: T): T;
+export function add<T extends UnknownUnit>(a: T, b: T): T;
 
 /**
  * Add two values with the same units together.
  */
-export function add<T extends AbstractUnitCore<any>>(a: T, b: T): T;
+export function add<T extends UnknownAbstractUnit>(a: T, b: T): T;
 
 /**
  * Add two values together.
@@ -41,12 +43,12 @@ export function add<T extends number>(
 /**
  * Subtract one value from another with the same units.
  */
-export function sub<T extends UnitCore<any, any>>(a: T, b: T): T;
+export function sub<T extends UnknownUnit>(a: T, b: T): T;
 
 /**
  * Subtract one value from another with the same units.
  */
-export function sub<T extends AbstractUnitCore<any>>(a: T, b: T): T;
+export function sub<T extends UnknownAbstractUnit>(a: T, b: T): T;
 
 /**
  * Subtract one value from another.
@@ -90,7 +92,7 @@ export function div<A extends number, B extends number>(
  * @param b - Must be an integer.
  * @returns `a % b`
  */
-export function mod<T extends UnitCore<any, any>>(a: T, b: T): T;
+export function mod<T extends UnknownUnit>(a: T, b: T): T;
 
 /**
  * Modulo operator.
@@ -99,7 +101,7 @@ export function mod<T extends UnitCore<any, any>>(a: T, b: T): T;
  * @param b - Must be an integer.
  * @returns `a % b`
  */
-export function mod<T extends AbstractUnitCore<any>>(a: T, b: T): T;
+export function mod<T extends UnknownAbstractUnit>(a: T, b: T): T;
 
 /**
  * Modulo operator.
@@ -127,7 +129,7 @@ export function mod<T extends number>(
  * @param b - Must be a positive integer.
  * @returns An integer between zero (inclusive) and `b` (exclusive).
  */
-export function modSafe<T extends UnitCore<any, any>>(a: T, b: T): T;
+export function modSafe<T extends UnknownUnit>(a: T, b: T): T;
 
 /**
  * Perform mathematic modular arithmetic.
@@ -136,7 +138,7 @@ export function modSafe<T extends UnitCore<any, any>>(a: T, b: T): T;
  * @param b - Must be a positive integer.
  * @returns An integer between zero (inclusive) and `b` (exclusive).
  */
-export function modSafe<T extends AbstractUnitCore<any>>(a: T, b: T): T;
+export function modSafe<T extends UnknownAbstractUnit>(a: T, b: T): T;
 
 /**
  * Perform mathematic modular arithmetic.
@@ -168,9 +170,9 @@ export function pow<B extends number>(base: B, exponent: -1): InverseUnit<B>;
 export function pow<B extends number>(
   base: B,
   exponent: 0,
-): B extends UnitCore<any>
+): B extends UnknownUnit
   ? UnitCore<{}>
-  : B extends AbstractUnitCore<any>
+  : B extends UnknownAbstractUnit
   ? AbstractUnitCore<{}>
   : 1;
 /**
@@ -212,9 +214,9 @@ export function pow<B extends number>(
  */
 export function pow<B extends number, E extends number>(
   base: B,
-  exponent: E extends UnitCore<any>
+  exponent: E extends UnknownUnit
     ? never
-    : E extends AbstractUnitCore<any>
+    : E extends UnknownAbstractUnit
     ? never
     : E,
 ): number;
@@ -240,12 +242,12 @@ export function inverse<T extends number>(value: T): InverseUnit<T> {
 /**
  * Returns the negative of the given value.
  */
-export function negate<T extends UnitCore<any, any>>(value: T): T;
+export function negate<T extends UnknownUnit>(value: T): T;
 
 /**
  * Returns the negative of the given value.
  */
-export function negate<T extends AbstractUnitCore<any>>(value: T): T;
+export function negate<T extends UnknownAbstractUnit>(value: T): T;
 
 /**
  * Returns the negative of the given value.
@@ -261,12 +263,12 @@ export function negate<T extends number>(
 /**
  * Returns the absolute value of the given value.
  */
-export function abs<T extends UnitCore<any, any>>(value: T): T;
+export function abs<T extends UnknownUnit>(value: T): T;
 
 /**
  * Returns the absolute value of the given value.
  */
-export function abs<T extends AbstractUnitCore<any>>(value: T): T;
+export function abs<T extends UnknownAbstractUnit>(value: T): T;
 
 /**
  * Returns the absolute value of the given value.
@@ -280,12 +282,12 @@ export function abs<T extends number>(value: OperationIO<T>): OperationIO<T> {
 /**
  * Returns the greatest integer less than or equal to the given value.
  */
-export function floor<T extends UnitCore<any, any>>(value: T): T;
+export function floor<T extends UnknownUnit>(value: T): T;
 
 /**
  * Returns the greatest integer less than or equal to the given value.
  */
-export function floor<T extends AbstractUnitCore<any>>(value: T): T;
+export function floor<T extends UnknownAbstractUnit>(value: T): T;
 
 /**
  * Returns the greatest integer less than or equal to the given value.
@@ -299,12 +301,12 @@ export function floor<T extends number>(value: OperationIO<T>): OperationIO<T> {
 /**
  * Returns the smallest integer greater than or equal the given value.
  */
-export function ceil<T extends UnitCore<any, any>>(value: T): T;
+export function ceil<T extends UnknownUnit>(value: T): T;
 
 /**
  * Returns the smallest integer greater than or equal the given value.
  */
-export function ceil<T extends AbstractUnitCore<any>>(value: T): T;
+export function ceil<T extends UnknownAbstractUnit>(value: T): T;
 
 /**
  * Returns the smallest integer greater than or equal the given value.
@@ -318,12 +320,12 @@ export function ceil<T extends number>(value: OperationIO<T>): OperationIO<T> {
 /**
  * Returns the given value rounded to the nearest integer.
  */
-export function round<T extends UnitCore<any, any>>(value: T): T;
+export function round<T extends UnknownUnit>(value: T): T;
 
 /**
  * Returns the given value rounded to the nearest integer.
  */
-export function round<T extends AbstractUnitCore<any>>(value: T): T;
+export function round<T extends UnknownAbstractUnit>(value: T): T;
 
 /**
  * Returns the given value rounded to the nearest integer.
@@ -337,12 +339,12 @@ export function round<T extends number>(value: OperationIO<T>): OperationIO<T> {
 /**
  * Returns the larger value in the given collection.
  */
-export function max<T extends UnitCore<any, any>>(values: Iterable<T>): T;
+export function max<T extends UnknownUnit>(values: Iterable<T>): T;
 
 /**
  * Returns the larger value in the given collection.
  */
-export function max<T extends AbstractUnitCore<any>>(values: Iterable<T>): T;
+export function max<T extends UnknownAbstractUnit>(values: Iterable<T>): T;
 
 /**
  * Returns the larger value in the given collection.
@@ -356,12 +358,12 @@ export function max<T extends number>(values: Iterable<T>): OperationIO<T> {
 /**
  * Returns the smallest value in the given collection.
  */
-export function min<T extends UnitCore<any, any>>(values: Iterable<T>): T;
+export function min<T extends UnknownUnit>(values: Iterable<T>): T;
 
 /**
  * Returns the smallest value in the given collection.
  */
-export function min<T extends AbstractUnitCore<any>>(values: Iterable<T>): T;
+export function min<T extends UnknownAbstractUnit>(values: Iterable<T>): T;
 
 /**
  * Returns the smallest value in the given collection.
@@ -375,12 +377,12 @@ export function min<T extends number>(values: Iterable<T>): OperationIO<T> {
 /**
  * Takes the sum of all the values in the given collection.
  */
-export function sum<T extends UnitCore<any, any>>(values: Iterable<T>): T;
+export function sum<T extends UnknownUnit>(values: Iterable<T>): T;
 
 /**
  * Takes the sum of all the values in the given collection.
  */
-export function sum<T extends AbstractUnitCore<any>>(values: Iterable<T>): T;
+export function sum<T extends UnknownAbstractUnit>(values: Iterable<T>): T;
 
 /**
  * Takes the sum of all the values in the given collection.
@@ -394,12 +396,12 @@ export function sum<T extends number>(values: Iterable<T>): OperationIO<T> {
 /**
  * Equal: Compare if two values are equal.
  */
-export function eq<T extends UnitCore<any, any>>(a: T, b: T): boolean;
+export function eq<T extends UnknownUnit>(a: T, b: T): boolean;
 
 /**
  * Equal: Compare if two values are equal.
  */
-export function eq<T extends AbstractUnitCore<any>>(a: T, b: T): boolean;
+export function eq<T extends UnknownAbstractUnit>(a: T, b: T): boolean;
 
 /**
  * Equal: Compare if two values are equal.
@@ -419,12 +421,12 @@ export function eq<T extends number>(
 /**
  * Greater Than: Compare if the first value is greater than the second.
  */
-export function gt<T extends UnitCore<any, any>>(a: T, b: T): boolean;
+export function gt<T extends UnknownUnit>(a: T, b: T): boolean;
 
 /**
  * Greater Than: Compare if the first value is greater than the second.
  */
-export function gt<T extends AbstractUnitCore<any>>(a: T, b: T): boolean;
+export function gt<T extends UnknownAbstractUnit>(a: T, b: T): boolean;
 
 /**
  * Greater Than: Compare if the first value is greater than the second.
@@ -444,12 +446,12 @@ export function gt<T extends number>(
 /**
  * Greater Than or Equal: Compare if the first value is greater than or equal to the second.
  */
-export function gte<T extends UnitCore<any, any>>(a: T, b: T): boolean;
+export function gte<T extends UnknownUnit>(a: T, b: T): boolean;
 
 /**
  * Greater Than or Equal: Compare if the first value is greater than or equal to the second.
  */
-export function gte<T extends AbstractUnitCore<any>>(a: T, b: T): boolean;
+export function gte<T extends UnknownAbstractUnit>(a: T, b: T): boolean;
 
 /**
  * Greater Than or Equal: Compare if the first value is greater than or equal to the second.
@@ -469,12 +471,12 @@ export function gte<T extends number>(
 /**
  * Less Than: Compare if the first value is less than the second.
  */
-export function lt<T extends UnitCore<any, any>>(a: T, b: T): boolean;
+export function lt<T extends UnknownUnit>(a: T, b: T): boolean;
 
 /**
  * Less Than: Compare if the first value is less than the second.
  */
-export function lt<T extends AbstractUnitCore<any>>(a: T, b: T): boolean;
+export function lt<T extends UnknownAbstractUnit>(a: T, b: T): boolean;
 
 /**
  * Less Than: Compare if the first value is less than the second.
@@ -494,12 +496,12 @@ export function lt<T extends number>(
 /**
  * Less Than or Equal: Compare if the first value is less than or equal to the second.
  */
-export function lte<T extends UnitCore<any, any>>(a: T, b: T): boolean;
+export function lte<T extends UnknownUnit>(a: T, b: T): boolean;
 
 /**
  * Less Than or Equal: Compare if the first value is less than or equal to the second.
  */
-export function lte<T extends AbstractUnitCore<any>>(a: T, b: T): boolean;
+export function lte<T extends UnknownAbstractUnit>(a: T, b: T): boolean;
 
 /**
  * Less Than or Equal: Compare if the first value is less than or equal to the second.

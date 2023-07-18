@@ -45,3 +45,6 @@ export type AbstractUnit<C extends UnitClass<any>> = C extends UnitClass<
 export type AbstractUnitCore<C extends Record<string, Exponent>> = number & {
   readonly __uom_types__unit_class: UnitClass<C>;
 };
+
+export type UnknownUnit = UnitCore<any, any>;
+export type UnknownAbstractUnit = AbstractUnitCore<any>;
