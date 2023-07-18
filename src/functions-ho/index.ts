@@ -130,7 +130,7 @@ export function modSafe<T extends number>(
   return (b) => (((b % a) + a) % a) as OperationIO<T>;
 }
 
-type PowFunction<E extends number, B extends number> = E extends Unit<any, any>
+type PowFunction<E extends number, B extends number> = E extends UnknownUnit
   ? never
   : E extends UnknownAbstractUnit
   ? never

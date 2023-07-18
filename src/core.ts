@@ -40,7 +40,7 @@ type UnitKeyValues<T extends Record<string, Exponent>> = {
   readonly __uom_types__value: RemoveNeverValues<T>;
 };
 
-export type AbstractUnitFrom<C extends UnitClass<any>> = C extends UnitClass<
+export type AbstractUnitFrom<C extends UnknownUnitClass> = C extends UnitClass<
   infer A
 >
   ? AbstractUnit<Record<string, Exponent> extends A ? {} : A>
@@ -50,8 +50,13 @@ export type AbstractUnit<C extends Record<string, Exponent>> = number & {
   readonly __uom_types__unit_class: UnitClass<C>;
 };
 
-export type UnknownUnit = Unit<any, any>;
-export type UnknownAbstractUnit = AbstractUnit<any>;
+export type UnknownUnit = UnknownAbstractUnit & {
+  readonly __uom_types__unit_meta: UnknownUnitMeta;
+};
+
+export type UnknownAbstractUnit = number & {
+  readonly __uom_types__unit_class: UnknownUnitClass;
+};
 
 type UnknownUnitKeyValues = {
   readonly __uom_types__keys: PropertyKey; // Should just be `string`.
