@@ -1,6 +1,6 @@
 import {
-  type AbstractUnitCore,
-  type UnitCore,
+  type AbstractUnit,
+  type Unit,
   type UnknownAbstractUnit,
   type UnknownUnit,
 } from "./core";
@@ -15,28 +15,28 @@ import {
   type GetExponent,
 } from "./utils";
 
-export type InverseUnit<T extends number> = T extends UnitCore<
+export type InverseUnit<T extends number> = T extends Unit<
   infer Config,
   infer Meta
 >
-  ? UnitCore<
+  ? Unit<
       FlatternAlias<InverseUnitCore<Config>>,
       FlatternAlias<InverseUnitCore<Meta>>
     >
-  : T extends AbstractUnitCore<infer Config>
-  ? AbstractUnitCore<FlatternAlias<InverseUnitCore<Config>>>
+  : T extends AbstractUnit<infer Config>
+  ? AbstractUnit<FlatternAlias<InverseUnitCore<Config>>>
   : number;
 
 type InverseUnitCore<T extends Record<string, Exponent>> = {
   [E in keyof T]: NegativeExponent<T[E]>;
 };
 
-export type MultiplyUnit<
-  A extends number,
-  B extends number,
-> = A extends UnitCore<infer AConfig, infer AMeta>
-  ? B extends UnitCore<infer BConfig, infer BMeta>
-    ? UnitCore<
+export type MultiplyUnit<A extends number, B extends number> = A extends Unit<
+  infer AConfig,
+  infer AMeta
+>
+  ? B extends Unit<infer BConfig, infer BMeta>
+    ? Unit<
         FlatternAlias<MultiplyUnitsCore<AConfig, BConfig>>,
         FlatternAlias<MultiplyUnitsCore<AMeta, BMeta>>
       >
@@ -47,9 +47,9 @@ export type MultiplyUnit<
   ? A extends UnknownAbstractUnit
     ? never
     : B
-  : A extends AbstractUnitCore<infer AConfig>
-  ? B extends AbstractUnitCore<infer BConfig>
-    ? AbstractUnitCore<FlatternAlias<MultiplyUnitsCore<AConfig, BConfig>>>
+  : A extends AbstractUnit<infer AConfig>
+  ? B extends AbstractUnit<infer BConfig>
+    ? AbstractUnit<FlatternAlias<MultiplyUnitsCore<AConfig, BConfig>>>
     : A
   : B extends UnknownAbstractUnit
   ? B

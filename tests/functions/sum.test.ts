@@ -1,6 +1,6 @@
 import test from "ava";
 
-import { type UnitCore } from "#uom-types";
+import { type Unit } from "#uom-types";
 import { sum } from "#uom-types/functions";
 
 test("number", (t) => {
@@ -10,7 +10,7 @@ test("number", (t) => {
 });
 
 test("unit", (t) => {
-  type TestUnit = UnitCore<{ a: 1; b: -2; c: 3 }>;
+  type TestUnit = Unit<{ a: 1; b: -2; c: 3 }>;
   const list = [1, 3, 6, 4, -5, 2] as TestUnit[];
 
   t.is(sum(list), 11 as TestUnit);

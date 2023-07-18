@@ -1,12 +1,12 @@
 import { expectType } from "tsd";
 
-import { type UnitCore } from "#uom-types";
+import { type Unit } from "#uom-types";
 import { mul } from "#uom-types/functions/higher-order";
 
-declare const a: UnitCore<{ a: 1 }>;
-declare const b: UnitCore<{ b: 1 }>;
+declare const a: Unit<{ a: 1 }>;
+declare const b: Unit<{ b: 1 }>;
 
-expectType<UnitCore<{ a: 2 }>>(mul(a)(a));
-expectType<UnitCore<{ b: 2 }>>(mul(b)(b));
-expectType<UnitCore<{ a: 1; b: 1 }>>(mul(a)(b));
-expectType<UnitCore<{ a: 1; b: 1 }>>(mul(b)(a));
+expectType<Unit<{ a: 2 }>>(mul(a)(a));
+expectType<Unit<{ b: 2 }>>(mul(b)(b));
+expectType<Unit<{ a: 1; b: 1 }>>(mul(a)(b));
+expectType<Unit<{ a: 1; b: 1 }>>(mul(b)(a));

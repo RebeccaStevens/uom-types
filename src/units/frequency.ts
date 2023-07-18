@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -9,9 +9,9 @@ import { type SiUnitClass } from "./si-unit";
 
 export type FrequencyUnitClass = SiUnitClass<{ Seconds: -1 }>;
 
-export type Frequency = AbstractUnit<FrequencyUnitClass>;
+export type Frequency = AbstractUnitFrom<FrequencyUnitClass>;
 
-export type FrequencyUnit<M extends Record<string, Exponent>> = Unit<
+export type FrequencyUnit<M extends Record<string, Exponent>> = UnitFrom<
   FrequencyUnitClass,
   UnitMeta<M>
 >;

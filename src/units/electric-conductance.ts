@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -14,12 +14,11 @@ export type ElectricConductanceUnitClass = SiUnitClass<{
   Amperes: 2;
 }>;
 
-export type ElectricConductance = AbstractUnit<ElectricConductanceUnitClass>;
+export type ElectricConductance =
+  AbstractUnitFrom<ElectricConductanceUnitClass>;
 
-export type ElectricConductanceUnit<M extends Record<string, Exponent>> = Unit<
-  ElectricConductanceUnitClass,
-  UnitMeta<M>
->;
+export type ElectricConductanceUnit<M extends Record<string, Exponent>> =
+  UnitFrom<ElectricConductanceUnitClass, UnitMeta<M>>;
 
 /**
  * One Siemens is equal to one Amperes per volt.

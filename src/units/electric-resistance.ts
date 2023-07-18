@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -14,12 +14,10 @@ export type ElectricResistanceUnitClass = SiUnitClass<{
   Amperes: -2;
 }>;
 
-export type ElectricResistance = AbstractUnit<ElectricResistanceUnitClass>;
+export type ElectricResistance = AbstractUnitFrom<ElectricResistanceUnitClass>;
 
-export type ElectricResistanceUnit<M extends Record<string, Exponent>> = Unit<
-  ElectricResistanceUnitClass,
-  UnitMeta<M>
->;
+export type ElectricResistanceUnit<M extends Record<string, Exponent>> =
+  UnitFrom<ElectricResistanceUnitClass, UnitMeta<M>>;
 
 /**
  * One Ohm is equal to the resistance of a conductor in which a current of one Amperes is produced

@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -11,9 +11,9 @@ export type TemperatureUnitClass = SiUnitClass<{
   Kelvin: 1;
 }>;
 
-export type Temperature = AbstractUnit<TemperatureUnitClass>;
+export type Temperature = AbstractUnitFrom<TemperatureUnitClass>;
 
-export type TemperatureUnit<M extends Record<string, Exponent>> = Unit<
+export type TemperatureUnit<M extends Record<string, Exponent>> = UnitFrom<
   TemperatureUnitClass,
   UnitMeta<M>
 >;

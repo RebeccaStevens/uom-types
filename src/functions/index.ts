@@ -1,10 +1,10 @@
 import {
-  type AbstractUnitCore,
+  type AbstractUnit,
   type DivideUnit,
   type DivideUnitExponents,
   type InverseUnit,
   type MultiplyUnit,
-  type UnitCore,
+  type Unit,
   type UnknownAbstractUnit,
   type UnknownUnit,
 } from "#uom-types";
@@ -171,9 +171,9 @@ export function pow<B extends number>(
   base: B,
   exponent: 0,
 ): B extends UnknownUnit
-  ? UnitCore<{}>
+  ? Unit<{}>
   : B extends UnknownAbstractUnit
-  ? AbstractUnitCore<{}>
+  ? AbstractUnit<{}>
   : 1;
 /**
  * Put a number to the power of 1/2.

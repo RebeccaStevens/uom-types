@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -13,9 +13,9 @@ export type PowerUnitClass = SiUnitClass<{
   Seconds: -3;
 }>;
 
-export type Power = AbstractUnit<PowerUnitClass>;
+export type Power = AbstractUnitFrom<PowerUnitClass>;
 
-export type PowerUnit<M extends Record<string, Exponent>> = Unit<
+export type PowerUnit<M extends Record<string, Exponent>> = UnitFrom<
   PowerUnitClass,
   UnitMeta<M>
 >;

@@ -1,8 +1,8 @@
 import { expectType } from "tsd";
 
-import { type UnitCore } from "#uom-types";
+import { type Unit } from "#uom-types";
 import { sqrt } from "#uom-types/functions";
 
-declare const a: UnitCore<{ a: 2 }>;
+declare const a: Unit<{ a: 2 }>;
 
-expectType<UnitCore<{ a: 1 }>>(sqrt(a));
+expectType<Unit<{ a: 1 }>>(sqrt(a));

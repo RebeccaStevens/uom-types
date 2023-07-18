@@ -1,8 +1,8 @@
 import { expectType } from "tsd";
 
-import { type UnitCore } from "#uom-types";
+import { type Unit } from "#uom-types";
 import { floor } from "#uom-types/functions";
 
-declare const a: UnitCore<{ a: 1 }>;
+declare const a: Unit<{ a: 1 }>;
 
-expectType<UnitCore<{ a: 1 }>>(floor(a));
+expectType<Unit<{ a: 1 }>>(floor(a));

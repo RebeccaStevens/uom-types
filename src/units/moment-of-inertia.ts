@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -12,9 +12,9 @@ export type MomentOfInertiaUnitClass = SiUnitClass<{
   Meters: 2;
 }>;
 
-export type MomentOfInertia = AbstractUnit<MomentOfInertiaUnitClass>;
+export type MomentOfInertia = AbstractUnitFrom<MomentOfInertiaUnitClass>;
 
-export type MomentOfInertiaUnit<M extends Record<string, Exponent>> = Unit<
+export type MomentOfInertiaUnit<M extends Record<string, Exponent>> = UnitFrom<
   MomentOfInertiaUnitClass,
   UnitMeta<M>
 >;

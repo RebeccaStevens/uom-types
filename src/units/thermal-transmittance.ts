@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -13,12 +13,11 @@ export type ThermalTransmittanceUnitClass = SiUnitClass<{
   Kelvin: -1;
 }>;
 
-export type ThermalTransmittance = AbstractUnit<ThermalTransmittanceUnitClass>;
+export type ThermalTransmittance =
+  AbstractUnitFrom<ThermalTransmittanceUnitClass>;
 
-export type ThermalTransmittanceUnit<M extends Record<string, Exponent>> = Unit<
-  ThermalTransmittanceUnitClass,
-  UnitMeta<M>
->;
+export type ThermalTransmittanceUnit<M extends Record<string, Exponent>> =
+  UnitFrom<ThermalTransmittanceUnitClass, UnitMeta<M>>;
 
 /**
  * Units for thermal transmittance.

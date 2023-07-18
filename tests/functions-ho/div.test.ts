@@ -1,6 +1,6 @@
 import test from "ava";
 
-import { type UnitCore } from "#uom-types";
+import { type Unit } from "#uom-types";
 import { div } from "#uom-types/functions/higher-order";
 
 test("numbers", (t) => {
@@ -11,7 +11,7 @@ test("numbers", (t) => {
 });
 
 test("unit by number", (t) => {
-  type TestUnit = UnitCore<{ a: 1; b: -2; c: 3 }>;
+  type TestUnit = Unit<{ a: 1; b: -2; c: 3 }>;
 
   const a = 6 as TestUnit;
   const b = 3;
@@ -24,8 +24,8 @@ test("unit by number", (t) => {
 
 test("number by unit", (t) => {
   const a = 6;
-  const b = 3 as UnitCore<{ a: 1; b: -2; c: 3 }>;
-  const expected = 2 as UnitCore<{
+  const b = 3 as Unit<{ a: 1; b: -2; c: 3 }>;
+  const expected = 2 as Unit<{
     a: -1;
     b: 2;
     c: -3;
@@ -37,9 +37,9 @@ test("number by unit", (t) => {
 });
 
 test("unit by unit", (t) => {
-  const a = 6 as UnitCore<{ a: 1; b: 2; c: 1 }>;
-  const b = 2 as UnitCore<{ a: 3; b: 2; c: 3 }>;
-  const expected = 3 as UnitCore<{ a: -2; c: -2 }>;
+  const a = 6 as Unit<{ a: 1; b: 2; c: 1 }>;
+  const b = 2 as Unit<{ a: 3; b: 2; c: 3 }>;
+  const expected = 3 as Unit<{ a: -2; c: -2 }>;
 
   const actual = div(b)(a);
 

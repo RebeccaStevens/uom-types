@@ -1,6 +1,6 @@
 import test from "ava";
 
-import { type UnitCore } from "#uom-types";
+import { type Unit } from "#uom-types";
 import { negate } from "#uom-types/functions";
 
 test("number", (t) => {
@@ -9,7 +9,7 @@ test("number", (t) => {
 });
 
 test("unit", (t) => {
-  const a = 4 as UnitCore<{ a: 1; b: -2; c: 2 }>;
+  const a = 4 as Unit<{ a: 1; b: -2; c: 2 }>;
 
-  t.is(negate(a), -4 as UnitCore<{ a: 1; b: -2; c: 2 }>);
+  t.is(negate(a), -4 as Unit<{ a: 1; b: -2; c: 2 }>);
 });

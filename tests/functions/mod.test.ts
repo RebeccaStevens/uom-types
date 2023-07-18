@@ -1,6 +1,6 @@
 import test from "ava";
 
-import { type UnitCore } from "#uom-types";
+import { type Unit } from "#uom-types";
 import { mod } from "#uom-types/functions";
 
 test("numbers", (t) => {
@@ -11,7 +11,7 @@ test("numbers", (t) => {
 });
 
 test("units", (t) => {
-  type TestUnit = UnitCore<{ a: 1; b: -2; c: 3 }>;
+  type TestUnit = Unit<{ a: 1; b: -2; c: 3 }>;
 
   const a = 10 as TestUnit;
   const b = 3 as TestUnit;

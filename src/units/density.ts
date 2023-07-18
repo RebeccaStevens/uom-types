@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -8,15 +8,15 @@ import {
 import { type SiUnitClass } from "./si-unit";
 
 export type DensityUnitClass = SiUnitClass<{ Kilograms: 1; Meters: -3 }>;
-export type Density = AbstractUnit<SurfaceDensityUnitClass>;
-export type DensityUnit<M extends Record<string, Exponent>> = Unit<
+export type Density = AbstractUnitFrom<SurfaceDensityUnitClass>;
+export type DensityUnit<M extends Record<string, Exponent>> = UnitFrom<
   DensityUnitClass,
   UnitMeta<M>
 >;
 
 export type SurfaceDensityUnitClass = SiUnitClass<{ Kilograms: 1; Meters: -2 }>;
-export type SurfaceDensity = AbstractUnit<SurfaceDensityUnitClass>;
-export type SurfaceDensityUnit<M extends Record<string, Exponent>> = Unit<
+export type SurfaceDensity = AbstractUnitFrom<SurfaceDensityUnitClass>;
+export type SurfaceDensityUnit<M extends Record<string, Exponent>> = UnitFrom<
   SurfaceDensityUnitClass,
   UnitMeta<M>
 >;

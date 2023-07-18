@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -13,10 +13,10 @@ export type ElectricCurrentDensityUnitClass = SiUnitClass<{
 }>;
 
 export type ElectricCurrentDensity =
-  AbstractUnit<ElectricCurrentDensityUnitClass>;
+  AbstractUnitFrom<ElectricCurrentDensityUnitClass>;
 
 export type ElectricCurrentDensityUnit<M extends Record<string, Exponent>> =
-  Unit<ElectricCurrentDensityUnitClass, UnitMeta<M>>;
+  UnitFrom<ElectricCurrentDensityUnitClass, UnitMeta<M>>;
 
 /**
  * @siunit

@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -13,10 +13,10 @@ export type MagneticFieldStrengthUnitClass = SiUnitClass<{
 }>;
 
 export type MagneticFieldStrength =
-  AbstractUnit<MagneticFieldStrengthUnitClass>;
+  AbstractUnitFrom<MagneticFieldStrengthUnitClass>;
 
 export type MagneticFieldStrengthUnit<M extends Record<string, Exponent>> =
-  Unit<MagneticFieldStrengthUnitClass, UnitMeta<M>>;
+  UnitFrom<MagneticFieldStrengthUnitClass, UnitMeta<M>>;
 
 /**
  * @siunit

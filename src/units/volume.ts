@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -11,9 +11,9 @@ export type VolumeUnitClass = SiUnitClass<{
   Meters: 3;
 }>;
 
-export type Volume = AbstractUnit<VolumeUnitClass>;
+export type Volume = AbstractUnitFrom<VolumeUnitClass>;
 
-export type VolumeUnit<M extends Record<string, Exponent>> = Unit<
+export type VolumeUnit<M extends Record<string, Exponent>> = UnitFrom<
   VolumeUnitClass,
   UnitMeta<M>
 >;

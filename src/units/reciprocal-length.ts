@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -11,9 +11,9 @@ export type ReciprocalLengthUnitClass = SiUnitClass<{
   Meters: -1;
 }>;
 
-export type ReciprocalLength = AbstractUnit<ReciprocalLengthUnitClass>;
+export type ReciprocalLength = AbstractUnitFrom<ReciprocalLengthUnitClass>;
 
-export type ReciprocalLengthUnit<M extends Record<string, Exponent>> = Unit<
+export type ReciprocalLengthUnit<M extends Record<string, Exponent>> = UnitFrom<
   ReciprocalLengthUnitClass,
   UnitMeta<M>
 >;

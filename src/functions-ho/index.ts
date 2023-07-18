@@ -1,10 +1,10 @@
 import {
-  type AbstractUnitCore,
+  type AbstractUnit,
   type DivideUnit,
   type DivideUnitExponents,
   type InverseUnit,
   type MultiplyUnit,
-  type UnitCore,
+  type Unit,
   type UnknownAbstractUnit,
   type UnknownUnit,
 } from "#uom-types";
@@ -130,10 +130,7 @@ export function modSafe<T extends number>(
   return (b) => (((b % a) + a) % a) as OperationIO<T>;
 }
 
-type PowFunction<E extends number, B extends number> = E extends UnitCore<
-  any,
-  any
->
+type PowFunction<E extends number, B extends number> = E extends Unit<any, any>
   ? never
   : E extends UnknownAbstractUnit
   ? never
@@ -143,9 +140,9 @@ type PowFunction<E extends number, B extends number> = E extends UnitCore<
   ? (
       b: B,
     ) => B extends UnknownUnit
-      ? UnitCore<{}>
+      ? Unit<{}>
       : B extends UnknownAbstractUnit
-      ? AbstractUnitCore<{}>
+      ? AbstractUnit<{}>
       : 1
   : E extends 0.5
   ? (b: B) => DivideUnitExponents<B, 2>

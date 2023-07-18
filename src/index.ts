@@ -1,12 +1,12 @@
 export type {
   AbstractUnit,
+  AbstractUnitFrom,
   Unit,
-  AbstractUnitCore,
-  UnitCore,
-  UnitMeta,
   UnitClass,
-  UnknownUnit,
+  UnitFrom,
+  UnitMeta,
   UnknownAbstractUnit,
+  UnknownUnit,
 } from "./core";
 export type {
   Exponent,

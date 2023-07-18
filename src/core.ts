@@ -1,19 +1,19 @@
 import { type Exponent } from "./exponents";
 import { type RemoveNeverValues, type ExcludeNullUnits } from "./utils";
 
-export type Unit<
+export type UnitFrom<
   C extends UnitClass<any>,
   M extends UnitMeta<any> = NullMeta,
 > = C extends UnitClass<infer A>
   ? M extends UnitMeta<infer B>
-    ? UnitCore<
+    ? Unit<
         Record<string, Exponent> extends A ? {} : A,
         Record<string, Exponent> extends B ? {} : B
       >
     : never
   : never;
 
-export type UnitCore<
+export type Unit<
   C extends Record<string, Exponent>,
   M extends Record<string, Exponent> = {},
 > = number & {
@@ -36,15 +36,15 @@ type UnitKeyValues<T extends Record<string, Exponent>> = {
   readonly __uom_types__value: RemoveNeverValues<T>;
 };
 
-export type AbstractUnit<C extends UnitClass<any>> = C extends UnitClass<
+export type AbstractUnitFrom<C extends UnitClass<any>> = C extends UnitClass<
   infer A
 >
-  ? AbstractUnitCore<Record<string, Exponent> extends A ? {} : A>
+  ? AbstractUnit<Record<string, Exponent> extends A ? {} : A>
   : never;
 
-export type AbstractUnitCore<C extends Record<string, Exponent>> = number & {
+export type AbstractUnit<C extends Record<string, Exponent>> = number & {
   readonly __uom_types__unit_class: UnitClass<C>;
 };
 
-export type UnknownUnit = UnitCore<any, any>;
-export type UnknownAbstractUnit = AbstractUnitCore<any>;
+export type UnknownUnit = Unit<any, any>;
+export type UnknownAbstractUnit = AbstractUnit<any>;

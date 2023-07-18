@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -14,12 +14,11 @@ export type ThermalConductivityUnitClass = SiUnitClass<{
   Kelvin: -1;
 }>;
 
-export type ThermalConductivity = AbstractUnit<ThermalConductivityUnitClass>;
+export type ThermalConductivity =
+  AbstractUnitFrom<ThermalConductivityUnitClass>;
 
-export type ThermalConductivityUnit<M extends Record<string, Exponent>> = Unit<
-  ThermalConductivityUnitClass,
-  UnitMeta<M>
->;
+export type ThermalConductivityUnit<M extends Record<string, Exponent>> =
+  UnitFrom<ThermalConductivityUnitClass, UnitMeta<M>>;
 
 /**
  * Unit for thermal conductivity.

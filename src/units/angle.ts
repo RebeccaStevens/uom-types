@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -8,15 +8,15 @@ import {
 import { type SiUnitClass } from "./si-unit";
 
 export type PlaneAngleUnitClass = SiUnitClass<{}>;
-export type PlaneAngle = AbstractUnit<PlaneAngleUnitClass>;
-export type PlaneAngleUnit<M extends Record<string, Exponent>> = Unit<
+export type PlaneAngle = AbstractUnitFrom<PlaneAngleUnitClass>;
+export type PlaneAngleUnit<M extends Record<string, Exponent>> = UnitFrom<
   PlaneAngleUnitClass,
   UnitMeta<M>
 >;
 
 export type SolidAngleUnitClass = SiUnitClass<{}>;
-export type SolidAngle = AbstractUnit<SolidAngleUnitClass>;
-export type SolidAngleUnit<M extends Record<string, Exponent>> = Unit<
+export type SolidAngle = AbstractUnitFrom<SolidAngleUnitClass>;
+export type SolidAngleUnit<M extends Record<string, Exponent>> = UnitFrom<
   SolidAngleUnitClass,
   UnitMeta<M>
 >;

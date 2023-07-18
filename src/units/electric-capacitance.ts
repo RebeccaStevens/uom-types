@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -14,12 +14,11 @@ export type ElectricCapacitanceUnitClass = SiUnitClass<{
   Meters: -2;
 }>;
 
-export type ElectricCapacitance = AbstractUnit<ElectricCapacitanceUnitClass>;
+export type ElectricCapacitance =
+  AbstractUnitFrom<ElectricCapacitanceUnitClass>;
 
-export type ElectricCapacitanceUnit<M extends Record<string, Exponent>> = Unit<
-  ElectricCapacitanceUnitClass,
-  UnitMeta<M>
->;
+export type ElectricCapacitanceUnit<M extends Record<string, Exponent>> =
+  UnitFrom<ElectricCapacitanceUnitClass, UnitMeta<M>>;
 
 /**
  * One Farad is equal to the capacitance of a capacitor having an equal and opposite charge of 1 coulomb on

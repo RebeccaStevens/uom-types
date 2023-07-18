@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -9,12 +9,10 @@ import { type SiUnitClass } from "./si-unit";
 
 export type AmountOfSubstanceUnitClass = SiUnitClass<{ Moles: 1 }>;
 
-export type AmountOfSubstance = AbstractUnit<AmountOfSubstanceUnitClass>;
+export type AmountOfSubstance = AbstractUnitFrom<AmountOfSubstanceUnitClass>;
 
-export type AmountOfSubstanceUnit<M extends Record<string, Exponent>> = Unit<
-  AmountOfSubstanceUnitClass,
-  UnitMeta<M>
->;
+export type AmountOfSubstanceUnit<M extends Record<string, Exponent>> =
+  UnitFrom<AmountOfSubstanceUnitClass, UnitMeta<M>>;
 
 /**
  * A unit of the amount of substance.

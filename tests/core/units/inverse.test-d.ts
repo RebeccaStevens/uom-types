@@ -1,9 +1,9 @@
 import { expectAssignable, expectType } from "tsd";
 
 import {
-  type AbstractUnit,
+  type AbstractUnitFrom,
   type UnitClass,
-  type Unit,
+  type UnitFrom,
   type UnitMeta,
   type InverseUnit,
 } from "#uom-types";
@@ -11,13 +11,13 @@ import {
 type TestUnitClass = UnitClass<{ a: 1 }>;
 type TestUnitClassInv = UnitClass<{ a: -1 }>;
 
-type TestUnit = Unit<TestUnitClass, UnitMeta<{}>>;
-type TestUnitInv = Unit<TestUnitClassInv, UnitMeta<{}>>;
+type TestUnit = UnitFrom<TestUnitClass, UnitMeta<{}>>;
+type TestUnitInv = UnitFrom<TestUnitClassInv, UnitMeta<{}>>;
 
 expectType<TestUnitInv>(0 as InverseUnit<TestUnit>);
 
-type TestAbstractUnit = AbstractUnit<TestUnitClass>;
-type TestAbstractUnitInv = AbstractUnit<TestUnitClassInv>;
+type TestAbstractUnit = AbstractUnitFrom<TestUnitClass>;
+type TestAbstractUnitInv = AbstractUnitFrom<TestUnitClassInv>;
 
 expectAssignable<TestAbstractUnit>(0 as TestUnit);
 expectAssignable<TestAbstractUnitInv>(0 as InverseUnit<TestUnit>);

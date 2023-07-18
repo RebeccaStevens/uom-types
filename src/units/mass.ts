@@ -1,6 +1,6 @@
 import {
-  type AbstractUnit,
-  type Unit,
+  type AbstractUnitFrom,
+  type UnitFrom,
   type UnitMeta,
   type Exponent,
 } from "#uom-types";
@@ -11,9 +11,9 @@ export type MassUnitClass = SiUnitClass<{
   Kilograms: 1;
 }>;
 
-export type Mass = AbstractUnit<MassUnitClass>;
+export type Mass = AbstractUnitFrom<MassUnitClass>;
 
-export type MassUnit<M extends Record<string, Exponent>> = Unit<
+export type MassUnit<M extends Record<string, Exponent>> = UnitFrom<
   MassUnitClass,
   UnitMeta<M>
 >;
