@@ -2,8 +2,8 @@ import { type Exponent } from "./exponents";
 import { type RemoveNeverValues, type ExcludeNullUnits } from "./utils";
 
 export type UnitFrom<
-  C extends UnitClass<any>,
-  M extends UnitMeta<any> = NullMeta,
+  C extends UnknownUnitClass,
+  M extends UnknownUnitMeta = NullMeta,
 > = C extends UnitClass<infer A>
   ? M extends UnitMeta<infer B>
     ? Unit<
@@ -26,7 +26,6 @@ export type UnitClass<T extends Record<string, Exponent>> = UnitKeyValues<T>;
 export type UnitMeta<T extends Record<string, Exponent>> = UnitKeyValues<T>;
 
 export type NullMeta = {
-  readonly __uom_types__unit_meta: true;
   readonly __uom_types__keys: never;
   readonly __uom_types__value: {};
 };
@@ -48,3 +47,11 @@ export type AbstractUnit<C extends Record<string, Exponent>> = number & {
 
 export type UnknownUnit = Unit<any, any>;
 export type UnknownAbstractUnit = AbstractUnit<any>;
+
+type UnknownUnitKeyValues = {
+  readonly __uom_types__keys: PropertyKey; // Should just be `string`.
+  readonly __uom_types__value: {};
+};
+
+export type UnknownUnitClass = UnknownUnitKeyValues;
+export type UnknownUnitMeta = UnknownUnitKeyValues;

@@ -1,8 +1,9 @@
 import {
   type AbstractUnitFrom,
+  type Exponent,
   type UnitFrom,
   type UnitMeta,
-  type Exponent,
+  type UnknownUnitMeta,
 } from "#uom-types";
 
 import { type SiUnitClass } from "./si-unit";
@@ -18,7 +19,12 @@ export type ThermalConductivity =
   AbstractUnitFrom<ThermalConductivityUnitClass>;
 
 export type ThermalConductivityUnit<M extends Record<string, Exponent>> =
-  UnitFrom<ThermalConductivityUnitClass, UnitMeta<M>>;
+  ThermalConductivityUnitFrom<UnitMeta<M>>;
+
+export type ThermalConductivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
+  ThermalConductivityUnitClass,
+  M
+>;
 
 /**
  * Unit for thermal conductivity.

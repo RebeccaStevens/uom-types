@@ -1,8 +1,9 @@
 import {
   type AbstractUnitFrom,
+  type Exponent,
   type UnitFrom,
   type UnitMeta,
-  type Exponent,
+  type UnknownUnitMeta,
 } from "#uom-types";
 
 import { type SiUnitClass } from "./si-unit";
@@ -14,9 +15,12 @@ export type ElectricChargeUnitClass = SiUnitClass<{
 
 export type ElectricCharge = AbstractUnitFrom<ElectricChargeUnitClass>;
 
-export type ElectricChargeUnit<M extends Record<string, Exponent>> = UnitFrom<
+export type ElectricChargeUnit<M extends Record<string, Exponent>> =
+  ElectricChargeUnitFrom<UnitMeta<M>>;
+
+export type ElectricChargeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   ElectricChargeUnitClass,
-  UnitMeta<M>
+  M
 >;
 
 /**

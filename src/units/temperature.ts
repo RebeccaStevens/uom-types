@@ -1,8 +1,9 @@
 import {
   type AbstractUnitFrom,
+  type Exponent,
   type UnitFrom,
   type UnitMeta,
-  type Exponent,
+  type UnknownUnitMeta,
 } from "#uom-types";
 
 import { type SiUnitClass } from "./si-unit";
@@ -13,10 +14,14 @@ export type TemperatureUnitClass = SiUnitClass<{
 
 export type Temperature = AbstractUnitFrom<TemperatureUnitClass>;
 
-export type TemperatureUnit<M extends Record<string, Exponent>> = UnitFrom<
+export type TemperatureUnit<M extends Record<string, Exponent>> =
+  TemperatureUnitFrom<UnitMeta<M>>;
+
+export type TemperatureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   TemperatureUnitClass,
-  UnitMeta<M>
+  M
 >;
+
 /**
  * A unit of thermodynamic temperature.
  *

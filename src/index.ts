@@ -7,6 +7,8 @@ export type {
   UnitMeta,
   UnknownAbstractUnit,
   UnknownUnit,
+  UnknownUnitClass,
+  UnknownUnitMeta,
 } from "./core";
 export type {
   Exponent,

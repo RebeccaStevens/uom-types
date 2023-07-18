@@ -1,8 +1,9 @@
 import {
   type AbstractUnitFrom,
+  type Exponent,
   type UnitFrom,
   type UnitMeta,
-  type Exponent,
+  type UnknownUnitMeta,
 } from "#uom-types";
 
 import { type SiUnitClass } from "./si-unit";
@@ -17,7 +18,12 @@ export type MagneticFluxDensity =
   AbstractUnitFrom<MagneticFluxDensityUnitClass>;
 
 export type MagneticFluxDensityUnit<M extends Record<string, Exponent>> =
-  UnitFrom<MagneticFluxDensityUnitClass, UnitMeta<M>>;
+  MagneticFluxDensityUnitFrom<UnitMeta<M>>;
+
+export type MagneticFluxDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
+  MagneticFluxDensityUnitClass,
+  M
+>;
 
 /**
  * One Tesla is equal equal to one weber per square meter.

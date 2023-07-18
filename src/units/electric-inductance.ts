@@ -1,8 +1,9 @@
 import {
   type AbstractUnitFrom,
+  type Exponent,
   type UnitFrom,
   type UnitMeta,
-  type Exponent,
+  type UnknownUnitMeta,
 } from "#uom-types";
 
 import { type SiUnitClass } from "./si-unit";
@@ -17,7 +18,12 @@ export type ElectricInductanceUnitClass = SiUnitClass<{
 export type ElectricInductance = AbstractUnitFrom<ElectricInductanceUnitClass>;
 
 export type ElectricInductanceUnit<M extends Record<string, Exponent>> =
-  UnitFrom<ElectricInductanceUnitClass, UnitMeta<M>>;
+  ElectricInductanceUnitFrom<UnitMeta<M>>;
+
+export type ElectricInductanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
+  ElectricInductanceUnitClass,
+  M
+>;
 
 /**
  * @siunit

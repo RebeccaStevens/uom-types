@@ -1,8 +1,9 @@
 import {
   type AbstractUnitFrom,
+  type Exponent,
   type UnitFrom,
   type UnitMeta,
-  type Exponent,
+  type UnknownUnitMeta,
 } from "#uom-types";
 
 import { type SiUnitClass } from "./si-unit";
@@ -11,9 +12,13 @@ export type DurationUnitClass = SiUnitClass<{ Seconds: 1 }>;
 
 export type Duration = AbstractUnitFrom<DurationUnitClass>;
 
-export type DurationUnit<M extends Record<string, Exponent>> = UnitFrom<
-  DurationUnitClass,
+export type DurationUnit<M extends Record<string, Exponent>> = DurationUnitFrom<
   UnitMeta<M>
+>;
+
+export type DurationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
+  DurationUnitClass,
+  M
 >;
 
 /**

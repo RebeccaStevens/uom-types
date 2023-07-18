@@ -1,8 +1,9 @@
 import {
   type AbstractUnitFrom,
+  type Exponent,
   type UnitFrom,
   type UnitMeta,
-  type Exponent,
+  type UnknownUnitMeta,
 } from "#uom-types";
 
 import { type SiUnitClass } from "./si-unit";
@@ -17,7 +18,12 @@ export type ElectricPotentialUnitClass = SiUnitClass<{
 export type ElectricPotential = AbstractUnitFrom<ElectricPotentialUnitClass>;
 
 export type ElectricPotentialUnit<M extends Record<string, Exponent>> =
-  UnitFrom<ElectricPotentialUnitClass, UnitMeta<M>>;
+  ElectricPotentialUnitFrom<UnitMeta<M>>;
+
+export type ElectricPotentialUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
+  ElectricPotentialUnitClass,
+  M
+>;
 
 /**
  * One Volt is equal to the difference of electric potential between two points on a conducting

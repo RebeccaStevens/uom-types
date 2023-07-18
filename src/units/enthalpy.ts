@@ -1,8 +1,9 @@
 import {
   type AbstractUnitFrom,
+  type Exponent,
   type UnitFrom,
   type UnitMeta,
-  type Exponent,
+  type UnknownUnitMeta,
 } from "#uom-types";
 
 import { type SiUnitClass } from "./si-unit";
@@ -11,9 +12,13 @@ export type EnthalpyUnitClass = SiUnitClass<{ Meters: 2; Seconds: -2 }>;
 
 export type Enthalpy = AbstractUnitFrom<EnthalpyUnitClass>;
 
-export type EnthalpyUnit<M extends Record<string, Exponent>> = UnitFrom<
-  EnthalpyUnitClass,
+export type EnthalpyUnit<M extends Record<string, Exponent>> = EnthalpyUnitFrom<
   UnitMeta<M>
+>;
+
+export type EnthalpyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
+  EnthalpyUnitClass,
+  M
 >;
 
 /**
