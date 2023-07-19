@@ -9,9 +9,9 @@ import {
   type UnknownUnit,
 } from "#uom-types";
 
-type OperationIO<T extends number> = [T] extends [UnknownUnit]
-  ? T
-  : [T] extends [UnknownAbstractUnit]
+type OperationIO<T extends number> = [T] extends [
+  UnknownUnit | UnknownAbstractUnit,
+]
   ? T
   : number;
 
