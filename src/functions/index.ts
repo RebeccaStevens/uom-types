@@ -9,30 +9,15 @@ import {
   type UnknownUnit,
 } from "#uom-types";
 
-type OperationIO<T extends number> = T extends UnknownUnit
+type OperationIO<T extends number> = [T] extends [UnknownUnit]
   ? T
-  : T extends UnknownAbstractUnit
+  : [T] extends [UnknownAbstractUnit]
   ? T
   : number;
 
 /**
  * Add two values with the same units together.
  */
-export function add<T extends UnknownUnit>(a: T, b: T): T;
-
-/**
- * Add two values with the same units together.
- */
-export function add<T extends UnknownAbstractUnit>(a: T, b: T): T;
-
-/**
- * Add two values together.
- */
-export function add<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): OperationIO<T>;
-
 export function add<T extends number>(
   a: OperationIO<T>,
   b: OperationIO<T>,
@@ -43,21 +28,6 @@ export function add<T extends number>(
 /**
  * Subtract one value from another with the same units.
  */
-export function sub<T extends UnknownUnit>(a: T, b: T): T;
-
-/**
- * Subtract one value from another with the same units.
- */
-export function sub<T extends UnknownAbstractUnit>(a: T, b: T): T;
-
-/**
- * Subtract one value from another.
- */
-export function sub<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): OperationIO<T>;
-
 export function sub<T extends number>(
   a: OperationIO<T>,
   b: OperationIO<T>,
@@ -92,29 +62,6 @@ export function div<A extends number, B extends number>(
  * @param b - Must be an integer.
  * @returns `a % b`
  */
-export function mod<T extends UnknownUnit>(a: T, b: T): T;
-
-/**
- * Modulo operator.
- *
- * @param a - Must be an integer.
- * @param b - Must be an integer.
- * @returns `a % b`
- */
-export function mod<T extends UnknownAbstractUnit>(a: T, b: T): T;
-
-/**
- * Modulo operator.
- *
- * @param a - Must be an integer.
- * @param b - Must be an integer.
- * @returns `a % b`
- */
-export function mod<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): OperationIO<T>;
-
 export function mod<T extends number>(
   a: OperationIO<T>,
   b: OperationIO<T>,
@@ -129,29 +76,6 @@ export function mod<T extends number>(
  * @param b - Must be a positive integer.
  * @returns An integer between zero (inclusive) and `b` (exclusive).
  */
-export function modSafe<T extends UnknownUnit>(a: T, b: T): T;
-
-/**
- * Perform mathematic modular arithmetic.
- *
- * @param a - Must be an integer.
- * @param b - Must be a positive integer.
- * @returns An integer between zero (inclusive) and `b` (exclusive).
- */
-export function modSafe<T extends UnknownAbstractUnit>(a: T, b: T): T;
-
-/**
- * Perform mathematic modular arithmetic.
- *
- * @param a - Must be an integer.
- * @param b - Must be a positive integer.
- * @returns An integer between zero (inclusive) and `b` (exclusive).
- */
-export function modSafe<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): OperationIO<T>;
-
 export function modSafe<T extends number>(
   a: OperationIO<T>,
   b: OperationIO<T>,
@@ -242,18 +166,6 @@ export function inverse<T extends number>(value: T): InverseUnit<T> {
 /**
  * Returns the negative of the given value.
  */
-export function negate<T extends UnknownUnit>(value: T): T;
-
-/**
- * Returns the negative of the given value.
- */
-export function negate<T extends UnknownAbstractUnit>(value: T): T;
-
-/**
- * Returns the negative of the given value.
- */
-export function negate<T extends number>(value: OperationIO<T>): OperationIO<T>;
-
 export function negate<T extends number>(
   value: OperationIO<T>,
 ): OperationIO<T> {
@@ -263,18 +175,6 @@ export function negate<T extends number>(
 /**
  * Returns the absolute value of the given value.
  */
-export function abs<T extends UnknownUnit>(value: T): T;
-
-/**
- * Returns the absolute value of the given value.
- */
-export function abs<T extends UnknownAbstractUnit>(value: T): T;
-
-/**
- * Returns the absolute value of the given value.
- */
-export function abs<T extends number>(value: OperationIO<T>): OperationIO<T>;
-
 export function abs<T extends number>(value: OperationIO<T>): OperationIO<T> {
   return Math.abs(value) as OperationIO<T>;
 }
@@ -282,18 +182,6 @@ export function abs<T extends number>(value: OperationIO<T>): OperationIO<T> {
 /**
  * Returns the greatest integer less than or equal to the given value.
  */
-export function floor<T extends UnknownUnit>(value: T): T;
-
-/**
- * Returns the greatest integer less than or equal to the given value.
- */
-export function floor<T extends UnknownAbstractUnit>(value: T): T;
-
-/**
- * Returns the greatest integer less than or equal to the given value.
- */
-export function floor<T extends number>(value: OperationIO<T>): OperationIO<T>;
-
 export function floor<T extends number>(value: OperationIO<T>): OperationIO<T> {
   return Math.floor(value) as OperationIO<T>;
 }
@@ -301,18 +189,6 @@ export function floor<T extends number>(value: OperationIO<T>): OperationIO<T> {
 /**
  * Returns the smallest integer greater than or equal the given value.
  */
-export function ceil<T extends UnknownUnit>(value: T): T;
-
-/**
- * Returns the smallest integer greater than or equal the given value.
- */
-export function ceil<T extends UnknownAbstractUnit>(value: T): T;
-
-/**
- * Returns the smallest integer greater than or equal the given value.
- */
-export function ceil<T extends number>(value: OperationIO<T>): OperationIO<T>;
-
 export function ceil<T extends number>(value: OperationIO<T>): OperationIO<T> {
   return Math.ceil(value) as OperationIO<T>;
 }
@@ -320,18 +196,6 @@ export function ceil<T extends number>(value: OperationIO<T>): OperationIO<T> {
 /**
  * Returns the given value rounded to the nearest integer.
  */
-export function round<T extends UnknownUnit>(value: T): T;
-
-/**
- * Returns the given value rounded to the nearest integer.
- */
-export function round<T extends UnknownAbstractUnit>(value: T): T;
-
-/**
- * Returns the given value rounded to the nearest integer.
- */
-export function round<T extends number>(value: OperationIO<T>): OperationIO<T>;
-
 export function round<T extends number>(value: OperationIO<T>): OperationIO<T> {
   return Math.round(value) as OperationIO<T>;
 }
@@ -339,18 +203,6 @@ export function round<T extends number>(value: OperationIO<T>): OperationIO<T> {
 /**
  * Returns the larger value in the given collection.
  */
-export function max<T extends UnknownUnit>(values: Iterable<T>): T;
-
-/**
- * Returns the larger value in the given collection.
- */
-export function max<T extends UnknownAbstractUnit>(values: Iterable<T>): T;
-
-/**
- * Returns the larger value in the given collection.
- */
-export function max<T extends number>(values: Iterable<T>): OperationIO<T>;
-
 export function max<T extends number>(values: Iterable<T>): OperationIO<T> {
   return Math.max(...values) as OperationIO<T>;
 }
@@ -358,18 +210,6 @@ export function max<T extends number>(values: Iterable<T>): OperationIO<T> {
 /**
  * Returns the smallest value in the given collection.
  */
-export function min<T extends UnknownUnit>(values: Iterable<T>): T;
-
-/**
- * Returns the smallest value in the given collection.
- */
-export function min<T extends UnknownAbstractUnit>(values: Iterable<T>): T;
-
-/**
- * Returns the smallest value in the given collection.
- */
-export function min<T extends number>(values: Iterable<T>): OperationIO<T>;
-
 export function min<T extends number>(values: Iterable<T>): OperationIO<T> {
   return Math.min(...values) as OperationIO<T>;
 }
@@ -377,40 +217,13 @@ export function min<T extends number>(values: Iterable<T>): OperationIO<T> {
 /**
  * Takes the sum of all the values in the given collection.
  */
-export function sum<T extends UnknownUnit>(values: Iterable<T>): T;
-
-/**
- * Takes the sum of all the values in the given collection.
- */
-export function sum<T extends UnknownAbstractUnit>(values: Iterable<T>): T;
-
-/**
- * Takes the sum of all the values in the given collection.
- */
-export function sum<T extends number>(values: Iterable<T>): OperationIO<T>;
-
 export function sum<T extends number>(values: Iterable<T>): OperationIO<T> {
-  return [...values].reduce(add, 0) as OperationIO<T>;
+  return [...values].reduce<number>(add, 0) as OperationIO<T>;
 }
 
 /**
  * Equal: Compare if two values are equal.
  */
-export function eq<T extends UnknownUnit>(a: T, b: T): boolean;
-
-/**
- * Equal: Compare if two values are equal.
- */
-export function eq<T extends UnknownAbstractUnit>(a: T, b: T): boolean;
-
-/**
- * Equal: Compare if two values are equal.
- */
-export function eq<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): boolean;
-
 export function eq<T extends number>(
   a: OperationIO<T>,
   b: OperationIO<T>,
@@ -421,21 +234,6 @@ export function eq<T extends number>(
 /**
  * Greater Than: Compare if the first value is greater than the second.
  */
-export function gt<T extends UnknownUnit>(a: T, b: T): boolean;
-
-/**
- * Greater Than: Compare if the first value is greater than the second.
- */
-export function gt<T extends UnknownAbstractUnit>(a: T, b: T): boolean;
-
-/**
- * Greater Than: Compare if the first value is greater than the second.
- */
-export function gt<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): boolean;
-
 export function gt<T extends number>(
   a: OperationIO<T>,
   b: OperationIO<T>,
@@ -446,21 +244,6 @@ export function gt<T extends number>(
 /**
  * Greater Than or Equal: Compare if the first value is greater than or equal to the second.
  */
-export function gte<T extends UnknownUnit>(a: T, b: T): boolean;
-
-/**
- * Greater Than or Equal: Compare if the first value is greater than or equal to the second.
- */
-export function gte<T extends UnknownAbstractUnit>(a: T, b: T): boolean;
-
-/**
- * Greater Than or Equal: Compare if the first value is greater than or equal to the second.
- */
-export function gte<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): boolean;
-
 export function gte<T extends number>(
   a: OperationIO<T>,
   b: OperationIO<T>,
@@ -471,21 +254,6 @@ export function gte<T extends number>(
 /**
  * Less Than: Compare if the first value is less than the second.
  */
-export function lt<T extends UnknownUnit>(a: T, b: T): boolean;
-
-/**
- * Less Than: Compare if the first value is less than the second.
- */
-export function lt<T extends UnknownAbstractUnit>(a: T, b: T): boolean;
-
-/**
- * Less Than: Compare if the first value is less than the second.
- */
-export function lt<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): boolean;
-
 export function lt<T extends number>(
   a: OperationIO<T>,
   b: OperationIO<T>,
@@ -496,21 +264,6 @@ export function lt<T extends number>(
 /**
  * Less Than or Equal: Compare if the first value is less than or equal to the second.
  */
-export function lte<T extends UnknownUnit>(a: T, b: T): boolean;
-
-/**
- * Less Than or Equal: Compare if the first value is less than or equal to the second.
- */
-export function lte<T extends UnknownAbstractUnit>(a: T, b: T): boolean;
-
-/**
- * Less Than or Equal: Compare if the first value is less than or equal to the second.
- */
-export function lte<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): boolean;
-
 export function lte<T extends number>(
   a: OperationIO<T>,
   b: OperationIO<T>,

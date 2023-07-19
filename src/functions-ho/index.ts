@@ -9,29 +9,15 @@ import {
   type UnknownUnit,
 } from "#uom-types";
 
-type OperationIO<T extends number> = T extends UnknownUnit
+type OperationIO<T extends number> = [T] extends [UnknownUnit]
   ? T
-  : T extends UnknownAbstractUnit
+  : [T] extends [UnknownAbstractUnit]
   ? T
   : number;
 
 /**
  * Add two values with the same units together.
  */
-export function add<T extends UnknownUnit>(a: T): (b: T) => T;
-
-/**
- * Add two values with the same units together.
- */
-export function add<T extends UnknownAbstractUnit>(a: T): (b: T) => T;
-
-/**
- * Add two values together.
- */
-export function add<T extends number>(
-  a: OperationIO<T>,
-): (b: OperationIO<T>) => OperationIO<T>;
-
 export function add<T extends number>(
   a: OperationIO<T>,
 ): (b: OperationIO<T>) => OperationIO<T> {
@@ -41,20 +27,6 @@ export function add<T extends number>(
 /**
  * Subtract one value from another with the same units.
  */
-export function sub<T extends UnknownUnit>(a: T): (b: T) => T;
-
-/**
- * Subtract one value from another with the same units.
- */
-export function sub<T extends UnknownAbstractUnit>(a: T): (b: T) => T;
-
-/**
- * Subtract one value from another.
- */
-export function sub<T extends number>(
-  a: OperationIO<T>,
-): (b: OperationIO<T>) => OperationIO<T>;
-
 export function sub<T extends number>(
   a: OperationIO<T>,
 ): (b: OperationIO<T>) => OperationIO<T> {
@@ -84,23 +56,6 @@ export function div<A extends number>(
 /**
  * Modulo operator.
  */
-export function mod<T extends UnknownUnit>(a: T): (b: T) => T;
-
-/**
- * Modulo operator.
- */
-export function mod<T extends UnknownAbstractUnit>(a: T): (b: T) => T;
-
-/**
- * Modulo operator.
- */
-export function mod<T extends number>(
-  a: OperationIO<T>,
-): (b: OperationIO<T>) => OperationIO<T>;
-
-/**
- * Modulo operator.
- */
 export function mod<T extends number>(
   a: OperationIO<T>,
 ): (b: OperationIO<T>) => OperationIO<T> {
@@ -110,20 +65,6 @@ export function mod<T extends number>(
 /**
  * Perform mathematic modular arithmetic.
  */
-export function modSafe<T extends UnknownUnit>(a: T): (b: T) => T;
-
-/**
- * Perform mathematic modular arithmetic.
- */
-export function modSafe<T extends UnknownAbstractUnit>(a: T): (b: T) => T;
-
-/**
- * Perform mathematic modular arithmetic.
- */
-export function modSafe<T extends number>(
-  a: OperationIO<T>,
-): (b: OperationIO<T>) => OperationIO<T>;
-
 export function modSafe<T extends number>(
   a: OperationIO<T>,
 ): (b: OperationIO<T>) => OperationIO<T> {
@@ -167,20 +108,6 @@ export function pow<E extends number>(exponent: E) {
 /**
  * Equal: Compare if a value is equal to the given value.
  */
-export function eq<T extends UnknownUnit>(a: T): (b: T) => boolean;
-
-/**
- * Equal: Compare if a value is equal to the given value.
- */
-export function eq<T extends UnknownAbstractUnit>(a: T): (b: T) => boolean;
-
-/**
- * Equal: Compare if a value is equal to the given value.
- */
-export function eq<T extends number>(
-  a: OperationIO<T>,
-): (b: OperationIO<T>) => boolean;
-
 export function eq<T extends number>(
   a: OperationIO<T>,
 ): (b: OperationIO<T>) => boolean {
@@ -190,20 +117,6 @@ export function eq<T extends number>(
 /**
  * Greater Than: Compare if a value is greater than the given value.
  */
-export function gt<T extends UnknownUnit>(a: T): (b: T) => boolean;
-
-/**
- * Greater Than: Compare if a value is greater than the given value.
- */
-export function gt<T extends UnknownAbstractUnit>(a: T): (b: T) => boolean;
-
-/**
- * Greater Than: Compare if a value is greater than the given value.
- */
-export function gt<T extends number>(
-  a: OperationIO<T>,
-): (b: OperationIO<T>) => boolean;
-
 export function gt<T extends number>(
   a: OperationIO<T>,
 ): (b: OperationIO<T>) => boolean {
@@ -213,20 +126,6 @@ export function gt<T extends number>(
 /**
  * Greater Than or Equal: Compare if a value is greater than or equal to the given value.
  */
-export function gte<T extends UnknownUnit>(a: T): (b: T) => boolean;
-
-/**
- * Greater Than or Equal: Compare if a value is greater than or equal to the given value.
- */
-export function gte<T extends UnknownAbstractUnit>(a: T): (b: T) => boolean;
-
-/**
- * Greater Than or Equal: Compare if a value is greater than or equal to the given value.
- */
-export function gte<T extends number>(
-  a: OperationIO<T>,
-): (b: OperationIO<T>) => boolean;
-
 export function gte<T extends number>(
   a: OperationIO<T>,
 ): (b: OperationIO<T>) => boolean {
@@ -236,20 +135,6 @@ export function gte<T extends number>(
 /**
  * Less Than: Compare if a value is less than the given value.
  */
-export function lt<T extends UnknownUnit>(a: T): (b: T) => boolean;
-
-/**
- * Less Than: Compare if a value is less than the given value.
- */
-export function lt<T extends UnknownAbstractUnit>(a: T): (b: T) => boolean;
-
-/**
- * Less Than: Compare if a value is less than the given value.
- */
-export function lt<T extends number>(
-  a: OperationIO<T>,
-): (b: OperationIO<T>) => boolean;
-
 export function lt<T extends number>(
   a: OperationIO<T>,
 ): (b: OperationIO<T>) => boolean {
@@ -259,20 +144,6 @@ export function lt<T extends number>(
 /**
  * Less Than or Equal: Compare if a value is less than or equal to the given value.
  */
-export function lte<T extends UnknownUnit>(a: T): (b: T) => boolean;
-
-/**
- * Less Than or Equal: Compare if a value is less than or equal to the given value.
- */
-export function lte<T extends UnknownAbstractUnit>(a: T): (b: T) => boolean;
-
-/**
- * Less Than or Equal: Compare if a value is less than or equal to the given value.
- */
-export function lte<T extends number>(
-  a: OperationIO<T>,
-): (b: OperationIO<T>) => boolean;
-
 export function lte<T extends number>(
   a: OperationIO<T>,
 ): (b: OperationIO<T>) => boolean {
