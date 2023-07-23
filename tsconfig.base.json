@@ -25,6 +25,7 @@
     "strict": true,
     "target": "ESNext",
     "useUnknownInCatchVariables": true,
+    "noErrorTruncation": true,
     "baseUrl": ".",
     "paths": {
       "#uom-types": ["./src/index.ts"],
