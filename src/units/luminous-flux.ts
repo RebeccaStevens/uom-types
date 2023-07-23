@@ -6,6 +6,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
+import { type SolidAngleBaseMetaConfig } from "./angle";
 import { type SiUnitClass } from "./si-unit";
 
 export type LuminousFluxUnitClass = SiUnitClass<{ Candelas: 1 }>;
@@ -36,4 +37,4 @@ export type Candelas = LuminousFluxUnit<{}>;
  * @symbol `lx`
  * @derived
  */
-export type Lumens = LuminousFluxUnit<{}>; // Multiplied by Steradians
+export type Lumens = LuminousFluxUnit<SolidAngleBaseMetaConfig>;
