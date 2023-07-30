@@ -18,6 +18,7 @@ export type LengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   LengthUnitClass,
   M
 >;
+
 /**
  * A unit of length.
  *
