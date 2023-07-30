@@ -14,9 +14,9 @@ export type PlaneAngle = AbstractUnitFrom<PlaneAngleUnitClass>;
 export type PlaneAngleBaseMetaConfig = {
   readonly __plane_angle: 1;
 };
-export type PlaneAngleUnit<M extends UnitSubvalues> = UnitFrom<
+export type PlaneAngleUnit<T extends UnitSubvalues> = UnitFrom<
   PlaneAngleUnitClass,
-  UnitMeta<FlatternAlias<Readonly<M> & PlaneAngleBaseMetaConfig>>
+  UnitMeta<FlatternAlias<Readonly<T> & PlaneAngleBaseMetaConfig>>
 >;
 
 export type SolidAngleUnitClass = SiUnitClass<{}>;
@@ -24,9 +24,9 @@ export type SolidAngle = AbstractUnitFrom<SolidAngleUnitClass>;
 export type SolidAngleBaseMetaConfig = {
   readonly __solid_angle: 1;
 };
-export type SolidAngleUnit<M extends UnitSubvalues> = UnitFrom<
+export type SolidAngleUnit<T extends UnitSubvalues> = UnitFrom<
   SolidAngleUnitClass,
-  UnitMeta<FlatternAlias<Readonly<M> & SolidAngleBaseMetaConfig>>
+  UnitMeta<FlatternAlias<Readonly<T> & SolidAngleBaseMetaConfig>>
 >;
 
 /**
@@ -41,11 +41,27 @@ export type SolidAngleUnit<M extends UnitSubvalues> = UnitFrom<
 export type Radians = PlaneAngleUnit<{}>;
 
 /**
- * The total angle of a circle is 360 degrees.
+ * The total plane angle of a circle is 360 degrees.
  *
  * @symbol `°`
  */
-export type Degrees = PlaneAngleUnit<{ "scalar360/2π": 1 }>;
+export type Degrees = PlaneAngleUnit<{ scalar360: 1; scalar2π: -1 }>;
+
+/**
+ * One gradian is equal to 100th of a right angle
+ *
+ * The total plane angle about a point is 400 gradians.
+ *
+ * @symbol `gon`
+ */
+export type Gradians = PlaneAngleUnit<{ scalar400: 1; scalar2π: -1 }>;
+
+/**
+ * One turn is equal to 1 full rotation about a point.
+ *
+ * @symbol `tr`
+ */
+export type Turns = PlaneAngleUnit<{ scalar2π: -1 }>;
 
 /**
  * One steradian is the solid angle of a sphere subtended by a portion of the
