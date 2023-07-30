@@ -40,5 +40,5 @@ export type Weeks = DurationUnit<{
 export type Years = DurationUnit<{
   scalar60: 2;
   scalar24: 1;
-  "scalar365.25": 1;
+  scalarDaysInYear: 1;
 }>;
