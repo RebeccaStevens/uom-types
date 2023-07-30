@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -16,7 +16,7 @@ export type MagneticFieldStrengthUnitClass = SiUnitClass<{
 export type MagneticFieldStrength =
   AbstractUnitFrom<MagneticFieldStrengthUnitClass>;
 
-export type MagneticFieldStrengthUnit<M extends Record<string, Exponent>> =
+export type MagneticFieldStrengthUnit<M extends UnitSubvalues> =
   MagneticFieldStrengthUnitFrom<UnitMeta<M>>;
 
 export type MagneticFieldStrengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

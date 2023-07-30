@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -14,7 +14,7 @@ export type ReciprocalLengthUnitClass = SiUnitClass<{
 
 export type ReciprocalLength = AbstractUnitFrom<ReciprocalLengthUnitClass>;
 
-export type ReciprocalLengthUnit<M extends Record<string, Exponent>> =
+export type ReciprocalLengthUnit<M extends UnitSubvalues> =
   ReciprocalLengthUnitFrom<UnitMeta<M>>;
 
 export type ReciprocalLengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

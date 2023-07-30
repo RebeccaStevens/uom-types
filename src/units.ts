@@ -1,21 +1,21 @@
 import {
+  type UnitSubvalues,
   type AbstractUnit,
   type Unit,
   type UnknownAbstractUnit,
   type UnknownUnit,
 } from "./core";
-import {
-  type Exponent,
-  type NegativeExponent,
-  type SumExponents,
-} from "./exponents";
+import { type NegativeExponent, type SumExponents } from "./exponents";
 import {
   type ExcludeNullUnits,
   type FlatternAlias,
   type GetExponent,
 } from "./utils";
 
-export type InverseUnit<T extends number> = T extends Unit<
+/**
+ * Take the inverse of a unit. 1/X.
+ */
+export type InverseUnit<X extends number> = X extends Unit<
   infer Config,
   infer Meta
 >
@@ -23,15 +23,18 @@ export type InverseUnit<T extends number> = T extends Unit<
       FlatternAlias<InverseUnitCore<Config>>,
       FlatternAlias<InverseUnitCore<Meta>>
     >
-  : T extends AbstractUnit<infer Config>
+  : X extends AbstractUnit<infer Config>
   ? AbstractUnit<FlatternAlias<InverseUnitCore<Config>>>
   : number;
 
-type InverseUnitCore<T extends Record<string, Exponent>> = {
+type InverseUnitCore<T extends UnitSubvalues> = {
   [E in keyof T]: NegativeExponent<T[E]>;
 };
 
-export type MultiplyUnit<A extends number, B extends number> = A extends Unit<
+/**
+ * Multiple a unit by another unit. AB
+ */
+export type MultiplyUnits<A extends number, B extends number> = A extends Unit<
   infer AConfig,
   infer AMeta
 >
@@ -56,13 +59,16 @@ export type MultiplyUnit<A extends number, B extends number> = A extends Unit<
   : number;
 
 type MultiplyUnitsCore<
-  A extends Record<string, Exponent>,
-  B extends Record<string, Exponent>,
+  A extends UnitSubvalues,
+  B extends UnitSubvalues,
 > = ExcludeNullUnits<{
   [S in keyof A | keyof B]: SumExponents<GetExponent<A, S>, GetExponent<B, S>>;
 }>;
 
-export type DivideUnit<A extends number, B extends number> = MultiplyUnit<
+/**
+ * Divide a unit by another unit. A/B
+ */
+export type DivideUnits<A extends number, B extends number> = MultiplyUnits<
   A,
   InverseUnit<B>
 >;

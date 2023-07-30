@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -12,7 +12,7 @@ export type DurationUnitClass = SiUnitClass<{ Seconds: 1 }>;
 
 export type Duration = AbstractUnitFrom<DurationUnitClass>;
 
-export type DurationUnit<M extends Record<string, Exponent>> = DurationUnitFrom<
+export type DurationUnit<M extends UnitSubvalues> = DurationUnitFrom<
   UnitMeta<M>
 >;
 

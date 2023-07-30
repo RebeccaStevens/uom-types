@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -14,8 +14,9 @@ export type TemperatureUnitClass = SiUnitClass<{
 
 export type Temperature = AbstractUnitFrom<TemperatureUnitClass>;
 
-export type TemperatureUnit<M extends Record<string, Exponent>> =
-  TemperatureUnitFrom<UnitMeta<M>>;
+export type TemperatureUnit<M extends UnitSubvalues> = TemperatureUnitFrom<
+  UnitMeta<M>
+>;
 
 export type TemperatureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   TemperatureUnitClass,

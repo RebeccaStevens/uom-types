@@ -1,9 +1,9 @@
 import {
   type AbstractUnit,
-  type DivideUnit,
+  type DivideUnits,
   type DivideUnitExponents,
   type InverseUnit,
-  type MultiplyUnit,
+  type MultiplyUnits,
   type Unit,
   type UnknownAbstractUnit,
   type UnknownUnit,
@@ -41,8 +41,8 @@ export function sub<T extends number>(
 export function mul<A extends number, B extends number>(
   a: A,
   b: B,
-): MultiplyUnit<A, B> {
-  return (a * b) as MultiplyUnit<A, B>;
+): MultiplyUnits<A, B> {
+  return (a * b) as MultiplyUnits<A, B>;
 }
 
 /**
@@ -51,8 +51,8 @@ export function mul<A extends number, B extends number>(
 export function div<A extends number, B extends number>(
   a: A,
   b: B,
-): DivideUnit<A, B> {
-  return (a / b) as DivideUnit<A, B>;
+): DivideUnits<A, B> {
+  return (a / b) as DivideUnits<A, B>;
 }
 
 /**
@@ -115,7 +115,10 @@ export function pow<E extends number>(base: E, exponent: 1): E;
 /**
  * Put a number to the power of 2.
  */
-export function pow<B extends number>(base: B, exponent: 2): MultiplyUnit<B, B>;
+export function pow<B extends number>(
+  base: B,
+  exponent: 2,
+): MultiplyUnits<B, B>;
 
 /**
  * Put a number to the power of 3.
@@ -123,7 +126,7 @@ export function pow<B extends number>(base: B, exponent: 2): MultiplyUnit<B, B>;
 export function pow<B extends number>(
   base: B,
   exponent: 3,
-): MultiplyUnit<B, MultiplyUnit<B, B>>;
+): MultiplyUnits<B, MultiplyUnits<B, B>>;
 
 /**
  * Put a number to the power of 4.
@@ -131,7 +134,7 @@ export function pow<B extends number>(
 export function pow<B extends number>(
   base: B,
   exponent: 4,
-): MultiplyUnit<B, MultiplyUnit<B, MultiplyUnit<B, B>>>;
+): MultiplyUnits<B, MultiplyUnits<B, MultiplyUnits<B, B>>>;
 
 /**
  * Put one number to the power of the other.

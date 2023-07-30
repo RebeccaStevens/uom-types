@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -12,7 +12,7 @@ export type AmountOfSubstanceUnitClass = SiUnitClass<{ Moles: 1 }>;
 
 export type AmountOfSubstance = AbstractUnitFrom<AmountOfSubstanceUnitClass>;
 
-export type AmountOfSubstanceUnit<M extends Record<string, Exponent>> =
+export type AmountOfSubstanceUnit<M extends UnitSubvalues> =
   AmountOfSubstanceUnitFrom<UnitMeta<M>>;
 
 export type AmountOfSubstanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

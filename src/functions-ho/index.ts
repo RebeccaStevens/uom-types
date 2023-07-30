@@ -1,9 +1,9 @@
 import {
   type AbstractUnit,
-  type DivideUnit,
+  type DivideUnits,
   type DivideUnitExponents,
   type InverseUnit,
-  type MultiplyUnit,
+  type MultiplyUnits,
   type Unit,
   type UnknownAbstractUnit,
   type UnknownUnit,
@@ -38,7 +38,7 @@ export function sub<T extends number>(
  */
 export function mul<A extends number>(
   a: A,
-): <B extends number>(b: B) => MultiplyUnit<B, A> {
+): <B extends number>(b: B) => MultiplyUnits<B, A> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-return -- Casting to actual type fails for some reason.
   return (b) => (b * a) as any;
 }
@@ -48,7 +48,7 @@ export function mul<A extends number>(
  */
 export function div<A extends number>(
   a: A,
-): <B extends number>(b: B) => DivideUnit<B, A> {
+): <B extends number>(b: B) => DivideUnits<B, A> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-return -- Casting to actual type fails for some reason.
   return (b) => (b / a) as any;
 }
@@ -90,11 +90,11 @@ type PowFunction<E extends number, B extends number> = E extends UnknownUnit
   : E extends 1
   ? (b: B) => B
   : E extends 2
-  ? (b: B) => MultiplyUnit<B, B>
+  ? (b: B) => MultiplyUnits<B, B>
   : E extends 3
-  ? (b: B) => MultiplyUnit<B, MultiplyUnit<B, B>>
+  ? (b: B) => MultiplyUnits<B, MultiplyUnits<B, B>>
   : E extends 4
-  ? (b: B) => MultiplyUnit<B, MultiplyUnit<B, MultiplyUnit<B, B>>>
+  ? (b: B) => MultiplyUnits<B, MultiplyUnits<B, MultiplyUnits<B, B>>>
   : (b: B) => number;
 
 /**

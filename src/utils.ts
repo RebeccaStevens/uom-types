@@ -1,17 +1,25 @@
-import { type Exponent } from "./exponents";
+import { type UnitSubvalues } from "./core";
 
-export type RemoveNeverValues<T> = {
+/**
+ * Remove all key from the object that are never.
+ */
+export type RemoveNeverValues<T extends object> = {
   [K in keyof T as [T[K]] extends [never] ? never : K]: T[K];
 };
 
-export type ExcludeNullUnits<U extends Record<string, Exponent>> = {
+/**
+ * Exclude all unit subvalues with an exponent value of zero.
+ */
+export type ExcludeNullUnits<U extends UnitSubvalues> = {
   [S in keyof U as U[S] extends 0 ? never : S]: U[S];
 };
 
-export type GetExponent<
-  C extends Record<string, Exponent>,
-  S,
-> = S extends keyof C ? C[S] : 0;
+/**
+ * Get the exponent value of the given key.
+ */
+export type GetExponent<C extends UnitSubvalues, S> = S extends keyof C
+  ? C[S]
+  : 0;
 
 /**
  * Flatten a complex type such as a union or intersection of objects into a
@@ -19,6 +27,9 @@ export type GetExponent<
  */
 export type FlatternAlias<T> = { [P in keyof T]: T[P] } & {};
 
-export type Exactify<T, X extends T> = T & {
-  [K in keyof X]: K extends keyof T ? X[K] : never;
+/**
+ * Make `T` exactly `T`.
+ */
+export type Exactify<T, U extends T> = T & {
+  [K in keyof U]: K extends keyof T ? U[K] : never;
 };

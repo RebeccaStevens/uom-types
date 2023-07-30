@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -12,8 +12,9 @@ export type FrequencyUnitClass = SiUnitClass<{ Seconds: -1 }>;
 
 export type Frequency = AbstractUnitFrom<FrequencyUnitClass>;
 
-export type FrequencyUnit<M extends Record<string, Exponent>> =
-  FrequencyUnitFrom<UnitMeta<M>>;
+export type FrequencyUnit<M extends UnitSubvalues> = FrequencyUnitFrom<
+  UnitMeta<M>
+>;
 
 export type FrequencyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   FrequencyUnitClass,

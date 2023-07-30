@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -12,9 +12,7 @@ export type LengthUnitClass = SiUnitClass<{ Meters: 1 }>;
 
 export type Length = AbstractUnitFrom<LengthUnitClass>;
 
-export type LengthUnit<M extends Record<string, Exponent>> = LengthUnitFrom<
-  UnitMeta<M>
->;
+export type LengthUnit<M extends UnitSubvalues> = LengthUnitFrom<UnitMeta<M>>;
 
 export type LengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   LengthUnitClass,

@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -17,7 +17,7 @@ export type ElectricInductanceUnitClass = SiUnitClass<{
 
 export type ElectricInductance = AbstractUnitFrom<ElectricInductanceUnitClass>;
 
-export type ElectricInductanceUnit<M extends Record<string, Exponent>> =
+export type ElectricInductanceUnit<M extends UnitSubvalues> =
   ElectricInductanceUnitFrom<UnitMeta<M>>;
 
 export type ElectricInductanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

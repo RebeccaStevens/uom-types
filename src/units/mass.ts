@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -14,9 +14,7 @@ export type MassUnitClass = SiUnitClass<{
 
 export type Mass = AbstractUnitFrom<MassUnitClass>;
 
-export type MassUnit<M extends Record<string, Exponent>> = MassUnitFrom<
-  UnitMeta<M>
->;
+export type MassUnit<M extends UnitSubvalues> = MassUnitFrom<UnitMeta<M>>;
 
 export type MassUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   MassUnitClass,

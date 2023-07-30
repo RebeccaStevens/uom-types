@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -12,8 +12,9 @@ export type IntensityUnitClass = SiUnitClass<{ Kilograms: 1; Seconds: -3 }>;
 
 export type Intensity = AbstractUnitFrom<IntensityUnitClass>;
 
-export type IntensityUnit<M extends Record<string, Exponent>> =
-  IntensityUnitFrom<UnitMeta<M>>;
+export type IntensityUnit<M extends UnitSubvalues> = IntensityUnitFrom<
+  UnitMeta<M>
+>;
 
 export type IntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   IntensityUnitClass,

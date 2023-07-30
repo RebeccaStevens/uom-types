@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -14,9 +14,7 @@ export type VolumeUnitClass = SiUnitClass<{
 
 export type Volume = AbstractUnitFrom<VolumeUnitClass>;
 
-export type VolumeUnit<M extends Record<string, Exponent>> = VolumeUnitFrom<
-  UnitMeta<M>
->;
+export type VolumeUnit<M extends UnitSubvalues> = VolumeUnitFrom<UnitMeta<M>>;
 
 export type VolumeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   VolumeUnitClass,

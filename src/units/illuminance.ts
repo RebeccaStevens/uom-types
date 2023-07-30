@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -12,8 +12,9 @@ export type IlluminanceUnitClass = SiUnitClass<{ Candelas: 1; Meters: -2 }>;
 
 export type Illuminance = AbstractUnitFrom<IlluminanceUnitClass>;
 
-export type IlluminanceUnit<M extends Record<string, Exponent>> =
-  IlluminanceUnitFrom<UnitMeta<M>>;
+export type IlluminanceUnit<M extends UnitSubvalues> = IlluminanceUnitFrom<
+  UnitMeta<M>
+>;
 
 export type IlluminanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   IlluminanceUnitClass,

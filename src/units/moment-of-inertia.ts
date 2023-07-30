@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -15,7 +15,7 @@ export type MomentOfInertiaUnitClass = SiUnitClass<{
 
 export type MomentOfInertia = AbstractUnitFrom<MomentOfInertiaUnitClass>;
 
-export type MomentOfInertiaUnit<M extends Record<string, Exponent>> =
+export type MomentOfInertiaUnit<M extends UnitSubvalues> =
   MomentOfInertiaUnitFrom<UnitMeta<M>>;
 
 export type MomentOfInertiaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

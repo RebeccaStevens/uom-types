@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -15,7 +15,7 @@ export type VelocityUnitClass = SiUnitClass<{
 
 export type Velocity = AbstractUnitFrom<VelocityUnitClass>;
 
-export type VelocityUnit<M extends Record<string, Exponent>> = VelocityUnitFrom<
+export type VelocityUnit<M extends UnitSubvalues> = VelocityUnitFrom<
   UnitMeta<M>
 >;
 

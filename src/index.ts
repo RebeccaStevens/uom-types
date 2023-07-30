@@ -5,6 +5,7 @@ export type {
   UnitClass,
   UnitFrom,
   UnitMeta,
+  UnitSubvalues,
   UnknownAbstractUnit,
   UnknownUnit,
   UnknownUnitClass,
@@ -19,4 +20,4 @@ export type {
   DivideExponents,
 } from "./exponents";
 export { MultiplyUnitExponents, DivideUnitExponents } from "./unit-exponents";
-export type { MultiplyUnit, DivideUnit, InverseUnit } from "./units";
+export type { MultiplyUnits, DivideUnits, InverseUnit } from "./units";

@@ -1,13 +1,13 @@
 import { expectType } from "tsd";
 
-import { type DivideUnit } from "#uom-types";
+import { type DivideUnits } from "#uom-types";
 import {
   type Meters,
   type MetersPerSecond,
   type Seconds,
 } from "#uom-types/units";
 
-type MetersPerSecond_DerivedFrom_Meters_Per_Second = DivideUnit<
+type MetersPerSecond_DerivedFrom_Meters_Per_Second = DivideUnits<
   Meters,
   Seconds
 >;

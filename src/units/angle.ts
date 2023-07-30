@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
 } from "#uom-types";
@@ -14,7 +14,7 @@ export type PlaneAngle = AbstractUnitFrom<PlaneAngleUnitClass>;
 export type PlaneAngleBaseMetaConfig = {
   readonly __plane_angle: 1;
 };
-export type PlaneAngleUnit<M extends Record<string, Exponent>> = UnitFrom<
+export type PlaneAngleUnit<M extends UnitSubvalues> = UnitFrom<
   PlaneAngleUnitClass,
   UnitMeta<FlatternAlias<Readonly<M> & PlaneAngleBaseMetaConfig>>
 >;
@@ -24,7 +24,7 @@ export type SolidAngle = AbstractUnitFrom<SolidAngleUnitClass>;
 export type SolidAngleBaseMetaConfig = {
   readonly __solid_angle: 1;
 };
-export type SolidAngleUnit<M extends Record<string, Exponent>> = UnitFrom<
+export type SolidAngleUnit<M extends UnitSubvalues> = UnitFrom<
   SolidAngleUnitClass,
   UnitMeta<FlatternAlias<Readonly<M> & SolidAngleBaseMetaConfig>>
 >;

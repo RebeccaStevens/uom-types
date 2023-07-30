@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -13,8 +13,9 @@ export type LuminousFluxUnitClass = SiUnitClass<{ Candelas: 1 }>;
 
 export type LuminousFlux = AbstractUnitFrom<LuminousFluxUnitClass>;
 
-export type LuminousFluxUnit<M extends Record<string, Exponent>> =
-  LuminousFluxUnitFrom<UnitMeta<M>>;
+export type LuminousFluxUnit<M extends UnitSubvalues> = LuminousFluxUnitFrom<
+  UnitMeta<M>
+>;
 
 export type LuminousFluxUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   LuminousFluxUnitClass,

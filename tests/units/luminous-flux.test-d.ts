@@ -1,9 +1,9 @@
 import { expectAssignable } from "tsd";
 
-import { type MultiplyUnit } from "#uom-types";
+import { type MultiplyUnits } from "#uom-types";
 import { type Candelas, type Steradians, type Lumens } from "#uom-types/units";
 
-type Lumens_DerivedFrom_Candelas_Steradians = MultiplyUnit<
+type Lumens_DerivedFrom_Candelas_Steradians = MultiplyUnits<
   Candelas,
   Steradians
 >;

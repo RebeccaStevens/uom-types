@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -12,7 +12,7 @@ export type EnthalpyUnitClass = SiUnitClass<{ Meters: 2; Seconds: -2 }>;
 
 export type Enthalpy = AbstractUnitFrom<EnthalpyUnitClass>;
 
-export type EnthalpyUnit<M extends Record<string, Exponent>> = EnthalpyUnitFrom<
+export type EnthalpyUnit<M extends UnitSubvalues> = EnthalpyUnitFrom<
   UnitMeta<M>
 >;
 

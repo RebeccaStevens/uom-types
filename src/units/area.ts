@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -12,9 +12,7 @@ export type AreaUnitClass = SiUnitClass<{ Meters: 2 }>;
 
 export type Area = AbstractUnitFrom<AreaUnitClass>;
 
-export type AreaUnit<M extends Record<string, Exponent>> = AreaUnitFrom<
-  UnitMeta<M>
->;
+export type AreaUnit<M extends UnitSubvalues> = AreaUnitFrom<UnitMeta<M>>;
 
 export type AreaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   AreaUnitClass,

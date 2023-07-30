@@ -1,6 +1,6 @@
 import {
   type AbstractUnitFrom,
-  type Exponent,
+  type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
@@ -16,7 +16,7 @@ export type PressureUnitClass = SiUnitClass<{
 
 export type Pressure = AbstractUnitFrom<PressureUnitClass>;
 
-export type PressureUnit<M extends Record<string, Exponent>> = PressureUnitFrom<
+export type PressureUnit<M extends UnitSubvalues> = PressureUnitFrom<
   UnitMeta<M>
 >;
 
