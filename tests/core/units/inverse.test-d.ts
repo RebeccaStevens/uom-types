@@ -4,15 +4,14 @@ import {
   type AbstractUnitFrom,
   type UnitClass,
   type UnitFrom,
-  type UnitMeta,
   type InverseUnit,
 } from "#uom-types";
 
 type TestUnitClass = UnitClass<{ a: 1 }>;
 type TestUnitClassInv = UnitClass<{ a: -1 }>;
 
-type TestUnit = UnitFrom<TestUnitClass, UnitMeta<{}>>;
-type TestUnitInv = UnitFrom<TestUnitClassInv, UnitMeta<{}>>;
+type TestUnit = UnitFrom<TestUnitClass>;
+type TestUnitInv = UnitFrom<TestUnitClassInv>;
 
 expectType<TestUnitInv>(0 as InverseUnit<TestUnit>);
 
