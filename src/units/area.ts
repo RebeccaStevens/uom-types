@@ -35,7 +35,7 @@ export type SquareMeters = AreaUnit<{}>;
  * @symbol `are`
  * @derived
  */
-export type Ares = AreaUnit<{ scale10: 2 }>;
+export type Ares = AreaUnit<{ scalar10: 2 }>;
 
 /**
  * A unit of area equal to 10,000 Square Meters.
@@ -44,4 +44,4 @@ export type Ares = AreaUnit<{ scale10: 2 }>;
  * @symbol `ha`
  * @derived
  */
-export type Hectares = AreaUnit<{ scale10: 4 }>;
+export type Hectares = AreaUnit<{ scalar10: 4 }>;

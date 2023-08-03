@@ -42,5 +42,5 @@ export type PerWeek = FrequencyUnit<{
 export type PerYear = FrequencyUnit<{
   scalar60: -2;
   scalar24: -1;
-  scalar365: -1;
+  scalarDaysInYear: -1;
 }>;
