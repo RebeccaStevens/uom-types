@@ -42,7 +42,11 @@ populateExponents();
 await generateFiles();
 
 function generateFiles() {
-  return Promise.all([generateExponentsFile(), generateSiUnitPrefixesFile()]);
+  return Promise.all([
+    generateExponentsFile(),
+    generateSiUnitPrefixesFile(),
+    generateSiUnitPrefixesConvertionFile(),
+  ]);
 }
 
 function generateExponentsFile() {
@@ -76,6 +80,30 @@ function generateSiUnitPrefixesFile() {
     .join("\n\n");
   const content = `${autogenHeader}${imports}${main}\n`;
   return fs.writeFile("src/units/prefixes.ts", content, { encoding: "utf8" });
+}
+
+function generateSiUnitPrefixesConvertionFile() {
+  const imports = `import { type UnknownUnit, type UnitConversionRate } from "#uom-types";\nimport { mul, div } from "#uom-types/functions";\n\n`;
+  const main = [...exponents.values()]
+    .map((exponent) => {
+      const name = scalar10ToName.get(exponent);
+      if (name === undefined) {
+        return null;
+      }
+      const negativeExponent = exponent < 0;
+      const absExponent = Math.abs(exponent);
+      return `/**\n * Convert \`X\` to \`${name.toLowerCase()}X\`.\n */\nexport function to${name}<T extends UnknownUnit>(value: T) {\n  return ${
+        negativeExponent ? "div" : "mul"
+      }(value, ${
+        10 ** absExponent
+      } as UnitConversionRate<{ scalar10: ${-absExponent} }>);\n}`;
+    })
+    .filter(isNotNull)
+    .join("\n\n");
+  const content = `${autogenHeader}${imports}${main}\n`;
+  return fs.writeFile("src/units/converters/prefixes.ts", content, {
+    encoding: "utf8",
+  });
 }
 
 function populateExponents() {

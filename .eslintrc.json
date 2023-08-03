@@ -18,7 +18,8 @@
     "/coverage/",
     "/dist/",
     "/src/exponents.ts",
-    "/src/units/prefixes.ts"
+    "/src/units/prefixes.ts",
+    "/src/units/converters/prefixes.ts"
   ],
   "rules": {
     "@typescript-eslint/naming-convention": "off",

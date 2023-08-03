@@ -3,6 +3,8 @@ export type {
   AbstractUnitFrom,
   Unit,
   UnitClass,
+  UnitConversionRate,
+  UnitConversionRateFrom,
   UnitFrom,
   UnitMeta,
   UnitSubvalues,

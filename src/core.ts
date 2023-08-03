@@ -41,6 +41,21 @@ export type UnitFrom<
   : never;
 
 /**
+ * A {@link Unit} without any {@link UnitClass}.
+ *
+ * Used to convert from one {@link Unit} to another of the same {@link UnitClass}.
+ */
+export type UnitConversionRate<M extends UnitSubvalues> = Unit<{}, M>;
+
+/**
+ * Create a {@link UnitConversionRate} from already existing {@link UnitMeta}.
+ */
+export type UnitConversionRateFrom<M extends UnknownUnitMeta> =
+  M extends UnitMeta<infer A>
+    ? UnitConversionRate<UnitSubvalues extends A ? {} : A>
+    : never;
+
+/**
  * Used to determine what a unit is of. For example, length, volume, mass etc.
  */
 export type UnitClass<T extends UnitSubvalues> = UnitKeyValues<T> & {
