@@ -16,6 +16,7 @@
   },
   "ignorePatterns": [
     "/coverage/",
+    "/docs/generated/",
     "/dist/",
     "/src/exponents.ts",
     "/src/units/converters/prefixes.ts",

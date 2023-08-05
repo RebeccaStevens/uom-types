@@ -43,6 +43,8 @@ jobs:
       - test_types
       - type_check
     runs-on: ubuntu-latest
+    outputs:
+      new_release_published: ${{ steps.semantic.outputs.new_release_published }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -53,8 +55,14 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Release
-        run: pnpm run release
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v3
+        id: semantic
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  release_docs:
+    needs: release
+    if: needs.release.outputs.new_release_published == 'true'
+    uses: ./.github/workflows/release-docs.yml

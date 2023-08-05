@@ -4,6 +4,8 @@
 /pnpm-lock.yaml
 
 # Autogen files
+/docs/generated/
+/docs/coverage.svg
 /src/exponents.ts
 /src/units/converters/prefixes.ts
 /src/units/si/modifiers/prefixes.ts

@@ -9,5 +9,6 @@
     "tests/**/*.test.ts",
     "tests/**/*.test-d.ts"
   ],
-  "project": ["src/**/*.ts!", "tests/**/*.ts"]
+  "project": ["src/**/*.ts!", "tests/**/*.ts"],
+  "ignoreDependencies": ["tsafe"]
 }
