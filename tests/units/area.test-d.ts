@@ -3,32 +3,32 @@ import { expectType } from "tsd";
 import { type DivideUnits, type MultiplyUnits } from "#uom-types";
 import {
   type Hecto,
-  type Ares,
-  type CubicMeters,
-  type Meters,
-  type SquareMeters,
-  type Hectares,
+  type Are,
+  type CubicMetre,
+  type Metre,
+  type SquareMetre,
+  type Hectare,
 } from "#uom-types/units";
 
-type SquareMeters_DerivedFrom_Meters_Squared = MultiplyUnits<Meters, Meters>;
+type SquareMetre_DerivedFrom_Metre_Squared = MultiplyUnits<Metre, Metre>;
 
-expectType<SquareMeters_DerivedFrom_Meters_Squared>(0 as SquareMeters);
-expectType<SquareMeters>(0 as SquareMeters_DerivedFrom_Meters_Squared);
+expectType<SquareMetre_DerivedFrom_Metre_Squared>(0 as SquareMetre);
+expectType<SquareMetre>(0 as SquareMetre_DerivedFrom_Metre_Squared);
 
-type SquareMeters_DerivedFrom_CubicMeters_Per_Squared = DivideUnits<
-  CubicMeters,
-  Meters
+type SquareMetre_DerivedFrom_CubicMetre_Per_Squared = DivideUnits<
+  CubicMetre,
+  Metre
 >;
 
-expectType<SquareMeters_DerivedFrom_CubicMeters_Per_Squared>(0 as SquareMeters);
-expectType<SquareMeters>(0 as SquareMeters_DerivedFrom_CubicMeters_Per_Squared);
+expectType<SquareMetre_DerivedFrom_CubicMetre_Per_Squared>(0 as SquareMetre);
+expectType<SquareMetre>(0 as SquareMetre_DerivedFrom_CubicMetre_Per_Squared);
 
-type Ares_DerivedFrom_Hecto_SquareMeters = Hecto<SquareMeters>;
+type Ares_DerivedFrom_Hecto_SquareMetre = Hecto<SquareMetre>;
 
-expectType<Ares_DerivedFrom_Hecto_SquareMeters>(0 as Ares);
-expectType<Ares>(0 as Ares_DerivedFrom_Hecto_SquareMeters);
+expectType<Ares_DerivedFrom_Hecto_SquareMetre>(0 as Are);
+expectType<Are>(0 as Ares_DerivedFrom_Hecto_SquareMetre);
 
-type Hectares_DerivedFrom_Hecto_Ares = Hecto<Ares>;
+type Hectares_DerivedFrom_Hecto_Ares = Hecto<Are>;
 
-expectType<Hectares_DerivedFrom_Hecto_Ares>(0 as Hectares);
-expectType<Hectares>(0 as Hectares_DerivedFrom_Hecto_Ares);
+expectType<Hectares_DerivedFrom_Hecto_Ares>(0 as Hectare);
+expectType<Hectare>(0 as Hectares_DerivedFrom_Hecto_Ares);

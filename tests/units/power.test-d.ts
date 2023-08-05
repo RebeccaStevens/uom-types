@@ -1,9 +1,9 @@
 import { expectType } from "tsd";
 
 import { type DivideUnits } from "#uom-types";
-import { type Seconds, type Watts, type Joules } from "#uom-types/units";
+import { type Second, type Watt, type Joule } from "#uom-types/units";
 
-type Watts_DerivedFrom_Joules_Per_Second = DivideUnits<Joules, Seconds>;
+type Watt_DerivedFrom_Joule_Per_Second = DivideUnits<Joule, Second>;
 
-expectType<Watts_DerivedFrom_Joules_Per_Second>(0 as Watts);
-expectType<Watts>(0 as Watts_DerivedFrom_Joules_Per_Second);
+expectType<Watt_DerivedFrom_Joule_Per_Second>(0 as Watt);
+expectType<Watt>(0 as Watt_DerivedFrom_Joule_Per_Second);

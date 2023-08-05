@@ -2,19 +2,19 @@ import { expectType } from "tsd";
 
 import { type DivideUnits } from "#uom-types";
 import {
-  type CubicMeters,
-  type Kilograms,
-  type KilogramsPerCubicMeter,
+  type CubicMetre,
+  type Kilogram,
+  type KilogramPerCubicMetre,
 } from "#uom-types/units";
 
-type KilogramsPerCubicMeter_DerivedFrom_Kilograms_Per_CubicMeters = DivideUnits<
-  Kilograms,
-  CubicMeters
+type KilogramPerCubicMetre_DerivedFrom_Kilogram_Per_CubicMetre = DivideUnits<
+  Kilogram,
+  CubicMetre
 >;
 
-expectType<KilogramsPerCubicMeter_DerivedFrom_Kilograms_Per_CubicMeters>(
-  0 as KilogramsPerCubicMeter,
+expectType<KilogramPerCubicMetre_DerivedFrom_Kilogram_Per_CubicMetre>(
+  0 as KilogramPerCubicMetre,
 );
-expectType<KilogramsPerCubicMeter>(
-  0 as KilogramsPerCubicMeter_DerivedFrom_Kilograms_Per_CubicMeters,
+expectType<KilogramPerCubicMetre>(
+  0 as KilogramPerCubicMetre_DerivedFrom_Kilogram_Per_CubicMetre,
 );

@@ -26,6 +26,8 @@
     "target": "ESNext",
     "useUnknownInCatchVariables": true,
     "noErrorTruncation": true,
+    "skipLibCheck": true,
+    "types": ["vitest/importMeta"],
     "baseUrl": ".",
     "paths": {
       "#uom-types": ["./src/index.ts"],

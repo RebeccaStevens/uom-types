@@ -1,45 +1,45 @@
 import { type UnitConversionRate } from "#uom-types";
 import { div, mul } from "#uom-types/functions";
-import { type SquareMeters, type Ares, type Hectares } from "#uom-types/units";
+import { type SquareMetre, type Are, type Hectare } from "#uom-types/units";
 
 /**
- * Convert {@link SquareMeters} to {@link Ares}.
+ * Convert {@link SquareMetre} to {@link Are}.
  */
-export function squareMetersToAres(area: SquareMeters): Ares {
+export function squareMetreToAres(area: SquareMetre): Are {
   return div(area, 100 as UnitConversionRate<{ scalar10: -2 }>);
 }
 
 /**
- * Convert {@link SquareMeters} to {@link Hectares}.
+ * Convert {@link SquareMetre} to {@link Hectare}.
  */
-export function squareMetersToHectares(area: SquareMeters): Hectares {
+export function squareMetreToHectares(area: SquareMetre): Hectare {
   return div(area, 10_000 as UnitConversionRate<{ scalar10: -4 }>);
 }
 
 /**
- * Convert {@link Ares} to {@link SquareMeters}.
+ * Convert {@link Are} to {@link SquareMetre}.
  */
-export function aresToSquareMeters(area: Ares): SquareMeters {
+export function aresToSquareMetre(area: Are): SquareMetre {
   return mul(area, 100 as UnitConversionRate<{ scalar10: -2 }>);
 }
 
 /**
- * Convert {@link Ares} to {@link Hectares}.
+ * Convert {@link Are} to {@link Hectare}.
  */
-export function aresToHectares(area: Ares): Hectares {
+export function aresToHectares(area: Are): Hectare {
   return div(area, 100 as UnitConversionRate<{ scalar10: -2 }>);
 }
 
 /**
- * Convert {@link Hectares} to {@link SquareMeters}.
+ * Convert {@link Hectare} to {@link SquareMetre}.
  */
-export function hectaresToSquareMeters(area: Hectares): SquareMeters {
+export function hectaresToSquareMetre(area: Hectare): SquareMetre {
   return mul(area, 10_000 as UnitConversionRate<{ scalar10: -4 }>);
 }
 
 /**
- * Convert {@link Hectares} to {@link Ares}.
+ * Convert {@link Hectare} to {@link Are}.
  */
-export function hectaresToAres(area: Hectares): Ares {
+export function hectaresToAres(area: Hectare): Are {
   return mul(area, 100 as UnitConversionRate<{ scalar10: -2 }>);
 }

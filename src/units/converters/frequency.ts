@@ -75,11 +75,11 @@ export function perDayToPerWeek(frequency: PerDay): PerWeek {
 /**
  * Convert {@link PerDay} to {@link PerYear}.
  *
- * This function assume that one year is equal to 365.25 days.
+ * This function assume that one year is equal to 365.25 Day.
  * Use an actual date/time library if you need more control.
  */
 export function perDayToPerYear(frequency: PerDay): PerYear {
-  return mul(frequency, 365.25 as UnitConversionRate<{ scalarDaysInYear: -1 }>);
+  return mul(frequency, 365.25 as UnitConversionRate<{ scalarDayInYear: -1 }>);
 }
 
 /**
@@ -99,11 +99,11 @@ export function perWeekToPerYear(frequency: PerWeek): PerYear {
 /**
  * Convert {@link PerYear} to {@link PerDay}.
  *
- * This function assume that one year is equal to 365.25 days.
+ * This function assume that one year is equal to 365.25 Day.
  * Use an actual date/time library if you need more control.
  */
 export function perYearToPerDay(frequency: PerYear): PerDay {
-  return div(frequency, 365.25 as UnitConversionRate<{ scalarDaysInYear: -1 }>);
+  return div(frequency, 365.25 as UnitConversionRate<{ scalarDayInYear: -1 }>);
 }
 
 /**

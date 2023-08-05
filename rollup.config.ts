@@ -1,3 +1,4 @@
+import rollupPluginReplace from "@rollup/plugin-replace";
 import rollupPluginTypescript from "@rollup/plugin-typescript";
 import {
   type PreRenderedChunk,
@@ -64,6 +65,9 @@ const runtimes = {
     rollupPluginAutoExternal(),
     rollupPluginTypescript({
       tsconfig: "tsconfig.build.json",
+    }),
+    rollupPluginReplace({
+      "import.meta.vitest": "undefined",
     }),
   ],
 } satisfies RollupOptions;

@@ -2,19 +2,15 @@ import { expectType } from "tsd";
 
 import { type MultiplyUnits } from "#uom-types";
 import {
-  type MetersPerSecondPerSecond,
-  type Kilograms,
-  type Newtons,
+  type MetrePerSecondSquared,
+  type Kilogram,
+  type Newton,
 } from "#uom-types/units";
 
-type Newtons_DerivedFrom_Kilograms_By_MetersPerSecondPerSecond = MultiplyUnits<
-  Kilograms,
-  MetersPerSecondPerSecond
+type Newton_DerivedFrom_Kilogram_By_MetrePerSquareSecond = MultiplyUnits<
+  Kilogram,
+  MetrePerSecondSquared
 >;
 
-expectType<Newtons_DerivedFrom_Kilograms_By_MetersPerSecondPerSecond>(
-  0 as Newtons,
-);
-expectType<Newtons>(
-  0 as Newtons_DerivedFrom_Kilograms_By_MetersPerSecondPerSecond,
-);
+expectType<Newton_DerivedFrom_Kilogram_By_MetrePerSquareSecond>(0 as Newton);
+expectType<Newton>(0 as Newton_DerivedFrom_Kilogram_By_MetrePerSquareSecond);

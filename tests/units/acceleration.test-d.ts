@@ -2,28 +2,32 @@ import { expectType } from "tsd";
 
 import { type DivideUnits } from "#uom-types";
 import {
-  type Meters,
-  type MetersPerSecond,
-  type MetersPerSecondPerSecond,
-  type Seconds,
+  type Metre,
+  type MetrePerSecond,
+  type MetrePerSecondSquared,
+  type Second,
 } from "#uom-types/units";
 
-type MetersPerSecondPerSecond_DerivedFrom_Meters_Per_Second_Per_Second =
-  DivideUnits<DivideUnits<Meters, Seconds>, Seconds>;
+type MetrePerSquareSecond_DerivedFrom_Metre_Per_Second_Per_Second = DivideUnits<
+  DivideUnits<Metre, Second>,
+  Second
+>;
 
-expectType<MetersPerSecondPerSecond_DerivedFrom_Meters_Per_Second_Per_Second>(
-  0 as MetersPerSecondPerSecond,
+expectType<MetrePerSquareSecond_DerivedFrom_Metre_Per_Second_Per_Second>(
+  0 as MetrePerSecondSquared,
 );
-expectType<MetersPerSecondPerSecond>(
-  0 as MetersPerSecondPerSecond_DerivedFrom_Meters_Per_Second_Per_Second,
+expectType<MetrePerSecondSquared>(
+  0 as MetrePerSquareSecond_DerivedFrom_Metre_Per_Second_Per_Second,
 );
 
-type MetersPerSecondPerSecond_DerivedFrom_MetersPerSecond_Per_Second =
-  DivideUnits<MetersPerSecond, Seconds>;
+type MetrePerSquareSecond_DerivedFrom_MetrePerSecond_Per_Second = DivideUnits<
+  MetrePerSecond,
+  Second
+>;
 
-expectType<MetersPerSecondPerSecond_DerivedFrom_MetersPerSecond_Per_Second>(
-  0 as MetersPerSecondPerSecond,
+expectType<MetrePerSquareSecond_DerivedFrom_MetrePerSecond_Per_Second>(
+  0 as MetrePerSecondSquared,
 );
-expectType<MetersPerSecondPerSecond>(
-  0 as MetersPerSecondPerSecond_DerivedFrom_MetersPerSecond_Per_Second,
+expectType<MetrePerSecondSquared>(
+  0 as MetrePerSquareSecond_DerivedFrom_MetrePerSecond_Per_Second,
 );

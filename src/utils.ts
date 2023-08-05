@@ -11,7 +11,11 @@ export type RemoveNeverValues<T extends object> = {
  * Exclude all unit subvalues with an exponent value of zero.
  */
 export type ExcludeNullUnits<U extends UnitSubvalues> = {
-  [S in keyof U as U[S] extends 0 ? never : S]: U[S];
+  [S in keyof U as S extends string
+    ? U[S] extends 0
+      ? never
+      : S
+    : never]: U[S];
 };
 
 /**

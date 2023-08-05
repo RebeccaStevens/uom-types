@@ -1,16 +1,12 @@
 import { expectType } from "tsd";
 
 import { type DivideUnits } from "#uom-types";
-import {
-  type SquareMeters,
-  type Pascals,
-  type Newtons,
-} from "#uom-types/units";
+import { type SquareMetre, type Pascal, type Newton } from "#uom-types/units";
 
-type Pascals_DerivedFrom_Newtons_Per_SquareMeters = DivideUnits<
-  Newtons,
-  SquareMeters
+type Pascal_DerivedFrom_Newton_Per_SquareMetre = DivideUnits<
+  Newton,
+  SquareMetre
 >;
 
-expectType<Pascals_DerivedFrom_Newtons_Per_SquareMeters>(0 as Pascals);
-expectType<Pascals>(0 as Pascals_DerivedFrom_Newtons_Per_SquareMeters);
+expectType<Pascal_DerivedFrom_Newton_Per_SquareMetre>(0 as Pascal);
+expectType<Pascal>(0 as Pascal_DerivedFrom_Newton_Per_SquareMetre);

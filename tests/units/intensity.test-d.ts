@@ -2,19 +2,19 @@ import { expectType } from "tsd";
 
 import { type DivideUnits } from "#uom-types";
 import {
-  type Watts,
-  type WattsPerSquareMeter,
-  type SquareMeters,
+  type Watt,
+  type WattPerSquareMetre,
+  type SquareMetre,
 } from "#uom-types/units";
 
-type WattsPerSquareMeter_DerivedFrom_Joules_Per_Second = DivideUnits<
-  Watts,
-  SquareMeters
+type WattPerSquareMetre_DerivedFrom_Joule_Per_Second = DivideUnits<
+  Watt,
+  SquareMetre
 >;
 
-expectType<WattsPerSquareMeter_DerivedFrom_Joules_Per_Second>(
-  0 as WattsPerSquareMeter,
+expectType<WattPerSquareMetre_DerivedFrom_Joule_Per_Second>(
+  0 as WattPerSquareMetre,
 );
-expectType<WattsPerSquareMeter>(
-  0 as WattsPerSquareMeter_DerivedFrom_Joules_Per_Second,
+expectType<WattPerSquareMetre>(
+  0 as WattPerSquareMetre_DerivedFrom_Joule_Per_Second,
 );

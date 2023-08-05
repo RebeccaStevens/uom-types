@@ -18,8 +18,9 @@
     "/coverage/",
     "/dist/",
     "/src/exponents.ts",
-    "/src/units/prefixes.ts",
-    "/src/units/converters/prefixes.ts"
+    "/src/units/converters/prefixes.ts",
+    "/src/units/si/modifiers/prefixes.ts",
+    "/src/units/si/units/converters/prefixes.ts"
   ],
   "rules": {
     "@typescript-eslint/naming-convention": "off",
@@ -27,7 +28,7 @@
     "jsdoc/check-tag-names": [
       "error",
       {
-        "definedTags": ["derived", "siprefix", "siunit", "symbol"]
+        "definedTags": ["category", "group", "symbol"]
       }
     ],
     "n/no-extraneous-import": "off",

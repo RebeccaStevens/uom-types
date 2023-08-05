@@ -2,28 +2,19 @@ import { expectType } from "tsd";
 
 import { type MultiplyUnits } from "#uom-types";
 import {
-  type Kilo,
-  type Hours,
-  type KiloWattHours,
-  type Meters,
-  type Newtons,
-  type Watts,
-  type Seconds,
-  type Joules,
+  type Metre,
+  type Newton,
+  type Watt,
+  type Second,
+  type Joule,
 } from "#uom-types/units";
 
-type Joules_DerivedFrom_Newtons_By_Meters = MultiplyUnits<Newtons, Meters>;
+type Joule_DerivedFrom_Newton_By_Metre = MultiplyUnits<Newton, Metre>;
 
-expectType<Joules_DerivedFrom_Newtons_By_Meters>(0 as Joules);
-expectType<Joules>(0 as Joules_DerivedFrom_Newtons_By_Meters);
+expectType<Joule_DerivedFrom_Newton_By_Metre>(0 as Joule);
+expectType<Joule>(0 as Joule_DerivedFrom_Newton_By_Metre);
 
-type Joules_DerivedFrom_Watts_By_Seconds = MultiplyUnits<Watts, Seconds>;
+type Joule_DerivedFrom_Watt_By_Second = MultiplyUnits<Watt, Second>;
 
-expectType<Joules_DerivedFrom_Watts_By_Seconds>(0 as Joules);
-expectType<Joules>(0 as Joules_DerivedFrom_Watts_By_Seconds);
-
-type KiloWattHours_DerivedFrom_Kilo_Watts_Hours = Kilo<
-  MultiplyUnits<Watts, Hours>
->;
-expectType<KiloWattHours_DerivedFrom_Kilo_Watts_Hours>(0 as KiloWattHours);
-expectType<KiloWattHours>(0 as KiloWattHours_DerivedFrom_Kilo_Watts_Hours);
+expectType<Joule_DerivedFrom_Watt_By_Second>(0 as Joule);
+expectType<Joule>(0 as Joule_DerivedFrom_Watt_By_Second);

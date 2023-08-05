@@ -74,12 +74,14 @@ function generateSiUnitPrefixesFile() {
       if (name === undefined) {
         return null;
       }
-      return `/**\n * Binary prefix denoting an order of magnitude of 10^${exponent}.\n *\n * @siprefix\n */\nexport type ${name}<T extends UnknownUnit> = MultiplyUnits<T, Unit<{}, { scalar10: ${exponent} }>>;`;
+      return `/**\n * Binary prefix denoting an order of magnitude of 10^${exponent}.\n *\n * @group Modifiers\n * @category Metric Prefixes\n */\nexport type ${name}<T extends UnknownUnit> = MultiplyUnits<T, Unit<{}, { scalar10: ${exponent} }>>;`;
     })
     .filter(isNotNull)
     .join("\n\n");
   const content = `${autogenHeader}${imports}${main}\n`;
-  return fs.writeFile("src/units/prefixes.ts", content, { encoding: "utf8" });
+  return fs.writeFile("src/units/si/modifiers/prefixes.ts", content, {
+    encoding: "utf8",
+  });
 }
 
 function generateSiUnitPrefixesConvertionFile() {

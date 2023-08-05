@@ -1,45 +1,45 @@
 import { type UnitConversionRate } from "#uom-types";
 import { mul, div } from "#uom-types/functions";
-import { type Grams, type Tonnes, type Kilograms } from "#uom-types/units";
+import { type Gram, type Tonne, type Kilogram } from "#uom-types/units";
 
 /**
- * Convert {@link Grams} to {@link Kilograms}.
+ * Convert {@link Gram} to {@link Kilogram}.
  */
-export function gramsToKilograms(mass: Grams): Kilograms {
+export function gramToKilogram(mass: Gram): Kilogram {
   return div(mass, 1000 as UnitConversionRate<{ scalar10: -3 }>);
 }
 
 /**
- * Convert {@link Grams} to {@link Tonnes}.
+ * Convert {@link Gram} to {@link Tonne}.
  */
-export function gramsToTonnes(mass: Grams): Tonnes {
+export function gramToTonnes(mass: Gram): Tonne {
   return div(mass, 1_000_000 as UnitConversionRate<{ scalar10: -6 }>);
 }
 
 /**
- * Convert {@link Kilograms} to {@link Grams}.
+ * Convert {@link Kilogram} to {@link Gram}.
  */
-export function kilogramsToGrams(mass: Kilograms): Grams {
+export function kilogramToGram(mass: Kilogram): Gram {
   return mul(mass, 1000 as UnitConversionRate<{ scalar10: -3 }>);
 }
 
 /**
- * Convert {@link Kilograms} to {@link Tonnes}.
+ * Convert {@link Kilogram} to {@link Tonne}.
  */
-export function kilogramsToTonnes(mass: Kilograms): Tonnes {
+export function kilogramToTonnes(mass: Kilogram): Tonne {
   return div(mass, 1000 as UnitConversionRate<{ scalar10: -3 }>);
 }
 
 /**
- * Convert {@link Tonnes} to {@link Grams}.
+ * Convert {@link Tonne} to {@link Gram}.
  */
-export function tonnesToGrams(mass: Tonnes): Grams {
+export function tonnesToGram(mass: Tonne): Gram {
   return mul(mass, 1_000_000 as UnitConversionRate<{ scalar10: -6 }>);
 }
 
 /**
- * Convert {@link Tonnes} to {@link Kilograms}.
+ * Convert {@link Tonne} to {@link Kilogram}.
  */
-export function tonnesToKilograms(mass: Tonnes): Kilograms {
+export function tonnesToKilogram(mass: Tonne): Kilogram {
   return mul(mass, 1000 as UnitConversionRate<{ scalar10: -3 }>);
 }

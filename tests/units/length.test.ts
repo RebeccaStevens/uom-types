@@ -5,16 +5,16 @@ import { add as addHo, mul as mulHo } from "#uom-types/functions/higher-order";
 import {
   type AreaUnit,
   type Length,
-  type Meters,
-  type SquareMeters,
+  type Metre,
+  type SquareMetre,
   type Centi,
   type Milli,
 } from "#uom-types/units";
 
 test("unit by number", () => {
-  const a = 3 as Meters;
+  const a = 3 as Metre;
   const b = 2;
-  const expected = 6 as Meters;
+  const expected = 6 as Metre;
 
   const actual = mul(a, b);
 
@@ -22,9 +22,9 @@ test("unit by number", () => {
 });
 
 test("unit by unit", () => {
-  const a = 3 as Meters;
-  const b = 2 as Meters;
-  const expected = 6 as SquareMeters;
+  const a = 3 as Metre;
+  const b = 2 as Metre;
+  const expected = 6 as SquareMetre;
 
   const actual = mul(a, b);
 
@@ -32,8 +32,8 @@ test("unit by unit", () => {
 });
 
 test("unit by unit - different scalars", () => {
-  const a = 3 as Meters;
-  const b = 2 as Centi<Meters>;
+  const a = 3 as Metre;
+  const b = 2 as Centi<Metre>;
   const expected = 6 as AreaUnit<{ scalar10: -2 }>;
 
   const actual = mul(a, b);
@@ -50,18 +50,18 @@ test("generics", () => {
     return mul(a, b);
   }
 
-  const a = 3 as Meters;
-  const b = 2 as Meters;
-  const expectedAdd1 = 5 as Meters;
-  const expectedMul1 = 6 as SquareMeters;
+  const a = 3 as Metre;
+  const b = 2 as Metre;
+  const expectedAdd1 = 5 as Metre;
+  const expectedMul1 = 6 as SquareMetre;
 
   const actualAdd1 = fnAdd(a, b);
   expect(actualAdd1).equals(expectedAdd1);
   const actualMul1 = fnMul(a, b);
   expect(actualMul1).equals(expectedMul1);
 
-  const c = 3 as Centi<Meters>;
-  const d = 2 as Milli<Meters>;
+  const c = 3 as Centi<Metre>;
+  const d = 2 as Milli<Metre>;
   const expectedMul2 = 6 as AreaUnit<{ scalar10: -5 }>;
 
   const actualMul2 = fnMul(c, d);
@@ -77,18 +77,18 @@ test("generics - higher order", () => {
     return mulHo(a);
   }
 
-  const a = 3 as Meters;
-  const b = 2 as Meters;
-  const expectedAdd1 = 5 as Meters;
-  const expectedMul1 = 6 as SquareMeters;
+  const a = 3 as Metre;
+  const b = 2 as Metre;
+  const expectedAdd1 = 5 as Metre;
+  const expectedMul1 = 6 as SquareMetre;
 
   const actualAdd1 = fnAdd(a)(b);
   expect(actualAdd1).equals(expectedAdd1);
   const actualMul1 = fnMul(a)(b);
   expect(actualMul1).equals(expectedMul1);
 
-  const c = 3 as Centi<Meters>;
-  const d = 2 as Milli<Meters>;
+  const c = 3 as Centi<Metre>;
+  const d = 2 as Milli<Metre>;
   const expectedMul2 = 6 as AreaUnit<{ scalar10: -5 }>;
 
   const actualMul2 = fnMul(c)(d);

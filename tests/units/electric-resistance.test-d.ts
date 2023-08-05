@@ -1,9 +1,9 @@
 import { expectType } from "tsd";
 
 import { type DivideUnits } from "#uom-types";
-import { type Amperes, type Ohms, type Volts } from "#uom-types/units";
+import { type Ampere, type Ohm, type Volt } from "#uom-types/units";
 
-type Ohms_DerivedFrom_Volts_Per_Amperes = DivideUnits<Volts, Amperes>;
+type Ohm_DerivedFrom_Volt_Per_Ampere = DivideUnits<Volt, Ampere>;
 
-expectType<Ohms_DerivedFrom_Volts_Per_Amperes>(0 as Ohms);
-expectType<Ohms>(0 as Ohms_DerivedFrom_Volts_Per_Amperes);
+expectType<Ohm_DerivedFrom_Volt_Per_Ampere>(0 as Ohm);
+expectType<Ohm>(0 as Ohm_DerivedFrom_Volt_Per_Ampere);

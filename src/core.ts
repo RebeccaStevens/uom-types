@@ -3,6 +3,8 @@ import { type RemoveNeverValues, type ExcludeNullUnits } from "./utils";
 
 /**
  * A unit without any meta data.
+ *
+ * @group Abstract Unit Creators
  */
 export type AbstractUnit<C extends UnitSubvalues> = number & {
   readonly __uom_types__unit_class: UnitClass<C>;
@@ -10,6 +12,8 @@ export type AbstractUnit<C extends UnitSubvalues> = number & {
 
 /**
  * Create a unit without meta data from an already existing {@link UnitClass}.
+ *
+ * @group Abstract Unit Creators
  */
 export type AbstractUnitFrom<C extends UnknownUnitClass> = C extends UnitClass<
   infer A
@@ -19,6 +23,8 @@ export type AbstractUnitFrom<C extends UnknownUnitClass> = C extends UnitClass<
 
 /**
  * The core unit type.
+ *
+ * @group Unit Creators
  */
 export type Unit<
   C extends UnitSubvalues,
@@ -30,6 +36,8 @@ export type Unit<
 
 /**
  * Create a {@link Unit} from already existing {@link UnitClass} and {@link UnitMeta}.
+ *
+ * @group Unit Creators
  */
 export type UnitFrom<
   C extends UnknownUnitClass,
@@ -44,11 +52,15 @@ export type UnitFrom<
  * A {@link Unit} without any {@link UnitClass}.
  *
  * Used to convert from one {@link Unit} to another of the same {@link UnitClass}.
+ *
+ * @group Unit Creators
  */
 export type UnitConversionRate<M extends UnitSubvalues> = Unit<{}, M>;
 
 /**
  * Create a {@link UnitConversionRate} from already existing {@link UnitMeta}.
+ *
+ * @group Unit Creators
  */
 export type UnitConversionRateFrom<M extends UnknownUnitMeta> =
   M extends UnitMeta<infer A>
@@ -57,6 +69,8 @@ export type UnitConversionRateFrom<M extends UnknownUnitMeta> =
 
 /**
  * Used to determine what a unit is of. For example, length, volume, mass etc.
+ *
+ * @group Unit Component
  */
 export type UnitClass<T extends UnitSubvalues> = UnitKeyValues<T> & {
   readonly __uno_types__unit_class_type: true;
@@ -65,6 +79,8 @@ export type UnitClass<T extends UnitSubvalues> = UnitKeyValues<T> & {
 /**
  * Used to state how units of the same {@link UnitClass} differ from one another.
  * For example, by a scale factor.
+ *
+ * @group Unit Component
  */
 export type UnitMeta<T extends UnitSubvalues> = UnitKeyValues<T> & {
   readonly __uno_types__unit_meta_type: true;
@@ -72,6 +88,8 @@ export type UnitMeta<T extends UnitSubvalues> = UnitKeyValues<T> & {
 
 /**
  * A {@link Unit} that we don't know anything about.
+ *
+ * @group Unknown Units
  */
 export type UnknownUnit = UnknownAbstractUnit & {
   readonly __uom_types__unit_meta: UnknownUnitMeta;
@@ -79,6 +97,8 @@ export type UnknownUnit = UnknownAbstractUnit & {
 
 /**
  * An {@link AbstractUnit} that we don't know anything about.
+ *
+ * @group Unknown Units
  */
 export type UnknownAbstractUnit = number & {
   readonly __uom_types__unit_class: UnknownUnitClass;
@@ -86,6 +106,8 @@ export type UnknownAbstractUnit = number & {
 
 /**
  * A {@link UnitClass} that we don't know anything about.
+ *
+ * @group Unknown Units
  */
 export type UnknownUnitClass = UnknownUnitKeyValues & {
   readonly __uno_types__unit_class_type: true;
@@ -93,6 +115,8 @@ export type UnknownUnitClass = UnknownUnitKeyValues & {
 
 /**
  * A {@link UnitMeta} that we don't know anything about.
+ *
+ * @group Unknown Units
  */
 export type UnknownUnitMeta = UnknownUnitKeyValues & {
   readonly __uno_types__unit_meta_type: true;
@@ -110,5 +134,7 @@ type UnknownUnitKeyValues = {
 
 /**
  * A mapping of subvalue of a unit its magnitude.
+ *
+ * @group Unit Component
  */
 export type UnitSubvalues = Record<string, Exponent>;

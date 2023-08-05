@@ -2,18 +2,16 @@ import { expectType } from "tsd";
 
 import { type MultiplyUnits } from "#uom-types";
 import {
-  type SquareMeters,
+  type SquareMetre,
   type Micro,
   type Milli,
-  type Meters,
+  type Metre,
   type Length,
   type Area,
 } from "#uom-types/units";
 
 expectType<Area>(0 as MultiplyUnits<Length, Length>);
 
-expectType<Milli<SquareMeters>>(0 as MultiplyUnits<Meters, Milli<Meters>>);
+expectType<Milli<SquareMetre>>(0 as MultiplyUnits<Metre, Milli<Metre>>);
 
-expectType<Micro<SquareMeters>>(
-  0 as MultiplyUnits<Milli<Meters>, Milli<Meters>>,
-);
+expectType<Micro<SquareMetre>>(0 as MultiplyUnits<Milli<Metre>, Milli<Metre>>);

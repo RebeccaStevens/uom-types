@@ -1,114 +1,114 @@
 import { type UnitConversionRate } from "#uom-types";
 import { div, mul } from "#uom-types/functions";
 import {
-  type Seconds,
-  type Minutes,
-  type Hours,
-  type Days,
-  type Weeks,
-  type Years,
+  type Second,
+  type Minute,
+  type Hour,
+  type Day,
+  type Week,
+  type Year,
 } from "#uom-types/units";
 
 /**
- * Convert {@link Seconds} to {@link Minutes}.
+ * Convert {@link Second} to {@link Minute}.
  */
-export function secondsToMinutes(duration: Seconds): Minutes {
+export function secondToMinute(duration: Second): Minute {
   return div(duration, 60 as UnitConversionRate<{ scalar60: -1 }>);
 }
 
 /**
- * Convert {@link Seconds} to {@link Hours}.
+ * Convert {@link Second} to {@link Hour}.
  */
-export function secondsToHours(duration: Seconds): Hours {
+export function secondToHour(duration: Second): Hour {
   return div(duration, 3600 as UnitConversionRate<{ scalar60: -2 }>);
 }
 
 /**
- * Convert {@link Minutes} to {@link Seconds}.
+ * Convert {@link Minute} to {@link Second}.
  */
-export function minutesToSeconds(duration: Minutes): Seconds {
+export function MinuteToSecond(duration: Minute): Second {
   return mul(duration, 60 as UnitConversionRate<{ scalar60: -1 }>);
 }
 
 /**
- * Convert {@link Minutes} to {@link Hours}.
+ * Convert {@link Minute} to {@link Hour}.
  */
-export function minutesToHours(duration: Minutes): Hours {
+export function MinuteToHour(duration: Minute): Hour {
   return div(duration, 60 as UnitConversionRate<{ scalar60: -1 }>);
 }
 
 /**
- * Convert {@link Hours} to {@link Seconds}.
+ * Convert {@link Hour} to {@link Second}.
  */
-export function hoursToSeconds(duration: Hours): Seconds {
+export function HourToSecond(duration: Hour): Second {
   return mul(duration, 3600 as UnitConversionRate<{ scalar60: -2 }>);
 }
 
 /**
- * Convert {@link Hours} to {@link Minutes}.
+ * Convert {@link Hour} to {@link Minute}.
  */
-export function hoursToMinutes(duration: Hours): Minutes {
+export function HourToMinute(duration: Hour): Minute {
   return mul(duration, 60 as UnitConversionRate<{ scalar60: -1 }>);
 }
 
 /**
- * Convert {@link Hours} to {@link Days}.
+ * Convert {@link Hour} to {@link Day}.
  */
-export function hoursToDays(duration: Hours): Days {
+export function HourToDay(duration: Hour): Day {
   return div(duration, 24 as UnitConversionRate<{ scalar24: -1 }>);
 }
 
 /**
- * Convert {@link Days} to {@link Hours}.
+ * Convert {@link Day} to {@link Hour}.
  */
-export function daysToHours(duration: Days): Hours {
+export function DayToHour(duration: Day): Hour {
   return mul(duration, 24 as UnitConversionRate<{ scalar24: -1 }>);
 }
 
 /**
- * Convert {@link Days} to {@link Weeks}.
+ * Convert {@link Day} to {@link Week}.
  */
-export function daysToWeeks(duration: Days): Weeks {
+export function DayToWeek(duration: Day): Week {
   return div(duration, 7 as UnitConversionRate<{ scalar7: -1 }>);
 }
 
 /**
- * Convert {@link Days} to {@link Years}.
+ * Convert {@link Day} to {@link Year}.
  *
- * This function assume that one year is equal to 365.25 days.
+ * This function assume that one year is equal to 365.25 Day.
  * Use an actual date/time library if you need more control.
  */
-export function daysToYears(duration: Days): Years {
-  return div(duration, 365.25 as UnitConversionRate<{ scalarDaysInYear: -1 }>);
+export function DayToYear(duration: Day): Year {
+  return div(duration, 365.25 as UnitConversionRate<{ scalarDayInYear: -1 }>);
 }
 
 /**
- * Convert {@link Weeks} to {@link Days}.
+ * Convert {@link Week} to {@link Day}.
  */
-export function weeksToDays(duration: Weeks): Days {
+export function WeekToDay(duration: Week): Day {
   return mul(duration, 7 as UnitConversionRate<{ scalar7: -1 }>);
 }
 
 /**
- * Convert {@link Weeks} to {@link Years}.
+ * Convert {@link Week} to {@link Year}.
  */
-export function weeksToYears(duration: Weeks): Years {
-  return daysToYears(weeksToDays(duration));
+export function WeekToYear(duration: Week): Year {
+  return DayToYear(WeekToDay(duration));
 }
 
 /**
- * Convert {@link Years} to {@link Days}.
+ * Convert {@link Year} to {@link Day}.
  *
- * This function assume that one year is equal to 365.25 days.
+ * This function assume that one year is equal to 365.25 Day.
  * Use an actual date/time library if you need more control.
  */
-export function yearsToDays(duration: Years): Days {
-  return mul(duration, 365.25 as UnitConversionRate<{ scalarDaysInYear: -1 }>);
+export function YearToDay(duration: Year): Day {
+  return mul(duration, 365.25 as UnitConversionRate<{ scalarDayInYear: -1 }>);
 }
 
 /**
- * Convert {@link Years} to {@link Weeks}.
+ * Convert {@link Year} to {@link Week}.
  */
-export function yearsToWeeks(duration: Years): Weeks {
-  return daysToWeeks(yearsToDays(duration));
+export function YearToWeek(duration: Year): Week {
+  return DayToWeek(YearToDay(duration));
 }

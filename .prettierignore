@@ -5,5 +5,6 @@
 
 # Autogen files
 /src/exponents.ts
-/src/units/prefixes.ts
 /src/units/converters/prefixes.ts
+/src/units/si/modifiers/prefixes.ts
+/src/units/si/units/converters/prefixes.ts
