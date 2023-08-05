@@ -1,33 +1,33 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { mul } from "#uom-types/functions";
 
-test("numbers", (t) => {
-  t.is(mul(1, 2), 2);
-  t.is(mul(4, 2), 8);
-  t.is(mul(1, -2), -2);
-  t.is(mul(-1, -2), 2);
+test("numbers", () => {
+  expect(mul(1, 2)).equals(2);
+  expect(mul(4, 2)).equals(8);
+  expect(mul(1, -2)).equals(-2);
+  expect(mul(-1, -2)).equals(2);
 });
 
-test("unit by number", (t) => {
+test("unit by number", () => {
   type TestUnit = Unit<{ a: 1; b: -2; c: 3 }>;
 
   const a = 3 as TestUnit;
   const b = 2;
   const expected = 6 as TestUnit;
 
-  const actual = mul(a, b);
+  const actual: typeof expected = mul(a, b);
 
-  t.is(actual, expected);
+  expect(actual).equals(expected);
 });
 
-test("unit by unit", (t) => {
+test("unit by unit", () => {
   const a = 3 as Unit<{ a: 1; b: 2; c: 1 }>;
   const b = 2 as Unit<{ a: 3; b: -2; c: 3 }>;
   const expected = 6 as Unit<{ a: 4; c: 4 }>;
 
-  const actual = mul(a, b);
+  const actual: typeof expected = mul(a, b);
 
-  t.is(actual, expected);
+  expect(actual).equals(expected);
 });

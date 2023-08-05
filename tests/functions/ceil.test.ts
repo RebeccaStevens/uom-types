@@ -1,15 +1,17 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { ceil } from "#uom-types/functions";
 
-test("number", (t) => {
-  t.is(ceil(4.123), 5);
-  t.is(ceil(-4.123), -4);
+test("number", () => {
+  expect(ceil(4.123)).equals(5);
+  expect(ceil(-4.123)).equals(-4);
 });
 
-test("unit", (t) => {
-  const a = 4.123 as Unit<{ a: 1; b: -2; c: 2 }>;
+test("unit", () => {
+  type TestUnit = Unit<{ a: 1; b: -2; c: 2 }>;
+  const expected = 5 as TestUnit;
+  const actual: typeof expected = ceil(4.123 as TestUnit);
 
-  t.is(ceil(a), 5 as Unit<{ a: 1; b: -2; c: 2 }>);
+  expect(actual).equals(expected);
 });

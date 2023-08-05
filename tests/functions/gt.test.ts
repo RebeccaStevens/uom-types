@@ -1,20 +1,20 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { gt } from "#uom-types/functions";
 
-test("number", (t) => {
-  t.is(gt(4, 4), false);
-  t.is(gt(4, 3), true);
-  t.is(gt(3, 4), false);
+test("number", () => {
+  expect(gt(4, 4)).equals(false);
+  expect(gt(4, 3)).equals(true);
+  expect(gt(3, 4)).equals(false);
 });
 
-test("unit", (t) => {
+test("unit", () => {
   const a = 4 as Unit<{ a: 1; b: -2; c: 2 }>;
   const b = 2 as Unit<{ a: 1; b: -2; c: 2 }>;
 
-  t.is(gt(a, a), false);
-  t.is(gt(b, b), false);
-  t.is(gt(a, b), true);
-  t.is(gt(b, a), false);
+  expect(gt(a, a)).equals(false);
+  expect(gt(b, b)).equals(false);
+  expect(gt(a, b)).equals(true);
+  expect(gt(b, a)).equals(false);
 });

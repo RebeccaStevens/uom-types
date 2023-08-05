@@ -1,30 +1,30 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { mod } from "#uom-types/functions/higher-order";
 
-test("numbers", (t) => {
-  t.is(mod(3)(10), 1);
-  t.is(mod(3)(11), 2);
-  t.is(mod(3)(12), 0);
-  t.is(mod(3)(-8), -2);
+test("numbers", () => {
+  expect(mod(3)(10)).equals(1);
+  expect(mod(3)(11)).equals(2);
+  expect(mod(3)(12)).equals(0);
+  expect(mod(3)(-8)).equals(-2);
 });
 
-test("units", (t) => {
+test("units", () => {
   type TestUnit = Unit<{ a: 1; b: -2; c: 3 }>;
 
   const a = 10 as TestUnit;
   const b = 3 as TestUnit;
   const expected1 = 1 as TestUnit;
 
-  const actual1 = mod(b)(a);
+  const actual1: typeof expected1 = mod(b)(a);
 
-  t.is(actual1, expected1);
+  expect(actual1).equals(expected1);
 
   const c = -10 as TestUnit;
   const expected2 = -1 as TestUnit;
 
-  const actual2 = mod(b)(c);
+  const actual2: typeof expected2 = mod(b)(c);
 
-  t.is(actual2, expected2);
+  expect(actual2).equals(expected2);
 });

@@ -36,8 +36,8 @@
   "overrides": [
     {
       "files": ["**/*.test.ts"],
-      "plugins": ["ava"],
-      "extends": ["plugin:ava/recommended", "plugin:functional/off"],
+      "plugins": ["vitest"],
+      "extends": ["plugin:vitest/recommended", "plugin:functional/off"],
       "rules": {
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-unsafe-argument": "off",
