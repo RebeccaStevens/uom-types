@@ -1,3 +1,4 @@
+import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 
 const maxExponent = 12;
@@ -91,13 +92,17 @@ function generateSiUnitPrefixesConvertionFile() {
       if (name === undefined) {
         return null;
       }
+      const inverseName = scalar10ToName.get(-exponent);
+      assert(inverseName !== undefined);
       const negativeExponent = exponent < 0;
       const absExponent = Math.abs(exponent);
-      return `/**\n * Convert \`X\` to \`${name.toLowerCase()}X\`.\n */\nexport function to${name}<T extends UnknownUnit>(value: T) {\n  return ${
+      const to = `/**\n * Convert \`X\` to \`${name.toLowerCase()}X\`.\n */\nexport function to${name}<T extends UnknownUnit>(value: T) {\n  return ${
         negativeExponent ? "div" : "mul"
       }(value, ${
         10 ** absExponent
       } as UnitConversionRate<{ scalar10: ${-absExponent} }>);\n}`;
+      const from = `/**\n * Convert \`${name.toLowerCase()}X\` to \`X\`.\n */\nexport const from${name} = to${inverseName};`;
+      return `${to}\n\n${from}`;
     })
     .filter(isNotNull)
     .join("\n\n");
