@@ -1,41 +1,62 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { assert, type Equals } from "tsafe";
+
 import { type UnitSubvalues, type Unit } from "./core";
-import { type DivideExponents, type MultiplyExponents } from "./exponents";
+import {
+  type Exponent,
+  type DivideExponents,
+  type MultiplyExponents,
+} from "./exponents";
 import { type FlatternAlias, type GetExponent } from "./utils";
 
 /**
  * Multiple the exponent values of a unit by a number.
- *
- * Note: Currently exponents can only be multiplied by 2.
  */
 export type MultiplyUnitExponents<
-  A extends number,
-  B extends 2,
-> = A extends Unit<infer ACore, infer AMeta>
+  T extends number,
+  E extends Exponent,
+> = T extends Unit<infer Config, infer Meta>
   ? Unit<
-      FlatternAlias<MultiplyUnitExponentsCore<ACore, B>>,
-      FlatternAlias<MultiplyUnitExponentsCore<AMeta, B>>
+      FlatternAlias<MultiplyUnitExponentsCore<Config, E>>,
+      FlatternAlias<MultiplyUnitExponentsCore<Meta, E>>
     >
   : number;
 
-type MultiplyUnitExponentsCore<A extends UnitSubvalues, B extends 2> = {
-  [E in keyof A]: MultiplyExponents<GetExponent<A, E>, B>;
+type MultiplyUnitExponentsCore<T extends UnitSubvalues, E extends Exponent> = {
+  [S in keyof T]: MultiplyExponents<GetExponent<T, S>, E>;
 };
 
 /**
  * Divide the exponent values of a unit by a number.
- *
- * Note: Currently exponents can only be divided by 2.
  */
-export type DivideUnitExponents<A extends number, B extends 2> = A extends Unit<
-  infer ACore,
-  infer AMeta
->
+export type DivideUnitExponents<
+  T extends number,
+  E extends Exponent,
+> = T extends Unit<infer Config, infer Meta>
   ? Unit<
-      FlatternAlias<DivideUnitExponentsCore<ACore, B>>,
-      FlatternAlias<DivideUnitExponentsCore<AMeta, B>>
+      FlatternAlias<DivideUnitExponentsCore<Config, E>>,
+      FlatternAlias<DivideUnitExponentsCore<Meta, E>>
     >
   : number;
 
-type DivideUnitExponentsCore<A extends UnitSubvalues, B extends 2> = {
-  [E in keyof A]: DivideExponents<GetExponent<A, E>, B>;
+type DivideUnitExponentsCore<T extends UnitSubvalues, E extends Exponent> = {
+  [S in keyof T]: DivideExponents<GetExponent<T, S>, E>;
 };
+
+// Tests
+// eslint-disable-next-line functional/no-conditional-statements
+if (import.meta.vitest !== undefined) {
+  assert<Equals<MultiplyUnitExponents<Unit<{ a: 1 }>, 2>, Unit<{ a: 2 }>>>();
+  assert<Equals<MultiplyUnitExponents<Unit<{ a: 2 }>, 2>, Unit<{ a: 4 }>>>();
+  assert<Equals<MultiplyUnitExponents<Unit<{ a: -2 }>, 2>, Unit<{ a: -4 }>>>();
+  assert<Equals<MultiplyUnitExponents<Unit<{ a: 1 }>, 3>, Unit<{ a: 3 }>>>();
+  assert<Equals<MultiplyUnitExponents<Unit<{ a: 2 }>, 3>, Unit<{ a: 6 }>>>();
+  assert<Equals<MultiplyUnitExponents<Unit<{ a: -2 }>, 3>, Unit<{ a: -6 }>>>();
+
+  assert<Equals<DivideUnitExponents<Unit<{ a: 4 }>, 2>, Unit<{ a: 2 }>>>();
+  assert<Equals<DivideUnitExponents<Unit<{ a: 2 }>, 2>, Unit<{ a: 1 }>>>();
+  assert<Equals<DivideUnitExponents<Unit<{ a: -2 }>, 2>, Unit<{ a: -1 }>>>();
+  assert<Equals<DivideUnitExponents<Unit<{ a: 6 }>, 3>, Unit<{ a: 2 }>>>();
+  assert<Equals<DivideUnitExponents<Unit<{ a: 3 }>, 3>, Unit<{ a: 1 }>>>();
+  assert<Equals<DivideUnitExponents<Unit<{ a: -3 }>, 3>, Unit<{ a: -1 }>>>();
+}
