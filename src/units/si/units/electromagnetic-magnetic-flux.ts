@@ -11,12 +11,13 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
 import {
+  type Metre,
   type Ampere,
   type Henry,
   type Second,
-  type SquareMetre,
   type Tesla,
   type Volt,
 } from ".";
@@ -71,6 +72,6 @@ export type Weber = MagneticFluxUnit<{}>;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<Equals<Weber, MultiplyUnits<Volt, Second>>>();
-  assert<Equals<Weber, MultiplyUnits<Tesla, SquareMetre>>>();
+  assert<Equals<Weber, MultiplyUnits<Tesla, Square<Metre>>>>();
   assert<Equals<Weber, MultiplyUnits<Henry, Ampere>>>();
 }

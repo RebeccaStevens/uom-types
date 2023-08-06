@@ -3,9 +3,9 @@ import { expect, test } from "vitest";
 import { add, mul } from "#uom-types/functions";
 import { add as addHo, mul as mulHo } from "#uom-types/functions/higher-order";
 import {
+  type Cubic,
+  type Square,
   type Area,
-  type SquareMetre,
-  type CubicMetre,
   type Metre,
   type Centi,
   type Milli,
@@ -14,9 +14,9 @@ import {
 } from "#uom-types/units";
 
 test("unit by number", () => {
-  const a = 3 as SquareMetre;
+  const a = 3 as Square<Metre>;
   const b = 2;
-  const expected = 6 as SquareMetre;
+  const expected = 6 as Square<Metre>;
 
   const actual = mul(a, b);
 
@@ -24,9 +24,9 @@ test("unit by number", () => {
 });
 
 test("unit by unit", () => {
-  const a = 3 as SquareMetre;
+  const a = 3 as Square<Metre>;
   const b = 2 as Metre;
-  const expected = 6 as CubicMetre;
+  const expected = 6 as Cubic<Metre>;
 
   const actual = mul(a, b);
 
@@ -34,7 +34,7 @@ test("unit by unit", () => {
 });
 
 test("unit by unit - different scalars", () => {
-  const a = 3 as SquareMetre;
+  const a = 3 as Square<Metre>;
   const b = 2 as Centi<Metre>;
   const expected = 6 as VolumeUnit<{ scalar10: -2 }>;
 
@@ -52,20 +52,20 @@ test("generics", () => {
     return mul(a, l);
   }
 
-  const a = 3 as SquareMetre;
-  const b = 2 as SquareMetre;
-  const expectedAdd1 = 5 as SquareMetre;
+  const a = 3 as Square<Metre>;
+  const b = 2 as Square<Metre>;
+  const expectedAdd1 = 5 as Square<Metre>;
 
   const actualAdd1 = fnAdd(a, b);
   expect(actualAdd1).equals(expectedAdd1);
 
   const c = 2 as Metre;
-  const expectedMul1 = 6 as CubicMetre;
+  const expectedMul1 = 6 as Cubic<Metre>;
 
   const actualMul1 = fnMul(a, c);
   expect(actualMul1).equals(expectedMul1);
 
-  const d = 2 as Milli<SquareMetre>;
+  const d = 2 as Milli<Square<Metre>>;
   const e = 3 as Centi<Metre>;
   const expectedMul2 = 6 as VolumeUnit<{ scalar10: -5 }>;
 
@@ -82,20 +82,20 @@ test("generics - higher order", () => {
     return mulHo(a);
   }
 
-  const a = 3 as SquareMetre;
-  const b = 2 as SquareMetre;
-  const expectedAdd1 = 5 as SquareMetre;
+  const a = 3 as Square<Metre>;
+  const b = 2 as Square<Metre>;
+  const expectedAdd1 = 5 as Square<Metre>;
 
   const actualAdd1 = fnAdd(a)(b);
   expect(actualAdd1).equals(expectedAdd1);
 
   const c = 2 as Metre;
-  const expectedMul1 = 6 as CubicMetre;
+  const expectedMul1 = 6 as Cubic<Metre>;
 
   const actualMul1 = fnMul(a)(c);
   expect(actualMul1).equals(expectedMul1);
 
-  const d = 3 as Centi<SquareMetre>;
+  const d = 3 as Centi<Square<Metre>>;
   const e = 2 as Milli<Metre>;
   const expectedMul2 = 6 as VolumeUnit<{ scalar10: -5 }>;
 

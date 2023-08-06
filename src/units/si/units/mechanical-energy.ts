@@ -11,10 +11,10 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Cubic } from "../modifiers";
 
 import {
   type Pascal,
-  type CubicMetre,
   type Coulomb,
   type Volt,
   type Newton,
@@ -116,7 +116,7 @@ if (import.meta.vitest !== undefined) {
   assert<Equals<Joule, WattSecond>>();
   assert<Equals<NewtonMetre, MultiplyUnits<Newton, Metre>>>();
   assert<Equals<WattSecond, MultiplyUnits<Watt, Second>>>();
-  assert<Equals<Joule, MultiplyUnits<Pascal, CubicMetre>>>();
+  assert<Equals<Joule, MultiplyUnits<Pascal, Cubic<Metre>>>>();
   assert<Equals<Joule, MultiplyUnits<Coulomb, Volt>>>();
 
   assert<Equals<WattMinute, MultiplyUnits<Watt, Minute>>>();

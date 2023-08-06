@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type SquareMetre, type Weber } from ".";
+import { type Metre, type Weber } from ".";
 
 /**
  * @group Unit Classes
@@ -61,5 +62,5 @@ export type Tesla = MagneticFluxDensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Tesla, DivideUnits<Weber, SquareMetre>>>();
+  assert<Equals<Tesla, DivideUnits<Weber, Square<Metre>>>>();
 }

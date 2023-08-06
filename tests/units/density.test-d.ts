@@ -2,14 +2,16 @@ import { expectType } from "tsd";
 
 import { type DivideUnits } from "#uom-types";
 import {
-  type CubicMetre,
-  type Kilogram,
+  type Gram,
+  type Kilo,
+  type Cubic,
+  type Metre,
   type KilogramPerCubicMetre,
 } from "#uom-types/units";
 
 type KilogramPerCubicMetre_DerivedFrom_Kilogram_Per_CubicMetre = DivideUnits<
-  Kilogram,
-  CubicMetre
+  Kilo<Gram>,
+  Cubic<Metre>
 >;
 
 expectType<KilogramPerCubicMetre_DerivedFrom_Kilogram_Per_CubicMetre>(

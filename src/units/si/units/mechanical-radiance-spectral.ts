@@ -12,8 +12,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Cubic } from "../modifiers";
 
-import { type CubicMetre, type Steradian, type Watt } from ".";
+import { type Metre, type Steradian, type Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -63,7 +64,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       WattPerSteradianCubicMetre,
-      DivideUnits<Watt, MultiplyUnits<Steradian, CubicMetre>>
+      DivideUnits<Watt, MultiplyUnits<Steradian, Cubic<Metre>>>
     >
   >();
 }

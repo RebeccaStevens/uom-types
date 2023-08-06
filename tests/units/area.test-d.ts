@@ -2,28 +2,28 @@ import { expectType } from "tsd";
 
 import { type DivideUnits, type MultiplyUnits } from "#uom-types";
 import {
+  type Cubic,
+  type Square,
   type Hecto,
   type Are,
-  type CubicMetre,
   type Metre,
-  type SquareMetre,
   type Hectare,
 } from "#uom-types/units";
 
 type SquareMetre_DerivedFrom_Metre_Squared = MultiplyUnits<Metre, Metre>;
 
-expectType<SquareMetre_DerivedFrom_Metre_Squared>(0 as SquareMetre);
-expectType<SquareMetre>(0 as SquareMetre_DerivedFrom_Metre_Squared);
+expectType<SquareMetre_DerivedFrom_Metre_Squared>(0 as Square<Metre>);
+expectType<Square<Metre>>(0 as SquareMetre_DerivedFrom_Metre_Squared);
 
 type SquareMetre_DerivedFrom_CubicMetre_Per_Squared = DivideUnits<
-  CubicMetre,
+  Cubic<Metre>,
   Metre
 >;
 
-expectType<SquareMetre_DerivedFrom_CubicMetre_Per_Squared>(0 as SquareMetre);
-expectType<SquareMetre>(0 as SquareMetre_DerivedFrom_CubicMetre_Per_Squared);
+expectType<SquareMetre_DerivedFrom_CubicMetre_Per_Squared>(0 as Square<Metre>);
+expectType<Square<Metre>>(0 as SquareMetre_DerivedFrom_CubicMetre_Per_Squared);
 
-type Ares_DerivedFrom_Hecto_SquareMetre = Hecto<SquareMetre>;
+type Ares_DerivedFrom_Hecto_SquareMetre = Hecto<Square<Metre>>;
 
 expectType<Ares_DerivedFrom_Hecto_SquareMetre>(0 as Are);
 expectType<Are>(0 as Ares_DerivedFrom_Hecto_SquareMetre);

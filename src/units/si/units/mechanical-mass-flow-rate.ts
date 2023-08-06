@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Kilo } from "../modifiers";
 
-import { type Kilogram, type Second } from ".";
+import { type Gram, type Second } from ".";
 
 /**
  * @group Unit Classes
@@ -58,5 +59,5 @@ export type KilogramPerSecond = MassFlowRateUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KilogramPerSecond, DivideUnits<Kilogram, Second>>>();
+  assert<Equals<KilogramPerSecond, DivideUnits<Kilo<Gram>, Second>>>();
 }

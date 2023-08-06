@@ -12,13 +12,14 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Kilo } from "../modifiers";
 
 import {
+  type Gram,
   type Metre,
   type Newton,
   type Second,
   type Joule,
-  type Kilogram,
   type Radian,
 } from ".";
 
@@ -84,7 +85,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       JouleSecondPerRadianPerKilogram,
-      DivideUnits<DivideUnits<MultiplyUnits<Joule, Second>, Radian>, Kilogram>
+      DivideUnits<DivideUnits<MultiplyUnits<Joule, Second>, Radian>, Kilo<Gram>>
     >
   >();
   assert<
@@ -95,7 +96,7 @@ if (import.meta.vitest !== undefined) {
           MultiplyUnits<MultiplyUnits<Newton, Metre>, Second>,
           Radian
         >,
-        Kilogram
+        Kilo<Gram>
       >
     >
   >();

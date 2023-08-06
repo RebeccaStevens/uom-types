@@ -12,8 +12,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Kilo, type Square } from "../modifiers";
 
-import { type Kilogram, type SquareMetre, type Steradian } from ".";
+import { type Gram, type Metre, type Steradian } from ".";
 
 /**
  * @group Unit Classes
@@ -62,7 +63,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       KilogramSquareMetrePerSteradian,
-      DivideUnits<MultiplyUnits<Kilogram, SquareMetre>, Steradian>
+      DivideUnits<MultiplyUnits<Kilo<Gram>, Square<Metre>>, Steradian>
     >
   >();
 }

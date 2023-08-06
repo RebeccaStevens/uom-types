@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type Candela, type SquareMetre } from ".";
+import { type Candela, type Metre } from ".";
 
 /**
  * @group Unit Classes
@@ -69,5 +70,5 @@ export type CandelaPerSquareMetre = LuminanceUnit<{}>;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<Equals<Lux, CandelaPerSquareMetre>>();
-  assert<Equals<CandelaPerSquareMetre, DivideUnits<Candela, SquareMetre>>>();
+  assert<Equals<CandelaPerSquareMetre, DivideUnits<Candela, Square<Metre>>>>();
 }

@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type Joule, type SquareMetre } from ".";
+import { type Metre, type Joule } from ".";
 
 /**
  * @group Unit Classes
@@ -57,5 +58,5 @@ export type JoulePerSquareMetre = RadiantExposureUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<JoulePerSquareMetre, DivideUnits<Joule, SquareMetre>>>();
+  assert<Equals<JoulePerSquareMetre, DivideUnits<Joule, Square<Metre>>>>();
 }

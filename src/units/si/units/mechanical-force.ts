@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Kilo } from "../modifiers";
 
-import { type Kilogram, type MetrePerSecondSquared } from ".";
+import { type Gram, type MetrePerSecondSquared } from ".";
 
 /**
  * @group Unit Classes
@@ -60,5 +61,5 @@ export type Newton = ForceUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Newton, MultiplyUnits<Kilogram, MetrePerSecondSquared>>>();
+  assert<Equals<Newton, MultiplyUnits<Kilo<Gram>, MetrePerSecondSquared>>>();
 }

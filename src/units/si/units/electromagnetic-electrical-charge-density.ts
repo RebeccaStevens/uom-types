@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Cubic } from "../modifiers";
 
-import { type Coulomb, type CubicMetre } from ".";
+import { type Metre, type Coulomb } from ".";
 
 /**
  * @group Unit Classes
@@ -59,5 +60,5 @@ export type CoulombPerCubicMetre = ElectricChargeDensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CoulombPerCubicMetre, DivideUnits<Coulomb, CubicMetre>>>();
+  assert<Equals<CoulombPerCubicMetre, DivideUnits<Coulomb, Cubic<Metre>>>>();
 }

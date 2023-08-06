@@ -12,8 +12,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type SquareMetre, type Volt, type Second } from ".";
+import { type Metre, type Volt, type Second } from ".";
 
 /**
  * @group Unit Classes
@@ -62,7 +63,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       SquareMetrePerVoltSecond,
-      DivideUnits<SquareMetre, MultiplyUnits<Volt, Second>>
+      DivideUnits<Square<Metre>, MultiplyUnits<Volt, Second>>
     >
   >();
 }

@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Kilo, type Cubic } from "../modifiers";
 
-import { type CubicMetre, type Kilogram } from ".";
+import { type Gram, type Metre } from ".";
 
 /**
  * @group Unit Classes
@@ -54,5 +55,7 @@ export type CubicMetrePerKilogram = SpecificVolumeUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CubicMetrePerKilogram, DivideUnits<CubicMetre, Kilogram>>>();
+  assert<
+    Equals<CubicMetrePerKilogram, DivideUnits<Cubic<Metre>, Kilo<Gram>>>
+  >();
 }

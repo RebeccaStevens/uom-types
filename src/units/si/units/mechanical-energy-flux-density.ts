@@ -12,8 +12,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type Joule, type Second, type SquareMetre } from ".";
+import { type Metre, type Joule, type Second } from ".";
 
 /**
  * @group Unit Classes
@@ -61,7 +62,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       JoulePerSquareMetreSecond,
-      DivideUnits<Joule, MultiplyUnits<SquareMetre, Second>>
+      DivideUnits<Joule, MultiplyUnits<Square<Metre>, Second>>
     >
   >();
 }

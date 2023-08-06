@@ -12,8 +12,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Cubic, type Square } from "../modifiers";
 
-import { type CubicMetre, type Metre } from ".";
+import { type Metre } from ".";
 
 /**
  * @group Unit Classes
@@ -43,16 +44,7 @@ export type AreaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 >;
 
 /**
- * A unit of {@link Area}.
- *
- * @group Units
- * @category Mechanical
- * @symbol `m²`
- */
-export type SquareMetre = AreaUnit<{}>;
-
-/**
- * A unit of {@link Area} equal to 100 {@link SquareMetre}.
+ * A unit of {@link Area} equal to 100 {@link Square}<{@link Metre}>.
  *
  * @group Units
  * @category Mechanical
@@ -61,7 +53,7 @@ export type SquareMetre = AreaUnit<{}>;
 export type Are = AreaUnit<{ scalar10: 2 }>;
 
 /**
- * A unit of {@link Area} equal to 10,000 {@link SquareMetre}.
+ * A unit of {@link Area} equal to 10,000 {@link Square}<{@link Metre}>.
  *
  * @group Units
  * @category Mechanical
@@ -72,6 +64,6 @@ export type Hectare = AreaUnit<{ scalar10: 4 }>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<SquareMetre, MultiplyUnits<Metre, Metre>>>();
-  assert<Equals<SquareMetre, DivideUnits<CubicMetre, Metre>>>();
+  assert<Equals<Square<Metre>, MultiplyUnits<Metre, Metre>>>();
+  assert<Equals<Square<Metre>, DivideUnits<Cubic<Metre>, Metre>>>();
 }

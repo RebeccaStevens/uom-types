@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Kilo } from "../modifiers";
 
-import { type Coulomb, type Kilogram } from ".";
+import { type Gram, type Coulomb } from ".";
 
 /**
  * @group Unit Classes
@@ -59,5 +60,5 @@ export type CoulombPerKilogram = ExposureUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CoulombPerKilogram, DivideUnits<Coulomb, Kilogram>>>();
+  assert<Equals<CoulombPerKilogram, DivideUnits<Coulomb, Kilo<Gram>>>>();
 }

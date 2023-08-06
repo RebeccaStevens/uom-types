@@ -10,9 +10,10 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
+import { type Cubic } from "..";
 import { type SiUnitClass } from "../base-units";
 
-import { type CubicMetre, type Watt } from ".";
+import { type Metre, type Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -58,5 +59,5 @@ export type WattPerCubicMetre = SpectralIrradianceUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<WattPerCubicMetre, DivideUnits<Watt, CubicMetre>>>();
+  assert<Equals<WattPerCubicMetre, DivideUnits<Watt, Cubic<Metre>>>>();
 }

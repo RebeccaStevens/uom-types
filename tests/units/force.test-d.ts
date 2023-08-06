@@ -2,13 +2,14 @@ import { expectType } from "tsd";
 
 import { type MultiplyUnits } from "#uom-types";
 import {
+  type Gram,
+  type Kilo,
   type MetrePerSecondSquared,
-  type Kilogram,
   type Newton,
 } from "#uom-types/units";
 
 type Newton_DerivedFrom_Kilogram_By_MetrePerSquareSecond = MultiplyUnits<
-  Kilogram,
+  Kilo<Gram>,
   MetrePerSecondSquared
 >;
 

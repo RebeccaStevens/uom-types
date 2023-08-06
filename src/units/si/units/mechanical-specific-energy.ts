@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Kilo } from "../modifiers";
 
-import { type Joule, type Kilogram } from ".";
+import { type Gram, type Joule } from ".";
 
 /**
  * @group Unit Classes
@@ -57,5 +58,5 @@ export type JoulePerKilogram = SpecificEnergyUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<JoulePerKilogram, DivideUnits<Joule, Kilogram>>>();
+  assert<Equals<JoulePerKilogram, DivideUnits<Joule, Kilo<Gram>>>>();
 }

@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Cubic } from "../modifiers";
 
-import { type CubicMetre, type Joule } from ".";
+import { type Metre, type Joule } from ".";
 
 /**
  * @group Unit Classes
@@ -59,5 +60,5 @@ export type JoulePerCubicMetre = EnergyDensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<JoulePerCubicMetre, DivideUnits<Joule, CubicMetre>>>();
+  assert<Equals<JoulePerCubicMetre, DivideUnits<Joule, Cubic<Metre>>>>();
 }

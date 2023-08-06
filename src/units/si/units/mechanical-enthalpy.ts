@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Kilo } from "../modifiers";
 
-import { type Joule, type Kilogram } from ".";
+import { type Gram, type Joule } from ".";
 
 /**
  * @group Unit Classes
@@ -58,5 +59,5 @@ export type Gray = EnthalpyUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Gray, DivideUnits<Joule, Kilogram>>>();
+  assert<Equals<Gray, DivideUnits<Joule, Kilo<Gram>>>>();
 }

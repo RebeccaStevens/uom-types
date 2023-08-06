@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type Newton, type SquareMetre } from ".";
+import { type Metre, type Newton } from ".";
 
 /**
  * @group Unit Classes
@@ -62,5 +63,5 @@ export type Pascal = PressureUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Pascal, DivideUnits<Newton, SquareMetre>>>();
+  assert<Equals<Pascal, DivideUnits<Newton, Square<Metre>>>>();
 }

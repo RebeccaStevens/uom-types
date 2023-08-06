@@ -1,25 +1,30 @@
 import { type UnitConversionRate } from "#uom-types";
 import { div, mul } from "#uom-types/functions";
-import { type SquareMetre, type Are, type Hectare } from "#uom-types/units";
+import {
+  type Metre,
+  type Are,
+  type Hectare,
+  type Square,
+} from "#uom-types/units";
 
 /**
- * Convert {@link SquareMetre} to {@link Are}.
+ * Convert {@link Square}<{@link Metre}> to {@link Are}.
  */
-export function squareMetreToAres(area: SquareMetre): Are {
+export function squareMetreToAres(area: Square<Metre>): Are {
   return div(area, 100 as UnitConversionRate<{ scalar10: -2 }>);
 }
 
 /**
- * Convert {@link SquareMetre} to {@link Hectare}.
+ * Convert {@link Square}<{@link Metre}> to {@link Hectare}.
  */
-export function squareMetreToHectares(area: SquareMetre): Hectare {
+export function squareMetreToHectares(area: Square<Metre>): Hectare {
   return div(area, 10_000 as UnitConversionRate<{ scalar10: -4 }>);
 }
 
 /**
- * Convert {@link Are} to {@link SquareMetre}.
+ * Convert {@link Are} to {@link Square}<{@link Metre}>.
  */
-export function aresToSquareMetre(area: Are): SquareMetre {
+export function aresToSquareMetre(area: Are): Square<Metre> {
   return mul(area, 100 as UnitConversionRate<{ scalar10: -2 }>);
 }
 
@@ -31,9 +36,9 @@ export function aresToHectares(area: Are): Hectare {
 }
 
 /**
- * Convert {@link Hectare} to {@link SquareMetre}.
+ * Convert {@link Hectare} to {@link Square}<{@link Metre}>.
  */
-export function hectaresToSquareMetre(area: Hectare): SquareMetre {
+export function hectaresToSquareMetre(area: Hectare): Square<Metre> {
   return mul(area, 10_000 as UnitConversionRate<{ scalar10: -4 }>);
 }
 

@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type Ampere, type SquareMetre } from ".";
+import { type Metre, type Ampere } from ".";
 
 /**
  * @group Unit Classes
@@ -56,5 +57,5 @@ export type AmperePerSquareMetre = ElectricCurrentDensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<AmperePerSquareMetre, DivideUnits<Ampere, SquareMetre>>>();
+  assert<Equals<AmperePerSquareMetre, DivideUnits<Ampere, Square<Metre>>>>();
 }

@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Cubic } from "../modifiers";
 
-import { type Litre, type CubicMetre, type Mole } from ".";
+import { type Metre, type Litre, type Mole } from ".";
 
 /**
  * @group Unit Classes
@@ -77,6 +78,6 @@ export type MolePerLiter = MolarConcentrationUnit<{ scalar10: 3 }>;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<Equals<Concentration, MolePerCubicMetre>>();
-  assert<Equals<MolePerCubicMetre, DivideUnits<Mole, CubicMetre>>>();
+  assert<Equals<MolePerCubicMetre, DivideUnits<Mole, Cubic<Metre>>>>();
   assert<Equals<MolePerLiter, DivideUnits<Mole, Litre>>>();
 }

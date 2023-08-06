@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type Kelvin, type SquareMetre, type Watt } from ".";
+import { type Metre, type Kelvin, type Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -61,7 +62,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       WattPerSquareMetrePerKelvin,
-      DivideUnits<DivideUnits<Watt, SquareMetre>, Kelvin>
+      DivideUnits<DivideUnits<Watt, Square<Metre>>, Kelvin>
     >
   >();
 }

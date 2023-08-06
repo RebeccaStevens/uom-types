@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type Second, type SquareMetre } from ".";
+import { type Metre, type Second } from ".";
 
 /**
  * @group Unit Classes
@@ -57,5 +58,5 @@ export type SquareMetrePerSecond = KinematicViscosityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<SquareMetrePerSecond, DivideUnits<SquareMetre, Second>>>();
+  assert<Equals<SquareMetrePerSecond, DivideUnits<Square<Metre>, Second>>>();
 }

@@ -12,8 +12,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Kilo } from "../modifiers";
 
-import { type Joule, type Kilogram, type Kelvin } from ".";
+import { type Gram, type Joule, type Kelvin } from ".";
 
 /**
  * @group Unit Classes
@@ -62,7 +63,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       JoulePerKilogramKelvin,
-      DivideUnits<Joule, MultiplyUnits<Kelvin, Kilogram>>
+      DivideUnits<Joule, MultiplyUnits<Kelvin, Kilo<Gram>>>
     >
   >();
 }

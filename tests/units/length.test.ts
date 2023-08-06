@@ -3,10 +3,10 @@ import { expect, test } from "vitest";
 import { add, mul } from "#uom-types/functions";
 import { add as addHo, mul as mulHo } from "#uom-types/functions/higher-order";
 import {
+  type Square,
   type AreaUnit,
   type Length,
   type Metre,
-  type SquareMetre,
   type Centi,
   type Milli,
 } from "#uom-types/units";
@@ -24,7 +24,7 @@ test("unit by number", () => {
 test("unit by unit", () => {
   const a = 3 as Metre;
   const b = 2 as Metre;
-  const expected = 6 as SquareMetre;
+  const expected = 6 as Square<Metre>;
 
   const actual = mul(a, b);
 
@@ -53,7 +53,7 @@ test("generics", () => {
   const a = 3 as Metre;
   const b = 2 as Metre;
   const expectedAdd1 = 5 as Metre;
-  const expectedMul1 = 6 as SquareMetre;
+  const expectedMul1 = 6 as Square<Metre>;
 
   const actualAdd1 = fnAdd(a, b);
   expect(actualAdd1).equals(expectedAdd1);
@@ -80,7 +80,7 @@ test("generics - higher order", () => {
   const a = 3 as Metre;
   const b = 2 as Metre;
   const expectedAdd1 = 5 as Metre;
-  const expectedMul1 = 6 as SquareMetre;
+  const expectedMul1 = 6 as Square<Metre>;
 
   const actualAdd1 = fnAdd(a)(b);
   expect(actualAdd1).equals(expectedAdd1);

@@ -13,7 +13,9 @@ import {
 } from "./utils";
 
 /**
- * Take the inverse of a unit. 1/X.
+ * Take the inverse of a unit.
+ *
+ * @returns `1/X`.
  */
 export type InverseUnit<X extends number> = X extends Unit<
   infer Config,
@@ -32,7 +34,9 @@ type InverseUnitCore<T extends UnitSubvalues> = {
 };
 
 /**
- * Multiple a unit by another unit. AB
+ * Multiple a unit by another unit.
+ *
+ * @returns `A⋅B`
  */
 export type MultiplyUnits<A extends number, B extends number> = A extends Unit<
   infer AConfig,
@@ -66,7 +70,9 @@ type MultiplyUnitsCore<
 }>;
 
 /**
- * Divide a unit by another unit. A/B
+ * Divide a unit by another unit.
+ *
+ * @returns `A/B`
  */
 export type DivideUnits<A extends number, B extends number> = MultiplyUnits<
   A,

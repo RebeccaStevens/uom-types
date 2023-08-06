@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Cubic } from "../modifiers";
 
-import { type CubicMetre, type Second } from ".";
+import { type Metre, type Second } from ".";
 
 /**
  * @group Unit Classes
@@ -57,5 +58,5 @@ export type CubicMetrePerSecond = VolumetricFlowUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CubicMetrePerSecond, DivideUnits<CubicMetre, Second>>>();
+  assert<Equals<CubicMetrePerSecond, DivideUnits<Cubic<Metre>, Second>>>();
 }

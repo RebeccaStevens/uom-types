@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type Coulomb, type SquareMetre } from ".";
+import { type Metre, type Coulomb } from ".";
 
 /**
  * @group Unit Classes
@@ -57,5 +58,5 @@ export type CoulombPerSquareMetre = ElectricDisplacementFieldUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CoulombPerSquareMetre, DivideUnits<Coulomb, SquareMetre>>>();
+  assert<Equals<CoulombPerSquareMetre, DivideUnits<Coulomb, Square<Metre>>>>();
 }

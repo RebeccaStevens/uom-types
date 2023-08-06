@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
-import { type SquareMetre, type Watt } from ".";
+import { type Metre, type Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -55,5 +56,5 @@ export type WattPerSquareMetre = IntensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<WattPerSquareMetre, DivideUnits<Watt, SquareMetre>>>();
+  assert<Equals<WattPerSquareMetre, DivideUnits<Watt, Square<Metre>>>>();
 }

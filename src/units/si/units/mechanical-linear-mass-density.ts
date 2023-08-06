@@ -11,8 +11,9 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+import { type Kilo } from "../modifiers";
 
-import { type Kilogram, type Metre } from ".";
+import { type Gram, type Metre } from ".";
 
 /**
  * @group Unit Classes
@@ -57,5 +58,5 @@ export type KilogramPerMetre = LinearMassDensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KilogramPerMetre, DivideUnits<Kilogram, Metre>>>();
+  assert<Equals<KilogramPerMetre, DivideUnits<Kilo<Gram>, Metre>>>();
 }
