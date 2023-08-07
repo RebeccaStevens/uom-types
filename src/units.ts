@@ -65,7 +65,10 @@ export type MultiplyUnits<A extends number, B extends number> = A extends Unit<
   ? B
   : number;
 
-type MultiplyUnitSubvalues<
+/**
+ * Multiply each of the subvalues from a unit with the corresponding once from another unit.
+ */
+export type MultiplyUnitSubvalues<
   A extends UnitSubvalues,
   B extends UnitSubvalues,
 > = ExcludeUnitZeroSubvalues<{
@@ -81,3 +84,11 @@ export type DivideUnits<A extends number, B extends number> = MultiplyUnits<
   A,
   InverseUnit<B>
 >;
+
+/**
+ * Divide each of the subvalues from a unit with the corresponding once from another unit.
+ */
+export type DivideUnitSubvalues<
+  A extends UnitSubvalues,
+  B extends UnitSubvalues,
+> = MultiplyUnitSubvalues<A, InverseUnitSubvalues<B>>;
