@@ -43,6 +43,8 @@ jobs:
     steps:
       - name: Checkout src
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - uses: ./.github/actions/prepare
 
@@ -53,6 +55,11 @@ jobs:
           name: old-docs
 
       - run: tar -xf old-docs.tar ./docs/generated -C ./docs/generated
+
+      - name: Set Version
+        run: |
+          version=$(git describe --tags $(git rev-list --tags --max-count=1))
+          npm version --no-git-tag-version "${version//v}"
 
       - name: Build
         run: pnpm run build
