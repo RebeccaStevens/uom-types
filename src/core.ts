@@ -1,5 +1,5 @@
 import { type Exponent } from "./exponents";
-import { type RemoveNeverValues, type ExcludeNullUnits } from "./utils";
+import { type RemoveNeverValues, type ExcludeUnitZeroSubvalues } from "./utils";
 
 /**
  * A unit without any meta data.
@@ -123,7 +123,7 @@ export type UnknownUnitMeta = UnknownUnitKeyValues & {
 };
 
 type UnitKeyValues<T extends UnitSubvalues> = {
-  readonly __uom_types__keys: keyof ExcludeNullUnits<T>;
+  readonly __uom_types__keys: keyof ExcludeUnitZeroSubvalues<T>;
   readonly __uom_types__value: RemoveNeverValues<T>;
 };
 

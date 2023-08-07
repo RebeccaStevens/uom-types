@@ -7,7 +7,7 @@ import {
 } from "./core";
 import { type NegativeExponent, type SumExponents } from "./exponents";
 import {
-  type ExcludeNullUnits,
+  type ExcludeUnitZeroSubvalues,
   type FlatternAlias,
   type GetExponent,
 } from "./utils";
@@ -68,7 +68,7 @@ export type MultiplyUnits<A extends number, B extends number> = A extends Unit<
 type MultiplyUnitSubvalues<
   A extends UnitSubvalues,
   B extends UnitSubvalues,
-> = ExcludeNullUnits<{
+> = ExcludeUnitZeroSubvalues<{
   [S in keyof A | keyof B]: SumExponents<GetExponent<A, S>, GetExponent<B, S>>;
 }>;
 
