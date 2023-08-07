@@ -40,7 +40,7 @@ pnpm add -D uom-types
 yarn add -D uom-types
 ```
 
-### Library Make Up
+### Library Structure
 
 This library is split into several submodules.
 
