@@ -17,7 +17,6 @@ import {
   type Pascal,
   type Coulomb,
   type Volt,
-  type Newton,
   type Metre,
   type Watt,
   type Second,
@@ -74,15 +73,6 @@ export type Joule = EnergyUnit<{}>;
  *
  * @group Units
  * @category Mechanical
- * @symbol `N⋅m`
- */
-export type NewtonMetre = EnergyUnit<{}>;
-
-/**
- * A unit of {@link Energy}.
- *
- * @group Units
- * @category Mechanical
  * @symbol `W⋅s`
  */
 export type WattSecond = EnergyUnit<{}>;
@@ -112,9 +102,7 @@ export type WattHour = EnergyUnit<{
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Joule, NewtonMetre>>();
   assert<Equals<Joule, WattSecond>>();
-  assert<Equals<NewtonMetre, MultiplyUnits<Newton, Metre>>>();
   assert<Equals<WattSecond, MultiplyUnits<Watt, Second>>>();
   assert<Equals<Joule, MultiplyUnits<Pascal, Cubic<Metre>>>>();
   assert<Equals<Joule, MultiplyUnits<Coulomb, Volt>>>();

@@ -76,6 +76,7 @@ export * from "./mechanical-stiffness";
 export * from "./mechanical-surface-density";
 export * from "./mechanical-viscosity";
 export * from "./mechanical-volume";
+export * from "./mechanical-work";
 export * from "./mechanical-yank";
 export * from "./photometric-luminance";
 export * from "./photometric-luminous-efficacy";
