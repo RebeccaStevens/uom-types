@@ -63,7 +63,7 @@ export type Concentration = MolarConcentrationUnit<{}>;
  * @category Chemical
  * @symbol `mol/m³`
  */
-export type MolePerCubicMetre = MolarConcentrationUnit<{}>;
+export type MolePerCubicMetre = Concentration;
 
 /**
  * A unit of {@link MolarConcentration}.
@@ -77,7 +77,6 @@ export type MolePerLiter = MolarConcentrationUnit<{ scalar10: 3 }>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Concentration, MolePerCubicMetre>>();
   assert<Equals<MolePerCubicMetre, DivideUnits<Mole, Cubic<Metre>>>>();
   assert<Equals<MolePerLiter, DivideUnits<Mole, Litre>>>();
 }

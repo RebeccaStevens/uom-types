@@ -2,7 +2,6 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
@@ -10,24 +9,22 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
-import { type Reciprocal } from "../modifiers";
+import { type ReciprocalUnitClass, type Reciprocal } from "../modifiers";
 
-import { type Temperature } from ".";
+import { type TemperatureUnitClass, type Temperature } from ".";
 
 /**
  * @group Unit Classes
  * @category Thermodynamic
  */
-export type ThermalExpansionCoefficientUnitClass = SiUnitClass<{
-  Kelvin: -1;
-}>;
+export type ThermalExpansionCoefficientUnitClass =
+  ReciprocalUnitClass<TemperatureUnitClass>;
 
 /**
  * @group Abstract Unit
  * @category Thermodynamic
  */
-export type ThermalExpansionCoefficient =
-  AbstractUnitFrom<ThermalExpansionCoefficientUnitClass>;
+export type ThermalExpansionCoefficient = Reciprocal<Temperature>;
 
 /**
  * @group Unit Creators
@@ -46,5 +43,12 @@ export type ThermalExpansionCoefficientUnitFrom<M extends UnknownUnitMeta> =
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<ThermalExpansionCoefficient, Reciprocal<Temperature>>>();
+  assert<
+    Equals<
+      ThermalExpansionCoefficientUnitClass,
+      SiUnitClass<{
+        Kelvin: -1;
+      }>
+    >
+  >();
 }

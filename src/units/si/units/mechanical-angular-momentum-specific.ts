@@ -71,17 +71,11 @@ export type JouleSecondPerRadianPerKilogram = SpecificAngularMomentumUnit<{}>;
  * @symbol `N⋅m⋅s/rad/kg`
  */
 export type NewtonMetreSecondPerRadianPerKilogram =
-  SpecificAngularMomentumUnit<{}>;
+  JouleSecondPerRadianPerKilogram;
 
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<
-      JouleSecondPerRadianPerKilogram,
-      NewtonMetreSecondPerRadianPerKilogram
-    >
-  >();
   assert<
     Equals<
       JouleSecondPerRadianPerKilogram,

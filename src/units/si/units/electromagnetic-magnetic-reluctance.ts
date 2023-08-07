@@ -2,7 +2,6 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
@@ -10,26 +9,22 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
-import { type Reciprocal } from "../modifiers";
+import { type ReciprocalUnitClass, type Reciprocal } from "../modifiers";
 
-import { type ElectricInductance } from ".";
+import { type ElectricInductance, type ElectricInductanceUnitClass } from ".";
 
 /**
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type MagneticReluctanceUnitClass = SiUnitClass<{
-  Kilogram: -1;
-  Metre: -2;
-  Second: 2;
-  Ampere: 2;
-}>;
+export type MagneticReluctanceUnitClass =
+  ReciprocalUnitClass<ElectricInductanceUnitClass>;
 
 /**
  * @group Abstract Unit
  * @category Electromagnetic
  */
-export type MagneticReluctance = AbstractUnitFrom<MagneticReluctanceUnitClass>;
+export type MagneticReluctance = Reciprocal<ElectricInductance>;
 
 /**
  * @group Unit Creators
@@ -50,5 +45,15 @@ export type MagneticReluctanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<MagneticReluctance, Reciprocal<ElectricInductance>>>();
+  assert<
+    Equals<
+      MagneticReluctanceUnitClass,
+      SiUnitClass<{
+        Kilogram: -1;
+        Metre: -2;
+        Second: 2;
+        Ampere: 2;
+      }>
+    >
+  >();
 }

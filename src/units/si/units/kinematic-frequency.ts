@@ -2,7 +2,6 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
   type UnitMeta,
@@ -10,9 +9,11 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
-import { type Reciprocal } from "../modifiers";
+import { type ReciprocalUnitClass, type Reciprocal } from "../modifiers";
 
 import {
+  type Duration,
+  type DurationUnitClass,
   type Day,
   type Hour,
   type Minute,
@@ -25,13 +26,13 @@ import {
  * @group Unit Classes
  * @category Kinematic
  */
-export type FrequencyUnitClass = SiUnitClass<{ Second: -1 }>;
+export type FrequencyUnitClass = ReciprocalUnitClass<DurationUnitClass>;
 
 /**
  * @group Abstract Unit
  * @category Kinematic
  */
-export type Frequency = AbstractUnitFrom<FrequencyUnitClass>;
+export type Frequency = Reciprocal<Duration>;
 
 /**
  * @group Unit Creators
@@ -69,7 +70,7 @@ export type Hertz = FrequencyUnit<{}>;
  * @category Kinematic
  * @symbol `s⁻¹`
  */
-export type PerSecond = FrequencyUnit<{}>;
+export type PerSecond = Hertz;
 
 /**
  * A unit of {@link Frequency}.
@@ -127,6 +128,7 @@ export type PerYear = FrequencyUnit<{
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
+  assert<Equals<FrequencyUnitClass, SiUnitClass<{ Second: -1 }>>>();
   assert<Equals<Hertz, Reciprocal<Second>>>();
   assert<Equals<PerSecond, Reciprocal<Second>>>();
   assert<Equals<PerMinute, Reciprocal<Minute>>>();

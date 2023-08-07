@@ -63,12 +63,11 @@ export type JoulePerRadian = TorqueUnit<{}>;
  * @category Kinematic
  * @symbol `N⋅m/rad`
  */
-export type NewtonMeterPerRadian = TorqueUnit<{}>;
+export type NewtonMeterPerRadian = JoulePerRadian;
 
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<NewtonMeterPerRadian, JoulePerRadian>>();
   assert<Equals<NewtonMeterPerRadian, DivideUnits<NewtonMetre, Radian>>>();
   assert<
     Equals<

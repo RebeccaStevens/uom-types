@@ -75,7 +75,7 @@ export type Joule = EnergyUnit<{}>;
  * @category Mechanical
  * @symbol `W⋅s`
  */
-export type WattSecond = EnergyUnit<{}>;
+export type WattSecond = Joule;
 
 /**
  * A unit of {@link Energy}.

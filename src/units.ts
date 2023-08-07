@@ -22,14 +22,17 @@ export type InverseUnit<X extends number> = X extends Unit<
   infer Meta
 >
   ? Unit<
-      FlatternAlias<InverseUnitCore<Config>>,
-      FlatternAlias<InverseUnitCore<Meta>>
+      FlatternAlias<InverseUnitSubvalues<Config>>,
+      FlatternAlias<InverseUnitSubvalues<Meta>>
     >
   : X extends AbstractUnit<infer Config>
-  ? AbstractUnit<FlatternAlias<InverseUnitCore<Config>>>
+  ? AbstractUnit<FlatternAlias<InverseUnitSubvalues<Config>>>
   : number;
 
-type InverseUnitCore<T extends UnitSubvalues> = {
+/**
+ * Inverses each of the subvalues.
+ */
+export type InverseUnitSubvalues<T extends UnitSubvalues> = {
   [E in keyof T]: NegativeExponent<T[E]>;
 };
 
@@ -44,8 +47,8 @@ export type MultiplyUnits<A extends number, B extends number> = A extends Unit<
 >
   ? B extends Unit<infer BConfig, infer BMeta>
     ? Unit<
-        FlatternAlias<MultiplyUnitsCore<AConfig, BConfig>>,
-        FlatternAlias<MultiplyUnitsCore<AMeta, BMeta>>
+        FlatternAlias<MultiplyUnitSubvalues<AConfig, BConfig>>,
+        FlatternAlias<MultiplyUnitSubvalues<AMeta, BMeta>>
       >
     : B extends UnknownAbstractUnit
     ? never
@@ -56,13 +59,13 @@ export type MultiplyUnits<A extends number, B extends number> = A extends Unit<
     : B
   : A extends AbstractUnit<infer AConfig>
   ? B extends AbstractUnit<infer BConfig>
-    ? AbstractUnit<FlatternAlias<MultiplyUnitsCore<AConfig, BConfig>>>
+    ? AbstractUnit<FlatternAlias<MultiplyUnitSubvalues<AConfig, BConfig>>>
     : A
   : B extends UnknownAbstractUnit
   ? B
   : number;
 
-type MultiplyUnitsCore<
+type MultiplyUnitSubvalues<
   A extends UnitSubvalues,
   B extends UnitSubvalues,
 > = ExcludeNullUnits<{

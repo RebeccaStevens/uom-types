@@ -64,7 +64,7 @@ export type Lux = LuminanceUnit<{}>;
  * @category Photometric
  * @symbol `cd/m²`
  */
-export type CandelaPerSquareMetre = LuminanceUnit<{}>;
+export type CandelaPerSquareMetre = Lux;
 
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements

@@ -14,12 +14,17 @@ export type {
   UnknownUnitMeta,
 } from "./core";
 export type {
-  Exponent,
-  NegativeExponent,
-  SumExponents,
-  SubExponents,
-  MultiplyExponents,
   DivideExponents,
+  Exponent,
+  MultiplyExponents,
+  NegativeExponent,
+  SubExponents,
+  SumExponents,
 } from "./exponents";
-export { MultiplyUnitExponents, DivideUnitExponents } from "./unit-exponents";
-export type { MultiplyUnits, DivideUnits, InverseUnit } from "./units";
+export { DivideUnitExponents, MultiplyUnitExponents } from "./unit-exponents";
+export type {
+  DivideUnits,
+  InverseUnit,
+  InverseUnitSubvalues,
+  MultiplyUnits,
+} from "./units";
