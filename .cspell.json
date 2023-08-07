@@ -5,6 +5,7 @@
     ".github/workflows/**",
     "**/*.json",
     "**/*.jsonc",
+    "**/*.svg",
     "**/CHANGELOG.md",
     "**/.type-coverage/**",
     "**/coverage/**",
