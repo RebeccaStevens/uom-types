@@ -15,7 +15,9 @@
     "project": ["./tsconfig.json"]
   },
   "ignorePatterns": [
+    "/.type-coverage/",
     "/coverage/",
+    "/coverage-ts/",
     "/docs/generated/",
     "/dist/",
     "/src/exponents.ts",
@@ -47,6 +49,21 @@
         "@typescript-eslint/no-unsafe-call": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
         "@typescript-eslint/no-unsafe-return": "off"
+      }
+    },
+    {
+      "files": ["./**/*.md/**"],
+      "parserOptions": {
+        "project": null
+      },
+      "extends": [
+        "plugin:markdown/recommended",
+        "plugin:@typescript-eslint/disable-type-checked",
+        "plugin:functional/off"
+      ],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off",
+        "unicorn/filename-case": "off"
       }
     }
   ]

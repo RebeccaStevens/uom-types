@@ -8,7 +8,7 @@ import {
   type UnknownAbstractUnit,
   type UnknownUnit,
 } from "#uom-types";
-import { type Length, type Radian, type Unitless } from "#uom-types/units";
+import { type Radian, type Unitless } from "#uom-types/units";
 
 type OperationIO<T extends number> = [T] extends [
   UnknownUnit | UnknownAbstractUnit,

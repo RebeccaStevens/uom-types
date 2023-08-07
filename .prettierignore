@@ -1,5 +1,7 @@
 /CHANGELOG.md
-/coverage
+/.type-coverage/
+/coverage/
+/coverage-ts/
 /dist/
 /pnpm-lock.yaml
 

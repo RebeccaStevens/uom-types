@@ -6,8 +6,11 @@
     "**/*.json",
     "**/*.jsonc",
     "**/CHANGELOG.md",
+    "**/.type-coverage/**",
     "**/coverage/**",
+    "**/coverage-ts/**",
     "**/dist/**",
+    "**/docs/generated/**",
     "**/node_modules/**",
     "pnpm-lock.yaml"
   ],

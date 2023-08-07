@@ -4,7 +4,6 @@ import {
   type AbstractUnitFrom,
   type UnitClass,
   type UnitFrom,
-  type UnitMeta,
   type Multiply,
 } from "#uom-types";
 
