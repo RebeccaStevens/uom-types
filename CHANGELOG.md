@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+# [3.0.0](https://github.com/RebeccaStevens/uom-types/compare/v2.0.0...v3.0.0) (2023-08-07)
+
+
+* Merge pull request #3 from RebeccaStevens/uom-types ([d6f0c76](https://github.com/RebeccaStevens/uom-types/commit/d6f0c7641ec072388c336b4547862e73f8fefc42)), closes [#3](https://github.com/RebeccaStevens/uom-types/issues/3)
+
+
+### BREAKING CHANGES
+
+* Extra details of a unit, such as its scalar factor, are now stored as part of the unit's meta, not on a subcomponent of the unit.
+* "si-units" submodule removed. It has been replaced by "units".
+
 # [2.0.0](https://github.com/RebeccaStevens/uom-types/compare/v1.0.3...v2.0.0) (2023-07-08)
 
 
