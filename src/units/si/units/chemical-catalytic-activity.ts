@@ -1,4 +1,8 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { assert, type Equals } from "tsafe";
+
 import {
+  type DivideUnits,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -7,6 +11,8 @@ import {
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
+
+import { type Mole, type Second } from ".";
 
 /**
  * @group Unit Classes
@@ -45,3 +51,9 @@ export type CatalyticActivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @symbol `kat`
  */
 export type Katal = CatalyticActivityUnit<{}>;
+
+// Tests
+// eslint-disable-next-line functional/no-conditional-statements
+if (import.meta.vitest !== undefined) {
+  assert<Equals<Katal, DivideUnits<Mole, Second>>>();
+}
