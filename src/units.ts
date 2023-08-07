@@ -37,7 +37,7 @@ export type InverseUnitSubvalues<T extends UnitSubvalues> = {
 };
 
 /**
- * Multiple a unit by another unit.
+ * Multiply a unit by another unit.
  *
  * @returns `A⋅B`
  */

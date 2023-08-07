@@ -1,7 +1,7 @@
 import { type UnitSubvalues } from "./core";
 
 /**
- * Remove all key from the object that are never.
+ * Remove all key from the object that are `never`.
  */
 export type RemoveNeverValues<T extends object> = {
   [K in keyof T as [T[K]] extends [never] ? never : K]: T[K];
