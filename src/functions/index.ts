@@ -8,6 +8,7 @@ import {
   type UnknownAbstractUnit,
   type UnknownUnit,
 } from "#uom-types";
+import { Length, type Radian } from "#uom-types/units";
 
 type OperationIO<T extends number> = [T] extends [
   UnknownUnit | UnknownAbstractUnit,
@@ -329,4 +330,123 @@ export function lte<T extends number>(
   b: OperationIO<T>,
 ): boolean {
   return a <= b;
+}
+
+/**
+ * Returns the sine of a number.
+ *
+ * @category Math
+ */
+export function sin(angle: Radian): number {
+  return Math.sin(angle);
+}
+
+/**
+ * Returns the cosine of a number.
+ *
+ * @category Math
+ */
+export function cos(angle: Radian): number {
+  return Math.cos(angle);
+}
+
+/**
+ * Returns the tangent of a number.
+ *
+ * @category Math
+ */
+export function tan(angle: Radian): number {
+  return Math.tan(angle);
+}
+
+/**
+ * Returns the arcsine of a number.
+ *
+ * @category Math
+ */
+export function asin(value: number): Radian {
+  return Math.asin(value) as Radian;
+}
+
+/**
+ * Returns the arc cosine (or inverse cosine) of a number.
+ *
+ * @category Math
+ */
+export function acos(value: number): Radian {
+  return Math.acos(value) as Radian;
+}
+
+/**
+ * Returns the arctangent of a number.
+ *
+ * @category Math
+ */
+export function atan(value: number): Radian {
+  return Math.atan(value) as Radian;
+}
+
+/**
+ * Returns the angle (in radians) from the X axis to a point.
+ *
+ * @category Math
+ * @param x - A {@link Length} representing the cartesian x-coordinate.
+ * @param y - A {@link Length} representing the cartesian y-coordinate.
+ */
+export function atan2<T extends number>(x: T, y: T): Radian {
+  return Math.atan2(x, y) as Radian;
+}
+
+/**
+ * Returns the hyperbolic sine of a number.
+ *
+ * @category Math
+ */
+export function sinh(angle: Radian): number {
+  return Math.sinh(angle);
+}
+
+/**
+ * Returns the hyperbolic cosine of a number.
+ *
+ * @category Math
+ */
+export function cosh(angle: Radian): number {
+  return Math.cosh(angle);
+}
+
+/**
+ * Returns the hyperbolic tangent of a number.
+ *
+ * @category Math
+ */
+export function tanh(angle: Radian): number {
+  return Math.tanh(angle);
+}
+
+/**
+ * Returns the inverse hyperbolic sine of a number.
+ *
+ * @category Math
+ */
+export function asinh(value: number): Radian {
+  return Math.asinh(value) as Radian;
+}
+
+/**
+ * Returns the inverse hyperbolic cosine of a number.
+ *
+ * @category Math
+ */
+export function acosh(value: number): Radian {
+  return Math.acosh(value) as Radian;
+}
+
+/**
+ * Returns the inverse hyperbolic tangent of a number.
+ *
+ * @category Math
+ */
+export function atanh(value: number): Radian {
+  return Math.atanh(value) as Radian;
 }
