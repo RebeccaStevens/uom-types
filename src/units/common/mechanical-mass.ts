@@ -41,6 +41,7 @@ export type MassUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * A unit of {@link Mass}.
  *
  * @group Units
+ * @category Base
  * @category Mechanical
  * @symbol `g`
  */
