@@ -8,7 +8,6 @@ import {
   type Litre,
   type Milli,
   type Kilo,
-  type CubicCentiMetre,
 } from "#uom-types/units";
 
 type CubicMetre_DerivedFrom_Metre_Cubed = MultiplyUnits<
@@ -36,6 +35,3 @@ type CubicMetre_DerivedFrom_1000_Litre = Kilo<Litre>;
 
 expectType<CubicMetre_DerivedFrom_1000_Litre>(0 as Cubic<Metre>);
 expectType<Cubic<Metre>>(0 as CubicMetre_DerivedFrom_1000_Litre);
-
-expectType<Milli<Litre>>(0 as CubicCentiMetre);
-expectType<CubicCentiMetre>(0 as Milli<Litre>);

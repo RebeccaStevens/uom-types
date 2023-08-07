@@ -10,7 +10,7 @@ import {
 /**
  * Convert {@link Radian} to {@link Degree}.
  */
-export function radianToDegrees(angle: Radian): Degree {
+export function radiansToDegrees(angle: Radian): Degree {
   return mul(
     angle,
     (180 / Math.PI) as UnitConversionRate<{ scalar360: 1; scalar2π: -1 }>,
@@ -20,7 +20,7 @@ export function radianToDegrees(angle: Radian): Degree {
 /**
  * Convert {@link Radian} to {@link Gradian}.
  */
-export function radianToGradian(angle: Radian): Gradian {
+export function radiansToGradians(angle: Radian): Gradian {
   return mul(
     angle,
     (200 / Math.PI) as UnitConversionRate<{ scalar400: 1; scalar2π: -1 }>,
@@ -30,14 +30,14 @@ export function radianToGradian(angle: Radian): Gradian {
 /**
  * Convert {@link Radian} to {@link Turn}.
  */
-export function radianToTurns(angle: Radian): Turn {
+export function radiansToTurns(angle: Radian): Turn {
   return div(angle, Math.PI as UnitConversionRate<{ scalar2π: 1 }>);
 }
 
 /**
  * Convert {@link Degree} to {@link Radian}.
  */
-export function degreesToRadian(angle: Degree): Radian {
+export function degreesToRadians(angle: Degree): Radian {
   return mul(
     angle,
     (Math.PI / 180) as UnitConversionRate<{ scalar360: -1; scalar2π: 1 }>,
@@ -47,7 +47,7 @@ export function degreesToRadian(angle: Degree): Radian {
 /**
  * Convert {@link Degree} to {@link Gradian}.
  */
-export function degreesToGradian(angle: Degree): Gradian {
+export function degreesToGradians(angle: Degree): Gradian {
   return mul(
     angle,
     (10 / 9) as UnitConversionRate<{ scalar360: -1; scalar400: 1 }>,
@@ -64,7 +64,7 @@ export function degreesToTurns(angle: Degree): Turn {
 /**
  * Convert {@link Gradian} to {@link Radian}.
  */
-export function gradianToRadian(angle: Gradian): Radian {
+export function gradiansToRadians(angle: Gradian): Radian {
   return mul(
     angle,
     (Math.PI / 400) as UnitConversionRate<{ scalar400: -1; scalar2π: 1 }>,
@@ -74,7 +74,7 @@ export function gradianToRadian(angle: Gradian): Radian {
 /**
  * Convert {@link Gradian} to {@link Degree}.
  */
-export function gradianToDegrees(angle: Gradian): Degree {
+export function gradiansToDegrees(angle: Gradian): Degree {
   return mul(
     angle,
     (9 / 10) as UnitConversionRate<{ scalar360: 1; scalar400: -1 }>,
@@ -84,14 +84,14 @@ export function gradianToDegrees(angle: Gradian): Degree {
 /**
  * Convert {@link Gradian} to {@link Turn}.
  */
-export function gradianToTurns(angle: Gradian): Turn {
+export function gradiansToTurns(angle: Gradian): Turn {
   return div(angle, 400 as UnitConversionRate<{ scalar400: 1 }>);
 }
 
 /**
  * Convert {@link Turn} to {@link Radian}.
  */
-export function turnsToRadian(angle: Turn): Radian {
+export function turnsToRadians(angle: Turn): Radian {
   return mul(angle, (2 * Math.PI) as UnitConversionRate<{ scalar2π: 1 }>);
 }
 
@@ -105,6 +105,6 @@ export function turnsToDegrees(angle: Turn): Degree {
 /**
  * Convert {@link Turn} to {@link Gradian}.
  */
-export function turnsToGradian(angle: Turn): Gradian {
+export function turnsToGradians(angle: Turn): Gradian {
   return mul(angle, 400 as UnitConversionRate<{ scalar400: 1 }>);
 }

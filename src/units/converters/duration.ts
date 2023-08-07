@@ -12,63 +12,63 @@ import {
 /**
  * Convert {@link Second} to {@link Minute}.
  */
-export function secondToMinute(duration: Second): Minute {
+export function secondsToMinutes(duration: Second): Minute {
   return div(duration, 60 as UnitConversionRate<{ scalar60: -1 }>);
 }
 
 /**
  * Convert {@link Second} to {@link Hour}.
  */
-export function secondToHour(duration: Second): Hour {
+export function secondsToHours(duration: Second): Hour {
   return div(duration, 3600 as UnitConversionRate<{ scalar60: -2 }>);
 }
 
 /**
  * Convert {@link Minute} to {@link Second}.
  */
-export function MinuteToSecond(duration: Minute): Second {
+export function minutesToSeconds(duration: Minute): Second {
   return mul(duration, 60 as UnitConversionRate<{ scalar60: -1 }>);
 }
 
 /**
  * Convert {@link Minute} to {@link Hour}.
  */
-export function MinuteToHour(duration: Minute): Hour {
+export function minutesToHours(duration: Minute): Hour {
   return div(duration, 60 as UnitConversionRate<{ scalar60: -1 }>);
 }
 
 /**
  * Convert {@link Hour} to {@link Second}.
  */
-export function HourToSecond(duration: Hour): Second {
+export function hoursToSeconds(duration: Hour): Second {
   return mul(duration, 3600 as UnitConversionRate<{ scalar60: -2 }>);
 }
 
 /**
  * Convert {@link Hour} to {@link Minute}.
  */
-export function HourToMinute(duration: Hour): Minute {
+export function hoursToMinutes(duration: Hour): Minute {
   return mul(duration, 60 as UnitConversionRate<{ scalar60: -1 }>);
 }
 
 /**
  * Convert {@link Hour} to {@link Day}.
  */
-export function HourToDay(duration: Hour): Day {
+export function hoursToDays(duration: Hour): Day {
   return div(duration, 24 as UnitConversionRate<{ scalar24: -1 }>);
 }
 
 /**
  * Convert {@link Day} to {@link Hour}.
  */
-export function DayToHour(duration: Day): Hour {
+export function daysToHours(duration: Day): Hour {
   return mul(duration, 24 as UnitConversionRate<{ scalar24: -1 }>);
 }
 
 /**
  * Convert {@link Day} to {@link Week}.
  */
-export function DayToWeek(duration: Day): Week {
+export function daysToWeeks(duration: Day): Week {
   return div(duration, 7 as UnitConversionRate<{ scalar7: -1 }>);
 }
 
@@ -78,22 +78,22 @@ export function DayToWeek(duration: Day): Week {
  * This function assume that one year is equal to 365.25 Day.
  * Use an actual date/time library if you need more control.
  */
-export function DayToYear(duration: Day): Year {
+export function daysToYears(duration: Day): Year {
   return div(duration, 365.25 as UnitConversionRate<{ scalarDayInYear: -1 }>);
 }
 
 /**
  * Convert {@link Week} to {@link Day}.
  */
-export function WeekToDay(duration: Week): Day {
+export function weeksToDays(duration: Week): Day {
   return mul(duration, 7 as UnitConversionRate<{ scalar7: -1 }>);
 }
 
 /**
  * Convert {@link Week} to {@link Year}.
  */
-export function WeekToYear(duration: Week): Year {
-  return DayToYear(WeekToDay(duration));
+export function weeksToYears(duration: Week): Year {
+  return daysToYears(weeksToDays(duration));
 }
 
 /**
@@ -102,13 +102,13 @@ export function WeekToYear(duration: Week): Year {
  * This function assume that one year is equal to 365.25 Day.
  * Use an actual date/time library if you need more control.
  */
-export function YearToDay(duration: Year): Day {
+export function yearsToDays(duration: Year): Day {
   return mul(duration, 365.25 as UnitConversionRate<{ scalarDayInYear: -1 }>);
 }
 
 /**
  * Convert {@link Year} to {@link Week}.
  */
-export function YearToWeek(duration: Year): Week {
-  return DayToWeek(YearToDay(duration));
+export function yearsToWeeks(duration: Year): Week {
+  return daysToWeeks(yearsToDays(duration));
 }

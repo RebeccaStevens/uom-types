@@ -10,21 +10,21 @@ import {
 /**
  * Convert {@link Square}<{@link Metre}> to {@link Are}.
  */
-export function squareMetreToAres(area: Square<Metre>): Are {
+export function squareMetresToAres(area: Square<Metre>): Are {
   return div(area, 100 as UnitConversionRate<{ scalar10: -2 }>);
 }
 
 /**
  * Convert {@link Square}<{@link Metre}> to {@link Hectare}.
  */
-export function squareMetreToHectares(area: Square<Metre>): Hectare {
+export function squareMetresToHectares(area: Square<Metre>): Hectare {
   return div(area, 10_000 as UnitConversionRate<{ scalar10: -4 }>);
 }
 
 /**
  * Convert {@link Are} to {@link Square}<{@link Metre}>.
  */
-export function aresToSquareMetre(area: Are): Square<Metre> {
+export function aresToSquareMetres(area: Are): Square<Metre> {
   return mul(area, 100 as UnitConversionRate<{ scalar10: -2 }>);
 }
 
@@ -38,7 +38,7 @@ export function aresToHectares(area: Are): Hectare {
 /**
  * Convert {@link Hectare} to {@link Square}<{@link Metre}>.
  */
-export function hectaresToSquareMetre(area: Hectare): Square<Metre> {
+export function hectaresToSquareMetres(area: Hectare): Square<Metre> {
   return mul(area, 10_000 as UnitConversionRate<{ scalar10: -4 }>);
 }
 
