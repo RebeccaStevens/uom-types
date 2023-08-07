@@ -2,8 +2,8 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
-  type MultiplyUnits,
+  type Divide,
+  type Multiply,
   type UnknownUnitMeta,
   type AbstractUnitFrom,
   type UnitSubvalues,
@@ -79,17 +79,14 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       JouleSecondPerRadianPerKilogram,
-      DivideUnits<DivideUnits<MultiplyUnits<Joule, Second>, Radian>, Kilo<Gram>>
+      Divide<Divide<Multiply<Joule, Second>, Radian>, Kilo<Gram>>
     >
   >();
   assert<
     Equals<
       NewtonMetreSecondPerRadianPerKilogram,
-      DivideUnits<
-        DivideUnits<
-          MultiplyUnits<MultiplyUnits<Newton, Metre>, Second>,
-          Radian
-        >,
+      Divide<
+        Divide<Multiply<Multiply<Newton, Metre>, Second>, Radian>,
         Kilo<Gram>
       >
     >

@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -60,5 +60,5 @@ export type CoulombPerKilogram = ExposureUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CoulombPerKilogram, DivideUnits<Coulomb, Kilo<Gram>>>>();
+  assert<Equals<CoulombPerKilogram, Divide<Coulomb, Kilo<Gram>>>>();
 }

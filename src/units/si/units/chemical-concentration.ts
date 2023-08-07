@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -77,6 +77,6 @@ export type MolePerLiter = MolarConcentrationUnit<{ scalar10: 3 }>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<MolePerCubicMetre, DivideUnits<Mole, Cubic<Metre>>>>();
-  assert<Equals<MolePerLiter, DivideUnits<Mole, Litre>>>();
+  assert<Equals<MolePerCubicMetre, Divide<Mole, Cubic<Metre>>>>();
+  assert<Equals<MolePerLiter, Divide<Mole, Litre>>>();
 }

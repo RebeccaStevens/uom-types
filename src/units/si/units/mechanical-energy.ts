@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
+  type Multiply,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -103,10 +103,10 @@ export type WattHour = EnergyUnit<{
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<Equals<Joule, WattSecond>>();
-  assert<Equals<WattSecond, MultiplyUnits<Watt, Second>>>();
-  assert<Equals<Joule, MultiplyUnits<Pascal, Cubic<Metre>>>>();
-  assert<Equals<Joule, MultiplyUnits<Coulomb, Volt>>>();
+  assert<Equals<WattSecond, Multiply<Watt, Second>>>();
+  assert<Equals<Joule, Multiply<Pascal, Cubic<Metre>>>>();
+  assert<Equals<Joule, Multiply<Coulomb, Volt>>>();
 
-  assert<Equals<WattMinute, MultiplyUnits<Watt, Minute>>>();
-  assert<Equals<WattHour, MultiplyUnits<Watt, Hour>>>();
+  assert<Equals<WattMinute, Multiply<Watt, Minute>>>();
+  assert<Equals<WattHour, Multiply<Watt, Hour>>>();
 }

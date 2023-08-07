@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -59,5 +59,5 @@ export type KilogramPerSecond = MassFlowRateUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KilogramPerSecond, DivideUnits<Kilo<Gram>, Second>>>();
+  assert<Equals<KilogramPerSecond, Divide<Kilo<Gram>, Second>>>();
 }

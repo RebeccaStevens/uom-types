@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
+  type Multiply,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -57,5 +57,5 @@ export type AmpereRadian = MagnetomotiveForceUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<AmpereRadian, MultiplyUnits<Ampere, Radian>>>();
+  assert<Equals<AmpereRadian, Multiply<Ampere, Radian>>>();
 }

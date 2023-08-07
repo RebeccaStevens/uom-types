@@ -2,9 +2,9 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
+  type Multiply,
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -61,9 +61,6 @@ export type JouleSecondPerRadian = AngularMomentumUnit<{}>;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<
-    Equals<
-      JouleSecondPerRadian,
-      DivideUnits<MultiplyUnits<Joule, Second>, Radian>
-    >
+    Equals<JouleSecondPerRadian, Divide<Multiply<Joule, Second>, Radian>>
   >();
 }

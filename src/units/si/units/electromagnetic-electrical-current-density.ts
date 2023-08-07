@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -57,5 +57,5 @@ export type AmperePerSquareMetre = ElectricCurrentDensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<AmperePerSquareMetre, DivideUnits<Ampere, Square<Metre>>>>();
+  assert<Equals<AmperePerSquareMetre, Divide<Ampere, Square<Metre>>>>();
 }

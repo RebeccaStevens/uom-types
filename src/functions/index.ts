@@ -1,9 +1,9 @@
 import {
   type AbstractUnit,
-  type DivideUnits,
+  type Divide,
   type DivideUnitExponents,
-  type InverseUnit,
-  type MultiplyUnits,
+  type Inverse,
+  type Multiply,
   type Unit,
   type UnknownAbstractUnit,
   type UnknownUnit,
@@ -48,8 +48,8 @@ export function sub<T extends number>(
 export function mul<A extends number, B extends number>(
   a: A,
   b: B,
-): MultiplyUnits<A, B> {
-  return (a * b) as MultiplyUnits<A, B>;
+): Multiply<A, B> {
+  return (a * b) as Multiply<A, B>;
 }
 
 /**
@@ -60,8 +60,8 @@ export function mul<A extends number, B extends number>(
 export function div<A extends number, B extends number>(
   a: A,
   b: B,
-): DivideUnits<A, B> {
-  return (a / b) as DivideUnits<A, B>;
+): Divide<A, B> {
+  return (a / b) as Divide<A, B>;
 }
 
 /**
@@ -99,7 +99,7 @@ export function modSafe<T extends number>(
  *
  * @category Math
  */
-export function pow<B extends number>(base: B, exponent: -1): InverseUnit<B>;
+export function pow<B extends number>(base: B, exponent: -1): Inverse<B>;
 
 /**
  * Put a number to the power of 0.
@@ -137,10 +137,7 @@ export function pow<E extends number>(base: E, exponent: 1): E;
  *
  * @category Math
  */
-export function pow<B extends number>(
-  base: B,
-  exponent: 2,
-): MultiplyUnits<B, B>;
+export function pow<B extends number>(base: B, exponent: 2): Multiply<B, B>;
 
 /**
  * Put a number to the power of 3.
@@ -150,7 +147,7 @@ export function pow<B extends number>(
 export function pow<B extends number>(
   base: B,
   exponent: 3,
-): MultiplyUnits<B, MultiplyUnits<B, B>>;
+): Multiply<B, Multiply<B, B>>;
 
 /**
  * Put a number to the power of 4.
@@ -160,7 +157,7 @@ export function pow<B extends number>(
 export function pow<B extends number>(
   base: B,
   exponent: 4,
-): MultiplyUnits<B, MultiplyUnits<B, MultiplyUnits<B, B>>>;
+): Multiply<B, Multiply<B, Multiply<B, B>>>;
 
 /**
  * Put one number to the power of the other.
@@ -194,7 +191,7 @@ export function sqrt<T extends number>(value: T): DivideUnitExponents<T, 2> {
  *
  * @category Math
  */
-export function inverse<T extends number>(value: T): InverseUnit<T> {
+export function inverse<T extends number>(value: T): Inverse<T> {
   return pow(value, -1);
 }
 

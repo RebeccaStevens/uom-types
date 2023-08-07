@@ -1,9 +1,9 @@
 import {
   type AbstractUnit,
-  type DivideUnits,
+  type Divide,
   type DivideUnitExponents,
-  type InverseUnit,
-  type MultiplyUnits,
+  type Inverse,
+  type Multiply,
   type Unit,
   type UnknownAbstractUnit,
   type UnknownUnit,
@@ -44,7 +44,7 @@ export function sub<T extends number>(
  */
 export function mul<A extends number>(
   a: A,
-): <B extends number>(b: B) => MultiplyUnits<B, A> {
+): <B extends number>(b: B) => Multiply<B, A> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-return -- Casting to actual type fails for some reason.
   return (b) => (b * a) as any;
 }
@@ -56,7 +56,7 @@ export function mul<A extends number>(
  */
 export function div<A extends number>(
   a: A,
-): <B extends number>(b: B) => DivideUnits<B, A> {
+): <B extends number>(b: B) => Divide<B, A> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-return -- Casting to actual type fails for some reason.
   return (b) => (b / a) as any;
 }
@@ -88,7 +88,7 @@ type PowFunction<E extends number, B extends number> = E extends UnknownUnit
   : E extends UnknownAbstractUnit
   ? never
   : E extends -1
-  ? (b: B) => InverseUnit<B>
+  ? (b: B) => Inverse<B>
   : E extends 0
   ? (
       b: B,
@@ -102,11 +102,11 @@ type PowFunction<E extends number, B extends number> = E extends UnknownUnit
   : E extends 1
   ? (b: B) => B
   : E extends 2
-  ? (b: B) => MultiplyUnits<B, B>
+  ? (b: B) => Multiply<B, B>
   : E extends 3
-  ? (b: B) => MultiplyUnits<B, MultiplyUnits<B, B>>
+  ? (b: B) => Multiply<B, Multiply<B, B>>
   : E extends 4
-  ? (b: B) => MultiplyUnits<B, MultiplyUnits<B, MultiplyUnits<B, B>>>
+  ? (b: B) => Multiply<B, Multiply<B, Multiply<B, B>>>
   : (b: B) => number;
 
 /**

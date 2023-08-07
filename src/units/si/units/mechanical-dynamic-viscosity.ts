@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
+  type Multiply,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -58,5 +58,5 @@ export type PascalSecond = DynamicViscosityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<PascalSecond, MultiplyUnits<Pascal, Second>>>();
+  assert<Equals<PascalSecond, Multiply<Pascal, Second>>>();
 }

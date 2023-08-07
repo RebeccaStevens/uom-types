@@ -3,8 +3,8 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
-  type MultiplyUnits,
+  type Divide,
+  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -58,9 +58,7 @@ export type RadianPerSecond = AngularVelocityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<RadianPerSecond, DivideUnits<Radian, Second>>>();
+  assert<Equals<RadianPerSecond, Divide<Radian, Second>>>();
 
-  assert<
-    Equals<RadianPerSecond, MultiplyUnits<RadianPerSecondSquared, Second>>
-  >();
+  assert<Equals<RadianPerSecond, Multiply<RadianPerSecondSquared, Second>>>();
 }

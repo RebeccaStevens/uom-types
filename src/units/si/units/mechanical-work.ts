@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
+  type Multiply,
   type UnitSubvalues,
   type UnknownUnitMeta,
 } from "#uom-types";
@@ -53,5 +53,5 @@ export type NewtonMetre = Joule;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<NewtonMetre, MultiplyUnits<Newton, Metre>>>();
+  assert<Equals<NewtonMetre, Multiply<Newton, Metre>>>();
 }

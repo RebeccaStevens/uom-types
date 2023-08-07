@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -58,5 +58,5 @@ export type KilogramPerMetre = LinearMassDensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KilogramPerMetre, DivideUnits<Kilo<Gram>, Metre>>>();
+  assert<Equals<KilogramPerMetre, Divide<Kilo<Gram>, Metre>>>();
 }

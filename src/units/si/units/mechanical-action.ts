@@ -7,7 +7,7 @@ import {
   type UnitFrom,
   type UnitMeta,
   type UnknownUnitMeta,
-  type MultiplyUnits,
+  type Multiply,
 } from "#uom-types";
 
 import { type SiUnitClass } from "../base-units";
@@ -57,5 +57,5 @@ export type JouleSecond = ActionUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<JouleSecond, MultiplyUnits<Joule, Second>>>();
+  assert<Equals<JouleSecond, Multiply<Joule, Second>>>();
 }

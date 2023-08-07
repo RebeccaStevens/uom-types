@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -57,7 +57,5 @@ export type KilogramPerSquareMetre = SurfaceDensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<KilogramPerSquareMetre, DivideUnits<Kilo<Gram>, Square<Metre>>>
-  >();
+  assert<Equals<KilogramPerSquareMetre, Divide<Kilo<Gram>, Square<Metre>>>>();
 }

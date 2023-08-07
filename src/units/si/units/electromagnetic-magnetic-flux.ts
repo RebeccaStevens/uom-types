@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type MultiplyUnits,
+  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -71,7 +71,7 @@ export type Weber = MagneticFluxUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Weber, MultiplyUnits<Volt, Second>>>();
-  assert<Equals<Weber, MultiplyUnits<Tesla, Square<Metre>>>>();
-  assert<Equals<Weber, MultiplyUnits<Henry, Ampere>>>();
+  assert<Equals<Weber, Multiply<Volt, Second>>>();
+  assert<Equals<Weber, Multiply<Tesla, Square<Metre>>>>();
+  assert<Equals<Weber, Multiply<Henry, Ampere>>>();
 }

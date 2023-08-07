@@ -2,8 +2,8 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
-  type DivideUnits,
+  type Multiply,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -61,9 +61,6 @@ export type WattPerSteradianMetre = SpectralIntensityUnit<{}>;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<
-    Equals<
-      WattPerSteradianMetre,
-      DivideUnits<Watt, MultiplyUnits<Steradian, Metre>>
-    >
+    Equals<WattPerSteradianMetre, Divide<Watt, Multiply<Steradian, Metre>>>
   >();
 }

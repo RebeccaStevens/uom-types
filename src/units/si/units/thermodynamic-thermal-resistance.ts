@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -59,5 +59,5 @@ export type KelvinPerWatt = ThermalResistanceUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KelvinPerWatt, DivideUnits<Kelvin, Watt>>>();
+  assert<Equals<KelvinPerWatt, Divide<Kelvin, Watt>>>();
 }

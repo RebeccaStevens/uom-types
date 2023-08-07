@@ -2,9 +2,9 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
+  type Multiply,
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -63,7 +63,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       SquareMetrePerVoltSecond,
-      DivideUnits<Square<Metre>, MultiplyUnits<Volt, Second>>
+      Divide<Square<Metre>, Multiply<Volt, Second>>
     >
   >();
 }

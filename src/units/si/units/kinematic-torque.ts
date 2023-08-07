@@ -2,9 +2,9 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
+  type Multiply,
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -68,11 +68,8 @@ export type NewtonMeterPerRadian = JoulePerRadian;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<NewtonMeterPerRadian, DivideUnits<NewtonMetre, Radian>>>();
+  assert<Equals<NewtonMeterPerRadian, Divide<NewtonMetre, Radian>>>();
   assert<
-    Equals<
-      NewtonMeterPerRadian,
-      DivideUnits<MultiplyUnits<Newton, Metre>, Radian>
-    >
+    Equals<NewtonMeterPerRadian, Divide<Multiply<Newton, Metre>, Radian>>
   >();
 }

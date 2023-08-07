@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
+  type Multiply,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -60,5 +60,5 @@ export type OhmMetre = ResistivityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<OhmMetre, MultiplyUnits<Ohm, Metre>>>();
+  assert<Equals<OhmMetre, Multiply<Ohm, Metre>>>();
 }

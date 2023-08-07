@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -70,5 +70,5 @@ export type CandelaPerSquareMetre = Lux;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<Equals<Lux, CandelaPerSquareMetre>>();
-  assert<Equals<CandelaPerSquareMetre, DivideUnits<Candela, Square<Metre>>>>();
+  assert<Equals<CandelaPerSquareMetre, Divide<Candela, Square<Metre>>>>();
 }

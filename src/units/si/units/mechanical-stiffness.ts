@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -59,5 +59,5 @@ export type NewtonPerMetre = StiffnessUnit<{}>;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<Equals<NewtonPerMetre, JoulePerSquareMetre>>();
-  assert<Equals<NewtonPerMetre, DivideUnits<Newton, Metre>>>();
+  assert<Equals<NewtonPerMetre, Divide<Newton, Metre>>>();
 }

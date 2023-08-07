@@ -2,7 +2,7 @@ import {
   type UnitClass,
   type InverseUnitSubvalues,
   type UnknownUnitClass,
-  type InverseUnit,
+  type Inverse,
   type UnknownAbstractUnit,
   type UnknownUnit,
   type Unit,
@@ -15,7 +15,7 @@ import {
  * @category General
  */
 export type Reciprocal<T extends UnknownAbstractUnit | UnknownUnit> =
-  InverseUnit<T>;
+  Inverse<T>;
 
 /**
  * Invert the {@link UnitClass}.

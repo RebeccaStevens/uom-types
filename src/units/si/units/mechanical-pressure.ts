@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -63,5 +63,5 @@ export type Pascal = PressureUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Pascal, DivideUnits<Newton, Square<Metre>>>>();
+  assert<Equals<Pascal, Divide<Newton, Square<Metre>>>>();
 }

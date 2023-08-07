@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type MultiplyUnits,
+  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -58,5 +58,5 @@ export type LumenSecond = LuminousEnergyUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<LumenSecond, MultiplyUnits<Lumen, Second>>>();
+  assert<Equals<LumenSecond, Multiply<Lumen, Second>>>();
 }

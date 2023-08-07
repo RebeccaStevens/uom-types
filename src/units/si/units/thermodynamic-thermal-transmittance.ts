@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -62,7 +62,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       WattPerSquareMetrePerKelvin,
-      DivideUnits<DivideUnits<Watt, Square<Metre>>, Kelvin>
+      Divide<Divide<Watt, Square<Metre>>, Kelvin>
     >
   >();
 }

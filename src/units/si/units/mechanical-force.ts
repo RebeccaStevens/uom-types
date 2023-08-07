@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type MultiplyUnits,
+  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -61,5 +61,5 @@ export type Newton = ForceUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Newton, MultiplyUnits<Kilo<Gram>, MetrePerSecondSquared>>>();
+  assert<Equals<Newton, Multiply<Kilo<Gram>, MetrePerSecondSquared>>>();
 }

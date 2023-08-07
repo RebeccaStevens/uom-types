@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -55,7 +55,5 @@ export type CubicMetrePerKilogram = SpecificVolumeUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<CubicMetrePerKilogram, DivideUnits<Cubic<Metre>, Kilo<Gram>>>
-  >();
+  assert<Equals<CubicMetrePerKilogram, Divide<Cubic<Metre>, Kilo<Gram>>>>();
 }

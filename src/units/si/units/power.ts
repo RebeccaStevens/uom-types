@@ -2,8 +2,8 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
-  type DivideUnits,
+  type Multiply,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -64,6 +64,6 @@ export type Watt = PowerUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Watt, DivideUnits<Joule, Second>>>();
-  assert<Equals<Watt, MultiplyUnits<Ampere, Volt>>>();
+  assert<Equals<Watt, Divide<Joule, Second>>>();
+  assert<Equals<Watt, Multiply<Ampere, Volt>>>();
 }

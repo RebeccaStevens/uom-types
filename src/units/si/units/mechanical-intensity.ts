@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -56,5 +56,5 @@ export type WattPerSquareMetre = IntensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<WattPerSquareMetre, DivideUnits<Watt, Square<Metre>>>>();
+  assert<Equals<WattPerSquareMetre, Divide<Watt, Square<Metre>>>>();
 }

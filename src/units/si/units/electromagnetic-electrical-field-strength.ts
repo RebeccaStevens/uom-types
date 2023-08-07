@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -60,5 +60,5 @@ export type VoltPerMetre = ElectricFieldStrengthUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<VoltPerMetre, DivideUnits<Volt, Metre>>>();
+  assert<Equals<VoltPerMetre, Divide<Volt, Metre>>>();
 }

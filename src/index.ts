@@ -26,8 +26,10 @@ export type {
   MultiplyUnitExponents,
 } from "./unit-exponents";
 export type {
-  DivideUnits,
-  InverseUnit,
+  Divide,
+  DivideUnitSubvalues,
+  Inverse,
   InverseUnitSubvalues,
-  MultiplyUnits,
+  Multiply,
+  MultiplyUnitSubvalues,
 } from "./units";

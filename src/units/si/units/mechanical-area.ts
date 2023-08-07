@@ -3,8 +3,8 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
-  type MultiplyUnits,
+  type Divide,
+  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -64,6 +64,6 @@ export type Hectare = AreaUnit<{ scalar10: 4 }>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Square<Metre>, MultiplyUnits<Metre, Metre>>>();
-  assert<Equals<Square<Metre>, DivideUnits<Cubic<Metre>, Metre>>>();
+  assert<Equals<Square<Metre>, Multiply<Metre, Metre>>>();
+  assert<Equals<Square<Metre>, Divide<Cubic<Metre>, Metre>>>();
 }

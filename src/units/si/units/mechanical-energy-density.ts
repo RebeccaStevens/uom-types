@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -60,5 +60,5 @@ export type JoulePerCubicMetre = EnergyDensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<JoulePerCubicMetre, DivideUnits<Joule, Cubic<Metre>>>>();
+  assert<Equals<JoulePerCubicMetre, Divide<Joule, Cubic<Metre>>>>();
 }

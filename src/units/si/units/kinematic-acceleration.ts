@@ -3,8 +3,8 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
-  type MultiplyUnits,
+  type Divide,
+  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -57,11 +57,8 @@ export type MetrePerSecondSquared = AccelerationUnit<{}>;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<
-    Equals<
-      MetrePerSecondSquared,
-      DivideUnits<Metre, MultiplyUnits<Second, Second>>
-    >
+    Equals<MetrePerSecondSquared, Divide<Metre, Multiply<Second, Second>>>
   >();
 
-  assert<Equals<MetrePerSecondSquared, DivideUnits<MetrePerSecond, Second>>>();
+  assert<Equals<MetrePerSecondSquared, Divide<MetrePerSecond, Second>>>();
 }

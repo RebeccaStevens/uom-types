@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -51,9 +51,6 @@ export type MetrePerSecondToTheSixth = PopUnit<{}>;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<
-    Equals<
-      MetrePerSecondToTheSixth,
-      DivideUnits<MetrePerSecondToTheFifth, Second>
-    >
+    Equals<MetrePerSecondToTheSixth, Divide<MetrePerSecondToTheFifth, Second>>
   >();
 }

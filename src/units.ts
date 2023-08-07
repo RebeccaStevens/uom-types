@@ -17,10 +17,7 @@ import {
  *
  * @returns `1/X`.
  */
-export type InverseUnit<X extends number> = X extends Unit<
-  infer Config,
-  infer Meta
->
+export type Inverse<X extends number> = X extends Unit<infer Config, infer Meta>
   ? Unit<
       FlatternAlias<InverseUnitSubvalues<Config>>,
       FlatternAlias<InverseUnitSubvalues<Meta>>
@@ -41,7 +38,7 @@ export type InverseUnitSubvalues<T extends UnitSubvalues> = {
  *
  * @returns `A⋅B`
  */
-export type MultiplyUnits<A extends number, B extends number> = A extends Unit<
+export type Multiply<A extends number, B extends number> = A extends Unit<
   infer AConfig,
   infer AMeta
 >
@@ -80,9 +77,9 @@ export type MultiplyUnitSubvalues<
  *
  * @returns `A/B`
  */
-export type DivideUnits<A extends number, B extends number> = MultiplyUnits<
+export type Divide<A extends number, B extends number> = Multiply<
   A,
-  InverseUnit<B>
+  Inverse<B>
 >;
 
 /**

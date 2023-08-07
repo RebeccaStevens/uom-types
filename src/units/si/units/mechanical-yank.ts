@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type UnknownUnitMeta,
   type AbstractUnitFrom,
   type UnitSubvalues,
@@ -57,5 +57,5 @@ export type NewtonPerSecond = YankUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<NewtonPerSecond, DivideUnits<Newton, Second>>>();
+  assert<Equals<NewtonPerSecond, Divide<Newton, Second>>>();
 }

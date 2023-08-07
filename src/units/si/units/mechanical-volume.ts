@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
+  type Multiply,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -62,17 +62,12 @@ export type Litre = VolumeUnit<{ scalar10: -3 }>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<Cubic<Metre>, MultiplyUnits<MultiplyUnits<Metre, Metre>, Metre>>
-  >();
-  assert<Equals<Cubic<Metre>, MultiplyUnits<Square<Metre>, Metre>>>();
+  assert<Equals<Cubic<Metre>, Multiply<Multiply<Metre, Metre>, Metre>>>();
+  assert<Equals<Cubic<Metre>, Multiply<Square<Metre>, Metre>>>();
 
   assert<Equals<Cubic<Centi<Metre>>, Milli<Litre>>>();
 
   assert<
-    Equals<
-      Litre,
-      MultiplyUnits<MultiplyUnits<Deci<Metre>, Deci<Metre>>, Deci<Metre>>
-    >
+    Equals<Litre, Multiply<Multiply<Deci<Metre>, Deci<Metre>>, Deci<Metre>>>
   >();
 }

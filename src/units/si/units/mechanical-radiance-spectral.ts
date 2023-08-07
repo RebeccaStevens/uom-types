@@ -2,8 +2,8 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
-  type MultiplyUnits,
+  type Divide,
+  type Multiply,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -64,7 +64,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       WattPerSteradianCubicMetre,
-      DivideUnits<Watt, MultiplyUnits<Steradian, Cubic<Metre>>>
+      Divide<Watt, Multiply<Steradian, Cubic<Metre>>>
     >
   >();
 }

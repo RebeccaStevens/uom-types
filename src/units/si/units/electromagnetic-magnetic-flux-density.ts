@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -62,5 +62,5 @@ export type Tesla = MagneticFluxDensityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Tesla, DivideUnits<Weber, Square<Metre>>>>();
+  assert<Equals<Tesla, Divide<Weber, Square<Metre>>>>();
 }

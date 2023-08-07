@@ -3,8 +3,8 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
-  type MultiplyUnits,
+  type Divide,
+  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -71,8 +71,8 @@ export type Volt = ElectricPotentialUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Volt, DivideUnits<Watt, Ampere>>>();
-  assert<Equals<Volt, MultiplyUnits<Ohm, Ampere>>>();
-  assert<Equals<Volt, DivideUnits<Joule, Coulomb>>>();
-  assert<Equals<Volt, DivideUnits<Weber, Second>>>();
+  assert<Equals<Volt, Divide<Watt, Ampere>>>();
+  assert<Equals<Volt, Multiply<Ohm, Ampere>>>();
+  assert<Equals<Volt, Divide<Joule, Coulomb>>>();
+  assert<Equals<Volt, Divide<Weber, Second>>>();
 }

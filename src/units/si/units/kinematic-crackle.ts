@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -54,9 +54,6 @@ export type MetrePerSecondToTheFifth = CrackleUnit<{}>;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<
-    Equals<
-      MetrePerSecondToTheFifth,
-      DivideUnits<MetrePerSecondToTheFourth, Second>
-    >
+    Equals<MetrePerSecondToTheFifth, Divide<MetrePerSecondToTheFourth, Second>>
   >();
 }

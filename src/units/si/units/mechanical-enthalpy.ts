@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type DivideUnits,
+  type Divide,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -59,5 +59,5 @@ export type Gray = EnthalpyUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Gray, DivideUnits<Joule, Kilo<Gram>>>>();
+  assert<Equals<Gray, Divide<Joule, Kilo<Gram>>>>();
 }

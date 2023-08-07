@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type MultiplyUnits,
+  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -59,5 +59,5 @@ export type Coulomb = ElectricChargeUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Coulomb, MultiplyUnits<Ampere, Second>>>();
+  assert<Equals<Coulomb, Multiply<Ampere, Second>>>();
 }

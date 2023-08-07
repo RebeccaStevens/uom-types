@@ -2,8 +2,8 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
-  type MultiplyUnits,
+  type Divide,
+  type Multiply,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -61,7 +61,5 @@ export type WattPerMetreKelvin = ThermalConductivityUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<WattPerMetreKelvin, DivideUnits<Watt, MultiplyUnits<Metre, Kelvin>>>
-  >();
+  assert<Equals<WattPerMetreKelvin, Divide<Watt, Multiply<Metre, Kelvin>>>>();
 }

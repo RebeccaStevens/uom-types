@@ -2,8 +2,8 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type DivideUnits,
-  type MultiplyUnits,
+  type Divide,
+  type Multiply,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -61,9 +61,6 @@ export type JoulePerKilogramKelvin = SpecificEntropyUnit<{}>;
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
   assert<
-    Equals<
-      JoulePerKilogramKelvin,
-      DivideUnits<Joule, MultiplyUnits<Kelvin, Kilo<Gram>>>
-    >
+    Equals<JoulePerKilogramKelvin, Divide<Joule, Multiply<Kelvin, Kilo<Gram>>>>
   >();
 }

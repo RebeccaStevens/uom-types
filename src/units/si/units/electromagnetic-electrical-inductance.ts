@@ -2,8 +2,8 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
-  type DivideUnits,
+  type Multiply,
+  type Divide,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -60,6 +60,6 @@ export type Henry = ElectricInductanceUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Henry, DivideUnits<Weber, Ampere>>>();
-  assert<Equals<Henry, MultiplyUnits<Ohm, Second>>>();
+  assert<Equals<Henry, Divide<Weber, Ampere>>>();
+  assert<Equals<Henry, Multiply<Ohm, Second>>>();
 }

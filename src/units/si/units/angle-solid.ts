@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type MultiplyUnits,
+  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -62,5 +62,5 @@ export type Steradian = SolidAngleUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Steradian, MultiplyUnits<Radian, Radian>>>();
+  assert<Equals<Steradian, Multiply<Radian, Radian>>>();
 }

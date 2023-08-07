@@ -2,7 +2,7 @@
 import { assert, type Equals } from "tsafe";
 
 import {
-  type MultiplyUnits,
+  type Multiply,
   type AbstractUnitFrom,
   type UnitSubvalues,
   type UnitFrom,
@@ -59,5 +59,5 @@ export type NewtonSecond = MomentumUnit<{}>;
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<NewtonSecond, MultiplyUnits<Newton, Second>>>();
+  assert<Equals<NewtonSecond, Multiply<Newton, Second>>>();
 }
