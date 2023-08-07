@@ -15,8 +15,8 @@ devDependencies:
     specifier: 3.0.1
     version: 3.0.1
   '@rebeccastevens/eslint-config':
-    specifier: 1.7.8
-    version: 1.7.8(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-functional@5.0.8)(eslint-plugin-import@2.28.0)(eslint-plugin-jsdoc@46.4.6)(eslint-plugin-markdown@3.0.1)(eslint-plugin-n@16.0.1)(eslint-plugin-optimize-regex@1.2.1)(eslint-plugin-promise@6.1.1)(eslint-plugin-sonarjs@0.19.0)(eslint-plugin-unicorn@48.0.1)(eslint@8.46.0)
+    specifier: 2.0.2
+    version: 2.0.2(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-functional@5.0.8)(eslint-plugin-import@2.28.0)(eslint-plugin-jsdoc@46.4.6)(eslint-plugin-markdown@3.0.1)(eslint-plugin-n@16.0.1)(eslint-plugin-optimize-regex@1.2.1)(eslint-plugin-promise@6.1.1)(eslint-plugin-sonarjs@0.19.0)(eslint-plugin-unicorn@48.0.1)(eslint@8.46.0)
   '@rollup/plugin-typescript':
     specifier: 11.1.2
     version: 11.1.2(rollup@3.27.2)(typescript@5.1.6)
@@ -952,12 +952,12 @@ packages:
       config-chain: 1.1.13
     dev: true
 
-  /@rebeccastevens/eslint-config@1.7.8(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-functional@5.0.8)(eslint-plugin-import@2.28.0)(eslint-plugin-jsdoc@46.4.6)(eslint-plugin-markdown@3.0.1)(eslint-plugin-n@16.0.1)(eslint-plugin-optimize-regex@1.2.1)(eslint-plugin-promise@6.1.1)(eslint-plugin-sonarjs@0.19.0)(eslint-plugin-unicorn@48.0.1)(eslint@8.46.0):
-    resolution: {integrity: sha512-ZgsWoMYZYujgHXcevzte4r3OdbKuqWj0Mn9Y0wOE63IWIxpOsrl5GD1x79o4PfE9RR3HLEKzJzoXlMrgilex0Q==}
+  /@rebeccastevens/eslint-config@2.0.2(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-functional@5.0.8)(eslint-plugin-import@2.28.0)(eslint-plugin-jsdoc@46.4.6)(eslint-plugin-markdown@3.0.1)(eslint-plugin-n@16.0.1)(eslint-plugin-optimize-regex@1.2.1)(eslint-plugin-promise@6.1.1)(eslint-plugin-sonarjs@0.19.0)(eslint-plugin-unicorn@48.0.1)(eslint@8.46.0):
+    resolution: {integrity: sha512-ddBQU8sklFnHmA9ybsubaMaoBC+rBmQnBoU7G7yU3lrfJ07Mm+YAcsFuM3rCrDW+vDg4t5t0yDMX3lyPIHURuw==}
     engines: {node: '>=18.12.1'}
     peerDependencies:
-      '@typescript-eslint/eslint-plugin': '*'
-      '@typescript-eslint/parser': '*'
+      '@typescript-eslint/eslint-plugin': '>=6.0.0'
+      '@typescript-eslint/parser': '>=6.0.0'
       eslint: '>=8.24.0'
       eslint-import-resolver-typescript: '*'
       eslint-plugin-eslint-comments: '*'
