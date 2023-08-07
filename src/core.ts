@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { assert, type Extends } from "tsafe";
+
 import { type Exponent } from "./exponents";
 import { type RemoveNeverValues, type ExcludeUnitZeroSubvalues } from "./utils";
 
@@ -138,3 +141,25 @@ type UnknownUnitKeyValues = {
  * @group Unit Component
  */
 export type UnitSubvalues = Record<string, Exponent>;
+
+// Tests
+// eslint-disable-next-line functional/no-conditional-statements
+if (import.meta.vitest !== undefined) {
+  assert<Extends<Unit<{}>, UnknownUnit>>();
+  assert<Extends<AbstractUnit<{}>, UnknownAbstractUnit>>();
+  assert<Extends<UnitClass<{}>, UnknownUnitClass>>();
+  assert<Extends<UnitMeta<{}>, UnknownUnitMeta>>();
+  assert<Extends<UnitKeyValues<{}>, UnknownUnitKeyValues>>();
+
+  assert<Extends<Unit<{ a: 1 }>, UnknownUnit>>();
+  assert<Extends<AbstractUnit<{ a: 1 }>, UnknownAbstractUnit>>();
+  assert<Extends<UnitClass<{ a: 1 }>, UnknownUnitClass>>();
+  assert<Extends<UnitMeta<{ a: 1 }>, UnknownUnitMeta>>();
+  assert<Extends<UnitKeyValues<{ a: 1 }>, UnknownUnitKeyValues>>();
+
+  assert<Extends<Unit<UnitSubvalues>, UnknownUnit>>();
+  assert<Extends<AbstractUnit<UnitSubvalues>, UnknownAbstractUnit>>();
+  assert<Extends<UnitClass<UnitSubvalues>, UnknownUnitClass>>();
+  assert<Extends<UnitMeta<UnitSubvalues>, UnknownUnitMeta>>();
+  assert<Extends<UnitKeyValues<UnitSubvalues>, UnknownUnitKeyValues>>();
+}
