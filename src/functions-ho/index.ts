@@ -1,16 +1,28 @@
+/**
+ * @module uom-types/functions/higher-order
+ */
+
 import {
-  type DivideUnitExponents,
+  type AbstractUnit,
   type Divide,
-  type Multiply,
+  type DivideUnitExponents,
   type Inverse,
+  type Multiply,
+  type Unit,
+  type UnknownAbstractUnit,
   type UnknownUnit,
 } from "#uom-types";
-import { type Decimal } from "#uom-types/si-units";
 
-type OperationIO<T extends number> = T extends UnknownUnit ? T : number;
+type OperationIO<T extends number> = [T] extends [
+  UnknownUnit | UnknownAbstractUnit,
+]
+  ? T
+  : number;
 
 /**
- * Add a value by the given value.
+ * Add two values with the same units together.
+ *
+ * @category Math
  */
 export function add<T extends number>(
   a: OperationIO<T>,
@@ -19,7 +31,9 @@ export function add<T extends number>(
 }
 
 /**
- * Subtract one value from the given value.
+ * Subtract one value from another with the same units.
+ *
+ * @category Math
  */
 export function sub<T extends number>(
   a: OperationIO<T>,
@@ -29,26 +43,32 @@ export function sub<T extends number>(
 
 /**
  * Multiple a value by the given value.
+ *
+ * @category Math
  */
 export function mul<A extends number>(
-  a: OperationIO<A>,
-): <B extends number>(b: OperationIO<B>) => OperationIO<Multiply<B, A>> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Casting to actual type fails for some reason.
+  a: A,
+): <B extends number>(b: B) => Multiply<B, A> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-return -- Casting to actual type fails for some reason.
   return (b) => (b * a) as any;
 }
 
 /**
  * Divide one value by the given value.
+ *
+ * @category Math
  */
 export function div<A extends number>(
-  a: OperationIO<A>,
-): <B extends number>(b: OperationIO<B>) => OperationIO<Divide<B, A>> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Casting to actual type fails for some reason.
+  a: A,
+): <B extends number>(b: B) => Divide<B, A> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-return -- Casting to actual type fails for some reason.
   return (b) => (b / a) as any;
 }
 
 /**
  * Modulo operator.
+ *
+ * @category Math
  */
 export function mod<T extends number>(
   a: OperationIO<T>,
@@ -58,6 +78,8 @@ export function mod<T extends number>(
 
 /**
  * Perform mathematic modular arithmetic.
+ *
+ * @category Math
  */
 export function modSafe<T extends number>(
   a: OperationIO<T>,
@@ -67,24 +89,34 @@ export function modSafe<T extends number>(
 
 type PowFunction<E extends number, B extends number> = E extends UnknownUnit
   ? never
+  : E extends UnknownAbstractUnit
+  ? never
   : E extends -1
-  ? (b: OperationIO<B>) => OperationIO<Inverse<B>>
+  ? (b: B) => Inverse<B>
   : E extends 0
-  ? (b: OperationIO<B>) => OperationIO<B> extends UnknownUnit ? Decimal : 1
+  ? (
+      b: B,
+    ) => B extends UnknownUnit
+      ? Unit<{}>
+      : B extends UnknownAbstractUnit
+      ? AbstractUnit<{}>
+      : 1
   : E extends 0.5
-  ? (b: OperationIO<B>) => OperationIO<DivideUnitExponents<B, 2>>
+  ? (b: B) => DivideUnitExponents<B, 2>
   : E extends 1
-  ? (b: OperationIO<B>) => OperationIO<B>
+  ? (b: B) => B
   : E extends 2
-  ? (b: OperationIO<B>) => OperationIO<Multiply<B, B>>
+  ? (b: B) => Multiply<B, B>
   : E extends 3
-  ? (b: OperationIO<B>) => OperationIO<Multiply<B, Multiply<B, B>>>
+  ? (b: B) => Multiply<B, Multiply<B, B>>
   : E extends 4
-  ? (b: OperationIO<B>) => OperationIO<Multiply<B, Multiply<B, Multiply<B, B>>>>
-  : (b: OperationIO<B>) => OperationIO<number>;
+  ? (b: B) => Multiply<B, Multiply<B, Multiply<B, B>>>
+  : (b: B) => number;
 
 /**
  * Put a number to the power of the given value.
+ *
+ * @category Math
  */
 export function pow<E extends number>(exponent: E) {
   return <B extends number>(base: Parameters<PowFunction<E, B>>[0]) =>
@@ -93,6 +125,8 @@ export function pow<E extends number>(exponent: E) {
 
 /**
  * Equal: Compare if a value is equal to the given value.
+ *
+ * @category Math
  */
 export function eq<T extends number>(
   a: OperationIO<T>,
@@ -102,6 +136,8 @@ export function eq<T extends number>(
 
 /**
  * Greater Than: Compare if a value is greater than the given value.
+ *
+ * @category Math
  */
 export function gt<T extends number>(
   a: OperationIO<T>,
@@ -111,6 +147,8 @@ export function gt<T extends number>(
 
 /**
  * Greater Than or Equal: Compare if a value is greater than or equal to the given value.
+ *
+ * @category Math
  */
 export function gte<T extends number>(
   a: OperationIO<T>,
@@ -120,6 +158,8 @@ export function gte<T extends number>(
 
 /**
  * Less Than: Compare if a value is less than the given value.
+ *
+ * @category Math
  */
 export function lt<T extends number>(
   a: OperationIO<T>,
@@ -129,6 +169,8 @@ export function lt<T extends number>(
 
 /**
  * Less Than or Equal: Compare if a value is less than or equal to the given value.
+ *
+ * @category Math
  */
 export function lte<T extends number>(
   a: OperationIO<T>,

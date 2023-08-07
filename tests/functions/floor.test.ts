@@ -1,15 +1,17 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { floor } from "#uom-types/functions";
 
-test("number", (t) => {
-  t.is(floor(4.123), 4);
-  t.is(floor(-4.123), -5);
+test("number", () => {
+  expect(floor(4.123)).equals(4);
+  expect(floor(-4.123)).equals(-5);
 });
 
-test("unit", (t) => {
-  const a = 4.123 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>;
+test("unit", () => {
+  type TestUnit = Unit<{ a: 1; b: -2; c: 2 }>;
+  const expected = 4 as TestUnit;
+  const actual: typeof expected = floor(4.123 as TestUnit);
 
-  t.is(floor(a), 4 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>);
+  expect(actual).equals(expected);
 });

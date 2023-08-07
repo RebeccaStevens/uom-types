@@ -1,23 +1,23 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { sub } from "#uom-types/functions";
 
-test("numbers", (t) => {
-  t.is(sub(1, 2), -1);
-  t.is(sub(4, 2), 2);
-  t.is(sub(1, -2), 3);
-  t.is(sub(-1, -2), 1);
+test("numbers", () => {
+  expect(sub(1, 2)).equals(-1);
+  expect(sub(4, 2)).equals(2);
+  expect(sub(1, -2)).equals(3);
+  expect(sub(-1, -2)).equals(1);
 });
 
-test("units", (t) => {
-  type TestUnit = Unit<{ a: 1; b: -2; c: { exponent: 3; scale10: 3 } }>;
+test("units", () => {
+  type TestUnit = Unit<{ a: 1; b: -2; c: 3 }>;
 
   const a = 3 as TestUnit;
   const b = 2 as TestUnit;
   const expected = 1 as TestUnit;
 
-  const actual = sub(a, b);
+  const actual: typeof expected = sub(a, b);
 
-  t.is(actual, expected);
+  expect(actual).equals(expected);
 });

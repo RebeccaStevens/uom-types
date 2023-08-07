@@ -1,4 +1,13 @@
 /CHANGELOG.md
-/coverage
+/.type-coverage/
+/coverage/
+/coverage-ts/
 /dist/
 /pnpm-lock.yaml
+
+# Autogen files
+/docs/generated/
+/docs/coverage.svg
+/src/exponents.ts
+/src/units/converters/prefixes.ts
+/src/units/modifiers/prefixes.ts

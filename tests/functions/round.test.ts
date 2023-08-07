@@ -1,17 +1,20 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { round } from "#uom-types/functions";
 
-test("number", (t) => {
-  t.is(round(4.123), 4);
-  t.is(round(-4.123), -4);
-  t.is(round(4.987), 5);
-  t.is(round(-4.987), -5);
+test("number", () => {
+  expect(round(4.123)).equals(4);
+  expect(round(-4.123)).equals(-4);
+  expect(round(4.987)).equals(5);
+  expect(round(-4.987)).equals(-5);
 });
 
-test("unit", (t) => {
-  const a = 4.123 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>;
+test("unit", () => {
+  type TestUnit = Unit<{ a: 1; b: -2; c: 2 }>;
+  const a = 4.123 as TestUnit;
 
-  t.is(round(a), 4 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>);
+  const expected = 4 as TestUnit;
+  const actual: typeof expected = round(a);
+  expect(actual).equals(expected);
 });

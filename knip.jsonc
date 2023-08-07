@@ -1,5 +1,18 @@
 {
   "$schema": "https://unpkg.com/knip@next/schema.json",
-  "entry": ["src/*/index.ts!", "tests/**/*.test.ts", "tests/**/*.test-d.ts"],
-  "project": ["src/**/*.ts!", "tests/**/*.ts"]
+  "entry": [
+    "src/index.ts!",
+    "src/functions/index.ts!",
+    "src/functions-ho/index.ts!",
+    "src/units/index.ts!",
+    "src/units/converters/index.ts!",
+    "tests/**/*.test.ts",
+    "tests/**/*.test-d.ts"
+  ],
+  "project": ["src/**/*.ts!", "tests/**/*.ts"],
+  "ignoreDependencies": [
+    "@vitest/coverage-v8",
+    "tsafe",
+    "ts-plugin-type-coverage"
+  ]
 }

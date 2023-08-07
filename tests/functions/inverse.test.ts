@@ -1,18 +1,17 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { inverse } from "#uom-types/functions";
 
-test("number", (t) => {
-  t.is(inverse(4), 0.25);
-  t.is(inverse(0.25), 4);
+test("number", () => {
+  expect(inverse(4)).equals(0.25);
+  expect(inverse(0.25)).equals(4);
 });
 
-test("unit", (t) => {
-  const a = 4 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>;
+test("unit", () => {
+  type TestUnit = Unit<{ a: -1; b: 2; c: -2 }>;
+  const expected = 0.25 as TestUnit;
+  const actual: Unit<{ a: 1; b: -2; c: 2 }> = inverse(4 as TestUnit);
 
-  t.is(
-    inverse(a),
-    0.25 as Unit<{ a: -1; b: 2; c: { exponent: -2; scale10: -2 } }>,
-  );
+  expect(actual).equals(expected);
 });

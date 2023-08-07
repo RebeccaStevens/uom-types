@@ -1,14 +1,15 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { sqrt } from "#uom-types/functions";
 
-test("number", (t) => {
-  t.is(sqrt(4), 2);
+test("number", () => {
+  expect(sqrt(4)).equals(2);
 });
 
-test("unit", (t) => {
-  const a = 4 as Unit<{ a: -2; b: { exponent: 2; scale10: 2 } }>;
-
-  t.is(sqrt(a), 2 as Unit<{ a: -1; b: { exponent: 1; scale10: 1 } }>);
+test("unit", () => {
+  const a = 4 as Unit<{ a: -2; b: 4 }>;
+  const expected = 2 as Unit<{ a: -1; b: 2 }>;
+  const actual: typeof expected = sqrt(a);
+  expect(actual).equals(expected);
 });

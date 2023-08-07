@@ -1,17 +1,19 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { max } from "#uom-types/functions";
 
-test("number", (t) => {
+test("number", () => {
   const list = [1, 3, 6, 4, -5, 2];
 
-  t.is(max(list), 6);
+  expect(max(list)).equals(6);
 });
 
-test("unit", (t) => {
-  type TestUnit = Unit<{ a: 1; b: -2; c: { exponent: 3; scale10: 3 } }>;
+test("unit", () => {
+  type TestUnit = Unit<{ a: 1; b: -2; c: 3 }>;
   const list = [1, 3, 6, 4, -5, 2] as TestUnit[];
+  const expected = 6 as TestUnit;
+  const actual: TestUnit = max(list);
 
-  t.is(max(list), 6 as TestUnit);
+  expect(actual).equals(expected);
 });

@@ -1,6 +1,15 @@
 node_modules/
 
+/.type-coverage/
 /coverage/
+/coverage-ts/
 /dist/
 
 *.log
+
+# Autogen files
+/docs/generated/
+/docs/coverage.svg
+/src/exponents.ts
+/src/units/converters/prefixes.ts
+/src/units/modifiers/prefixes.ts

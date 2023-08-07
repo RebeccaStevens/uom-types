@@ -1,21 +1,21 @@
-import test from "ava";
+import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
 import { eq } from "#uom-types/functions/higher-order";
 
-test("number", (t) => {
-  t.is(eq(4)(4), true);
-  t.is(eq(-4)(-4), true);
-  t.is(eq(-4)(4), false);
-  t.is(eq(4)(-4), false);
+test("number", () => {
+  expect(eq(4)(4)).equals(true);
+  expect(eq(-4)(-4)).equals(true);
+  expect(eq(-4)(4)).equals(false);
+  expect(eq(4)(-4)).equals(false);
 });
 
-test("unit", (t) => {
-  const a = 4 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>;
-  const b = 2 as Unit<{ a: 1; b: -2; c: { exponent: 2; scale10: 2 } }>;
+test("unit", () => {
+  const a = 4 as Unit<{ a: 1; b: -2; c: 2 }>;
+  const b = 2 as Unit<{ a: 1; b: -2; c: 2 }>;
 
-  t.is(eq(a)(a), true);
-  t.is(eq(b)(b), true);
-  t.is(eq(a)(b), false);
-  t.is(eq(b)(a), false);
+  expect(eq(a)(a)).equals(true);
+  expect(eq(b)(b)).equals(true);
+  expect(eq(a)(b)).equals(false);
+  expect(eq(b)(a)).equals(false);
 });

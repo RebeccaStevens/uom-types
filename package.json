@@ -39,25 +39,23 @@
     },
     "./functions/higher-order": {
       "types": {
-        "import": "./dist/functions-ho.d.mts",
-        "require": "./dist/functions-ho.d.cts"
+        "import": "./dist/functions-higher-order.d.mts",
+        "require": "./dist/functions-higher-order.d.cts"
       },
-      "import": "./dist/functions-ho.mjs",
-      "require": "./dist/functions-ho.cjs"
+      "import": "./dist/functions-higher-order.mjs",
+      "require": "./dist/functions-higher-order.cjs"
     },
-    "./si-units": {
+    "./units": {
       "types": {
-        "import": "./dist/si-units.d.mts",
-        "require": "./dist/si-units.d.cts"
+        "import": "./dist/units.d.mts",
+        "require": "./dist/units.d.cts"
       }
     },
-    "./si-units/converters": {
+    "./units/converters": {
       "types": {
-        "import": "./dist/si-units-converters.d.mts",
-        "require": "./dist/si-units-converters.d.cts"
-      },
-      "import": "./dist/si-units-converters.mjs",
-      "require": "./dist/si-units-converters.cjs"
+        "import": "./dist/units-converters.d.mts",
+        "require": "./dist/units-converters.d.cts"
+      }
     }
   },
   "files": [
@@ -67,10 +65,13 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm run build:node && pnpm run build-post",
-    "build-post": "node --no-warnings=ExperimentalWarning --loader=ts-paths-esm-loader/transpile-only --experimental-specifier-resolution=node ./scripts/post-build.ts",
+    "build": "pnpm run build-pre && pnpm run build:node",
+    "build-pre": "pnpm run generate-files",
     "build:node": "rimraf dist && rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "cz": "git-cz",
+    "docs": "typedoc",
+    "docs:serve": "http-serve docs/generated",
+    "generate-files": "node --no-warnings=ExperimentalWarning --loader=ts-paths-esm-loader/transpile-only --experimental-specifier-resolution=node ./scripts/generate-files.ts",
     "lint": "pnpm run lint:js && pnpm run lint:md && pnpm run lint:prettier && pnpm run lint:knip && pnpm run lint:spelling",
     "lint:js": "eslint .",
     "lint:js-fix": "eslint . --fix",
@@ -81,19 +82,22 @@
     "lint:prettier": "prettier \"**/*\" --ignore-unknown --list-different",
     "lint:prettier-fix": "prettier \"**/*\" --ignore-unknown --write",
     "lint:spelling": "cspell \"**\" \".github/**/*\"",
-    "prepare": "husky install",
-    "release": "pnpm run release:semantic",
-    "release:semantic": "semantic-release",
-    "test": "pnpm run test:js && pnpm run test:types",
-    "test:js": "c8 ava",
+    "prepare": "husky install && pnpm run generate-files",
+    "test": "pnpm run test-pre && pnpm run test:js && pnpm run test:types && pnpm run test:types-coverage",
+    "test-pre": "pnpm run build",
+    "test:js": "vitest --coverage --run",
+    "test:js:watch": "vitest",
     "test:types": "tsd -t './dist/index.d.mts' -f 'tests/**/*.test-d.ts'",
+    "test:types-coverage": "type-coverage --project tsconfig.build.json --at-least",
+    "test:types-coverage:report": "typescript-coverage-report --project tsconfig.build.json",
     "type-check": "tsc --noEmit"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.7",
     "@commitlint/config-conventional": "17.6.7",
     "@cspell/dict-cryptocurrencies": "3.0.1",
-    "@rebeccastevens/eslint-config": "1.7.8",
+    "@rebeccastevens/eslint-config": "2.0.3",
+    "@rollup/plugin-replace": "5.0.2",
     "@rollup/plugin-typescript": "11.1.2",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "10.0.1",
@@ -103,19 +107,17 @@
     "@semantic-release/release-notes-generator": "11.0.4",
     "@types/node": "18.17.3",
     "@types/rollup-plugin-auto-external": "2.0.2",
-    "@typescript-eslint/eslint-plugin": "5.62.0",
-    "@typescript-eslint/parser": "5.62.0",
-    "ava": "5.3.1",
-    "c8": "8.0.1",
+    "@typescript-eslint/eslint-plugin": "6.2.1",
+    "@typescript-eslint/parser": "6.2.1",
+    "@vitest/coverage-v8": "0.34.1",
     "commitizen": "4.3.0",
     "cspell": "6.31.2",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.46.0",
-    "eslint-config-prettier": "8.9.0",
+    "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-typescript": "3.5.5",
-    "eslint-plugin-ava": "14.0.0",
     "eslint-plugin-eslint-comments": "3.2.0",
-    "eslint-plugin-functional": "5.0.8",
+    "eslint-plugin-functional": "6.0.0",
     "eslint-plugin-import": "2.28.0",
     "eslint-plugin-jsdoc": "46.4.6",
     "eslint-plugin-markdown": "3.0.1",
@@ -123,10 +125,12 @@
     "eslint-plugin-optimize-regex": "1.2.1",
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-promise": "6.1.1",
-    "eslint-plugin-sonarjs": "0.19.0",
+    "eslint-plugin-sonarjs": "0.20.0",
     "eslint-plugin-unicorn": "48.0.1",
+    "eslint-plugin-vitest": "0.2.8",
+    "http-serve": "1.0.1",
     "husky": "8.0.3",
-    "knip": "2.17.2",
+    "knip": "2.19.0",
     "lint-staged": "13.2.3",
     "markdownlint-cli": "0.35.0",
     "prettier": "3.0.1",
@@ -138,9 +142,18 @@
     "semantic-release": "21.0.7",
     "ts-node": "10.9.1",
     "ts-paths-esm-loader": "1.4.3",
+    "ts-plugin-type-coverage": "2.26.0",
+    "tsafe": "1.6.4",
     "tsconfig-paths": "4.2.0",
     "tsd": "0.28.1",
-    "typescript": "5.1.6"
+    "type-coverage": "2.26.0",
+    "typedoc": "0.24.8",
+    "typedoc-plugin-coverage": "2.1.0",
+    "typedoc-plugin-versions": "0.2.3",
+    "typescript": "5.1.6",
+    "typescript-coverage-report": "0.8.0",
+    "vite-tsconfig-paths": "4.2.0",
+    "vitest": "0.34.1"
   },
   "packageManager": "pnpm@8.6.12",
   "engines": {

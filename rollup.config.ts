@@ -1,13 +1,12 @@
-import assert from "node:assert/strict";
-import path from "node:path";
-
+import rollupPluginReplace from "@rollup/plugin-replace";
 import rollupPluginTypescript from "@rollup/plugin-typescript";
-import { defineConfig, type Plugin } from "rollup";
+import {
+  type PreRenderedChunk,
+  type RollupOptions,
+  type ModuleFormat,
+} from "rollup";
 import rollupPluginAutoExternal from "rollup-plugin-auto-external";
 import rollupPluginDts from "rollup-plugin-dts";
-
-import pkg from "./package.json" assert { type: "json" };
-import tsConfigBase from "./tsconfig.base.json" assert { type: "json" };
 
 /**
  * Get the intended boolean value from the given string.
@@ -26,117 +25,83 @@ function getBoolean(value: unknown) {
 
 const buildTypesOnly = getBoolean(process.env["BUILD_TYPES_ONLY"]);
 
-const common = defineConfig({
+const formats = ["esm", "cjs"] as const satisfies ReadonlyArray<ModuleFormat>;
+
+const common = {
   output: {
     sourcemap: false,
+    dir: "dist",
   },
-
   treeshake: {
     annotations: true,
     moduleSideEffects: [],
     propertyReadSideEffects: false,
     unknownGlobalSideEffects: false,
   },
+} satisfies RollupOptions;
 
-  external: (
-    source: string,
-    importer: string | undefined,
-    isResolved: boolean,
-  ) => {
-    if (!isResolved || importer === undefined) {
-      return null;
-    }
-
-    assert(path.isAbsolute(source));
-    const relativeSource = path.relative(process.cwd(), source);
-    const relativeImporter = path.relative(process.cwd(), importer);
-
-    if (!relativeSource.startsWith("src/")) {
-      return null;
-    }
-
-    const sourceSubproject = relativeSource.slice(
-      4,
-      Math.max(0, relativeSource.indexOf("/", 4)),
-    );
-    const importerSubproject = relativeImporter.slice(
-      4,
-      Math.max(0, relativeImporter.indexOf("/", 4)),
-    );
-
-    return sourceSubproject !== importerSubproject;
-  },
-});
-
-const runtimes = defineConfig({
+const runtimes = {
   ...common,
+  input: {
+    functions: "./src/functions/index.ts",
+    "functions-higher-order": "./src/functions-ho/index.ts",
+    "units-converters": "./src/units/converters/index.ts",
+  },
+  output: formats.map((format) => {
+    return {
+      ...common.output,
+      format,
+      entryFileNames: runtimeFileNamer,
+      chunkFileNames: runtimeFileNamer,
+    };
 
+    function runtimeFileNamer(info: Readonly<PreRenderedChunk>) {
+      return `${info.isEntry ? "" : "_"}${info.name}.${
+        format === "esm" ? "mjs" : "cjs"
+      }`;
+    }
+  }),
   plugins: [
     rollupPluginAutoExternal(),
     rollupPluginTypescript({
       tsconfig: "tsconfig.build.json",
     }),
+    rollupPluginReplace({
+      "import.meta.vitest": "undefined",
+    }),
   ],
-});
+} satisfies RollupOptions;
 
-const types = defineConfig({
+const types = {
   ...common,
+  input: {
+    index: "./src/index.ts",
+    functions: "./src/functions/index.ts",
+    "functions-higher-order": "./src/functions-ho/index.ts",
+    units: "./src/units/index.ts",
+    "units-converters": "./src/units/converters/index.ts",
+  },
+  output: formats.map((format) => {
+    return {
+      ...common.output,
+      format,
+      entryFileNames: typesFileNamer,
+      chunkFileNames: typesFileNamer,
+    };
 
+    function typesFileNamer(info: Readonly<PreRenderedChunk>) {
+      return `${info.isEntry ? "" : "_"}${info.name}.d.${
+        format === "esm" ? "mts" : "cts"
+      }`;
+    }
+  }),
   plugins: [
     rollupPluginDts({
       tsconfig: "tsconfig.build.json",
     }),
-  ] as Plugin[],
-});
+  ],
+} satisfies RollupOptions;
 
-export default Object.entries(pkg.exports).flatMap(
-  ([subpackagePath, pkgExports]) => {
-    const entry = `#uom-types${subpackagePath.slice(1)}`;
-    const input = (
-      tsConfigBase.compilerOptions.paths as Record<string, string[]>
-    )[entry]?.[0];
-    if (input === undefined) {
-      throw new Error(`Failed to map export to import: "${entry}"`);
-    }
+const configs = buildTypesOnly ? [types] : [runtimes, types];
 
-    const typesConfig = {
-      ...types,
-      input,
-      output: [
-        {
-          ...common.output,
-          file: pkgExports.types.import,
-          format: "esm",
-        },
-        {
-          ...common.output,
-          file: pkgExports.types.require,
-          format: "cjs",
-        },
-      ],
-    };
-
-    if (buildTypesOnly || !("import" in pkgExports)) {
-      return typesConfig;
-    }
-
-    const runtimeConfig = {
-      ...runtimes,
-      input,
-      output: [
-        {
-          ...common.output,
-          file: pkgExports.import,
-          format: "esm",
-        },
-        {
-          ...common.output,
-          file: pkgExports.require,
-          format: "cjs",
-        },
-      ],
-    };
-
-    return [runtimeConfig, typesConfig];
-  },
-);
+export default configs;

@@ -14,22 +14,33 @@
   "parserOptions": {
     "project": ["./tsconfig.json"]
   },
-  "ignorePatterns": ["/coverage/", "/dist/"],
+  "ignorePatterns": [
+    "/.type-coverage/",
+    "/coverage/",
+    "/coverage-ts/",
+    "/docs/generated/",
+    "/dist/",
+    "/src/exponents.ts",
+    "/src/units/converters/prefixes.ts",
+    "/src/units/modifiers/prefixes.ts"
+  ],
   "rules": {
+    "@typescript-eslint/naming-convention": "off",
     "import/extensions": "off",
-    "n/no-extraneous-import": "off"
+    "jsdoc/check-tag-names": [
+      "error",
+      {
+        "definedTags": ["category", "group", "symbol"]
+      }
+    ],
+    "n/no-extraneous-import": "off",
+    "unicorn/no-empty-file": "warn"
   },
   "overrides": [
     {
-      "files": ["src/base/**/*"],
-      "rules": {
-        "@typescript-eslint/naming-convention": "off"
-      }
-    },
-    {
       "files": ["**/*.test.ts"],
-      "plugins": ["ava"],
-      "extends": ["plugin:ava/recommended", "plugin:functional/off"],
+      "plugins": ["vitest"],
+      "extends": ["plugin:vitest/recommended", "plugin:functional/off"],
       "rules": {
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-unsafe-argument": "off",
@@ -40,9 +51,18 @@
       }
     },
     {
-      "files": ["**/*.test-d.ts"],
+      "files": ["./**/*.md/**"],
+      "parserOptions": {
+        "project": null
+      },
+      "extends": [
+        "plugin:markdown/recommended",
+        "plugin:@typescript-eslint/disable-type-checked",
+        "plugin:functional/off"
+      ],
       "rules": {
-        "import/no-useless-path-segments": "off"
+        "@typescript-eslint/no-unused-vars": "off",
+        "unicorn/filename-case": "off"
       }
     }
   ]
