@@ -28,7 +28,7 @@
     "src/units/index.ts",
     "src/units/converters/index.ts"
   ],
-  "exclude": ["./**/tests/", "./**/*.test.*"],
+  "exclude": ["./*.ts", "./dist/", "./scripts/", "./tests/"],
   "excludeExternals": true,
   "excludeInternal": true,
   "excludeNotDocumented": false,
@@ -62,6 +62,7 @@
     "GetSignature",
     "SetSignature"
   ],
+  "tsconfig": "tsconfig.build.json",
   "out": "./docs/generated",
   "plugin": ["typedoc-plugin-coverage", "typedoc-plugin-versions"],
   "readme": "./docs/index.md",
