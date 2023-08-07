@@ -1,7 +1,12 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "."
+    "rootDir": ".",
+    "plugins": [
+      {
+        "name": "ts-plugin-type-coverage"
+      }
+    ]
   },
   "include": [".", "scripts", "src", "tests"]
 }

@@ -6,7 +6,8 @@ Typesafe units with no runtime overhead.
 
 [![npm version](https://img.shields.io/npm/v/uom-types.svg)](https://www.npmjs.com/package/uom-types)
 [![CI](https://github.com/RebeccaStevens/uom-types/actions/workflows/release.yml/badge.svg)](https://github.com/RebeccaStevens/uom-types/actions/workflows/release.yml)
-[![Coverage Status](https://codecov.io/gh/RebeccaStevens/uom-types/branch/main/graph/badge.svg?token=MVpR1oAbIT)](https://codecov.io/gh/RebeccaStevens/uom-types)\
+[![Coverage Status](https://codecov.io/gh/RebeccaStevens/uom-types/branch/main/graph/badge.svg?token=MVpR1oAbIT)](https://codecov.io/gh/RebeccaStevens/uom-types)
+[![Type Coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2FRebeccaStevens%2Fuom-types%2Fmain%2Fpackage.json)](https://github.com/plantain-00/type-coverage)\
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![GitHub Discussions](https://img.shields.io/github/discussions/RebeccaStevens/uom-types?style=flat-square)](https://github.com/RebeccaStevens/uom-types/discussions)
 [![BSD 3 Clause license](https://img.shields.io/github/license/RebeccaStevens/uom-types.svg?style=flat-square)](https://opensource.org/licenses/BSD-3-Clause)

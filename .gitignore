@@ -1,6 +1,8 @@
 node_modules/
 
+/.type-coverage/
 /coverage/
+/coverage-ts/
 /dist/
 
 *.log
