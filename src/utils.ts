@@ -28,11 +28,15 @@ export type GetExponent<C extends UnitSubvalues, S> = S extends keyof C
 /**
  * Flatten a complex type such as a union or intersection of objects into a
  * single object.
+ *
+ * @internal
  */
 export type FlatternAlias<T> = { [P in keyof T]: T[P] } & {};
 
 /**
  * Make `T` exactly `T`.
+ *
+ * @internal
  */
 export type Exactify<T, U extends T> = T & {
   [K in keyof U]: K extends keyof T ? U[K] : never;
