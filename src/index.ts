@@ -21,7 +21,10 @@ export type {
   SubExponents,
   SumExponents,
 } from "./exponents";
-export { DivideUnitExponents, MultiplyUnitExponents } from "./unit-exponents";
+export type {
+  DivideUnitExponents,
+  MultiplyUnitExponents,
+} from "./unit-exponents";
 export type {
   DivideUnits,
   InverseUnit,
