@@ -54,7 +54,7 @@ This library is split into several submodules.
   Defines runtime higher order mathematical functions that are type-aware of this library's type.
 
 - `uom-types/units`\
-  Defines common types.\
+  Defines common units.\
   Note: does not currently define any imperial types.
 
 - `uom-types/units/converters`\
