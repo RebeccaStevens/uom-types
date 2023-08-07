@@ -19,6 +19,13 @@ Typesafe units with no runtime overhead.
 
 [Any donations would be much appreciated](./DONATIONS.md). 😄
 
+### Enterprise Users
+
+`uom-types` is available as part of the Tidelift Subscription.
+
+Tidelift is working with the maintainers of `uom-types` and a growing network of open source maintainers to ensure your open source software supply chain meets enterprise standards now and into the future.
+[Learn more.](https://tidelift.com/subscription/pkg/npm-uom-types?utm_source=npm-uom-types&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
+
 ## Installation
 
 ```sh
