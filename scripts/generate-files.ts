@@ -77,7 +77,7 @@ function generateSiUnitPrefixesFile() {
     .filter(isNotNull)
     .join("\n\n");
   const content = `${autogenHeader}${imports}${main}\n`;
-  return fs.writeFile("src/units/si/modifiers/prefixes.ts", content, {
+  return fs.writeFile("src/units/modifiers/prefixes.ts", content, {
     encoding: "utf8",
   });
 }

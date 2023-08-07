@@ -1,6 +1,6 @@
 import { type Unit, type UnitClass, type Exponent } from "#uom-types";
 
-import { type Exactify } from "../../utils";
+import { type Exactify } from "../utils";
 
 type SiUnitKeys =
   | "Second"

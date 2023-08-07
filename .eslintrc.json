@@ -22,8 +22,7 @@
     "/dist/",
     "/src/exponents.ts",
     "/src/units/converters/prefixes.ts",
-    "/src/units/si/modifiers/prefixes.ts",
-    "/src/units/si/units/converters/prefixes.ts"
+    "/src/units/modifiers/prefixes.ts"
   ],
   "rules": {
     "@typescript-eslint/naming-convention": "off",
