@@ -142,7 +142,7 @@
     "tsd": "0.28.1",
     "typescript": "5.1.6"
   },
-  "packageManager": "pnpm@8.6.11",
+  "packageManager": "pnpm@8.6.12",
   "engines": {
     "node": ">=16.0.0"
   }
