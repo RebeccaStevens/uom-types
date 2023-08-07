@@ -23,7 +23,7 @@ import { type Metre } from ".";
 export type AreaUnitClass = BaseUnitClass<{ Metre: 2 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Area = AbstractUnitFrom<AreaUnitClass>;

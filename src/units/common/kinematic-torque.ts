@@ -27,7 +27,7 @@ export type TorqueUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type Torque = AbstractUnitFrom<TorqueUnitClass>;

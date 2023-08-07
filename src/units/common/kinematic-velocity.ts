@@ -25,7 +25,7 @@ export type VelocityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type Velocity = AbstractUnitFrom<VelocityUnitClass>;

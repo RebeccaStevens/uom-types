@@ -24,7 +24,7 @@ export type ElectricChargeUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type ElectricCharge = AbstractUnitFrom<ElectricChargeUnitClass>;

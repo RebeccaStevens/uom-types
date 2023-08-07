@@ -27,7 +27,7 @@ export type SpectralIntensityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type SpectralIntensity = AbstractUnitFrom<SpectralIntensityUnitClass>;

@@ -25,7 +25,7 @@ export type LuminousEnergyUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Photometric
  */
 export type LuminousEnergy = AbstractUnitFrom<LuminousEnergyUnitClass>;

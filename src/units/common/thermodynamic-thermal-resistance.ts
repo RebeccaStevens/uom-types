@@ -26,7 +26,7 @@ export type ThermalResistanceUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Thermodynamic
  */
 export type ThermalResistance = AbstractUnitFrom<ThermalResistanceUnitClass>;

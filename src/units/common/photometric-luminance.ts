@@ -25,7 +25,7 @@ export type LuminanceUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Photometric
  */
 export type Luminance = AbstractUnitFrom<LuminanceUnitClass>;

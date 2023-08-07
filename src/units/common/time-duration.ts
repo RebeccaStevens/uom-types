@@ -15,7 +15,7 @@ import { type BaseUnitClass } from "../base-units";
 export type DurationUnitClass = BaseUnitClass<{ Second: 1 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Time
  */
 export type Duration = AbstractUnitFrom<DurationUnitClass>;

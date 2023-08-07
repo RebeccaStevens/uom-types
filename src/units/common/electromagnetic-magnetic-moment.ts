@@ -26,7 +26,7 @@ export type MagneticMomentUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type MagneticMoment = AbstractUnitFrom<MagneticMomentUnitClass>;

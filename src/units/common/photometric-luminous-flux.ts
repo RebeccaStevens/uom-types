@@ -21,7 +21,7 @@ import { type Candela, type Steradian } from ".";
 export type LuminousFluxUnitClass = BaseUnitClass<{ Candela: 1; Radian: 2 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Photometric
  */
 export type LuminousFlux = AbstractUnitFrom<LuminousFluxUnitClass>;

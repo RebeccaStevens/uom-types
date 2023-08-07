@@ -1,3 +1,7 @@
+/**
+ * @module uom-types/functions/higher-order
+ */
+
 import {
   type AbstractUnit,
   type Divide,

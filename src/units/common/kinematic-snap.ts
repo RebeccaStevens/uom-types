@@ -21,7 +21,7 @@ import { type MetrePerSecondCubed, type Second } from ".";
 export type SnapUnitClass = BaseUnitClass<{ Metre: 1; Second: -4 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type Snap = AbstractUnitFrom<SnapUnitClass>;

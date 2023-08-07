@@ -21,7 +21,7 @@ import { type Second, type MetrePerSecondSquared } from ".";
 export type JerkUnitClass = BaseUnitClass<{ Metre: 1; Second: -3 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type Jerk = AbstractUnitFrom<JerkUnitClass>;

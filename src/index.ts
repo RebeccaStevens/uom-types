@@ -1,3 +1,7 @@
+/**
+ * @module uom-types
+ */
+
 export type {
   AbstractUnit,
   AbstractUnitFrom,

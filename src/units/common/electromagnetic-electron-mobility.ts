@@ -27,7 +27,7 @@ export type ElectronMobilityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type ElectronMobility = AbstractUnitFrom<ElectronMobilityUnitClass>;

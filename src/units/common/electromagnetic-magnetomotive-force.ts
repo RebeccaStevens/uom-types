@@ -24,7 +24,7 @@ export type MagnetomotiveForceUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type MagnetomotiveForce = AbstractUnitFrom<MagnetomotiveForceUnitClass>;

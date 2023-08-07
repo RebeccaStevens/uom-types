@@ -21,7 +21,7 @@ import { type Hertz, type Second } from ".";
 export type FrequencyDriftUnitClass = BaseUnitClass<{ Second: -2 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type FrequencyDrift = AbstractUnitFrom<FrequencyDriftUnitClass>;

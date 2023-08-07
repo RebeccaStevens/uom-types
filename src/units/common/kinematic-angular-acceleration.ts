@@ -25,7 +25,7 @@ export type AngularAccelerationUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type AngularAcceleration =

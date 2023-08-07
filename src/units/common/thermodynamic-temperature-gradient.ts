@@ -24,7 +24,7 @@ export type TemperatureGradientUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Thermodynamic
  */
 export type TemperatureGradient =

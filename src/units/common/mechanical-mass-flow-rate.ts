@@ -25,7 +25,7 @@ export type MassFlowRateUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type MassFlowRate = AbstractUnitFrom<MassFlowRateUnitClass>;

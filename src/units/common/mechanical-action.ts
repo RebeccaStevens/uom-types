@@ -25,7 +25,7 @@ export type ActionUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Action = AbstractUnitFrom<ActionUnitClass>;

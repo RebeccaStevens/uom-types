@@ -25,7 +25,7 @@ export type KinematicViscosityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type KinematicViscosity = AbstractUnitFrom<KinematicViscosityUnitClass>;

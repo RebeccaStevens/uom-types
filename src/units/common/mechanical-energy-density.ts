@@ -26,7 +26,7 @@ export type EnergyDensityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type EnergyDensity = AbstractUnitFrom<EnergyDensityUnitClass>;

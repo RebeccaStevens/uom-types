@@ -26,7 +26,7 @@ export type ForceUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Force = AbstractUnitFrom<ForceUnitClass>;

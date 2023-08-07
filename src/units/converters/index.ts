@@ -1,3 +1,7 @@
+/**
+ * @module uom-types/units/converters
+ */
+
 export * from "./angle";
 export * from "./area";
 export * from "./duration";

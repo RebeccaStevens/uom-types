@@ -1,3 +1,7 @@
+/**
+ * @module uom-types/functions
+ */
+
 import {
   type AbstractUnit,
   type Divide,

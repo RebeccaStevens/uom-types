@@ -24,7 +24,7 @@ export type StiffnessUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Stiffness = AbstractUnitFrom<StiffnessUnitClass>;

@@ -21,7 +21,7 @@ export type MagneticReluctanceUnitClass =
   ReciprocalUnitClass<ElectricInductanceUnitClass>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type MagneticReluctance = Reciprocal<ElectricInductance>;

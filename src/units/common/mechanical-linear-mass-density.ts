@@ -25,7 +25,7 @@ export type LinearMassDensityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type LinearMassDensity = AbstractUnitFrom<LinearMassDensityUnitClass>;

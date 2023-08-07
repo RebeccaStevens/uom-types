@@ -22,7 +22,7 @@ import { type Gram, type Metre } from ".";
 export type DensityUnitClass = BaseUnitClass<{ Kilogram: 1; Metre: -3 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Density = AbstractUnitFrom<DensityUnitClass>;

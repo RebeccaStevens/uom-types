@@ -24,7 +24,7 @@ import {
 export type WorkUnitClass = EnergyUnitClass;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Work = Energy;

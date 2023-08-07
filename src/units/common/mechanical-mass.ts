@@ -17,7 +17,7 @@ export type MassUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Mass = AbstractUnitFrom<MassUnitClass>;

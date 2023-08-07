@@ -15,7 +15,7 @@ import { type BaseUnitClass } from "../base-units";
 export type LuminousIntensityUnitClass = BaseUnitClass<{ Candela: 1 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Photometric
  */
 export type LuminousIntensity = AbstractUnitFrom<LuminousIntensityUnitClass>;

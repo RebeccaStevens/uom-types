@@ -34,7 +34,7 @@ export type MagneticFluxUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type MagneticFlux = AbstractUnitFrom<MagneticFluxUnitClass>;

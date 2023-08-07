@@ -21,7 +21,7 @@ import { type Second, type MetrePerSecondToTheFourth } from ".";
 export type CrackleUnitClass = BaseUnitClass<{ Metre: 1; Second: -5 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type Crackle = AbstractUnitFrom<CrackleUnitClass>;

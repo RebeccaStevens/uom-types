@@ -26,7 +26,7 @@ export type PressureUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Pressure = AbstractUnitFrom<PressureUnitClass>;

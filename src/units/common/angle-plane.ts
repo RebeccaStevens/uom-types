@@ -17,7 +17,7 @@ export type PlaneAngleUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Angle (Plane)
  */
 export type PlaneAngle = AbstractUnitFrom<PlaneAngleUnitClass>;

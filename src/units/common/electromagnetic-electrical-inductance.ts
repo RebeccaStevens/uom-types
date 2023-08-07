@@ -27,7 +27,7 @@ export type ElectricInductanceUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type ElectricInductance = AbstractUnitFrom<ElectricInductanceUnitClass>;

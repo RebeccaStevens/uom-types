@@ -22,7 +22,7 @@ import { type Metre, type Litre, type Mole } from ".";
 export type MolarConcentrationUnitClass = BaseUnitClass<{ Mole: 1; Metre: -3 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Chemical
  */
 export type MolarConcentration = AbstractUnitFrom<MolarConcentrationUnitClass>;

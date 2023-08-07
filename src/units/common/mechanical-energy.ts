@@ -35,7 +35,7 @@ export type EnergyUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Energy = AbstractUnitFrom<EnergyUnitClass>;

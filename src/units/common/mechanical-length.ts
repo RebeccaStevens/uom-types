@@ -15,7 +15,7 @@ import { type BaseUnitClass } from "../base-units";
 export type LengthUnitClass = BaseUnitClass<{ Metre: 1 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Length = AbstractUnitFrom<LengthUnitClass>;

@@ -26,7 +26,7 @@ export type ElectricalConductivityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type ElectricalConductivity =

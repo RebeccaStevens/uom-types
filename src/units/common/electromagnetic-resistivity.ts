@@ -26,7 +26,7 @@ export type ResistivityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type Resistivity = AbstractUnitFrom<ResistivityUnitClass>;

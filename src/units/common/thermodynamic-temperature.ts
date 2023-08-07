@@ -17,7 +17,7 @@ export type TemperatureUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Thermodynamic
  */
 export type Temperature = AbstractUnitFrom<TemperatureUnitClass>;

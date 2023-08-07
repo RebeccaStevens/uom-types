@@ -24,7 +24,7 @@ export type AbsorbedDoseRateUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type AbsorbedDoseRate = AbstractUnitFrom<AbsorbedDoseRateUnitClass>;

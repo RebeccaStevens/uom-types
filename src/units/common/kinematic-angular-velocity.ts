@@ -25,7 +25,7 @@ export type AngularVelocityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type AngularVelocity = AbstractUnitFrom<AngularVelocityUnitClass>;

@@ -17,6 +17,10 @@
     "Unknown Units",
     "*"
   ],
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true
+  },
   "entryPoints": [
     "src/index.ts",
     "src/functions/index.ts",
@@ -60,7 +64,8 @@
   ],
   "out": "./docs/generated",
   "plugin": ["typedoc-plugin-coverage", "typedoc-plugin-versions"],
-  "readme": "./README.md",
+  "readme": "./docs/index.md",
+  "customCss": "./docs/typedoc.css",
   "requiredToBeDocumented": [
     "Accessor",
     "CallSignature",

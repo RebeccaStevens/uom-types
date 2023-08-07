@@ -27,7 +27,7 @@ export type AngularMomentumUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type AngularMomentum = AbstractUnitFrom<AngularMomentumUnitClass>;

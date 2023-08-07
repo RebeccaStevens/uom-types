@@ -35,7 +35,7 @@ export type ElectricPotentialUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type ElectricPotential = AbstractUnitFrom<ElectricPotentialUnitClass>;

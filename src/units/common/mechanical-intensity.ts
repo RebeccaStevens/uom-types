@@ -22,7 +22,7 @@ import { type Metre, type Watt } from ".";
 export type IntensityUnitClass = BaseUnitClass<{ Kilogram: 1; Second: -3 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Intensity = AbstractUnitFrom<IntensityUnitClass>;

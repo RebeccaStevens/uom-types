@@ -17,7 +17,7 @@ export type ElectricCurrentUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type ElectricCurrent = AbstractUnitFrom<ElectricCurrentUnitClass>;

@@ -26,7 +26,7 @@ export type ElectricDisplacementFieldUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type ElectricDisplacementField =

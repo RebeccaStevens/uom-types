@@ -27,7 +27,7 @@ export type ThermalConductivityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Thermodynamic
  */
 export type ThermalConductivity =

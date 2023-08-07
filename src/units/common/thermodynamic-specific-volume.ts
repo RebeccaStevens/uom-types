@@ -22,7 +22,7 @@ import { type Gram, type Metre } from ".";
 export type SpecificVolumeUnitClass = BaseUnitClass<{ Kilogram: -1; Metre: 3 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Thermodynamic
  */
 export type SpecificVolume = AbstractUnitFrom<SpecificVolumeUnitClass>;

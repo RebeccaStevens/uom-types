@@ -24,7 +24,7 @@ export type MagneticDipoleMomentUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type MagneticDipoleMoment =

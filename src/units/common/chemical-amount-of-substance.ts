@@ -15,7 +15,7 @@ import { type BaseUnitClass } from "../base-units";
 export type AmountOfSubstanceUnitClass = BaseUnitClass<{ Mole: 1 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Chemical
  */
 export type AmountOfSubstance = AbstractUnitFrom<AmountOfSubstanceUnitClass>;

@@ -26,7 +26,7 @@ export type EntropyUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Thermodynamic
  */
 export type Entropy = AbstractUnitFrom<EntropyUnitClass>;

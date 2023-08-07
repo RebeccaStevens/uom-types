@@ -22,7 +22,7 @@ import { type Metre, type MetrePerSecond, type Second } from ".";
 export type AccelerationUnitClass = BaseUnitClass<{ Metre: 1; Second: -2 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type Acceleration = AbstractUnitFrom<AccelerationUnitClass>;

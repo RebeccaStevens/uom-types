@@ -27,7 +27,7 @@ export type PowerUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  * @category Mechanical
  */

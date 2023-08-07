@@ -26,7 +26,7 @@ export type MagneticRigidityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type MagneticRigidity = AbstractUnitFrom<MagneticRigidityUnitClass>;

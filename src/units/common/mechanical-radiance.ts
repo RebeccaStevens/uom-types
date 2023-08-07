@@ -27,7 +27,7 @@ export type RadianceUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Radiance = AbstractUnitFrom<RadianceUnitClass>;

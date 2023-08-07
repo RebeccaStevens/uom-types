@@ -21,7 +21,7 @@ import { type MetrePerSecondToTheFifth, type Second } from ".";
 export type PopUnitClass = BaseUnitClass<{ Metre: 1; Second: -6 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Kinematic
  */
 export type Pop = AbstractUnitFrom<PopUnitClass>;

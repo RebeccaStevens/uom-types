@@ -25,7 +25,7 @@ export type ElectricLinearChargeDensityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type ElectricLinearChargeDensity =

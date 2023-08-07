@@ -23,7 +23,7 @@ export type SolidAngleUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Angle (Solid)
  */
 export type SolidAngle = AbstractUnitFrom<SolidAngleUnitClass>;

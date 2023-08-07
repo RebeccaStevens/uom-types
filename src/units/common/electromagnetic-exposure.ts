@@ -26,7 +26,7 @@ export type ExposureUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type Exposure = AbstractUnitFrom<ExposureUnitClass>;

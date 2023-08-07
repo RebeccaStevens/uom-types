@@ -27,7 +27,7 @@ export type MomentOfInertiaUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type MomentOfInertia = AbstractUnitFrom<MomentOfInertiaUnitClass>;

@@ -25,7 +25,7 @@ export type RadiantExposureUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type RadiantExposure = AbstractUnitFrom<RadiantExposureUnitClass>;

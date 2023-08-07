@@ -20,7 +20,7 @@ import { type PressureUnitClass, type Pressure } from ".";
 export type CompressibilityUnitClass = ReciprocalUnitClass<PressureUnitClass>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Compressibility = Reciprocal<Pressure>;

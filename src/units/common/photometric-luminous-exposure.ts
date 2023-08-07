@@ -25,7 +25,7 @@ export type LuminousExposureUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Photometric
  */
 export type LuminousExposure = AbstractUnitFrom<LuminousExposureUnitClass>;

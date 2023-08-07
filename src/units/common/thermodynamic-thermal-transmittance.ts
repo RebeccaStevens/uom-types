@@ -26,7 +26,7 @@ export type ThermalTransmittanceUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Thermodynamic
  */
 export type ThermalTransmittance =

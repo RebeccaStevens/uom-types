@@ -26,7 +26,7 @@ export type MagneticPermeabilityUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Electromagnetic
  */
 export type MagneticPermeability =

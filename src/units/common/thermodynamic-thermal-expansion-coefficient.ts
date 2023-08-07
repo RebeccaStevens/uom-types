@@ -21,7 +21,7 @@ export type ThermalExpansionCoefficientUnitClass =
   ReciprocalUnitClass<TemperatureUnitClass>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Thermodynamic
  */
 export type ThermalExpansionCoefficient = Reciprocal<Temperature>;

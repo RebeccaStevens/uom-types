@@ -21,7 +21,7 @@ import { type Mole, type Second } from ".";
 export type CatalyticActivityUnitClass = BaseUnitClass<{ Mole: 1; Second: -1 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Chemical
  */
 export type CatalyticActivity = AbstractUnitFrom<CatalyticActivityUnitClass>;

@@ -25,7 +25,7 @@ export type MomentumUnitClass = BaseUnitClass<{
 }>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  * @category Mechanical
  */
 export type Momentum = AbstractUnitFrom<MomentumUnitClass>;

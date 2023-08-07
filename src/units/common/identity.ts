@@ -15,7 +15,7 @@ import { type BaseUnitClass } from "../base-units";
 export type IdentityUnitClass = BaseUnitClass<{}>;
 
 /**
- * @group Abstract Unit
+ * @group Abstract Units
  */
 export type Identity = AbstractUnitFrom<IdentityUnitClass>;
 
