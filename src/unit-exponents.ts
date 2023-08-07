@@ -17,12 +17,15 @@ export type MultiplyUnitExponents<
   E extends Exponent,
 > = T extends Unit<infer Config, infer Meta>
   ? Unit<
-      FlatternAlias<MultiplyUnitExponentsCore<Config, E>>,
-      FlatternAlias<MultiplyUnitExponentsCore<Meta, E>>
+      FlatternAlias<MultiplyUnitSubvaluesExponents<Config, E>>,
+      FlatternAlias<MultiplyUnitSubvaluesExponents<Meta, E>>
     >
   : number;
 
-type MultiplyUnitExponentsCore<T extends UnitSubvalues, E extends Exponent> = {
+type MultiplyUnitSubvaluesExponents<
+  T extends UnitSubvalues,
+  E extends Exponent,
+> = {
   [S in keyof T]: MultiplyExponents<GetExponent<T, S>, E>;
 };
 
@@ -34,12 +37,15 @@ export type DivideUnitExponents<
   E extends Exponent,
 > = T extends Unit<infer Config, infer Meta>
   ? Unit<
-      FlatternAlias<DivideUnitExponentsCore<Config, E>>,
-      FlatternAlias<DivideUnitExponentsCore<Meta, E>>
+      FlatternAlias<DivideUnitSubvaluesExponents<Config, E>>,
+      FlatternAlias<DivideUnitSubvaluesExponents<Meta, E>>
     >
   : number;
 
-type DivideUnitExponentsCore<T extends UnitSubvalues, E extends Exponent> = {
+type DivideUnitSubvaluesExponents<
+  T extends UnitSubvalues,
+  E extends Exponent,
+> = {
   [S in keyof T]: DivideExponents<GetExponent<T, S>, E>;
 };
 
