@@ -42,6 +42,28 @@ and a `UnitMeta`, which states any extra information needed (such as the unit's 
 A unit without a `UnitMeta` is known as an `AbstractUnit`.\
 A unit without a `UnitClass` is known as a `UnitConversionRate`.
 
+`UnitClass`es and `UnitMeta` types both work in the same way.
+They define a unit symbols (aka `UnitSubvalue`s) as keys which map to an `Exponent` value.
+Note: only integer exponents in range -12 to 12 are supported.
+
+For example:
+
+```ts
+type Time = UnitClass<{ Second: 1 }>; // second^1
+type Acceleration = UnitClass<{ Metre: 1; Second: -2 }>; // metre^1 / second^2
+type Frequency = UnitClass<{ Second: -1 }>; // 1 / second^1
+
+type Kilo = UnitMeta<{ scalar10: 3 }>; // 10^3
+type Milli = UnitMeta<{ scalar10: -3 }>; // 1 / 10^3
+```
+
+### Base Units
+
+We define all our `Unit`s from 8 base units. They are the [7 base units of the SI units](https://en.wikipedia.org/wiki/International_System_of_Units#Base_units) as well as
+the `radian`.
+
+If you wish to create your own units from the same base units, you can use the `BaseUnitClass` type.
+
 ### Library Make Up
 
 This library is split into several submodules.
