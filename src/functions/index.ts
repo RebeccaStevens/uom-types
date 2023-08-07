@@ -8,7 +8,7 @@ import {
   type UnknownAbstractUnit,
   type UnknownUnit,
 } from "#uom-types";
-import { Length, type Radian } from "#uom-types/units";
+import { type Length, type Radian, type Unitless } from "#uom-types/units";
 
 type OperationIO<T extends number> = [T] extends [
   UnknownUnit | UnknownAbstractUnit,
@@ -337,8 +337,8 @@ export function lte<T extends number>(
  *
  * @category Math
  */
-export function sin(angle: Radian): number {
-  return Math.sin(angle);
+export function sin(angle: Radian): Unitless {
+  return Math.sin(angle) as Unitless;
 }
 
 /**
@@ -346,8 +346,8 @@ export function sin(angle: Radian): number {
  *
  * @category Math
  */
-export function cos(angle: Radian): number {
-  return Math.cos(angle);
+export function cos(angle: Radian): Unitless {
+  return Math.cos(angle) as Unitless;
 }
 
 /**
@@ -355,8 +355,8 @@ export function cos(angle: Radian): number {
  *
  * @category Math
  */
-export function tan(angle: Radian): number {
-  return Math.tan(angle);
+export function tan(angle: Radian): Unitless {
+  return Math.tan(angle) as Unitless;
 }
 
 /**
@@ -364,7 +364,7 @@ export function tan(angle: Radian): number {
  *
  * @category Math
  */
-export function asin(value: number): Radian {
+export function asin(value: Unitless): Radian {
   return Math.asin(value) as Radian;
 }
 
@@ -373,7 +373,7 @@ export function asin(value: number): Radian {
  *
  * @category Math
  */
-export function acos(value: number): Radian {
+export function acos(value: Unitless): Radian {
   return Math.acos(value) as Radian;
 }
 
@@ -382,7 +382,7 @@ export function acos(value: number): Radian {
  *
  * @category Math
  */
-export function atan(value: number): Radian {
+export function atan(value: Unitless): Radian {
   return Math.atan(value) as Radian;
 }
 
@@ -390,8 +390,8 @@ export function atan(value: number): Radian {
  * Returns the angle (in radians) from the X axis to a point.
  *
  * @category Math
- * @param x - A {@link Length} representing the cartesian x-coordinate.
- * @param y - A {@link Length} representing the cartesian y-coordinate.
+ * @param x - A number representing the cartesian x-coordinate.
+ * @param y - A number representing the cartesian y-coordinate.
  */
 export function atan2<T extends number>(x: T, y: T): Radian {
   return Math.atan2(x, y) as Radian;
@@ -402,8 +402,8 @@ export function atan2<T extends number>(x: T, y: T): Radian {
  *
  * @category Math
  */
-export function sinh(angle: Radian): number {
-  return Math.sinh(angle);
+export function sinh(angle: Radian): Unitless {
+  return Math.sinh(angle) as Unitless;
 }
 
 /**
@@ -411,8 +411,8 @@ export function sinh(angle: Radian): number {
  *
  * @category Math
  */
-export function cosh(angle: Radian): number {
-  return Math.cosh(angle);
+export function cosh(angle: Radian): Unitless {
+  return Math.cosh(angle) as Unitless;
 }
 
 /**
@@ -420,8 +420,8 @@ export function cosh(angle: Radian): number {
  *
  * @category Math
  */
-export function tanh(angle: Radian): number {
-  return Math.tanh(angle);
+export function tanh(angle: Radian): Unitless {
+  return Math.tanh(angle) as Unitless;
 }
 
 /**
@@ -429,7 +429,7 @@ export function tanh(angle: Radian): number {
  *
  * @category Math
  */
-export function asinh(value: number): Radian {
+export function asinh(value: Unitless): Radian {
   return Math.asinh(value) as Radian;
 }
 
@@ -438,7 +438,7 @@ export function asinh(value: number): Radian {
  *
  * @category Math
  */
-export function acosh(value: number): Radian {
+export function acosh(value: Unitless): Radian {
   return Math.acosh(value) as Radian;
 }
 
@@ -447,6 +447,6 @@ export function acosh(value: number): Radian {
  *
  * @category Math
  */
-export function atanh(value: number): Radian {
+export function atanh(value: Unitless): Radian {
   return Math.atanh(value) as Radian;
 }
