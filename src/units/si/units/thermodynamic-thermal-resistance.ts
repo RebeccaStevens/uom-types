@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Kelvin, type Watt } from ".";
 
@@ -18,7 +18,7 @@ import { type Kelvin, type Watt } from ".";
  * @group Unit Classes
  * @category Thermodynamic
  */
-export type ThermalResistanceUnitClass = SiUnitClass<{
+export type ThermalResistanceUnitClass = BaseUnitClass<{
   Kilogram: -1;
   Metre: -2;
   Second: 3;
@@ -32,14 +32,14 @@ export type ThermalResistanceUnitClass = SiUnitClass<{
 export type ThermalResistance = AbstractUnitFrom<ThermalResistanceUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Thermodynamic
  */
 export type ThermalResistanceUnit<M extends UnitSubvalues> =
   ThermalResistanceUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Thermodynamic
  */
 export type ThermalResistanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

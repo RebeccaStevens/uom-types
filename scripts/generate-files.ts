@@ -57,9 +57,7 @@ function generateExponentsFile() {
     getSubExponentsTypeDefintion(),
     getMultiplyExponentsTypeDefintion(),
     getDivideExponentsTypeDefintion(),
-  ]
-    .map((v) => `export ${v}`)
-    .join("\n");
+  ].join("\n\n");
 
   const content = `${autogenHeader}${main}\n`;
 
@@ -67,14 +65,14 @@ function generateExponentsFile() {
 }
 
 function generateSiUnitPrefixesFile() {
-  const imports = `import { type MultiplyUnits, type Unit, type UnknownUnit } from "#uom-types";\n\n`;
+  const imports = `import { type Multiply, type Unit, type UnknownUnit } from "#uom-types";\n\n`;
   const main = [...exponents.values()]
     .map((exponent) => {
       const name = scalar10ToName.get(exponent);
       if (name === undefined) {
         return null;
       }
-      return `/**\n * Binary prefix denoting an order of magnitude of 10^${exponent}.\n *\n * @group Modifiers\n * @category Metric Prefixes\n */\nexport type ${name}<T extends UnknownUnit> = MultiplyUnits<T, Unit<{}, { scalar10: ${exponent} }>>;`;
+      return `/**\n * Binary prefix denoting an order of magnitude of 10^${exponent}.\n *\n * @group Modifiers\n * @category Metric Prefixes\n */\nexport type ${name}<T extends UnknownUnit> = Multiply<T, Unit<{}, { scalar10: ${exponent} }>>;`;
     })
     .filter(isNotNull)
     .join("\n\n");
@@ -140,11 +138,13 @@ function populateExponents() {
 }
 
 function getExponentTypeDefintion() {
-  return `type Exponent = ${[...exponents.values()].join(" | ")};`;
+  return `/**\n * All the supported exponent values.\n *\n * @group Unit Components\n */\nexport type Exponent = ${[
+    ...exponents.values(),
+  ].join(" | ")};`;
 }
 
 function getNegativeExponentTypeDefintion() {
-  return `type NegativeExponent<T extends Exponent> = ${[
+  return `/**\n * @group Exponent Functions\n */\nexport type NegativeExponent<T extends Exponent> = ${[
     ...exponentToNegitive.entries(),
   ]
     .map(
@@ -155,7 +155,7 @@ function getNegativeExponentTypeDefintion() {
 }
 
 function getSumExponentsTypeDefintion() {
-  return `type SumExponents<A extends Exponent, B extends Exponent> = ${[
+  return `/**\n * @group Exponent Functions\n */\nexport type SumExponents<A extends Exponent, B extends Exponent> = ${[
     ...exponents.values(),
   ]
     .map((a) => {
@@ -171,11 +171,11 @@ function getSumExponentsTypeDefintion() {
 }
 
 function getSubExponentsTypeDefintion() {
-  return `type SubExponents<A extends Exponent, B extends Exponent> = SumExponents<A, NegativeExponent<B>>`;
+  return `/**\n * @group Exponent Functions\n */\nexport type SubExponents<A extends Exponent, B extends Exponent> = SumExponents<A, NegativeExponent<B>>`;
 }
 
 function getMultiplyExponentsTypeDefintion() {
-  return `type MultiplyExponents<A extends Exponent, B extends Exponent> = ${[
+  return `/**\n * @group Exponent Functions\n */\nexport type MultiplyExponents<A extends Exponent, B extends Exponent> = ${[
     ...exponents.values(),
   ]
     .map((a) => {
@@ -193,7 +193,7 @@ function getMultiplyExponentsTypeDefintion() {
 }
 
 function getDivideExponentsTypeDefintion() {
-  return `type DivideExponents<A extends Exponent, B extends Exponent> = ${[
+  return `/**\n * @group Exponent Functions\n */\nexport type DivideExponents<A extends Exponent, B extends Exponent> = ${[
     ...exponents.values(),
   ]
     .map((b) => {

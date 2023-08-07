@@ -11,7 +11,7 @@ import {
   type UnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Kilo } from "../modifiers";
 
 import {
@@ -27,7 +27,7 @@ import {
  * @group Unit Classes
  * @category Mechanical
  */
-export type SpecificAngularMomentumUnitClass = SiUnitClass<{
+export type SpecificAngularMomentumUnitClass = BaseUnitClass<{
   Metre: 2;
   Second: -1;
   Radian: -1;
@@ -41,14 +41,14 @@ export type SpecificAngularMomentum =
   AbstractUnitFrom<SpecificAngularMomentumUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type SpecificAngularMomentumUnit<M extends UnitSubvalues> =
   SpecificAngularMomentumUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type SpecificAngularMomentumUnitFrom<M extends UnknownUnitMeta> =

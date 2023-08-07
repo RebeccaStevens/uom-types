@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Reciprocal } from "../modifiers";
 
 import {
@@ -25,7 +25,7 @@ import {
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectricResistanceUnitClass = SiUnitClass<{
+export type ElectricResistanceUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 2;
   Second: -3;
@@ -39,14 +39,14 @@ export type ElectricResistanceUnitClass = SiUnitClass<{
 export type ElectricResistance = AbstractUnitFrom<ElectricResistanceUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricResistanceUnit<M extends UnitSubvalues> =
   ElectricResistanceUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricResistanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

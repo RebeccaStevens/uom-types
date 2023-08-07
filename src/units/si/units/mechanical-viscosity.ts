@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
 import { type Metre, type Second } from ".";
@@ -19,7 +19,7 @@ import { type Metre, type Second } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type KinematicViscosityUnitClass = SiUnitClass<{
+export type KinematicViscosityUnitClass = BaseUnitClass<{
   Metre: 2;
   Second: -1;
 }>;
@@ -31,14 +31,14 @@ export type KinematicViscosityUnitClass = SiUnitClass<{
 export type KinematicViscosity = AbstractUnitFrom<KinematicViscosityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type KinematicViscosityUnit<M extends UnitSubvalues> =
   KinematicViscosityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type KinematicViscosityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

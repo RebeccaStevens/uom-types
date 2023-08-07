@@ -10,7 +10,7 @@ import {
   type UnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Newton, type Second } from ".";
 
@@ -18,7 +18,7 @@ import { type Newton, type Second } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type YankUnitClass = SiUnitClass<{
+export type YankUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 1;
   Second: -3;

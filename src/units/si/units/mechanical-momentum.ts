@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Newton, type Second } from ".";
 
@@ -18,7 +18,7 @@ import { type Newton, type Second } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type MomentumUnitClass = SiUnitClass<{
+export type MomentumUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 1;
   Second: -1;
@@ -31,7 +31,7 @@ export type MomentumUnitClass = SiUnitClass<{
 export type Momentum = AbstractUnitFrom<MomentumUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type MomentumUnit<M extends UnitSubvalues> = MomentumUnitFrom<
@@ -39,7 +39,7 @@ export type MomentumUnit<M extends UnitSubvalues> = MomentumUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type MomentumUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

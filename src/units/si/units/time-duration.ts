@@ -6,13 +6,13 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
  * @category Time
  */
-export type DurationUnitClass = SiUnitClass<{ Second: 1 }>;
+export type DurationUnitClass = BaseUnitClass<{ Second: 1 }>;
 
 /**
  * @group Abstract Unit
@@ -21,7 +21,7 @@ export type DurationUnitClass = SiUnitClass<{ Second: 1 }>;
 export type Duration = AbstractUnitFrom<DurationUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Time
  */
 export type DurationUnit<M extends UnitSubvalues> = DurationUnitFrom<
@@ -29,7 +29,7 @@ export type DurationUnit<M extends UnitSubvalues> = DurationUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Time
  */
 export type DurationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

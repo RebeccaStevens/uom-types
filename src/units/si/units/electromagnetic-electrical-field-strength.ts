@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Volt, type Metre } from ".";
 
@@ -18,7 +18,7 @@ import { type Volt, type Metre } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectricFieldStrengthUnitClass = SiUnitClass<{
+export type ElectricFieldStrengthUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 1;
   Second: -3;
@@ -33,14 +33,14 @@ export type ElectricFieldStrength =
   AbstractUnitFrom<ElectricFieldStrengthUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricFieldStrengthUnit<M extends UnitSubvalues> =
   ElectricFieldStrengthUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricFieldStrengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

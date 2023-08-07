@@ -6,13 +6,13 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
  * @category Chemical
  */
-export type AmountOfSubstanceUnitClass = SiUnitClass<{ Mole: 1 }>;
+export type AmountOfSubstanceUnitClass = BaseUnitClass<{ Mole: 1 }>;
 
 /**
  * @group Abstract Unit
@@ -21,14 +21,14 @@ export type AmountOfSubstanceUnitClass = SiUnitClass<{ Mole: 1 }>;
 export type AmountOfSubstance = AbstractUnitFrom<AmountOfSubstanceUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Chemical
  */
 export type AmountOfSubstanceUnit<M extends UnitSubvalues> =
   AmountOfSubstanceUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Chemical
  */
 export type AmountOfSubstanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

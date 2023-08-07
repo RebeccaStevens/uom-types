@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Ohm, type Metre } from ".";
 
@@ -18,7 +18,7 @@ import { type Ohm, type Metre } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ResistivityUnitClass = SiUnitClass<{
+export type ResistivityUnitClass = BaseUnitClass<{
   Ampere: -2;
   Kilogram: 1;
   Metre: 3;
@@ -32,7 +32,7 @@ export type ResistivityUnitClass = SiUnitClass<{
 export type Resistivity = AbstractUnitFrom<ResistivityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ResistivityUnit<M extends UnitSubvalues> = ResistivityUnitFrom<
@@ -40,7 +40,7 @@ export type ResistivityUnit<M extends UnitSubvalues> = ResistivityUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ResistivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

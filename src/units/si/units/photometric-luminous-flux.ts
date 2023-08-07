@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Candela, type Steradian } from ".";
 
@@ -18,7 +18,7 @@ import { type Candela, type Steradian } from ".";
  * @group Unit Classes
  * @category Photometric
  */
-export type LuminousFluxUnitClass = SiUnitClass<{ Candela: 1; Radian: 2 }>;
+export type LuminousFluxUnitClass = BaseUnitClass<{ Candela: 1; Radian: 2 }>;
 
 /**
  * @group Abstract Unit
@@ -27,7 +27,7 @@ export type LuminousFluxUnitClass = SiUnitClass<{ Candela: 1; Radian: 2 }>;
 export type LuminousFlux = AbstractUnitFrom<LuminousFluxUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Photometric
  */
 export type LuminousFluxUnit<M extends UnitSubvalues> = LuminousFluxUnitFrom<
@@ -35,7 +35,7 @@ export type LuminousFluxUnit<M extends UnitSubvalues> = LuminousFluxUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Photometric
  */
 export type LuminousFluxUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

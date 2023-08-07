@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
 import { type Metre, type Joule } from ".";
@@ -19,7 +19,7 @@ import { type Metre, type Joule } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type RadiantExposureUnitClass = SiUnitClass<{
+export type RadiantExposureUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Second: -2;
 }>;
@@ -31,14 +31,14 @@ export type RadiantExposureUnitClass = SiUnitClass<{
 export type RadiantExposure = AbstractUnitFrom<RadiantExposureUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type RadiantExposureUnit<M extends UnitSubvalues> =
   RadiantExposureUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type RadiantExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type MetrePerSecondCubed, type Second } from ".";
 
@@ -18,7 +18,7 @@ import { type MetrePerSecondCubed, type Second } from ".";
  * @group Unit Classes
  * @category Kinematic
  */
-export type SnapUnitClass = SiUnitClass<{ Metre: 1; Second: -4 }>;
+export type SnapUnitClass = BaseUnitClass<{ Metre: 1; Second: -4 }>;
 
 /**
  * @group Abstract Unit
@@ -27,13 +27,13 @@ export type SnapUnitClass = SiUnitClass<{ Metre: 1; Second: -4 }>;
 export type Snap = AbstractUnitFrom<SnapUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type SnapUnit<M extends UnitSubvalues> = SnapUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type SnapUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

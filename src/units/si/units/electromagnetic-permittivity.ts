@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Farad, type Metre } from ".";
 
@@ -18,7 +18,7 @@ import { type Farad, type Metre } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type PermittivityUnitClass = SiUnitClass<{
+export type PermittivityUnitClass = BaseUnitClass<{
   Ampere: 2;
   Second: 4;
   Kilogram: -1;
@@ -32,7 +32,7 @@ export type PermittivityUnitClass = SiUnitClass<{
 export type Permittivity = AbstractUnitFrom<PermittivityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type PermittivityUnit<M extends UnitSubvalues> = PermittivityUnitFrom<
@@ -40,7 +40,7 @@ export type PermittivityUnit<M extends UnitSubvalues> = PermittivityUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type PermittivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

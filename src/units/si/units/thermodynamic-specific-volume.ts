@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Kilo, type Cubic } from "../modifiers";
 
 import { type Gram, type Metre } from ".";
@@ -19,7 +19,7 @@ import { type Gram, type Metre } from ".";
  * @group Unit Classes
  * @category Thermodynamic
  */
-export type SpecificVolumeUnitClass = SiUnitClass<{ Kilogram: -1; Metre: 3 }>;
+export type SpecificVolumeUnitClass = BaseUnitClass<{ Kilogram: -1; Metre: 3 }>;
 
 /**
  * @group Abstract Unit
@@ -28,14 +28,14 @@ export type SpecificVolumeUnitClass = SiUnitClass<{ Kilogram: -1; Metre: 3 }>;
 export type SpecificVolume = AbstractUnitFrom<SpecificVolumeUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Thermodynamic
  */
 export type SpecificVolumeUnit<M extends UnitSubvalues> =
   SpecificVolumeUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Thermodynamic
  */
 export type SpecificVolumeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

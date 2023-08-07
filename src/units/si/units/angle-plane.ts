@@ -6,13 +6,13 @@ import {
   type UnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
  * @category Angle (Plane)
  */
-export type PlaneAngleUnitClass = SiUnitClass<{
+export type PlaneAngleUnitClass = BaseUnitClass<{
   Radian: 1;
 }>;
 
@@ -23,7 +23,7 @@ export type PlaneAngleUnitClass = SiUnitClass<{
 export type PlaneAngle = AbstractUnitFrom<PlaneAngleUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Angle (Plane)
  */
 export type PlaneAngleUnit<M extends UnitSubvalues> = PlaneAngleUnitFrom<
@@ -31,7 +31,7 @@ export type PlaneAngleUnit<M extends UnitSubvalues> = PlaneAngleUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Angle (Plane)
  */
 export type PlaneAngleUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

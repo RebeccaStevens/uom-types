@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Kilo } from "../modifiers";
 
 import { type Gram, type Coulomb } from ".";
@@ -19,7 +19,7 @@ import { type Gram, type Coulomb } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ExposureUnitClass = SiUnitClass<{
+export type ExposureUnitClass = BaseUnitClass<{
   Ampere: 1;
   Second: 1;
   Kilogram: -1;
@@ -32,7 +32,7 @@ export type ExposureUnitClass = SiUnitClass<{
 export type Exposure = AbstractUnitFrom<ExposureUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ExposureUnit<M extends UnitSubvalues> = ExposureUnitFrom<
@@ -40,7 +40,7 @@ export type ExposureUnit<M extends UnitSubvalues> = ExposureUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

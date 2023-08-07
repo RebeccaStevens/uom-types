@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Kilo } from "../modifiers";
 
 import { type Gram, type Second } from ".";
@@ -19,7 +19,7 @@ import { type Gram, type Second } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type MassFlowRateUnitClass = SiUnitClass<{
+export type MassFlowRateUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Second: -1;
 }>;
@@ -31,7 +31,7 @@ export type MassFlowRateUnitClass = SiUnitClass<{
 export type MassFlowRate = AbstractUnitFrom<MassFlowRateUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type MassFlowRateUnit<M extends UnitSubvalues> = MassFlowRateUnitFrom<
@@ -39,7 +39,7 @@ export type MassFlowRateUnit<M extends UnitSubvalues> = MassFlowRateUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type MassFlowRateUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

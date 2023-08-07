@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Lumen, type Second } from ".";
 
@@ -18,7 +18,7 @@ import { type Lumen, type Second } from ".";
  * @group Unit Classes
  * @category Photometric
  */
-export type LuminousEnergyUnitClass = SiUnitClass<{
+export type LuminousEnergyUnitClass = BaseUnitClass<{
   Candela: 1;
   Radian: 2;
   Second: 1;
@@ -31,14 +31,14 @@ export type LuminousEnergyUnitClass = SiUnitClass<{
 export type LuminousEnergy = AbstractUnitFrom<LuminousEnergyUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Photometric
  */
 export type LuminousEnergyUnit<M extends UnitSubvalues> =
   LuminousEnergyUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Photometric
  */
 export type LuminousEnergyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

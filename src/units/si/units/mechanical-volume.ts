@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import {
   type Milli,
   type Cubic,
@@ -25,7 +25,7 @@ import { type Metre } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type VolumeUnitClass = SiUnitClass<{
+export type VolumeUnitClass = BaseUnitClass<{
   Metre: 3;
 }>;
 

@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Coulomb, type Volt } from ".";
 
@@ -18,7 +18,7 @@ import { type Coulomb, type Volt } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectricCapacitanceUnitClass = SiUnitClass<{
+export type ElectricCapacitanceUnitClass = BaseUnitClass<{
   Ampere: 2;
   Second: 4;
   Kilogram: -1;
@@ -33,14 +33,14 @@ export type ElectricCapacitance =
   AbstractUnitFrom<ElectricCapacitanceUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricCapacitanceUnit<M extends UnitSubvalues> =
   ElectricCapacitanceUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricCapacitanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Metre, type Henry } from ".";
 
@@ -18,7 +18,7 @@ import { type Metre, type Henry } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type MagneticSusceptibilityUnitClass = SiUnitClass<{
+export type MagneticSusceptibilityUnitClass = BaseUnitClass<{
   Kilogram: -1;
   Metre: -1;
   Second: 2;
@@ -33,14 +33,14 @@ export type MagneticSusceptibility =
   AbstractUnitFrom<MagneticSusceptibilityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticSusceptibilityUnit<M extends UnitSubvalues> =
   MagneticSusceptibilityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticSusceptibilityUnitFrom<M extends UnknownUnitMeta> =

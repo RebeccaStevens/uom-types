@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Kilo } from "../modifiers";
 
 import { type Gram, type Metre } from ".";
@@ -19,7 +19,7 @@ import { type Gram, type Metre } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type LinearMassDensityUnitClass = SiUnitClass<{
+export type LinearMassDensityUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: -1;
 }>;
@@ -31,14 +31,14 @@ export type LinearMassDensityUnitClass = SiUnitClass<{
 export type LinearMassDensity = AbstractUnitFrom<LinearMassDensityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type LinearMassDensityUnit<M extends UnitSubvalues> =
   LinearMassDensityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type LinearMassDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

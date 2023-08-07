@@ -7,7 +7,7 @@ import { type RemoveNeverValues, type ExcludeUnitZeroSubvalues } from "./utils";
 /**
  * A unit without any meta data.
  *
- * @group Abstract Unit Creators
+ * @group Abstract Unit Generators
  */
 export type AbstractUnit<C extends UnitSubvalues> = number & {
   readonly __uom_types__unit_class: UnitClass<C>;
@@ -16,7 +16,7 @@ export type AbstractUnit<C extends UnitSubvalues> = number & {
 /**
  * Create a unit without meta data from an already existing {@link UnitClass}.
  *
- * @group Abstract Unit Creators
+ * @group Abstract Unit Generators
  */
 export type AbstractUnitFrom<C extends UnknownUnitClass> = C extends UnitClass<
   infer A
@@ -27,7 +27,7 @@ export type AbstractUnitFrom<C extends UnknownUnitClass> = C extends UnitClass<
 /**
  * The core unit type.
  *
- * @group Unit Creators
+ * @group Unit Generators
  */
 export type Unit<
   C extends UnitSubvalues,
@@ -40,7 +40,7 @@ export type Unit<
 /**
  * Create a {@link Unit} from already existing {@link UnitClass} and {@link UnitMeta}.
  *
- * @group Unit Creators
+ * @group Unit Generators
  */
 export type UnitFrom<
   C extends UnknownUnitClass,
@@ -56,14 +56,14 @@ export type UnitFrom<
  *
  * Used to convert from one {@link Unit} to another of the same {@link UnitClass}.
  *
- * @group Unit Creators
+ * @group Unit Generators
  */
 export type UnitConversionRate<M extends UnitSubvalues> = Unit<{}, M>;
 
 /**
  * Create a {@link UnitConversionRate} from already existing {@link UnitMeta}.
  *
- * @group Unit Creators
+ * @group Unit Generators
  */
 export type UnitConversionRateFrom<M extends UnknownUnitMeta> =
   M extends UnitMeta<infer A>
@@ -73,7 +73,7 @@ export type UnitConversionRateFrom<M extends UnknownUnitMeta> =
 /**
  * Used to determine what a unit is of. For example, length, volume, mass etc.
  *
- * @group Unit Component
+ * @group Unit Components
  */
 export type UnitClass<T extends UnitSubvalues> = UnitKeyValues<T> & {
   readonly __uno_types__unit_class_type: true;
@@ -83,7 +83,7 @@ export type UnitClass<T extends UnitSubvalues> = UnitKeyValues<T> & {
  * Used to state how units of the same {@link UnitClass} differ from one another.
  * For example, by a scale factor.
  *
- * @group Unit Component
+ * @group Unit Components
  */
 export type UnitMeta<T extends UnitSubvalues> = UnitKeyValues<T> & {
   readonly __uno_types__unit_meta_type: true;
@@ -140,7 +140,7 @@ type UnknownUnitKeyValues = {
 /**
  * A mapping of subvalue of a unit its magnitude.
  *
- * @group Unit Component
+ * @group Unit Components
  */
 export type UnitSubvalues = Record<string, Exponent>;
 

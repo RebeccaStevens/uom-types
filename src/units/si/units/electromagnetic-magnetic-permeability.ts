@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Metre, type Henry } from ".";
 
@@ -18,7 +18,7 @@ import { type Metre, type Henry } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type MagneticPermeabilityUnitClass = SiUnitClass<{
+export type MagneticPermeabilityUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 1;
   Second: -2;
@@ -33,14 +33,14 @@ export type MagneticPermeability =
   AbstractUnitFrom<MagneticPermeabilityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticPermeabilityUnit<M extends UnitSubvalues> =
   MagneticPermeabilityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticPermeabilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Cubic } from "../modifiers";
 
 import { type Metre, type Coulomb } from ".";
@@ -19,7 +19,7 @@ import { type Metre, type Coulomb } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectricChargeDensityUnitClass = SiUnitClass<{
+export type ElectricChargeDensityUnitClass = BaseUnitClass<{
   Ampere: 1;
   Second: 1;
   Metre: -3;
@@ -33,14 +33,14 @@ export type ElectricChargeDensity =
   AbstractUnitFrom<ElectricChargeDensityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricChargeDensityUnit<M extends UnitSubvalues> =
   ElectricChargeDensityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricChargeDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

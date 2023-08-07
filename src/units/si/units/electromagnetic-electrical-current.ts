@@ -6,13 +6,13 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectricCurrentUnitClass = SiUnitClass<{
+export type ElectricCurrentUnitClass = BaseUnitClass<{
   Ampere: 1;
 }>;
 
@@ -23,14 +23,14 @@ export type ElectricCurrentUnitClass = SiUnitClass<{
 export type ElectricCurrent = AbstractUnitFrom<ElectricCurrentUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricCurrentUnit<M extends UnitSubvalues> =
   ElectricCurrentUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricCurrentUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

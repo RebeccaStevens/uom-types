@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Second, type MetrePerSecondToTheFourth } from ".";
 
@@ -18,7 +18,7 @@ import { type Second, type MetrePerSecondToTheFourth } from ".";
  * @group Unit Classes
  * @category Kinematic
  */
-export type CrackleUnitClass = SiUnitClass<{ Metre: 1; Second: -5 }>;
+export type CrackleUnitClass = BaseUnitClass<{ Metre: 1; Second: -5 }>;
 
 /**
  * @group Abstract Unit
@@ -27,13 +27,13 @@ export type CrackleUnitClass = SiUnitClass<{ Metre: 1; Second: -5 }>;
 export type Crackle = AbstractUnitFrom<CrackleUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type CrackleUnit<M extends UnitSubvalues> = CrackleUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type CrackleUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

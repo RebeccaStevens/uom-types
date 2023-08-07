@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type JoulePerSquareMetre, type Newton, type Metre } from ".";
 
@@ -18,7 +18,7 @@ import { type JoulePerSquareMetre, type Newton, type Metre } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type StiffnessUnitClass = SiUnitClass<{
+export type StiffnessUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Second: -2;
 }>;
@@ -30,7 +30,7 @@ export type StiffnessUnitClass = SiUnitClass<{
 export type Stiffness = AbstractUnitFrom<StiffnessUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type StiffnessUnit<M extends UnitSubvalues> = StiffnessUnitFrom<
@@ -38,7 +38,7 @@ export type StiffnessUnit<M extends UnitSubvalues> = StiffnessUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type StiffnessUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

@@ -11,7 +11,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import {
   type Ampere,
@@ -27,7 +27,7 @@ import {
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectricPotentialUnitClass = SiUnitClass<{
+export type ElectricPotentialUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 2;
   Second: -3;
@@ -41,14 +41,14 @@ export type ElectricPotentialUnitClass = SiUnitClass<{
 export type ElectricPotential = AbstractUnitFrom<ElectricPotentialUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricPotentialUnit<M extends UnitSubvalues> =
   ElectricPotentialUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricPotentialUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

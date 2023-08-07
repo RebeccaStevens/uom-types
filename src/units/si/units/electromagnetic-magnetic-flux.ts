@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
 import {
@@ -26,7 +26,7 @@ import {
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type MagneticFluxUnitClass = SiUnitClass<{
+export type MagneticFluxUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 2;
   Second: -2;
@@ -40,7 +40,7 @@ export type MagneticFluxUnitClass = SiUnitClass<{
 export type MagneticFlux = AbstractUnitFrom<MagneticFluxUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticFluxUnit<M extends UnitSubvalues> = MagneticFluxUnitFrom<
@@ -48,7 +48,7 @@ export type MagneticFluxUnit<M extends UnitSubvalues> = MagneticFluxUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticFluxUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

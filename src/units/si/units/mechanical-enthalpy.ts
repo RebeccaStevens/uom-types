@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Kilo } from "../modifiers";
 
 import { type Gram, type Joule } from ".";
@@ -19,7 +19,7 @@ import { type Gram, type Joule } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type EnthalpyUnitClass = SiUnitClass<{ Metre: 2; Second: -2 }>;
+export type EnthalpyUnitClass = BaseUnitClass<{ Metre: 2; Second: -2 }>;
 
 /**
  * @group Abstract Unit
@@ -28,7 +28,7 @@ export type EnthalpyUnitClass = SiUnitClass<{ Metre: 2; Second: -2 }>;
 export type Enthalpy = AbstractUnitFrom<EnthalpyUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type EnthalpyUnit<M extends UnitSubvalues> = EnthalpyUnitFrom<
@@ -36,7 +36,7 @@ export type EnthalpyUnit<M extends UnitSubvalues> = EnthalpyUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type EnthalpyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

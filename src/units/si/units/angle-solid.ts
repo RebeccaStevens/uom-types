@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Radian } from ".";
 
@@ -18,7 +18,7 @@ import { type Radian } from ".";
  * @group Unit Classes
  * @category Angle (Solid)
  */
-export type SolidAngleUnitClass = SiUnitClass<{
+export type SolidAngleUnitClass = BaseUnitClass<{
   Radian: 2;
 }>;
 
@@ -29,7 +29,7 @@ export type SolidAngleUnitClass = SiUnitClass<{
 export type SolidAngle = AbstractUnitFrom<SolidAngleUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Angle (Solid)
  */
 export type SolidAngleUnit<M extends UnitSubvalues> = SolidAngleUnitFrom<
@@ -37,7 +37,7 @@ export type SolidAngleUnit<M extends UnitSubvalues> = SolidAngleUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Angle (Solid)
  */
 export type SolidAngleUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

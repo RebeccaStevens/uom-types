@@ -8,7 +8,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type ReciprocalUnitClass, type Reciprocal } from "../modifiers";
 
 import { type ElectricInductance, type ElectricInductanceUnitClass } from ".";
@@ -27,14 +27,14 @@ export type MagneticReluctanceUnitClass =
 export type MagneticReluctance = Reciprocal<ElectricInductance>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticReluctanceUnit<M extends UnitSubvalues> =
   MagneticReluctanceUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticReluctanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
@@ -48,7 +48,7 @@ if (import.meta.vitest !== undefined) {
   assert<
     Equals<
       MagneticReluctanceUnitClass,
-      SiUnitClass<{
+      BaseUnitClass<{
         Kilogram: -1;
         Metre: -2;
         Second: 2;

@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Metre, type Siemens } from ".";
 
@@ -18,7 +18,7 @@ import { type Metre, type Siemens } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectricalConductivityUnitClass = SiUnitClass<{
+export type ElectricalConductivityUnitClass = BaseUnitClass<{
   Kilogram: -1;
   Metre: -3;
   Second: 3;
@@ -33,14 +33,14 @@ export type ElectricalConductivity =
   AbstractUnitFrom<ElectricalConductivityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricalConductivityUnit<M extends UnitSubvalues> =
   ElectricalConductivityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricalConductivityUnitFrom<M extends UnknownUnitMeta> =

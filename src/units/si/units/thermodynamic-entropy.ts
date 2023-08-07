@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Joule, type Kelvin } from ".";
 
@@ -18,7 +18,7 @@ import { type Joule, type Kelvin } from ".";
  * @group Unit Classes
  * @category Thermodynamic
  */
-export type EntropyUnitClass = SiUnitClass<{
+export type EntropyUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 2;
   Second: -2;
@@ -32,13 +32,13 @@ export type EntropyUnitClass = SiUnitClass<{
 export type Entropy = AbstractUnitFrom<EntropyUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Thermodynamic
  */
 export type EntropyUnit<M extends UnitSubvalues> = EntropyUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Thermodynamic
  */
 export type EntropyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

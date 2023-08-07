@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Ampere, type Second } from ".";
 
@@ -18,7 +18,7 @@ import { type Ampere, type Second } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectricChargeUnitClass = SiUnitClass<{
+export type ElectricChargeUnitClass = BaseUnitClass<{
   Ampere: 1;
   Second: 1;
 }>;
@@ -30,14 +30,14 @@ export type ElectricChargeUnitClass = SiUnitClass<{
 export type ElectricCharge = AbstractUnitFrom<ElectricChargeUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricChargeUnit<M extends UnitSubvalues> =
   ElectricChargeUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricChargeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

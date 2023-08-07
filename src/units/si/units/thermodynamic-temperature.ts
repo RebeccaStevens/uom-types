@@ -6,13 +6,13 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
  * @category Thermodynamic
  */
-export type TemperatureUnitClass = SiUnitClass<{
+export type TemperatureUnitClass = BaseUnitClass<{
   Kelvin: 1;
 }>;
 
@@ -23,7 +23,7 @@ export type TemperatureUnitClass = SiUnitClass<{
 export type Temperature = AbstractUnitFrom<TemperatureUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Thermodynamic
  */
 export type TemperatureUnit<M extends UnitSubvalues> = TemperatureUnitFrom<
@@ -31,7 +31,7 @@ export type TemperatureUnit<M extends UnitSubvalues> = TemperatureUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Thermodynamic
  */
 export type TemperatureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

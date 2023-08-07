@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
 import { type Metre, type Ampere } from ".";
@@ -19,7 +19,7 @@ import { type Metre, type Ampere } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectricCurrentDensityUnitClass = SiUnitClass<{
+export type ElectricCurrentDensityUnitClass = BaseUnitClass<{
   Ampere: 1;
   Metre: -2;
 }>;
@@ -32,14 +32,14 @@ export type ElectricCurrentDensity =
   AbstractUnitFrom<ElectricCurrentDensityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricCurrentDensityUnit<M extends UnitSubvalues> =
   ElectricCurrentDensityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricCurrentDensityUnitFrom<M extends UnknownUnitMeta> =

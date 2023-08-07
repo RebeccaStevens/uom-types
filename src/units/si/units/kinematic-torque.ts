@@ -11,7 +11,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Metre, type Newton, type NewtonMetre, type Radian } from ".";
 
@@ -19,7 +19,7 @@ import { type Metre, type Newton, type NewtonMetre, type Radian } from ".";
  * @group Unit Classes
  * @category Kinematic
  */
-export type TorqueUnitClass = SiUnitClass<{
+export type TorqueUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 2;
   Second: -2;
@@ -33,13 +33,13 @@ export type TorqueUnitClass = SiUnitClass<{
 export type Torque = AbstractUnitFrom<TorqueUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type TorqueUnit<M extends UnitSubvalues> = TorqueUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type TorqueUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Joule, type Tesla } from ".";
 
@@ -18,7 +18,7 @@ import { type Joule, type Tesla } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type MagneticDipoleMomentUnitClass = SiUnitClass<{
+export type MagneticDipoleMomentUnitClass = BaseUnitClass<{
   Metre: 2;
   Ampere: 1;
 }>;
@@ -31,14 +31,14 @@ export type MagneticDipoleMoment =
   AbstractUnitFrom<MagneticDipoleMomentUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticDipoleMomentUnit<M extends UnitSubvalues> =
   MagneticDipoleMomentUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticDipoleMomentUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

@@ -30,13 +30,13 @@ export type WorkUnitClass = EnergyUnitClass;
 export type Work = Energy;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type WorkUnit<M extends UnitSubvalues> = EnergyUnit<M>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type WorkUnitFrom<M extends UnknownUnitMeta> = EnergyUnitFrom<M>;

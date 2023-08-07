@@ -11,7 +11,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Metre, type Watt, type Kelvin } from ".";
 
@@ -19,7 +19,7 @@ import { type Metre, type Watt, type Kelvin } from ".";
  * @group Unit Classes
  * @category Thermodynamic
  */
-export type ThermalConductivityUnitClass = SiUnitClass<{
+export type ThermalConductivityUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 1;
   Second: -3;
@@ -34,14 +34,14 @@ export type ThermalConductivity =
   AbstractUnitFrom<ThermalConductivityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Thermodynamic
  */
 export type ThermalConductivityUnit<M extends UnitSubvalues> =
   ThermalConductivityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Thermodynamic
  */
 export type ThermalConductivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

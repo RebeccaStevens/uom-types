@@ -6,13 +6,13 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
  * @category Mechanical
  */
-export type LengthUnitClass = SiUnitClass<{ Metre: 1 }>;
+export type LengthUnitClass = BaseUnitClass<{ Metre: 1 }>;
 
 /**
  * @group Abstract Unit
@@ -21,13 +21,13 @@ export type LengthUnitClass = SiUnitClass<{ Metre: 1 }>;
 export type Length = AbstractUnitFrom<LengthUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type LengthUnit<M extends UnitSubvalues> = LengthUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type LengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

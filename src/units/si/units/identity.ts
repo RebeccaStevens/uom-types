@@ -7,31 +7,27 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
- * @category Base
  */
-export type IdentityUnitClass = SiUnitClass<{}>;
+export type IdentityUnitClass = BaseUnitClass<{}>;
 
 /**
  * @group Abstract Unit
- * @category Base
  */
 export type Identity = AbstractUnitFrom<IdentityUnitClass>;
 
 /**
- * @group Unit Creators
- * @category Base
+ * @group Unit Generators
  */
 export type IdentityUnit<M extends UnitSubvalues> = IdentityUnitFrom<
   UnitMeta<M>
 >;
 
 /**
- * @group Unit Creators
- * @category Base
+ * @group Unit Generators
  */
 export type IdentityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   IdentityUnitClass,

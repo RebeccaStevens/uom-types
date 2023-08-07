@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Cubic } from "../modifiers";
 
 import { type Metre, type Second } from ".";
@@ -19,7 +19,7 @@ import { type Metre, type Second } from ".";
  * @group Unit Classes
  * @category Kinematic
  */
-export type VolumetricFlowUnitClass = SiUnitClass<{
+export type VolumetricFlowUnitClass = BaseUnitClass<{
   Metre: 3;
   Second: -1;
 }>;

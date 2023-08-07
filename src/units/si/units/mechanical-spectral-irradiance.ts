@@ -11,7 +11,7 @@ import {
 } from "#uom-types";
 
 import { type Cubic } from "..";
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Metre, type Watt } from ".";
 
@@ -19,7 +19,7 @@ import { type Metre, type Watt } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type SpectralIrradianceUnitClass = SiUnitClass<{
+export type SpectralIrradianceUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: -1;
   Second: -3;
@@ -32,14 +32,14 @@ export type SpectralIrradianceUnitClass = SiUnitClass<{
 export type SpectralIrradiance = AbstractUnitFrom<SpectralIrradianceUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type SpectralIrradianceUnit<M extends UnitSubvalues> =
   SpectralIrradianceUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type SpectralIrradianceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

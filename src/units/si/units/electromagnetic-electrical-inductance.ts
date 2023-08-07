@@ -11,7 +11,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Weber, type Second, type Ohm, type Ampere } from ".";
 
@@ -19,7 +19,7 @@ import { type Weber, type Second, type Ohm, type Ampere } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectricInductanceUnitClass = SiUnitClass<{
+export type ElectricInductanceUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 2;
   Second: -2;
@@ -33,14 +33,14 @@ export type ElectricInductanceUnitClass = SiUnitClass<{
 export type ElectricInductance = AbstractUnitFrom<ElectricInductanceUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricInductanceUnit<M extends UnitSubvalues> =
   ElectricInductanceUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectricInductanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

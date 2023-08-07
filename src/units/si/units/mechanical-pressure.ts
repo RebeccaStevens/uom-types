@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
 import { type Metre, type Newton } from ".";
@@ -19,7 +19,7 @@ import { type Metre, type Newton } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type PressureUnitClass = SiUnitClass<{
+export type PressureUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: -1;
   Second: -2;
@@ -32,7 +32,7 @@ export type PressureUnitClass = SiUnitClass<{
 export type Pressure = AbstractUnitFrom<PressureUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type PressureUnit<M extends UnitSubvalues> = PressureUnitFrom<
@@ -40,7 +40,7 @@ export type PressureUnit<M extends UnitSubvalues> = PressureUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type PressureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

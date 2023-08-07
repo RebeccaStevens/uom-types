@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Tesla, type Metre } from ".";
 
@@ -18,7 +18,7 @@ import { type Tesla, type Metre } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type MagneticRigidityUnitClass = SiUnitClass<{
+export type MagneticRigidityUnitClass = BaseUnitClass<{
   Ampere: -1;
   Kilogram: 1;
   Metre: 1;
@@ -32,14 +32,14 @@ export type MagneticRigidityUnitClass = SiUnitClass<{
 export type MagneticRigidity = AbstractUnitFrom<MagneticRigidityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticRigidityUnit<M extends UnitSubvalues> =
   MagneticRigidityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticRigidityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

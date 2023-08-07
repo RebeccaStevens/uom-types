@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type MetrePerSecondToTheFifth, type Second } from ".";
 
@@ -18,7 +18,7 @@ import { type MetrePerSecondToTheFifth, type Second } from ".";
  * @group Unit Classes
  * @category Kinematic
  */
-export type PopUnitClass = SiUnitClass<{ Metre: 1; Second: -6 }>;
+export type PopUnitClass = BaseUnitClass<{ Metre: 1; Second: -6 }>;
 
 /**
  * @group Abstract Unit
@@ -27,13 +27,13 @@ export type PopUnitClass = SiUnitClass<{ Metre: 1; Second: -6 }>;
 export type Pop = AbstractUnitFrom<PopUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type PopUnit<M extends UnitSubvalues> = PopUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type PopUnitFrom<M extends UnknownUnitMeta> = UnitFrom<PopUnitClass, M>;

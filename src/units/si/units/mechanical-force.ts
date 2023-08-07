@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Kilo } from "../modifiers";
 
 import { type Gram, type MetrePerSecondSquared } from ".";
@@ -19,7 +19,7 @@ import { type Gram, type MetrePerSecondSquared } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type ForceUnitClass = SiUnitClass<{
+export type ForceUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 1;
   Second: -2;
@@ -32,13 +32,13 @@ export type ForceUnitClass = SiUnitClass<{
 export type Force = AbstractUnitFrom<ForceUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type ForceUnit<M extends UnitSubvalues> = ForceUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type ForceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

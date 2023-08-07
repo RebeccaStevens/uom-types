@@ -11,7 +11,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Metre, type MetrePerSecond, type Second } from ".";
 
@@ -19,7 +19,7 @@ import { type Metre, type MetrePerSecond, type Second } from ".";
  * @group Unit Classes
  * @category Kinematic
  */
-export type AccelerationUnitClass = SiUnitClass<{ Metre: 1; Second: -2 }>;
+export type AccelerationUnitClass = BaseUnitClass<{ Metre: 1; Second: -2 }>;
 
 /**
  * @group Abstract Unit
@@ -28,7 +28,7 @@ export type AccelerationUnitClass = SiUnitClass<{ Metre: 1; Second: -2 }>;
 export type Acceleration = AbstractUnitFrom<AccelerationUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type AccelerationUnit<M extends UnitSubvalues> = AccelerationUnitFrom<
@@ -36,7 +36,7 @@ export type AccelerationUnit<M extends UnitSubvalues> = AccelerationUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type AccelerationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

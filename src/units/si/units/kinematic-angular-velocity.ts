@@ -11,7 +11,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Radian, type Second, type RadianPerSecondSquared } from ".";
 
@@ -19,7 +19,7 @@ import { type Radian, type Second, type RadianPerSecondSquared } from ".";
  * @group Unit Classes
  * @category Kinematic
  */
-export type AngularVelocityUnitClass = SiUnitClass<{
+export type AngularVelocityUnitClass = BaseUnitClass<{
   Radian: 1;
   Second: -1;
 }>;
@@ -31,14 +31,14 @@ export type AngularVelocityUnitClass = SiUnitClass<{
 export type AngularVelocity = AbstractUnitFrom<AngularVelocityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type AngularVelocityUnit<M extends UnitSubvalues> =
   AngularVelocityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type AngularVelocityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

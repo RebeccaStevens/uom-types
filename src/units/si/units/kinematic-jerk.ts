@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Second, type MetrePerSecondSquared } from ".";
 
@@ -18,7 +18,7 @@ import { type Second, type MetrePerSecondSquared } from ".";
  * @group Unit Classes
  * @category Kinematic
  */
-export type JerkUnitClass = SiUnitClass<{ Metre: 1; Second: -3 }>;
+export type JerkUnitClass = BaseUnitClass<{ Metre: 1; Second: -3 }>;
 
 /**
  * @group Abstract Unit
@@ -27,13 +27,13 @@ export type JerkUnitClass = SiUnitClass<{ Metre: 1; Second: -3 }>;
 export type Jerk = AbstractUnitFrom<JerkUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type JerkUnit<M extends UnitSubvalues> = JerkUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type JerkUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

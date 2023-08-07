@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Ampere, type Radian } from ".";
 
@@ -18,7 +18,7 @@ import { type Ampere, type Radian } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type MagnetomotiveForceUnitClass = SiUnitClass<{
+export type MagnetomotiveForceUnitClass = BaseUnitClass<{
   Ampere: 1;
   Radian: 1;
 }>;
@@ -30,14 +30,14 @@ export type MagnetomotiveForceUnitClass = SiUnitClass<{
 export type MagnetomotiveForce = AbstractUnitFrom<MagnetomotiveForceUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagnetomotiveForceUnit<M extends UnitSubvalues> =
   MagnetomotiveForceUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagnetomotiveForceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

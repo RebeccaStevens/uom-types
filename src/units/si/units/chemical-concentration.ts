@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Cubic } from "../modifiers";
 
 import { type Metre, type Litre, type Mole } from ".";
@@ -19,7 +19,7 @@ import { type Metre, type Litre, type Mole } from ".";
  * @group Unit Classes
  * @category Chemical
  */
-export type MolarConcentrationUnitClass = SiUnitClass<{ Mole: 1; Metre: -3 }>;
+export type MolarConcentrationUnitClass = BaseUnitClass<{ Mole: 1; Metre: -3 }>;
 
 /**
  * @group Abstract Unit
@@ -28,14 +28,14 @@ export type MolarConcentrationUnitClass = SiUnitClass<{ Mole: 1; Metre: -3 }>;
 export type MolarConcentration = AbstractUnitFrom<MolarConcentrationUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Chemical
  */
 export type MolarConcentrationUnit<M extends UnitSubvalues> =
   MolarConcentrationUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Chemical
  */
 export type MolarConcentrationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

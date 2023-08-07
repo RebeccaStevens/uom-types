@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Cubic } from "../modifiers";
 
 import { type Metre, type Joule } from ".";
@@ -19,7 +19,7 @@ import { type Metre, type Joule } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type EnergyDensityUnitClass = SiUnitClass<{
+export type EnergyDensityUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: -1;
   Second: -2;
@@ -32,7 +32,7 @@ export type EnergyDensityUnitClass = SiUnitClass<{
 export type EnergyDensity = AbstractUnitFrom<EnergyDensityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type EnergyDensityUnit<M extends UnitSubvalues> = EnergyDensityUnitFrom<
@@ -40,7 +40,7 @@ export type EnergyDensityUnit<M extends UnitSubvalues> = EnergyDensityUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type EnergyDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

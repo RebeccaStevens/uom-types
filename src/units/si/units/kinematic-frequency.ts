@@ -8,7 +8,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type ReciprocalUnitClass, type Reciprocal } from "../modifiers";
 
 import {
@@ -35,7 +35,7 @@ export type FrequencyUnitClass = ReciprocalUnitClass<DurationUnitClass>;
 export type Frequency = Reciprocal<Duration>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type FrequencyUnit<M extends UnitSubvalues> = FrequencyUnitFrom<
@@ -43,7 +43,7 @@ export type FrequencyUnit<M extends UnitSubvalues> = FrequencyUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type FrequencyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
@@ -128,7 +128,7 @@ export type PerYear = FrequencyUnit<{
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<FrequencyUnitClass, SiUnitClass<{ Second: -1 }>>>();
+  assert<Equals<FrequencyUnitClass, BaseUnitClass<{ Second: -1 }>>>();
   assert<Equals<Hertz, Reciprocal<Second>>>();
   assert<Equals<PerSecond, Reciprocal<Second>>>();
   assert<Equals<PerMinute, Reciprocal<Minute>>>();

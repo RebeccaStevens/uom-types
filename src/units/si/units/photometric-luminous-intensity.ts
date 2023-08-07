@@ -6,13 +6,13 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
  * @category Photometric
  */
-export type LuminousIntensityUnitClass = SiUnitClass<{ Candela: 1 }>;
+export type LuminousIntensityUnitClass = BaseUnitClass<{ Candela: 1 }>;
 
 /**
  * @group Abstract Unit
@@ -21,14 +21,14 @@ export type LuminousIntensityUnitClass = SiUnitClass<{ Candela: 1 }>;
 export type LuminousIntensity = AbstractUnitFrom<LuminousIntensityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Photometric
  */
 export type LuminousIntensityUnit<M extends UnitSubvalues> =
   LuminousIntensityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Photometric
  */
 export type LuminousIntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

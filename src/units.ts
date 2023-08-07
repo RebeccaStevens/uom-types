@@ -15,6 +15,7 @@ import {
 /**
  * Take the inverse of a unit.
  *
+ * @group Unit Functions
  * @returns `1/X`.
  */
 export type Inverse<X extends number> = X extends Unit<infer Config, infer Meta>
@@ -28,6 +29,8 @@ export type Inverse<X extends number> = X extends Unit<infer Config, infer Meta>
 
 /**
  * Inverses each of the subvalues.
+ *
+ * @group Unit Subvalue Functions
  */
 export type InverseUnitSubvalues<T extends UnitSubvalues> = {
   [E in keyof T]: NegativeExponent<T[E]>;
@@ -36,6 +39,7 @@ export type InverseUnitSubvalues<T extends UnitSubvalues> = {
 /**
  * Multiply a unit by another unit.
  *
+ * @group Unit Functions
  * @returns `A⋅B`
  */
 export type Multiply<A extends number, B extends number> = A extends Unit<
@@ -64,6 +68,8 @@ export type Multiply<A extends number, B extends number> = A extends Unit<
 
 /**
  * Multiply each of the subvalues from a unit with the corresponding once from another unit.
+ *
+ * @group Unit Subvalue Functions
  */
 export type MultiplyUnitSubvalues<
   A extends UnitSubvalues,
@@ -75,6 +81,7 @@ export type MultiplyUnitSubvalues<
 /**
  * Divide a unit by another unit.
  *
+ * @group Unit Functions
  * @returns `A/B`
  */
 export type Divide<A extends number, B extends number> = Multiply<
@@ -84,6 +91,8 @@ export type Divide<A extends number, B extends number> = Multiply<
 
 /**
  * Divide each of the subvalues from a unit with the corresponding once from another unit.
+ *
+ * @group Unit Subvalue Functions
  */
 export type DivideUnitSubvalues<
   A extends UnitSubvalues,

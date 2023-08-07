@@ -10,7 +10,7 @@ import {
   type Multiply,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Joule, type Second } from ".";
 
@@ -18,7 +18,7 @@ import { type Joule, type Second } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type ActionUnitClass = SiUnitClass<{
+export type ActionUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 2;
   Second: -1;
@@ -31,13 +31,13 @@ export type ActionUnitClass = SiUnitClass<{
 export type Action = AbstractUnitFrom<ActionUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type ActionUnit<M extends UnitSubvalues> = ActionUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type ActionUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

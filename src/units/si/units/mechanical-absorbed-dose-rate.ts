@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Gray, type Second } from ".";
 
@@ -18,7 +18,7 @@ import { type Gray, type Second } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type AbsorbedDoseRateUnitClass = SiUnitClass<{
+export type AbsorbedDoseRateUnitClass = BaseUnitClass<{
   Metre: 2;
   Second: -3;
 }>;
@@ -30,14 +30,14 @@ export type AbsorbedDoseRateUnitClass = SiUnitClass<{
 export type AbsorbedDoseRate = AbstractUnitFrom<AbsorbedDoseRateUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type AbsorbedDoseRateUnit<M extends UnitSubvalues> =
   AbsorbedDoseRateUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type AbsorbedDoseRateUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

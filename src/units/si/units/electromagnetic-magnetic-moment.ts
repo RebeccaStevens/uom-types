@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Metre, type Weber } from ".";
 
@@ -18,7 +18,7 @@ import { type Metre, type Weber } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type MagneticMomentUnitClass = SiUnitClass<{
+export type MagneticMomentUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 3;
   Second: -2;
@@ -32,14 +32,14 @@ export type MagneticMomentUnitClass = SiUnitClass<{
 export type MagneticMoment = AbstractUnitFrom<MagneticMomentUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticMomentUnit<M extends UnitSubvalues> =
   MagneticMomentUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type MagneticMomentUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

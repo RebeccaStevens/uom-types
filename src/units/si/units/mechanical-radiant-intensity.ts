@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Watt, type Steradian } from ".";
 
@@ -18,7 +18,7 @@ import { type Watt, type Steradian } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type RadiantIntensityUnitClass = SiUnitClass<{
+export type RadiantIntensityUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 2;
   Second: -3;
@@ -32,14 +32,14 @@ export type RadiantIntensityUnitClass = SiUnitClass<{
 export type RadiantIntensity = AbstractUnitFrom<RadiantIntensityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type RadiantIntensityUnit<M extends UnitSubvalues> =
   RadiantIntensityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type RadiantIntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

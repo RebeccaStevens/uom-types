@@ -6,13 +6,13 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
  * @category Mechanical
  */
-export type MassUnitClass = SiUnitClass<{
+export type MassUnitClass = BaseUnitClass<{
   Kilogram: 1;
 }>;
 
@@ -23,13 +23,13 @@ export type MassUnitClass = SiUnitClass<{
 export type Mass = AbstractUnitFrom<MassUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type MassUnit<M extends UnitSubvalues> = MassUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type MassUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

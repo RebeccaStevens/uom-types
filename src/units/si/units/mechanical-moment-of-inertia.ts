@@ -11,7 +11,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Kilo, type Square } from "../modifiers";
 
 import { type Gram, type Metre, type Steradian } from ".";
@@ -20,7 +20,7 @@ import { type Gram, type Metre, type Steradian } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type MomentOfInertiaUnitClass = SiUnitClass<{
+export type MomentOfInertiaUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: 2;
   Radian: -2;
@@ -33,14 +33,14 @@ export type MomentOfInertiaUnitClass = SiUnitClass<{
 export type MomentOfInertia = AbstractUnitFrom<MomentOfInertiaUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type MomentOfInertiaUnit<M extends UnitSubvalues> =
   MomentOfInertiaUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type MomentOfInertiaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

@@ -11,6 +11,8 @@ import { type FlatternAlias, type GetExponent } from "./utils";
 
 /**
  * Multiple the exponent values of a unit by a number.
+ *
+ * @group Unit Functions
  */
 export type MultiplyUnitExponents<
   T extends number,
@@ -31,6 +33,8 @@ type MultiplyUnitSubvaluesExponents<
 
 /**
  * Divide the exponent values of a unit by a number.
+ *
+ * @group Unit Functions
  */
 export type DivideUnitExponents<
   T extends number,

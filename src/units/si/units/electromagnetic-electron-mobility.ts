@@ -11,7 +11,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
 import { type Metre, type Volt, type Second } from ".";
@@ -20,7 +20,7 @@ import { type Metre, type Volt, type Second } from ".";
  * @group Unit Classes
  * @category Electromagnetic
  */
-export type ElectronMobilityUnitClass = SiUnitClass<{
+export type ElectronMobilityUnitClass = BaseUnitClass<{
   Kilogram: -1;
   Second: 2;
   Ampere: 1;
@@ -33,14 +33,14 @@ export type ElectronMobilityUnitClass = SiUnitClass<{
 export type ElectronMobility = AbstractUnitFrom<ElectronMobilityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectronMobilityUnit<M extends UnitSubvalues> =
   ElectronMobilityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Electromagnetic
  */
 export type ElectronMobilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

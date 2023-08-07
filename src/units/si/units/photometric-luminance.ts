@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
 import { type Candela, type Metre } from ".";
@@ -19,7 +19,7 @@ import { type Candela, type Metre } from ".";
  * @group Unit Classes
  * @category Photometric
  */
-export type LuminanceUnitClass = SiUnitClass<{
+export type LuminanceUnitClass = BaseUnitClass<{
   Candela: 1;
   Metre: -2;
 }>;
@@ -31,7 +31,7 @@ export type LuminanceUnitClass = SiUnitClass<{
 export type Luminance = AbstractUnitFrom<LuminanceUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Photometric
  */
 export type LuminanceUnit<M extends UnitSubvalues> = LuminanceUnitFrom<
@@ -39,7 +39,7 @@ export type LuminanceUnit<M extends UnitSubvalues> = LuminanceUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Photometric
  */
 export type LuminanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
 import { type Metre, type Watt } from ".";
@@ -19,7 +19,7 @@ import { type Metre, type Watt } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type IntensityUnitClass = SiUnitClass<{ Kilogram: 1; Second: -3 }>;
+export type IntensityUnitClass = BaseUnitClass<{ Kilogram: 1; Second: -3 }>;
 
 /**
  * @group Abstract Unit
@@ -28,7 +28,7 @@ export type IntensityUnitClass = SiUnitClass<{ Kilogram: 1; Second: -3 }>;
 export type Intensity = AbstractUnitFrom<IntensityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type IntensityUnit<M extends UnitSubvalues> = IntensityUnitFrom<
@@ -36,7 +36,7 @@ export type IntensityUnit<M extends UnitSubvalues> = IntensityUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type IntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

@@ -11,7 +11,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Cubic, type Square } from "../modifiers";
 
 import { type Metre } from ".";
@@ -20,7 +20,7 @@ import { type Metre } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type AreaUnitClass = SiUnitClass<{ Metre: 2 }>;
+export type AreaUnitClass = BaseUnitClass<{ Metre: 2 }>;
 
 /**
  * @group Abstract Unit
@@ -29,13 +29,13 @@ export type AreaUnitClass = SiUnitClass<{ Metre: 2 }>;
 export type Area = AbstractUnitFrom<AreaUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type AreaUnit<M extends UnitSubvalues> = AreaUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type AreaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

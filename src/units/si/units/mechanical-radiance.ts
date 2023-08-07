@@ -11,7 +11,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
 import { type Metre, type Watt, type Steradian } from ".";
@@ -20,7 +20,7 @@ import { type Metre, type Watt, type Steradian } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type RadianceUnitClass = SiUnitClass<{
+export type RadianceUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Second: -3;
   Radian: -2;
@@ -33,7 +33,7 @@ export type RadianceUnitClass = SiUnitClass<{
 export type Radiance = AbstractUnitFrom<RadianceUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type RadianceUnit<M extends UnitSubvalues> = RadianceUnitFrom<
@@ -41,7 +41,7 @@ export type RadianceUnit<M extends UnitSubvalues> = RadianceUnitFrom<
 >;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type RadianceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

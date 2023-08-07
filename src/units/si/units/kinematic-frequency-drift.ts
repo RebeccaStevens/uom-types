@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Hertz, type Second } from ".";
 
@@ -18,7 +18,7 @@ import { type Hertz, type Second } from ".";
  * @group Unit Classes
  * @category Kinematic
  */
-export type FrequencyDriftUnitClass = SiUnitClass<{ Second: -2 }>;
+export type FrequencyDriftUnitClass = BaseUnitClass<{ Second: -2 }>;
 
 /**
  * @group Abstract Unit
@@ -27,14 +27,14 @@ export type FrequencyDriftUnitClass = SiUnitClass<{ Second: -2 }>;
 export type FrequencyDrift = AbstractUnitFrom<FrequencyDriftUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type FrequencyDriftUnit<M extends UnitSubvalues> =
   FrequencyDriftUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Kinematic
  */
 export type FrequencyDriftUnitFrom<M extends UnknownUnitMeta> = UnitFrom<

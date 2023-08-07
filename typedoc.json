@@ -1,15 +1,22 @@
 {
   "$schema": "https://typedoc.org/schema.json",
   "categoryOrder": ["Base", "Derived", "*", "Other"],
+  "defaultCategory": "Other",
   "groupOrder": [
     "Units",
     "Modifiers",
     "Abstract Units",
+    "Unit Components",
     "Unit Classes",
+    "Unit Class Modifiers",
     "Unit Generators",
+    "Abstract Unit Generators",
+    "Unit Functions",
+    "Unit Subvalue Functions",
+    "Exponent Functions",
+    "Unknown Units",
     "*"
   ],
-  "defaultCategory": "Other",
   "entryPoints": [
     "src/index.ts",
     "src/functions/index.ts",

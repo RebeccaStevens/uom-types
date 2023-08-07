@@ -10,7 +10,7 @@ import {
   type UnknownUnitMeta,
 } from "#uom-types";
 
-import { type SiUnitClass } from "../base-units";
+import { type BaseUnitClass } from "../base-units";
 
 import { type Second, type Pascal } from ".";
 
@@ -18,7 +18,7 @@ import { type Second, type Pascal } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type DynamicViscosityUnitClass = SiUnitClass<{
+export type DynamicViscosityUnitClass = BaseUnitClass<{
   Kilogram: 1;
   Metre: -1;
   Second: -1;
@@ -31,14 +31,14 @@ export type DynamicViscosityUnitClass = SiUnitClass<{
 export type DynamicViscosity = AbstractUnitFrom<DynamicViscosityUnitClass>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type DynamicViscosityUnit<M extends UnitSubvalues> =
   DynamicViscosityUnitFrom<UnitMeta<M>>;
 
 /**
- * @group Unit Creators
+ * @group Unit Generators
  * @category Mechanical
  */
 export type DynamicViscosityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
