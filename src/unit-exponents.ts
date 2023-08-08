@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { assert, type Equals } from "tsafe";
 
-import { type UnitSubvalues, type Unit } from "./core";
+import { type AbstractUnit, type UnitSubvalues, type Unit } from "./core";
 import {
   type Exponent,
   type DivideExponents,
@@ -22,6 +22,8 @@ export type MultiplyUnitExponents<
       FlatternAlias<MultiplyUnitSubvaluesExponents<Config, E>>,
       FlatternAlias<MultiplyUnitSubvaluesExponents<Meta, E>>
     >
+  : T extends AbstractUnit<infer Config>
+  ? AbstractUnit<FlatternAlias<MultiplyUnitSubvaluesExponents<Config, E>>>
   : number;
 
 type MultiplyUnitSubvaluesExponents<
@@ -44,6 +46,8 @@ export type DivideUnitExponents<
       FlatternAlias<DivideUnitSubvaluesExponents<Config, E>>,
       FlatternAlias<DivideUnitSubvaluesExponents<Meta, E>>
     >
+  : T extends AbstractUnit<infer Config>
+  ? AbstractUnit<FlatternAlias<DivideUnitSubvaluesExponents<Config, E>>>
   : number;
 
 type DivideUnitSubvaluesExponents<
@@ -69,4 +73,78 @@ if (import.meta.vitest !== undefined) {
   assert<Equals<DivideUnitExponents<Unit<{ a: 6 }>, 3>, Unit<{ a: 2 }>>>();
   assert<Equals<DivideUnitExponents<Unit<{ a: 3 }>, 3>, Unit<{ a: 1 }>>>();
   assert<Equals<DivideUnitExponents<Unit<{ a: -3 }>, 3>, Unit<{ a: -1 }>>>();
+
+  assert<
+    Equals<
+      MultiplyUnitExponents<AbstractUnit<{ a: 1 }>, 2>,
+      AbstractUnit<{ a: 2 }>
+    >
+  >();
+  assert<
+    Equals<
+      MultiplyUnitExponents<AbstractUnit<{ a: 2 }>, 2>,
+      AbstractUnit<{ a: 4 }>
+    >
+  >();
+  assert<
+    Equals<
+      MultiplyUnitExponents<AbstractUnit<{ a: -2 }>, 2>,
+      AbstractUnit<{ a: -4 }>
+    >
+  >();
+  assert<
+    Equals<
+      MultiplyUnitExponents<AbstractUnit<{ a: 1 }>, 3>,
+      AbstractUnit<{ a: 3 }>
+    >
+  >();
+  assert<
+    Equals<
+      MultiplyUnitExponents<AbstractUnit<{ a: 2 }>, 3>,
+      AbstractUnit<{ a: 6 }>
+    >
+  >();
+  assert<
+    Equals<
+      MultiplyUnitExponents<AbstractUnit<{ a: -2 }>, 3>,
+      AbstractUnit<{ a: -6 }>
+    >
+  >();
+
+  assert<
+    Equals<
+      DivideUnitExponents<AbstractUnit<{ a: 4 }>, 2>,
+      AbstractUnit<{ a: 2 }>
+    >
+  >();
+  assert<
+    Equals<
+      DivideUnitExponents<AbstractUnit<{ a: 2 }>, 2>,
+      AbstractUnit<{ a: 1 }>
+    >
+  >();
+  assert<
+    Equals<
+      DivideUnitExponents<AbstractUnit<{ a: -2 }>, 2>,
+      AbstractUnit<{ a: -1 }>
+    >
+  >();
+  assert<
+    Equals<
+      DivideUnitExponents<AbstractUnit<{ a: 6 }>, 3>,
+      AbstractUnit<{ a: 2 }>
+    >
+  >();
+  assert<
+    Equals<
+      DivideUnitExponents<AbstractUnit<{ a: 3 }>, 3>,
+      AbstractUnit<{ a: 1 }>
+    >
+  >();
+  assert<
+    Equals<
+      DivideUnitExponents<AbstractUnit<{ a: -3 }>, 3>,
+      AbstractUnit<{ a: -1 }>
+    >
+  >();
 }
