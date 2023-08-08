@@ -43,7 +43,6 @@ export type SurfaceDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
   M
 >;
 
-// cspell:disable -- TODO: remove once https://github.com/streetsidesoftware/cspell/issues/4701 is resolved.
 /**
  * A unit of {@link SurfaceDensity}.
  *
@@ -51,7 +50,6 @@ export type SurfaceDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `kg/m²`
  */
-// cspell:enable
 export type KilogramPerSquareMetre = SurfaceDensityUnit<{}>;
 
 // Tests
