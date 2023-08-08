@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+## [3.0.1](https://github.com/RebeccaStevens/uom-types/compare/v3.0.0...v3.0.1) (2023-08-08)
+
+
+### Bug Fixes
+
+* multiplyUnitExponents and DivideUnitExponents support for AbstractUnit ([#52](https://github.com/RebeccaStevens/uom-types/issues/52)) ([88fce9e](https://github.com/RebeccaStevens/uom-types/commit/88fce9e9563f2f25bb9f53f58fde12d8aec3eaad))
+
 # [3.0.0](https://github.com/RebeccaStevens/uom-types/compare/v2.0.0...v3.0.0) (2023-08-07)
 
 
