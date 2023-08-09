@@ -3,6 +3,7 @@
  */
 
 import {
+  type PosExponent,
   type Divide,
   type Exponent,
   type Multiply,
@@ -104,6 +105,24 @@ type PowFunction<E extends number, B extends number> = E extends UnknownUnit
 export function pow<E extends number>(exponent: E) {
   return <B extends number>(base: Parameters<PowFunction<E, B>>[0]) =>
     (base ** exponent) as ReturnType<PowFunction<E, B>>;
+}
+
+type RootFunction<E extends number, B extends number> = E extends UnknownUnit
+  ? never
+  : E extends UnknownAbstractUnit
+  ? never
+  : E extends PosExponent
+  ? (b: B) => Root<B, E>
+  : (b: B) => number;
+
+/**
+ * Take the nth root of a number.
+ *
+ * @category Math
+ */
+export function root<N extends number>(exponent: N) {
+  return <B extends number>(base: Parameters<RootFunction<N, B>>[0]) =>
+    (base ** (1 / exponent)) as ReturnType<RootFunction<N, B>>;
 }
 
 /**

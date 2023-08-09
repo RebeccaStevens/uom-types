@@ -3,6 +3,7 @@
  */
 
 import {
+  type PosExponent,
   type Exponent,
   type Pow,
   type Divide,
@@ -99,23 +100,6 @@ export function modSafe<T extends number>(
 }
 
 /**
- * Raise a number to an exponent.
- *
- * @category Math
- */
-export function pow<B extends number, E extends Exponent>(
-  base: B,
-  exponent: E,
-): Pow<B, E>;
-
-/**
- * Put a number to the power of 1/2.
- *
- * @category Math
- */
-export function pow<B extends number>(base: B, exponent: 0.5): Root<B, 2>;
-
-/**
  * Raise a number to the power of another.
  *
  * @category Math
@@ -127,10 +111,35 @@ export function pow<B extends number, E extends number>(
     : E extends UnknownAbstractUnit
     ? never
     : E,
-): number;
+): E extends Exponent ? Pow<B, E> : number;
+
+/**
+ * Put a number to the power of 1/2.
+ *
+ * @category Math
+ */
+export function pow<B extends number>(base: B, exponent: 0.5): Root<B, 2>;
 
 export function pow(base: number, exponent: number): number {
   return base ** exponent;
+}
+
+/**
+ * Take the nth root of a number.
+ *
+ * @category Math
+ */
+export function root<B extends number, N extends number>(
+  base: B,
+  exponent: N extends UnknownUnit
+    ? never
+    : N extends UnknownAbstractUnit
+    ? never
+    : N,
+): N extends PosExponent ? Root<B, N> : number {
+  return (base ** (1 / exponent)) as N extends PosExponent
+    ? Root<B, N>
+    : number;
 }
 
 /**
@@ -139,7 +148,7 @@ export function pow(base: number, exponent: number): number {
  * @category Math
  */
 export function sqrt<T extends number>(value: T): Root<T, 2> {
-  return pow(value, 0.5);
+  return root(value, 2);
 }
 
 /**
