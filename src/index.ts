@@ -21,14 +21,14 @@ export type {
   DivideExponents,
   Exponent,
   MultiplyExponents,
+  NegateExponent,
   NegativeExponent,
+  NegExponent,
+  PosExponent,
   SubExponents,
   SumExponents,
 } from "./exponents";
-export type {
-  DivideUnitExponents,
-  MultiplyUnitExponents,
-} from "./unit-exponents";
+export type { DivideUnitExponents, MultiplyUnitExponents } from "./deprecated";
 export type {
   Divide,
   DivideUnitSubvalues,
@@ -36,4 +36,8 @@ export type {
   InverseUnitSubvalues,
   Multiply,
   MultiplyUnitSubvalues,
+  Pow,
+  PowUnitSubvalues,
+  Root,
+  RootUnitSubvalues,
 } from "./units";

@@ -3,12 +3,13 @@
  */
 
 import {
-  type AbstractUnit,
+  type PosExponent,
+  type Exponent,
+  type Pow,
   type Divide,
-  type DivideUnitExponents,
   type Inverse,
   type Multiply,
-  type Unit,
+  type Root,
   type UnknownAbstractUnit,
   type UnknownUnit,
 } from "#uom-types";
@@ -99,72 +100,7 @@ export function modSafe<T extends number>(
 }
 
 /**
- * Put a number to the power of -1.
- *
- * @category Math
- */
-export function pow<B extends number>(base: B, exponent: -1): Inverse<B>;
-
-/**
- * Put a number to the power of 0.
- *
- * @category Math
- */
-export function pow<B extends number>(
-  base: B,
-  exponent: 0,
-): B extends UnknownUnit
-  ? Unit<{}>
-  : B extends UnknownAbstractUnit
-  ? AbstractUnit<{}>
-  : 1;
-
-/**
- * Put a number to the power of 1/2.
- *
- * @category Math
- */
-export function pow<B extends number>(
-  base: B,
-  exponent: 0.5,
-): DivideUnitExponents<B, 2>;
-
-/**
- * Put a number to the power of 1.
- *
- * @category Math
- */
-export function pow<E extends number>(base: E, exponent: 1): E;
-
-/**
- * Put a number to the power of 2.
- *
- * @category Math
- */
-export function pow<B extends number>(base: B, exponent: 2): Multiply<B, B>;
-
-/**
- * Put a number to the power of 3.
- *
- * @category Math
- */
-export function pow<B extends number>(
-  base: B,
-  exponent: 3,
-): Multiply<B, Multiply<B, B>>;
-
-/**
- * Put a number to the power of 4.
- *
- * @category Math
- */
-export function pow<B extends number>(
-  base: B,
-  exponent: 4,
-): Multiply<B, Multiply<B, Multiply<B, B>>>;
-
-/**
- * Put one number to the power of the other.
+ * Raise a number to the power of another.
  *
  * @category Math
  */
@@ -175,10 +111,35 @@ export function pow<B extends number, E extends number>(
     : E extends UnknownAbstractUnit
     ? never
     : E,
-): number;
+): E extends Exponent ? Pow<B, E> : number;
+
+/**
+ * Put a number to the power of 1/2.
+ *
+ * @category Math
+ */
+export function pow<B extends number>(base: B, exponent: 0.5): Root<B, 2>;
 
 export function pow(base: number, exponent: number): number {
   return base ** exponent;
+}
+
+/**
+ * Take the nth root of a number.
+ *
+ * @category Math
+ */
+export function root<B extends number, N extends number>(
+  base: B,
+  exponent: N extends UnknownUnit
+    ? never
+    : N extends UnknownAbstractUnit
+    ? never
+    : N,
+): N extends PosExponent ? Root<B, N> : number {
+  return (base ** (1 / exponent)) as N extends PosExponent
+    ? Root<B, N>
+    : number;
 }
 
 /**
@@ -186,8 +147,8 @@ export function pow(base: number, exponent: number): number {
  *
  * @category Math
  */
-export function sqrt<T extends number>(value: T): DivideUnitExponents<T, 2> {
-  return pow(value, 0.5);
+export function sqrt<T extends number>(value: T): Root<T, 2> {
+  return root(value, 2);
 }
 
 /**

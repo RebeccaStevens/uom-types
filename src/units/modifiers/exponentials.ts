@@ -3,7 +3,7 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnit,
-  type MultiplyUnitExponents,
+  type Pow,
   type UnknownAbstractUnit,
   type UnknownUnit,
   type Unit,
@@ -14,22 +14,20 @@ import {
  *
  * @group Modifiers
  * @category General
- * @see {@link MultiplyUnitExponents}
+ * @see {@link Pow}
  * @see {@link Cubic}
  */
-export type Square<T extends UnknownAbstractUnit | UnknownUnit> =
-  MultiplyUnitExponents<T, 2>;
+export type Square<T extends UnknownAbstractUnit | UnknownUnit> = Pow<T, 2>;
 
 /**
  * Put the given {@link Unit} to the power of 3.
  *
  * @group Modifiers
  * @category General
- * @see {@link MultiplyUnitExponents}
+ * @see {@link Pow}
  * @see {@link Square}
  */
-export type Cubic<T extends UnknownAbstractUnit | UnknownUnit> =
-  MultiplyUnitExponents<T, 3>;
+export type Cubic<T extends UnknownAbstractUnit | UnknownUnit> = Pow<T, 3>;
 
 // Tests
 // eslint-disable-next-line functional/no-conditional-statements

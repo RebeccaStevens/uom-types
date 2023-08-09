@@ -8,7 +8,6 @@ const autogenHeader = `/**
  */\n\n`;
 
 const exponents = new Set<number>();
-const exponentToNegitive = new Map<number, number>();
 
 const scalar10ToName = new Map<number, string>([
   [-30, "Quecto"],
@@ -114,44 +113,33 @@ function populateExponents() {
   for (const exponent of Array.from({ length: maxExponent + 1 }, (_, i) => i)) {
     if (exponent === 0) {
       exponents.add(0);
-      exponentToNegitive.set(0, 0);
-      continue;
-    }
-
-    const negativeExponent = -exponent;
-
-    if (exponent === 1) {
-      exponents.add(exponent);
-      exponents.add(negativeExponent);
-
-      exponentToNegitive.set(exponent, negativeExponent);
-      exponentToNegitive.set(negativeExponent, exponent);
       continue;
     }
 
     exponents.add(exponent);
-    exponents.add(negativeExponent);
-
-    exponentToNegitive.set(exponent, negativeExponent);
-    exponentToNegitive.set(negativeExponent, exponent);
+    exponents.add(-exponent);
   }
 }
 
 function getExponentTypeDefintion() {
-  return `/**\n * All the supported exponent values.\n *\n * @group Unit Components\n */\nexport type Exponent = ${[
-    ...exponents.values(),
-  ].join(" | ")};`;
+  const exponentsArray = [...exponents.values()];
+  const positive = exponentsArray.filter((x) => x > 0);
+  const negative = exponentsArray.filter((x) => x < 0);
+
+  const positiveType = `/**\n * All the supported positive exponent values.\n *\n * @group Unit Components\n */\nexport type PosExponent = ${positive.join(
+    " | ",
+  )};`;
+  const negativeType = `/**\n * All the supported negative exponent values.\n *\n * @group Unit Components\n */\nexport type NegExponent = ${negative.join(
+    " | ",
+  )};`;
+  const allType = `/**\n * All the supported exponent values.\n *\n * @group Unit Components\n */\nexport type Exponent = 0 | PosExponent | NegExponent;`;
+  return [positiveType, negativeType, allType].join("\n\n");
 }
 
 function getNegativeExponentTypeDefintion() {
-  return `/**\n * @group Exponent Functions\n */\nexport type NegativeExponent<T extends Exponent> = ${[
-    ...exponentToNegitive.entries(),
-  ]
-    .map(
-      ([exponent, negativeExponent]) =>
-        `T extends ${exponent} ? ${negativeExponent} :`,
-    )
-    .join(" ")} never;`;
+  const main = `/**\n * @group Exponent Functions\n */\nexport type NegateExponent<T extends Exponent> = MultiplyExponents<T, -1>`;
+  const depreated = `/**\n * @depreated Use {@link NegateExponent} instead.\n */\nexport type NegativeExponent<T extends Exponent> = NegateExponent<T>`;
+  return [main, depreated].join("\n\n");
 }
 
 function getSumExponentsTypeDefintion() {
