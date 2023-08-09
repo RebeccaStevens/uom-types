@@ -5,7 +5,7 @@
 import {
   type AbstractUnit,
   type Divide,
-  type DivideUnitExponents,
+  type Root,
   type Inverse,
   type Multiply,
   type Unit,
@@ -102,7 +102,7 @@ type PowFunction<E extends number, B extends number> = E extends UnknownUnit
       ? AbstractUnit<{}>
       : 1
   : E extends 0.5
-  ? (b: B) => DivideUnitExponents<B, 2>
+  ? (b: B) => Root<B, 2>
   : E extends 1
   ? (b: B) => B
   : E extends 2

@@ -5,9 +5,9 @@
 import {
   type AbstractUnit,
   type Divide,
-  type DivideUnitExponents,
   type Inverse,
   type Multiply,
+  type Root,
   type Unit,
   type UnknownAbstractUnit,
   type UnknownUnit,
@@ -124,10 +124,7 @@ export function pow<B extends number>(
  *
  * @category Math
  */
-export function pow<B extends number>(
-  base: B,
-  exponent: 0.5,
-): DivideUnitExponents<B, 2>;
+export function pow<B extends number>(base: B, exponent: 0.5): Root<B, 2>;
 
 /**
  * Put a number to the power of 1.
@@ -186,7 +183,7 @@ export function pow(base: number, exponent: number): number {
  *
  * @category Math
  */
-export function sqrt<T extends number>(value: T): DivideUnitExponents<T, 2> {
+export function sqrt<T extends number>(value: T): Root<T, 2> {
   return pow(value, 0.5);
 }
 
