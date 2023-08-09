@@ -130,9 +130,12 @@ export type Pow<T extends number, N extends Exponent> = T extends Unit<
  *
  * @group Unit Subvalue Functions
  */
-export type PowUnitSubvalues<T extends UnitSubvalues, E extends Exponent> = {
+export type PowUnitSubvalues<
+  T extends UnitSubvalues,
+  E extends Exponent,
+> = ExcludeUnitZeroSubvalues<{
   [S in keyof T]: MultiplyExponents<GetExponent<T, S>, E>;
-};
+}>;
 
 /**
  * Take the nth root of a unit.
@@ -156,9 +159,12 @@ export type Root<T extends number, N extends Exponent> = T extends Unit<
  *
  * @group Unit Subvalue Functions
  */
-export type RootUnitSubvalues<T extends UnitSubvalues, E extends Exponent> = {
+export type RootUnitSubvalues<
+  T extends UnitSubvalues,
+  E extends Exponent,
+> = ExcludeUnitZeroSubvalues<{
   [S in keyof T]: DivideExponents<GetExponent<T, S>, E>;
-};
+}>;
 
 // Tests
 // eslint-disable-next-line eslint-comments/disable-enable-pair
