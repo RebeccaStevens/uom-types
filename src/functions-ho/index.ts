@@ -3,12 +3,11 @@
  */
 
 import {
-  type AbstractUnit,
   type Divide,
-  type Root,
-  type Inverse,
+  type Exponent,
   type Multiply,
-  type Unit,
+  type Pow,
+  type Root,
   type UnknownAbstractUnit,
   type UnknownUnit,
 } from "#uom-types";
@@ -91,26 +90,10 @@ type PowFunction<E extends number, B extends number> = E extends UnknownUnit
   ? never
   : E extends UnknownAbstractUnit
   ? never
-  : E extends -1
-  ? (b: B) => Inverse<B>
-  : E extends 0
-  ? (
-      b: B,
-    ) => B extends UnknownUnit
-      ? Unit<{}>
-      : B extends UnknownAbstractUnit
-      ? AbstractUnit<{}>
-      : 1
+  : E extends Exponent
+  ? (b: B) => Pow<B, E>
   : E extends 0.5
   ? (b: B) => Root<B, 2>
-  : E extends 1
-  ? (b: B) => B
-  : E extends 2
-  ? (b: B) => Multiply<B, B>
-  : E extends 3
-  ? (b: B) => Multiply<B, Multiply<B, B>>
-  : E extends 4
-  ? (b: B) => Multiply<B, Multiply<B, Multiply<B, B>>>
   : (b: B) => number;
 
 /**

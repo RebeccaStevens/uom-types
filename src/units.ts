@@ -12,7 +12,6 @@ import {
   type DivideExponents,
   type Exponent,
   type MultiplyExponents,
-  type NegativeExponent,
   type SumExponents,
 } from "./exponents";
 import {
@@ -27,23 +26,17 @@ import {
  * @group Unit Functions
  * @returns `1/X`.
  */
-export type Inverse<X extends number> = X extends Unit<infer Config, infer Meta>
-  ? Unit<
-      FlatternAlias<InverseUnitSubvalues<Config>>,
-      FlatternAlias<InverseUnitSubvalues<Meta>>
-    >
-  : X extends AbstractUnit<infer Config>
-  ? AbstractUnit<FlatternAlias<InverseUnitSubvalues<Config>>>
-  : number;
+export type Inverse<X extends number> = Pow<X, -1>;
 
 /**
  * Inverses each of the subvalues.
  *
  * @group Unit Subvalue Functions
  */
-export type InverseUnitSubvalues<T extends UnitSubvalues> = {
-  [E in keyof T]: NegativeExponent<T[E]>;
-};
+export type InverseUnitSubvalues<T extends UnitSubvalues> = PowUnitSubvalues<
+  T,
+  -1
+>;
 
 /**
  * Multiply a unit by another unit.

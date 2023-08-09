@@ -3,12 +3,12 @@
  */
 
 import {
-  type AbstractUnit,
+  type Exponent,
+  type Pow,
   type Divide,
   type Inverse,
   type Multiply,
   type Root,
-  type Unit,
   type UnknownAbstractUnit,
   type UnknownUnit,
 } from "#uom-types";
@@ -99,25 +99,14 @@ export function modSafe<T extends number>(
 }
 
 /**
- * Put a number to the power of -1.
+ * Raise a number to an exponent.
  *
  * @category Math
  */
-export function pow<B extends number>(base: B, exponent: -1): Inverse<B>;
-
-/**
- * Put a number to the power of 0.
- *
- * @category Math
- */
-export function pow<B extends number>(
+export function pow<B extends number, E extends Exponent>(
   base: B,
-  exponent: 0,
-): B extends UnknownUnit
-  ? Unit<{}>
-  : B extends UnknownAbstractUnit
-  ? AbstractUnit<{}>
-  : 1;
+  exponent: E,
+): Pow<B, E>;
 
 /**
  * Put a number to the power of 1/2.
@@ -127,41 +116,7 @@ export function pow<B extends number>(
 export function pow<B extends number>(base: B, exponent: 0.5): Root<B, 2>;
 
 /**
- * Put a number to the power of 1.
- *
- * @category Math
- */
-export function pow<E extends number>(base: E, exponent: 1): E;
-
-/**
- * Put a number to the power of 2.
- *
- * @category Math
- */
-export function pow<B extends number>(base: B, exponent: 2): Multiply<B, B>;
-
-/**
- * Put a number to the power of 3.
- *
- * @category Math
- */
-export function pow<B extends number>(
-  base: B,
-  exponent: 3,
-): Multiply<B, Multiply<B, B>>;
-
-/**
- * Put a number to the power of 4.
- *
- * @category Math
- */
-export function pow<B extends number>(
-  base: B,
-  exponent: 4,
-): Multiply<B, Multiply<B, Multiply<B, B>>>;
-
-/**
- * Put one number to the power of the other.
+ * Raise a number to the power of another.
  *
  * @category Math
  */
