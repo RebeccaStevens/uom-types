@@ -21,7 +21,10 @@ export type {
   DivideExponents,
   Exponent,
   MultiplyExponents,
+  NegateExponent,
   NegativeExponent,
+  NegExponent,
+  PosExponent,
   SubExponents,
   SumExponents,
 } from "./exponents";
