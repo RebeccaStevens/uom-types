@@ -38,6 +38,34 @@
   },
   "overrides": [
     {
+      "files": ["src/functions"],
+      "rules": {
+        "functional/functional-parameters": [
+          "error",
+          {
+            "allowRestParameter": true,
+            "enforceParameterCount": {
+              "count": "atLeastOne"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/functions-ho"],
+      "rules": {
+        "functional/functional-parameters": [
+          "error",
+          {
+            "allowRestParameter": false,
+            "enforceParameterCount": {
+              "count": "exactlyOne"
+            }
+          }
+        ]
+      }
+    },
+    {
       "files": ["**/*.test.ts"],
       "plugins": ["vitest"],
       "extends": ["plugin:vitest/recommended", "plugin:functional/off"],
