@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+# [3.1.0](https://github.com/RebeccaStevens/uom-types/compare/v3.0.1...v3.1.0) (2023-08-09)
+
+
+### Bug Fixes
+
+* `Pow` and `Root` now ensure that zero exponents are removed ([0929ef3](https://github.com/RebeccaStevens/uom-types/commit/0929ef3bfc113c50028bf87060c98a07efde9cd4))
+
+
+### Features
+
+* add `root` functions ([6d92a98](https://github.com/RebeccaStevens/uom-types/commit/6d92a9818fe99c43a22801c4e2e2dffc1167fe8f))
+* add PosExponent and NegExponent and depreate NegativeExponent infavor of NegateExponent ([f3e96e1](https://github.com/RebeccaStevens/uom-types/commit/f3e96e1d4c2035464399bb0a6d40dd6c5b9df8fd))
+* add Unit Functions Pow and Root ([ae679dc](https://github.com/RebeccaStevens/uom-types/commit/ae679dc18d59c6a71dca7841271537a2bb7f1671))
+
 ## [3.0.1](https://github.com/RebeccaStevens/uom-types/compare/v3.0.0...v3.0.1) (2023-08-08)
 
 
