@@ -57,6 +57,7 @@
   "MD033": {
     "allowed_elements": [
       "br",
+      "code",
       "div",
       "img",
       "sub",
