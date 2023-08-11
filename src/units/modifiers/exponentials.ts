@@ -4,9 +4,16 @@ import { assert, type Equals } from "tsafe";
 import {
   type AbstractUnit,
   type Pow,
+  type PowUnitSubvalues,
+  type Unit,
+  type UnitClass,
+  type UnitConversionRate,
+  type UnitMeta,
   type UnknownAbstractUnit,
   type UnknownUnit,
-  type Unit,
+  type UnknownUnitClass,
+  type UnknownUnitConversionRate,
+  type UnknownUnitMeta,
 } from "#uom-types";
 
 /**
@@ -17,7 +24,20 @@ import {
  * @see {@link Pow}
  * @see {@link Cubic}
  */
-export type Square<T extends UnknownAbstractUnit | UnknownUnit> = Pow<T, 2>;
+export type Square<
+  T extends
+    | UnknownUnit
+    | UnknownAbstractUnit
+    | UnknownUnitConversionRate
+    | UnknownUnitClass
+    | UnknownUnitMeta,
+> = T extends number
+  ? Pow<T, 2>
+  : T extends UnknownUnitClass
+  ? UnitClass<PowUnitSubvalues<T["__uom_types__value"], 2>>
+  : T extends UnknownUnitMeta
+  ? UnitMeta<PowUnitSubvalues<T["__uom_types__value"], 2>>
+  : never;
 
 /**
  * Put the given {@link Unit} to the power of 3.
@@ -27,14 +47,62 @@ export type Square<T extends UnknownAbstractUnit | UnknownUnit> = Pow<T, 2>;
  * @see {@link Pow}
  * @see {@link Square}
  */
-export type Cubic<T extends UnknownAbstractUnit | UnknownUnit> = Pow<T, 3>;
+export type Cubic<
+  T extends
+    | UnknownUnit
+    | UnknownAbstractUnit
+    | UnknownUnitConversionRate
+    | UnknownUnitClass
+    | UnknownUnitMeta,
+> = T extends number
+  ? Pow<T, 3>
+  : T extends UnknownUnitClass
+  ? UnitClass<PowUnitSubvalues<T["__uom_types__value"], 3>>
+  : T extends UnknownUnitMeta
+  ? UnitMeta<PowUnitSubvalues<T["__uom_types__value"], 3>>
+  : never;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Square<Unit<{ a: 1 }>>, Unit<{ a: 2 }>>>();
-  assert<Equals<Square<AbstractUnit<{ a: 1 }>>, AbstractUnit<{ a: 2 }>>>();
+  const { describe, it } = import.meta.vitest;
 
-  assert<Equals<Cubic<Unit<{ a: 1 }>>, Unit<{ a: 3 }>>>();
-  assert<Equals<Cubic<AbstractUnit<{ a: 1 }>>, AbstractUnit<{ a: 3 }>>>();
+  describe("Square", () => {
+    it("squares a unit", () => {
+      assert<
+        Equals<Square<Unit<{ a: 1 }, { b: 2 }>>, Unit<{ a: 2 }, { b: 4 }>>
+      >();
+      assert<Equals<Square<AbstractUnit<{ a: 1 }>>, AbstractUnit<{ a: 2 }>>>();
+      assert<
+        Equals<
+          Square<UnitConversionRate<{ a: 1 }>>,
+          UnitConversionRate<{ a: 2 }>
+        >
+      >();
+      assert<
+        Equals<Square<UnitClass<{ a: 1; b: 2 }>>, UnitClass<{ a: 2; b: 4 }>>
+      >();
+      assert<
+        Equals<Square<UnitMeta<{ a: 1; b: 2 }>>, UnitMeta<{ a: 2; b: 4 }>>
+      >();
+    });
+  });
+
+  describe("Cubic", () => {
+    it("cubes a unit", () => {
+      assert<
+        Equals<Cubic<Unit<{ a: 1 }, { b: 2 }>>, Unit<{ a: 3 }, { b: 6 }>>
+      >();
+      assert<Equals<Cubic<AbstractUnit<{ a: 1 }>>, AbstractUnit<{ a: 3 }>>>();
+      assert<
+        Equals<
+          Cubic<UnitConversionRate<{ a: 1 }>>,
+          UnitConversionRate<{ a: 3 }>
+        >
+      >();
+    });
+    assert<
+      Equals<Cubic<UnitClass<{ a: 1; b: 2 }>>, UnitClass<{ a: 3; b: 6 }>>
+    >();
+    assert<Equals<Cubic<UnitMeta<{ a: 1; b: 2 }>>, UnitMeta<{ a: 3; b: 6 }>>>();
+  });
 }
