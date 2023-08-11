@@ -57,7 +57,13 @@ export type ElectricChargeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Coulomb = ElectricChargeUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
+
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Coulomb, Multiply<Ampere, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Coulomb", () => {
+    it("is amperes by seconds", () => {
+      assert<Equals<Coulomb, Multiply<Ampere, Second>>>();
+    });
+  });
 }

@@ -56,7 +56,12 @@ export type KinematicViscosityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type SquareMetrePerSecond = KinematicViscosityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<SquareMetrePerSecond, Divide<Square<Metre>, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("SquareMetrePerSecond", () => {
+    it("is square metres per second", () => {
+      assert<Equals<SquareMetrePerSecond, Divide<Square<Metre>, Second>>>();
+    });
+  });
 }

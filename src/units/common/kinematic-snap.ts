@@ -51,9 +51,14 @@ export type SnapUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type MetrePerSecondToTheFourth = SnapUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<MetrePerSecondToTheFourth, Divide<MetrePerSecondCubed, Second>>
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("MetrePerSecondToTheFourth", () => {
+    it("is MetrePerSecondCubed per second", () => {
+      assert<
+        Equals<MetrePerSecondToTheFourth, Divide<MetrePerSecondCubed, Second>>
+      >();
+    });
+  });
 }

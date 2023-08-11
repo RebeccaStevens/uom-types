@@ -53,7 +53,12 @@ export type SpecificVolumeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type CubicMetrePerKilogram = SpecificVolumeUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CubicMetrePerKilogram, Divide<Cubic<Metre>, Kilo<Gram>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("CubicMetrePerKilogram", () => {
+    it("is cubic metre per kilogram", () => {
+      assert<Equals<CubicMetrePerKilogram, Divide<Cubic<Metre>, Kilo<Gram>>>>();
+    });
+  });
 }

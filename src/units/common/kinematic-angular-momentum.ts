@@ -58,9 +58,14 @@ export type AngularMomentumUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type JouleSecondPerRadian = AngularMomentumUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<JouleSecondPerRadian, Divide<Multiply<Joule, Second>, Radian>>
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("JouleSecondPerRadian", () => {
+    it("is joules by seconds per radian", () => {
+      assert<
+        Equals<JouleSecondPerRadian, Divide<Multiply<Joule, Second>, Radian>>
+      >();
+    });
+  });
 }

@@ -57,12 +57,17 @@ export type ThermalTransmittanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type WattPerSquareMetrePerKelvin = ThermalTransmittanceUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<
-      WattPerSquareMetrePerKelvin,
-      Divide<Divide<Watt, Square<Metre>>, Kelvin>
-    >
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("WattPerSquareMetrePerKelvin", () => {
+    it("is watt per square metre per kelvin", () => {
+      assert<
+        Equals<
+          WattPerSquareMetrePerKelvin,
+          Divide<Divide<Watt, Square<Metre>>, Kelvin>
+        >
+      >();
+    });
+  });
 }

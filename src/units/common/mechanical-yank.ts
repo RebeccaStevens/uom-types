@@ -55,7 +55,12 @@ export type YankUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type NewtonPerSecond = YankUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<NewtonPerSecond, Divide<Newton, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("NewtonPerSecond", () => {
+    it("is newtons per second", () => {
+      assert<Equals<NewtonPerSecond, Divide<Newton, Second>>>();
+    });
+  });
 }

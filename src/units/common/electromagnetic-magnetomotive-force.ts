@@ -55,7 +55,12 @@ export type MagnetomotiveForceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type AmpereRadian = MagnetomotiveForceUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<AmpereRadian, Multiply<Ampere, Radian>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("AmpereRadian", () => {
+    it("is amperes by radians", () => {
+      assert<Equals<AmpereRadian, Multiply<Ampere, Radian>>>();
+    });
+  });
 }

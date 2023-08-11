@@ -57,7 +57,12 @@ export type MagneticRigidityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type TeslaMetre = MagneticRigidityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<TeslaMetre, Multiply<Tesla, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("TeslaMetre", () => {
+    it("is tesla by metre", () => {
+      assert<Equals<TeslaMetre, Multiply<Tesla, Metre>>>();
+    });
+  });
 }

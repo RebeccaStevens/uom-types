@@ -51,7 +51,14 @@ export type JerkUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type MetrePerSecondCubed = JerkUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<MetrePerSecondCubed, Divide<MetrePerSecondSquared, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("MetrePerSecondCubed", () => {
+    it("is metres per squared second per second", () => {
+      assert<
+        Equals<MetrePerSecondCubed, Divide<MetrePerSecondSquared, Second>>
+      >();
+    });
+  });
 }

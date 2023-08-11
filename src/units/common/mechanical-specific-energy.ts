@@ -56,7 +56,12 @@ export type SpecificEnergyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type JoulePerKilogram = SpecificEnergyUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<JoulePerKilogram, Divide<Joule, Kilo<Gram>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("JoulePerKilogram", () => {
+    it("is joules per kilogram", () => {
+      assert<Equals<JoulePerKilogram, Divide<Joule, Kilo<Gram>>>>();
+    });
+  });
 }

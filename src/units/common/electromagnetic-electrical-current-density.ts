@@ -55,7 +55,12 @@ export type ElectricCurrentDensityUnitFrom<M extends UnknownUnitMeta> =
 export type AmperePerSquareMetre = ElectricCurrentDensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<AmperePerSquareMetre, Divide<Ampere, Square<Metre>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("AmperePerSquareMetre", () => {
+    it("is amperes per square metre", () => {
+      assert<Equals<AmperePerSquareMetre, Divide<Ampere, Square<Metre>>>>();
+    });
+  });
 }

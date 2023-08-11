@@ -57,7 +57,12 @@ export type ThermalResistanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type KelvinPerWatt = ThermalResistanceUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KelvinPerWatt, Divide<Kelvin, Watt>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("KelvinPerWatt", () => {
+    it("is kelvin per watt", () => {
+      assert<Equals<KelvinPerWatt, Divide<Kelvin, Watt>>>();
+    });
+  });
 }

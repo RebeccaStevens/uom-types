@@ -207,8 +207,6 @@ export type RootUnitSubvalues<
 }>;
 
 // Tests
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable functional/no-conditional-statements, functional/no-expression-statements, functional/no-return-void */
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 

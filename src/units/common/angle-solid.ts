@@ -3,7 +3,6 @@ import { assert, type Equals } from "tsafe";
 
 import {
   type AbstractUnitFrom,
-  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -11,6 +10,7 @@ import {
 } from "#uom-types";
 
 import { type BaseUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
 import { type Radian } from ".";
 
@@ -60,7 +60,12 @@ export type SolidAngleUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Steradian = SolidAngleUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Steradian, Multiply<Radian, Radian>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Steradian", () => {
+    it("is radians squared", () => {
+      assert<Equals<Steradian, Square<Radian>>>();
+    });
+  });
 }

@@ -100,13 +100,26 @@ export type WattHour = EnergyUnit<{
 }>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Joule, WattSecond>>();
-  assert<Equals<WattSecond, Multiply<Watt, Second>>>();
-  assert<Equals<Joule, Multiply<Pascal, Cubic<Metre>>>>();
-  assert<Equals<Joule, Multiply<Coulomb, Volt>>>();
+  const { describe, it } = import.meta.vitest;
 
-  assert<Equals<WattMinute, Multiply<Watt, Minute>>>();
-  assert<Equals<WattHour, Multiply<Watt, Hour>>>();
+  describe("Joule", () => {
+    it("is watt seconds", () => {
+      assert<Equals<Joule, WattSecond>>();
+      assert<Equals<WattSecond, Multiply<Watt, Second>>>();
+    });
+    it("is pascal cubic metres", () => {
+      assert<Equals<Joule, Multiply<Pascal, Cubic<Metre>>>>();
+    });
+    it("is coulomb volts", () => {
+      assert<Equals<Joule, Multiply<Coulomb, Volt>>>();
+    });
+  });
+
+  describe("other engery units", () => {
+    it("is correct", () => {
+      assert<Equals<WattMinute, Multiply<Watt, Minute>>>();
+      assert<Equals<WattHour, Multiply<Watt, Hour>>>();
+    });
+  });
 }

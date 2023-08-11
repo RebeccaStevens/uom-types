@@ -58,12 +58,17 @@ export type ElectronMobilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type SquareMetrePerVoltSecond = ElectronMobilityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<
-      SquareMetrePerVoltSecond,
-      Divide<Square<Metre>, Multiply<Volt, Second>>
-    >
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("SquareMetrePerVoltSecond", () => {
+    it("is square metres per volt second", () => {
+      assert<
+        Equals<
+          SquareMetrePerVoltSecond,
+          Divide<Square<Metre>, Multiply<Volt, Second>>
+        >
+      >();
+    });
+  });
 }

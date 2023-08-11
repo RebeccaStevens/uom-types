@@ -58,7 +58,12 @@ export type ExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type CoulombPerKilogram = ExposureUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CoulombPerKilogram, Divide<Coulomb, Kilo<Gram>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("CoulombPerKilogram", () => {
+    it("is coulombs per kilogram", () => {
+      assert<Equals<CoulombPerKilogram, Divide<Coulomb, Kilo<Gram>>>>();
+    });
+  });
 }

@@ -57,9 +57,17 @@ export type VelocityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type MetrePerSecond = VelocityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
-if (import.meta.vitest !== undefined) {
-  assert<Equals<MetrePerSecond, Divide<Metre, Second>>>();
 
-  assert<Equals<MetrePerSecond, Multiply<MetrePerSecondSquared, Second>>>();
+if (import.meta.vitest !== undefined) {
+  const { describe, it } = import.meta.vitest;
+
+  describe("MetrePerSecond", () => {
+    it("is metres per second", () => {
+      assert<Equals<MetrePerSecond, Divide<Metre, Second>>>();
+    });
+
+    it("is metres per second squared by seconds", () => {
+      assert<Equals<MetrePerSecond, Multiply<MetrePerSecondSquared, Second>>>();
+    });
+  });
 }

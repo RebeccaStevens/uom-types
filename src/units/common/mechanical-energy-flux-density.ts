@@ -57,12 +57,17 @@ export type EnergyFluxDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type JoulePerSquareMetreSecond = EnergyFluxDensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<
-      JoulePerSquareMetreSecond,
-      Divide<Joule, Multiply<Square<Metre>, Second>>
-    >
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("JoulePerSquareMetreSecond", () => {
+    it("is joules per (square metres by seconds)", () => {
+      assert<
+        Equals<
+          JoulePerSquareMetreSecond,
+          Divide<Joule, Multiply<Square<Metre>, Second>>
+        >
+      >();
+    });
+  });
 }

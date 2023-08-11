@@ -56,7 +56,12 @@ export type LuminousExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type LuxSecond = LuminousExposureUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<LuxSecond, Multiply<Lux, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("LuxSecond", () => {
+    it("is lux by seconds", () => {
+      assert<Equals<LuxSecond, Multiply<Lux, Second>>>();
+    });
+  });
 }

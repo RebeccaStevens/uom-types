@@ -9,7 +9,7 @@ import {
 } from "#uom-types";
 
 import { type BaseUnitClass } from "../base-units";
-import { type ReciprocalUnitClass, type Reciprocal } from "../modifiers";
+import { type Reciprocal } from "../modifiers";
 
 import { type TemperatureUnitClass, type Temperature } from ".";
 
@@ -18,7 +18,7 @@ import { type TemperatureUnitClass, type Temperature } from ".";
  * @category Thermodynamic
  */
 export type ThermalExpansionCoefficientUnitClass =
-  ReciprocalUnitClass<TemperatureUnitClass>;
+  Reciprocal<TemperatureUnitClass>;
 
 /**
  * @group Abstract Units
@@ -41,14 +41,19 @@ export type ThermalExpansionCoefficientUnitFrom<M extends UnknownUnitMeta> =
   UnitFrom<ThermalExpansionCoefficientUnitClass, M>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<
-      ThermalExpansionCoefficientUnitClass,
-      BaseUnitClass<{
-        Kelvin: -1;
-      }>
-    >
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("ThermalExpansionCoefficientUnitClass", () => {
+    it("has the right base units", () => {
+      assert<
+        Equals<
+          ThermalExpansionCoefficientUnitClass,
+          BaseUnitClass<{
+            Kelvin: -1;
+          }>
+        >
+      >();
+    });
+  });
 }

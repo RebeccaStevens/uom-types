@@ -61,7 +61,12 @@ export type PressureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Pascal = PressureUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Pascal, Divide<Newton, Square<Metre>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Pascal", () => {
+    it("is newtons per square metre", () => {
+      assert<Equals<Pascal, Divide<Newton, Square<Metre>>>>();
+    });
+  });
 }

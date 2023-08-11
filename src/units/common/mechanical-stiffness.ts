@@ -56,8 +56,15 @@ export type StiffnessUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type NewtonPerMetre = StiffnessUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<NewtonPerMetre, JoulePerSquareMetre>>();
-  assert<Equals<NewtonPerMetre, Divide<Newton, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("NewtonPerMetre", () => {
+    it("is joules per square metre", () => {
+      assert<Equals<NewtonPerMetre, JoulePerSquareMetre>>();
+    });
+    it("is newtons per metre", () => {
+      assert<Equals<NewtonPerMetre, Divide<Newton, Metre>>>();
+    });
+  });
 }

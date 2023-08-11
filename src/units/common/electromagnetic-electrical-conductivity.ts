@@ -56,7 +56,12 @@ export type ElectricalConductivityUnitFrom<M extends UnknownUnitMeta> =
 export type SiemensPerMetre = ElectricalConductivityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<SiemensPerMetre, Divide<Siemens, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("SiemensPerMetre", () => {
+    it("is siemens per metre", () => {
+      assert<Equals<SiemensPerMetre, Divide<Siemens, Metre>>>();
+    });
+  });
 }

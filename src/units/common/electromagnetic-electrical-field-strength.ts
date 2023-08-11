@@ -58,7 +58,12 @@ export type ElectricFieldStrengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type VoltPerMetre = ElectricFieldStrengthUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<VoltPerMetre, Divide<Volt, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("VoltPerMetre", () => {
+    it("is volts per metre", () => {
+      assert<Equals<VoltPerMetre, Divide<Volt, Metre>>>();
+    });
+  });
 }

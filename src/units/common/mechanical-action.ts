@@ -55,7 +55,12 @@ export type ActionUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type JouleSecond = ActionUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<JouleSecond, Multiply<Joule, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("GrayPerSecond", () => {
+    it("is joules per second", () => {
+      assert<Equals<JouleSecond, Multiply<Joule, Second>>>();
+    });
+  });
 }

@@ -58,7 +58,12 @@ export type EnergyDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type JoulePerCubicMetre = EnergyDensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<JoulePerCubicMetre, Divide<Joule, Cubic<Metre>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("JoulePerCubicMetre", () => {
+    it("is joules per cubic metre", () => {
+      assert<Equals<JoulePerCubicMetre, Divide<Joule, Cubic<Metre>>>>();
+    });
+  });
 }

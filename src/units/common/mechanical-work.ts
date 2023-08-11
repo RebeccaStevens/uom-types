@@ -51,7 +51,12 @@ export type WorkUnitFrom<M extends UnknownUnitMeta> = EnergyUnitFrom<M>;
 export type NewtonMetre = Joule;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<NewtonMetre, Multiply<Newton, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("NewtonMetre", () => {
+    it("is newtons by metres", () => {
+      assert<Equals<NewtonMetre, Multiply<Newton, Metre>>>();
+    });
+  });
 }

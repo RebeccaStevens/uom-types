@@ -56,7 +56,12 @@ export type VolumetricFlowUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type CubicMetrePerSecond = VolumetricFlowUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CubicMetrePerSecond, Divide<Cubic<Metre>, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("CubicMetrePerSecond", () => {
+    it("is cubic metres per second", () => {
+      assert<Equals<CubicMetrePerSecond, Divide<Cubic<Metre>, Second>>>();
+    });
+  });
 }

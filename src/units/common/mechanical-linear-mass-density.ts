@@ -56,7 +56,12 @@ export type LinearMassDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type KilogramPerMetre = LinearMassDensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KilogramPerMetre, Divide<Kilo<Gram>, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("KilogramPerMetre", () => {
+    it("is kilograms per metre", () => {
+      assert<Equals<KilogramPerMetre, Divide<Kilo<Gram>, Metre>>>();
+    });
+  });
 }

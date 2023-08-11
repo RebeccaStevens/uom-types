@@ -58,9 +58,17 @@ export type SpecificEntropyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type JoulePerKilogramKelvin = SpecificEntropyUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<JoulePerKilogramKelvin, Divide<Joule, Multiply<Kelvin, Kilo<Gram>>>>
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("JoulePerKilogramKelvin", () => {
+    it("is joules per kelvin kilogram", () => {
+      assert<
+        Equals<
+          JoulePerKilogramKelvin,
+          Divide<Joule, Multiply<Kelvin, Kilo<Gram>>>
+        >
+      >();
+    });
+  });
 }

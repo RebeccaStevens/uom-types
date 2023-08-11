@@ -62,7 +62,12 @@ export type ElectricCapacitanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Farad = ElectricCapacitanceUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Farad, Divide<Coulomb, Volt>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Farad", () => {
+    it("is coulombs per volt", () => {
+      assert<Equals<Farad, Divide<Coulomb, Volt>>>();
+    });
+  });
 }

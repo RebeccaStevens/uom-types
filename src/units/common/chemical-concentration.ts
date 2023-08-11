@@ -75,8 +75,18 @@ export type MolePerCubicMetre = Concentration;
 export type MolePerLiter = MolarConcentrationUnit<{ scalar10: 3 }>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<MolePerCubicMetre, Divide<Mole, Cubic<Metre>>>>();
-  assert<Equals<MolePerLiter, Divide<Mole, Litre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("MolePerCubicMetre", () => {
+    it("is moles per cubic metre", () => {
+      assert<Equals<MolePerCubicMetre, Divide<Mole, Cubic<Metre>>>>();
+    });
+  });
+
+  describe("MolePerLiter", () => {
+    it("is moles per litre", () => {
+      assert<Equals<MolePerLiter, Divide<Mole, Litre>>>();
+    });
+  });
 }

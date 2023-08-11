@@ -56,7 +56,12 @@ export type DynamicViscosityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type PascalSecond = DynamicViscosityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<PascalSecond, Multiply<Pascal, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("PascalSecond", () => {
+    it("is pascals by seconds", () => {
+      assert<Equals<PascalSecond, Multiply<Pascal, Second>>>();
+    });
+  });
 }

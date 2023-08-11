@@ -4,7 +4,6 @@ import { assert, type Equals } from "tsafe";
 import {
   type AbstractUnitFrom,
   type Divide,
-  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -12,6 +11,7 @@ import {
 } from "#uom-types";
 
 import { type BaseUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
 import { type Metre, type MetrePerSecond, type Second } from ".";
 
@@ -54,11 +54,17 @@ export type AccelerationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type MetrePerSecondSquared = AccelerationUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
-if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<MetrePerSecondSquared, Divide<Metre, Multiply<Second, Second>>>
-  >();
 
-  assert<Equals<MetrePerSecondSquared, Divide<MetrePerSecond, Second>>>();
+if (import.meta.vitest !== undefined) {
+  const { describe, it } = import.meta.vitest;
+
+  describe("MetrePerSecondSquared", () => {
+    it("is metres per squared second", () => {
+      assert<Equals<MetrePerSecondSquared, Divide<Metre, Square<Second>>>>();
+    });
+
+    it("is metres per second per second", () => {
+      assert<Equals<MetrePerSecondSquared, Divide<MetrePerSecond, Second>>>();
+    });
+  });
 }

@@ -56,7 +56,12 @@ export type MagneticVectorPotentialUnitFrom<M extends UnknownUnitMeta> =
 export type WeberPerMetre = MagneticVectorPotentialUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<WeberPerMetre, Divide<Weber, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("WeberPerMetre", () => {
+    it("is webers per metre", () => {
+      assert<Equals<WeberPerMetre, Divide<Weber, Metre>>>();
+    });
+  });
 }

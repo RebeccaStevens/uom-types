@@ -59,7 +59,14 @@ export type ThermalConductivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type WattPerMetreKelvin = ThermalConductivityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<WattPerMetreKelvin, Divide<Watt, Multiply<Metre, Kelvin>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("WattPerMetreKelvin", () => {
+    it("is watts per metre kelvin", () => {
+      assert<
+        Equals<WattPerMetreKelvin, Divide<Watt, Multiply<Metre, Kelvin>>>
+      >();
+    });
+  });
 }

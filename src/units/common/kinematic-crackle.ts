@@ -51,9 +51,17 @@ export type CrackleUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type MetrePerSecondToTheFifth = CrackleUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<MetrePerSecondToTheFifth, Divide<MetrePerSecondToTheFourth, Second>>
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("MetrePerSecondToTheFifth", () => {
+    it("is MetrePerSecondToTheFourth per second", () => {
+      assert<
+        Equals<
+          MetrePerSecondToTheFifth,
+          Divide<MetrePerSecondToTheFourth, Second>
+        >
+      >();
+    });
+  });
 }

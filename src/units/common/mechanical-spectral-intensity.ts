@@ -58,9 +58,14 @@ export type SpectralIntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type WattPerSteradianMetre = SpectralIntensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<WattPerSteradianMetre, Divide<Watt, Multiply<Steradian, Metre>>>
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("WattPerSteradianMetre", () => {
+    it("is watts per steradian metre", () => {
+      assert<
+        Equals<WattPerSteradianMetre, Divide<Watt, Multiply<Steradian, Metre>>>
+      >();
+    });
+  });
 }

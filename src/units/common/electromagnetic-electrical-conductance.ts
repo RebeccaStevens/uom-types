@@ -60,7 +60,12 @@ export type ElectricConductanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Siemens = ElectricConductanceUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Siemens, Divide<Ampere, Volt>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Siemens", () => {
+    it("is amperes per volt", () => {
+      assert<Equals<Siemens, Divide<Ampere, Volt>>>();
+    });
+  });
 }

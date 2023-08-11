@@ -67,8 +67,16 @@ export type Lux = LuminanceUnit<{}>;
 export type CandelaPerSquareMetre = Lux;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Lux, CandelaPerSquareMetre>>();
-  assert<Equals<CandelaPerSquareMetre, Divide<Candela, Square<Metre>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Lux", () => {
+    it("is CandelaPerSquareMetre", () => {
+      assert<Equals<Lux, CandelaPerSquareMetre>>();
+    });
+
+    it("is candela per square metre", () => {
+      assert<Equals<Lux, Divide<Candela, Square<Metre>>>>();
+    });
+  });
 }

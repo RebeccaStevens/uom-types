@@ -4,7 +4,6 @@ import { assert, type Equals } from "tsafe";
 import {
   type AbstractUnitFrom,
   type Divide,
-  type Multiply,
   type UnitFrom,
   type UnitMeta,
   type UnitSubvalues,
@@ -12,6 +11,7 @@ import {
 } from "#uom-types";
 
 import { type BaseUnitClass } from "../base-units";
+import { type Square } from "../modifiers";
 
 import { type Radian, type Second, type RadianPerSecond } from ".";
 
@@ -57,11 +57,16 @@ export type AngularAccelerationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type RadianPerSecondSquared = AngularAccelerationUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<RadianPerSecondSquared, Divide<Radian, Multiply<Second, Second>>>
-  >();
+  const { describe, it } = import.meta.vitest;
 
-  assert<Equals<RadianPerSecondSquared, Divide<RadianPerSecond, Second>>>();
+  describe("RadianPerSecondSquared", () => {
+    it("is radians per squared second", () => {
+      assert<Equals<RadianPerSecondSquared, Divide<Radian, Square<Second>>>>();
+    });
+
+    it("is radians per second per second", () => {
+      assert<Equals<RadianPerSecondSquared, Divide<RadianPerSecond, Second>>>();
+    });
+  });
 }
