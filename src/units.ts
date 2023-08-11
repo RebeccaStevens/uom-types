@@ -4,9 +4,11 @@ import { assert, type Equals } from "tsafe";
 import {
   type AbstractUnit,
   type Unit,
+  type UnitConversionRate,
   type UnitSubvalues,
   type UnknownAbstractUnit,
   type UnknownUnit,
+  type UnknownUnitConversionRate,
 } from "./core";
 import {
   type DivideExponents,
@@ -44,29 +46,70 @@ export type InverseUnitSubvalues<T extends UnitSubvalues> = PowUnitSubvalues<
  * @group Unit Functions
  * @returns `A⋅B`
  */
-export type Multiply<A extends number, B extends number> = A extends Unit<
-  infer AConfig,
-  infer AMeta
->
-  ? B extends Unit<infer BConfig, infer BMeta>
+export type Multiply<A extends number, B extends number> = A extends UnknownUnit
+  ? MultiplyHelperUnit<A, B>
+  : B extends UnknownUnit
+  ? MultiplyHelperUnit<B, A>
+  : A extends UnknownAbstractUnit
+  ? MultiplyHelperAbstractUnit<A, B>
+  : B extends UnknownAbstractUnit
+  ? MultiplyHelperAbstractUnit<B, A>
+  : A extends UnknownUnitConversionRate
+  ? MultiplyHelperUnitConversionRate<A, B>
+  : B extends UnknownUnitConversionRate
+  ? MultiplyHelperUnitConversionRate<B, A>
+  : number;
+
+/**
+ * Multiple a Unit by a Unit, AbstractUnit, UnitConversionRate or number
+ *
+ * @internal
+ */
+type MultiplyHelperUnit<
+  A extends UnknownUnit,
+  B extends number,
+> = A extends Unit<infer AClass, infer AMeta>
+  ? B extends Unit<infer BClass, infer BMeta>
     ? Unit<
-        FlatternAlias<MultiplyUnitSubvalues<AConfig, BConfig>>,
+        FlatternAlias<MultiplyUnitSubvalues<AClass, BClass>>,
         FlatternAlias<MultiplyUnitSubvalues<AMeta, BMeta>>
       >
-    : B extends UnknownAbstractUnit
-    ? never
+    : B extends AbstractUnit<infer BClass>
+    ? Unit<FlatternAlias<MultiplyUnitSubvalues<AClass, BClass>>, AMeta>
+    : B extends UnitConversionRate<infer BMeta>
+    ? Unit<AClass, FlatternAlias<MultiplyUnitSubvalues<AMeta, BMeta>>>
     : A
-  : B extends UnknownUnit
-  ? A extends UnknownAbstractUnit
-    ? never
-    : B
-  : A extends AbstractUnit<infer AConfig>
-  ? B extends AbstractUnit<infer BConfig>
-    ? AbstractUnit<FlatternAlias<MultiplyUnitSubvalues<AConfig, BConfig>>>
+  : never;
+
+/**
+ * Multiple an AbstractUnit by an AbstractUnit, UnitConversionRate or number
+ *
+ * @internal
+ */
+type MultiplyHelperAbstractUnit<
+  A extends UnknownAbstractUnit,
+  B extends number,
+> = A extends AbstractUnit<infer AClass>
+  ? B extends AbstractUnit<infer BClass>
+    ? AbstractUnit<FlatternAlias<MultiplyUnitSubvalues<AClass, BClass>>>
+    : B extends UnitConversionRate<infer BMeta>
+    ? Unit<AClass, BMeta>
     : A
-  : B extends UnknownAbstractUnit
-  ? B
-  : number;
+  : never;
+
+/**
+ * Multiple an UnitConversionRate by a UnitConversionRate or number
+ *
+ * @internal
+ */
+type MultiplyHelperUnitConversionRate<
+  A extends UnknownUnitConversionRate,
+  B extends number,
+> = A extends UnitConversionRate<infer AMeta>
+  ? B extends UnitConversionRate<infer BMeta>
+    ? UnitConversionRate<FlatternAlias<MultiplyUnitSubvalues<AMeta, BMeta>>>
+    : A
+  : never;
 
 /**
  * Multiply each of the subvalues from a unit with the corresponding once from another unit.
@@ -107,15 +150,17 @@ export type DivideUnitSubvalues<
  * @group Unit Functions
  */
 export type Pow<T extends number, N extends Exponent> = T extends Unit<
-  infer Config,
+  infer Class,
   infer Meta
 >
   ? Unit<
-      FlatternAlias<PowUnitSubvalues<Config, N>>,
+      FlatternAlias<PowUnitSubvalues<Class, N>>,
       FlatternAlias<PowUnitSubvalues<Meta, N>>
     >
-  : T extends AbstractUnit<infer Config>
-  ? AbstractUnit<FlatternAlias<PowUnitSubvalues<Config, N>>>
+  : T extends AbstractUnit<infer Class>
+  ? AbstractUnit<FlatternAlias<PowUnitSubvalues<Class, N>>>
+  : T extends UnitConversionRate<infer Meta>
+  ? UnitConversionRate<FlatternAlias<PowUnitSubvalues<Meta, N>>>
   : number;
 
 /**
@@ -136,15 +181,17 @@ export type PowUnitSubvalues<
  * @group Unit Functions
  */
 export type Root<T extends number, N extends Exponent> = T extends Unit<
-  infer Config,
+  infer Class,
   infer Meta
 >
   ? Unit<
-      FlatternAlias<RootUnitSubvalues<Config, N>>,
+      FlatternAlias<RootUnitSubvalues<Class, N>>,
       FlatternAlias<RootUnitSubvalues<Meta, N>>
     >
-  : T extends AbstractUnit<infer Config>
-  ? AbstractUnit<FlatternAlias<RootUnitSubvalues<Config, N>>>
+  : T extends AbstractUnit<infer Class>
+  ? AbstractUnit<FlatternAlias<RootUnitSubvalues<Class, N>>>
+  : T extends UnitConversionRate<infer Meta>
+  ? UnitConversionRate<FlatternAlias<RootUnitSubvalues<Meta, N>>>
   : number;
 
 /**
@@ -164,6 +211,327 @@ export type RootUnitSubvalues<
 /* eslint-disable functional/no-conditional-statements, functional/no-expression-statements, functional/no-return-void */
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
+
+  describe("Inverse", () => {
+    it("works with Units", () => {
+      assert<Equals<Inverse<Unit<{ a: 1; b: 2 }>>, Unit<{ a: -1; b: -2 }>>>();
+    });
+
+    it("works with Unit by AbstractUnit", () => {
+      assert<
+        Equals<
+          Inverse<AbstractUnit<{ a: 2; b: 2 }>>,
+          AbstractUnit<{ a: -2; b: -2 }>
+        >
+      >();
+    });
+
+    it("works with Unit by UnitConversionRate", () => {
+      assert<
+        Equals<
+          Inverse<UnitConversionRate<{ a: 2; b: 2 }>>,
+          UnitConversionRate<{ a: -2; b: -2 }>
+        >
+      >();
+    });
+  });
+
+  describe("Multiply", () => {
+    it("works with Unit by Unit", () => {
+      assert<
+        Equals<
+          Multiply<Unit<{ a: 1 }>, Unit<{ a: 1; b: 2 }>>,
+          Unit<{ a: 2; b: 2 }>
+        >
+      >();
+    });
+
+    it("works with Unit by number", () => {
+      assert<
+        Equals<Multiply<Unit<{ a: 2; b: 2 }>, number>, Unit<{ a: 2; b: 2 }>>
+      >();
+
+      assert<
+        Equals<Multiply<number, Unit<{ a: 2; b: 2 }>>, Unit<{ a: 2; b: 2 }>>
+      >();
+    });
+
+    it("works with Unit by concrete number", () => {
+      assert<Equals<Multiply<Unit<{ a: 2; b: 2 }>, 2>, Unit<{ a: 2; b: 2 }>>>();
+
+      assert<Equals<Multiply<2, Unit<{ a: 2; b: 2 }>>, Unit<{ a: 2; b: 2 }>>>();
+    });
+
+    it("works with Unit by AbstractUnit", () => {
+      assert<
+        Equals<
+          Multiply<Unit<{ a: 2; b: 2 }>, AbstractUnit<{ a: 1 }>>,
+          Unit<{ a: 3; b: 2 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Multiply<AbstractUnit<{ a: 1 }>, Unit<{ a: 2; b: 2 }>>,
+          Unit<{ a: 3; b: 2 }>
+        >
+      >();
+    });
+
+    it("works with AbstractUnit by AbstractUnit", () => {
+      assert<
+        Equals<
+          Multiply<AbstractUnit<{ a: 1 }>, AbstractUnit<{ a: 1; b: 2 }>>,
+          AbstractUnit<{ a: 2; b: 2 }>
+        >
+      >();
+    });
+
+    it("works with AbstractUnit by number", () => {
+      assert<
+        Equals<
+          Multiply<AbstractUnit<{ a: 2; b: 2 }>, number>,
+          AbstractUnit<{ a: 2; b: 2 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Multiply<number, AbstractUnit<{ a: 2; b: 2 }>>,
+          AbstractUnit<{ a: 2; b: 2 }>
+        >
+      >();
+    });
+
+    it("works with AbstractUnit by concrete number", () => {
+      assert<
+        Equals<
+          Multiply<AbstractUnit<{ a: 2; b: 2 }>, 2>,
+          AbstractUnit<{ a: 2; b: 2 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Multiply<2, AbstractUnit<{ a: 2; b: 2 }>>,
+          AbstractUnit<{ a: 2; b: 2 }>
+        >
+      >();
+    });
+
+    it("works with AbstractUnit by UnitConversionRate", () => {
+      assert<
+        Equals<
+          Multiply<
+            AbstractUnit<{ a: 2; b: 2 }>,
+            UnitConversionRate<{ c: 3; d: 4 }>
+          >,
+          Unit<{ a: 2; b: 2 }, { c: 3; d: 4 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Multiply<
+            UnitConversionRate<{ c: 3; d: 4 }>,
+            AbstractUnit<{ a: 2; b: 2 }>
+          >,
+          Unit<{ a: 2; b: 2 }, { c: 3; d: 4 }>
+        >
+      >();
+    });
+
+    it("works with UnitConversionRate by UnitConversionRate", () => {
+      assert<
+        Equals<
+          Multiply<
+            UnitConversionRate<{ a: 1 }>,
+            UnitConversionRate<{ a: 1; b: 2 }>
+          >,
+          UnitConversionRate<{ a: 2; b: 2 }>
+        >
+      >();
+    });
+
+    it("works with UnitConversionRate by number", () => {
+      assert<
+        Equals<
+          Multiply<UnitConversionRate<{ a: 2; b: 2 }>, number>,
+          UnitConversionRate<{ a: 2; b: 2 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Multiply<number, UnitConversionRate<{ a: 2; b: 2 }>>,
+          UnitConversionRate<{ a: 2; b: 2 }>
+        >
+      >();
+    });
+
+    it("works with UnitConversionRate by concrete number", () => {
+      assert<
+        Equals<
+          Multiply<UnitConversionRate<{ a: 2; b: 2 }>, 2>,
+          UnitConversionRate<{ a: 2; b: 2 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Multiply<2, UnitConversionRate<{ a: 2; b: 2 }>>,
+          UnitConversionRate<{ a: 2; b: 2 }>
+        >
+      >();
+    });
+  });
+
+  describe("Divide", () => {
+    it("works with Unit by Unit", () => {
+      assert<
+        Equals<Divide<Unit<{ a: 1 }>, Unit<{ a: 1; b: 2 }>>, Unit<{ b: -2 }>>
+      >();
+    });
+
+    it("works with Unit by number", () => {
+      assert<
+        Equals<Divide<Unit<{ a: 2; b: 2 }>, number>, Unit<{ a: 2; b: 2 }>>
+      >();
+
+      assert<
+        Equals<Divide<number, Unit<{ a: 2; b: 2 }>>, Unit<{ a: -2; b: -2 }>>
+      >();
+    });
+
+    it("works with Unit by concrete number", () => {
+      assert<Equals<Divide<Unit<{ a: 2; b: 2 }>, 2>, Unit<{ a: 2; b: 2 }>>>();
+
+      assert<Equals<Divide<2, Unit<{ a: 2; b: 2 }>>, Unit<{ a: -2; b: -2 }>>>();
+    });
+
+    it("works with Unit by AbstractUnit", () => {
+      assert<
+        Equals<
+          Divide<Unit<{ a: 2; b: 2 }>, AbstractUnit<{ a: 1 }>>,
+          Unit<{ a: 1; b: 2 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Divide<AbstractUnit<{ a: 1 }>, Unit<{ a: 2; b: 2 }>>,
+          Unit<{ a: -1; b: -2 }>
+        >
+      >();
+    });
+
+    it("works with AbstractUnit by AbstractUnit", () => {
+      assert<
+        Equals<
+          Divide<AbstractUnit<{ a: 1 }>, AbstractUnit<{ a: 1; b: 2 }>>,
+          AbstractUnit<{ b: -2 }>
+        >
+      >();
+    });
+
+    it("works with AbstractUnit by number", () => {
+      assert<
+        Equals<
+          Divide<AbstractUnit<{ a: 2; b: 2 }>, number>,
+          AbstractUnit<{ a: 2; b: 2 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Divide<number, AbstractUnit<{ a: 2; b: 2 }>>,
+          AbstractUnit<{ a: -2; b: -2 }>
+        >
+      >();
+    });
+
+    it("works with AbstractUnit by concrete number", () => {
+      assert<
+        Equals<
+          Divide<AbstractUnit<{ a: 2; b: 2 }>, 2>,
+          AbstractUnit<{ a: 2; b: 2 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Divide<2, AbstractUnit<{ a: 2; b: 2 }>>,
+          AbstractUnit<{ a: -2; b: -2 }>
+        >
+      >();
+    });
+
+    it("works with AbstractUnit by UnitConversionRate", () => {
+      assert<
+        Equals<
+          Divide<
+            AbstractUnit<{ a: 2; b: 2 }>,
+            UnitConversionRate<{ c: 3; d: 4 }>
+          >,
+          Unit<{ a: 2; b: 2 }, { c: -3; d: -4 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Divide<
+            UnitConversionRate<{ c: 3; d: 4 }>,
+            AbstractUnit<{ a: 2; b: 2 }>
+          >,
+          Unit<{ a: -2; b: -2 }, { c: 3; d: 4 }>
+        >
+      >();
+    });
+
+    it("works with UnitConversionRate by UnitConversionRate", () => {
+      assert<
+        Equals<
+          Divide<
+            UnitConversionRate<{ a: 1 }>,
+            UnitConversionRate<{ a: 1; b: 2 }>
+          >,
+          UnitConversionRate<{ b: -2 }>
+        >
+      >();
+    });
+
+    it("works with UnitConversionRate by number", () => {
+      assert<
+        Equals<
+          Divide<UnitConversionRate<{ a: 2; b: 2 }>, number>,
+          UnitConversionRate<{ a: 2; b: 2 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Divide<number, UnitConversionRate<{ a: 2; b: 2 }>>,
+          UnitConversionRate<{ a: -2; b: -2 }>
+        >
+      >();
+    });
+
+    it("works with UnitConversionRate by concrete number", () => {
+      assert<
+        Equals<
+          Divide<UnitConversionRate<{ a: 2; b: 2 }>, 2>,
+          UnitConversionRate<{ a: 2; b: 2 }>
+        >
+      >();
+
+      assert<
+        Equals<
+          Divide<2, UnitConversionRate<{ a: 2; b: 2 }>>,
+          UnitConversionRate<{ a: -2; b: -2 }>
+        >
+      >();
+    });
+  });
 
   describe("Pow", () => {
     it("works with Units", () => {
@@ -185,6 +553,45 @@ if (import.meta.vitest !== undefined) {
       assert<Equals<Pow<AbstractUnit<{ a: 2 }>, 3>, AbstractUnit<{ a: 6 }>>>();
       assert<
         Equals<Pow<AbstractUnit<{ a: -2 }>, 3>, AbstractUnit<{ a: -6 }>>
+      >();
+    });
+
+    it("works with UnitConversionRate", () => {
+      assert<
+        Equals<
+          Pow<UnitConversionRate<{ a: 1 }>, 2>,
+          UnitConversionRate<{ a: 2 }>
+        >
+      >();
+      assert<
+        Equals<
+          Pow<UnitConversionRate<{ a: 2 }>, 2>,
+          UnitConversionRate<{ a: 4 }>
+        >
+      >();
+      assert<
+        Equals<
+          Pow<UnitConversionRate<{ a: -2 }>, 2>,
+          UnitConversionRate<{ a: -4 }>
+        >
+      >();
+      assert<
+        Equals<
+          Pow<UnitConversionRate<{ a: 1 }>, 3>,
+          UnitConversionRate<{ a: 3 }>
+        >
+      >();
+      assert<
+        Equals<
+          Pow<UnitConversionRate<{ a: 2 }>, 3>,
+          UnitConversionRate<{ a: 6 }>
+        >
+      >();
+      assert<
+        Equals<
+          Pow<UnitConversionRate<{ a: -2 }>, 3>,
+          UnitConversionRate<{ a: -6 }>
+        >
       >();
     });
   });
@@ -209,6 +616,45 @@ if (import.meta.vitest !== undefined) {
       assert<Equals<Root<AbstractUnit<{ a: 3 }>, 3>, AbstractUnit<{ a: 1 }>>>();
       assert<
         Equals<Root<AbstractUnit<{ a: -3 }>, 3>, AbstractUnit<{ a: -1 }>>
+      >();
+    });
+
+    it("works with UnitConversionRate", () => {
+      assert<
+        Equals<
+          Root<UnitConversionRate<{ a: 4 }>, 2>,
+          UnitConversionRate<{ a: 2 }>
+        >
+      >();
+      assert<
+        Equals<
+          Root<UnitConversionRate<{ a: 2 }>, 2>,
+          UnitConversionRate<{ a: 1 }>
+        >
+      >();
+      assert<
+        Equals<
+          Root<UnitConversionRate<{ a: -2 }>, 2>,
+          UnitConversionRate<{ a: -1 }>
+        >
+      >();
+      assert<
+        Equals<
+          Root<UnitConversionRate<{ a: 6 }>, 3>,
+          UnitConversionRate<{ a: 2 }>
+        >
+      >();
+      assert<
+        Equals<
+          Root<UnitConversionRate<{ a: 3 }>, 3>,
+          UnitConversionRate<{ a: 1 }>
+        >
+      >();
+      assert<
+        Equals<
+          Root<UnitConversionRate<{ a: -3 }>, 3>,
+          UnitConversionRate<{ a: -1 }>
+        >
       >();
     });
   });
