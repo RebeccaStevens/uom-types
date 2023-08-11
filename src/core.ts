@@ -58,7 +58,9 @@ export type UnitFrom<
  *
  * @group Unit Generators
  */
-export type UnitConversionRate<M extends UnitSubvalues> = Unit<{}, M>;
+export type UnitConversionRate<M extends UnitSubvalues> = number & {
+  readonly __uom_types__unit_meta: UnitMeta<M>;
+};
 
 /**
  * Create a {@link UnitConversionRate} from already existing {@link UnitMeta}.
@@ -105,6 +107,15 @@ export type UnknownUnit = UnknownAbstractUnit & {
  */
 export type UnknownAbstractUnit = number & {
   readonly __uom_types__unit_class: UnknownUnitClass;
+};
+
+/**
+ * An {@link UnitConversionRate} that we don't know anything about.
+ *
+ * @group Unknown Units
+ */
+export type UnknownUnitConversionRate = number & {
+  readonly __uom_types__unit_meta: UnknownUnitMeta;
 };
 
 /**
