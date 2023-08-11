@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+## [3.1.1](https://github.com/RebeccaStevens/uom-types/compare/v3.1.0...v3.1.1) (2023-08-11)
+
+
+### Bug Fixes
+
+* improve core unit and prefix logic ([9bf4c9f](https://github.com/RebeccaStevens/uom-types/commit/9bf4c9f92609177b37ebc157dfc0d819e5eac995))
+* improve modifer logic ([673f0b4](https://github.com/RebeccaStevens/uom-types/commit/673f0b44d277e3b7c188a01338e8e88d7bb2cd69))
+* improve unit function logic ([1350c8e](https://github.com/RebeccaStevens/uom-types/commit/1350c8ee2150553abb59a13658fc5279ecae89a7))
+* update UnitConversionRate type and create UnknownUnitConversionRate type ([ee942be](https://github.com/RebeccaStevens/uom-types/commit/ee942bed8a8c31101474c28f92b1cfede2f9d629))
+
 # [3.1.0](https://github.com/RebeccaStevens/uom-types/compare/v3.0.1...v3.1.0) (2023-08-09)
 
 
