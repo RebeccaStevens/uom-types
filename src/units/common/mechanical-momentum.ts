@@ -57,7 +57,12 @@ export type MomentumUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type NewtonSecond = MomentumUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<NewtonSecond, Multiply<Newton, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("NewtonSecond", () => {
+    it("is newtons by seconds", () => {
+      assert<Equals<NewtonSecond, Multiply<Newton, Second>>>();
+    });
+  });
 }

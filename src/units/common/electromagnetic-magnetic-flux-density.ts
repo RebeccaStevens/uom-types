@@ -60,7 +60,12 @@ export type MagneticFluxDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Tesla = MagneticFluxDensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Tesla, Divide<Weber, Square<Metre>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Tesla", () => {
+    it("is weber per square metre", () => {
+      assert<Equals<Tesla, Divide<Weber, Square<Metre>>>>();
+    });
+  });
 }

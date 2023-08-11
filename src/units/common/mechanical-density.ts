@@ -52,7 +52,12 @@ export type DensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type KilogramPerCubicMetre = DensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KilogramPerCubicMetre, Divide<Kilo<Gram>, Cubic<Metre>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("KilogramPerCubicMetre", () => {
+    it("is kilograms per cubic metre", () => {
+      assert<Equals<KilogramPerCubicMetre, Divide<Kilo<Gram>, Cubic<Metre>>>>();
+    });
+  });
 }

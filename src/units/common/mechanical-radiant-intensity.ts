@@ -57,7 +57,12 @@ export type RadiantIntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type WattPerSteradian = RadiantIntensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<WattPerSteradian, Divide<Watt, Steradian>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("WattPerSteradian", () => {
+    it("is watts per steradian", () => {
+      assert<Equals<WattPerSteradian, Divide<Watt, Steradian>>>();
+    });
+  });
 }

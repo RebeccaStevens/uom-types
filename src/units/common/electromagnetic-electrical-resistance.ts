@@ -67,9 +67,20 @@ export type ElectricResistanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Ohm = ElectricResistanceUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Ohm, Divide<Volt, Ampere>>>();
-  assert<Equals<Ohm, Reciprocal<Siemens>>>();
-  assert<Equals<Ohm, Divide<Second, Farad>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Ohm", () => {
+    it("is volts per ampere", () => {
+      assert<Equals<Ohm, Divide<Volt, Ampere>>>();
+    });
+
+    it("is reciprocal of siemens", () => {
+      assert<Equals<Ohm, Reciprocal<Siemens>>>();
+    });
+
+    it("is seconds per farad", () => {
+      assert<Equals<Ohm, Divide<Second, Farad>>>();
+    });
+  });
 }

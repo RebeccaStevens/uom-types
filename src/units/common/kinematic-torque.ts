@@ -66,10 +66,18 @@ export type JoulePerRadian = TorqueUnit<{}>;
 export type NewtonMeterPerRadian = JoulePerRadian;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<NewtonMeterPerRadian, Divide<NewtonMetre, Radian>>>();
-  assert<
-    Equals<NewtonMeterPerRadian, Divide<Multiply<Newton, Metre>, Radian>>
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("NewtonMeterPerRadian", () => {
+    it("is newton metres per radians", () => {
+      assert<Equals<NewtonMeterPerRadian, Divide<NewtonMetre, Radian>>>();
+    });
+
+    it("is newton by metres per radians", () => {
+      assert<
+        Equals<NewtonMeterPerRadian, Divide<Multiply<Newton, Metre>, Radian>>
+      >();
+    });
+  });
 }

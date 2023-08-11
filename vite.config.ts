@@ -25,6 +25,12 @@ export default defineConfig({
 
   test: {
     include: [testFilePattern],
+    includeSource: [
+      "src/**/[!index]*.ts",
+      "!src/deprecated.ts",
+      "!src/exponents.ts",
+      "!src/units/modifiers/prefixes.ts",
+    ],
     coverage: {
       all: true,
       include: ["src/**/*"],

@@ -52,7 +52,12 @@ export type FrequencyDriftUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type HertzPerSecond = FrequencyDriftUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<HertzPerSecond, Divide<Hertz, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("MetrePerSecondToTheFifth", () => {
+    it("is hertz per second", () => {
+      assert<Equals<HertzPerSecond, Divide<Hertz, Second>>>();
+    });
+  });
 }

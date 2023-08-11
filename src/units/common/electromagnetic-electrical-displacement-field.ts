@@ -56,7 +56,12 @@ export type ElectricDisplacementFieldUnitFrom<M extends UnknownUnitMeta> =
 export type CoulombPerSquareMetre = ElectricDisplacementFieldUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CoulombPerSquareMetre, Divide<Coulomb, Square<Metre>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("CoulombPerSquareMetre", () => {
+    it("is coulombs per square metre", () => {
+      assert<Equals<CoulombPerSquareMetre, Divide<Coulomb, Square<Metre>>>>();
+    });
+  });
 }

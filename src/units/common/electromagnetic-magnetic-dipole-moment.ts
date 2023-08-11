@@ -56,7 +56,12 @@ export type MagneticDipoleMomentUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type JoulePerTesla = MagneticDipoleMomentUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<JoulePerTesla, Divide<Joule, Tesla>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("JoulePerTesla", () => {
+    it("is joules per tesla", () => {
+      assert<Equals<JoulePerTesla, Divide<Joule, Tesla>>>();
+    });
+  });
 }

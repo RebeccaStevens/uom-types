@@ -56,7 +56,12 @@ export type LuminousEnergyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type LumenSecond = LuminousEnergyUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<LumenSecond, Multiply<Lumen, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("LumenSecond", () => {
+    it("is lumens by seconds", () => {
+      assert<Equals<LumenSecond, Multiply<Lumen, Second>>>();
+    });
+  });
 }

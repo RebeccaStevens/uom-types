@@ -48,9 +48,17 @@ export type PopUnitFrom<M extends UnknownUnitMeta> = UnitFrom<PopUnitClass, M>;
 export type MetrePerSecondToTheSixth = PopUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<MetrePerSecondToTheSixth, Divide<MetrePerSecondToTheFifth, Second>>
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("MetrePerSecondToTheSixth", () => {
+    it("is MetrePerSecondToTheFifth per second", () => {
+      assert<
+        Equals<
+          MetrePerSecondToTheSixth,
+          Divide<MetrePerSecondToTheFifth, Second>
+        >
+      >();
+    });
+  });
 }

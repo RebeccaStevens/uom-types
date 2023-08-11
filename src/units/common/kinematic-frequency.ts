@@ -9,7 +9,7 @@ import {
 } from "#uom-types";
 
 import { type BaseUnitClass } from "../base-units";
-import { type ReciprocalUnitClass, type Reciprocal } from "../modifiers";
+import { type Reciprocal } from "../modifiers";
 
 import {
   type Duration,
@@ -26,7 +26,7 @@ import {
  * @group Unit Classes
  * @category Kinematic
  */
-export type FrequencyUnitClass = ReciprocalUnitClass<DurationUnitClass>;
+export type FrequencyUnitClass = Reciprocal<DurationUnitClass>;
 
 /**
  * @group Abstract Units
@@ -126,14 +126,19 @@ export type PerYear = FrequencyUnit<{
 }>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<FrequencyUnitClass, BaseUnitClass<{ Second: -1 }>>>();
-  assert<Equals<Hertz, Reciprocal<Second>>>();
-  assert<Equals<PerSecond, Reciprocal<Second>>>();
-  assert<Equals<PerMinute, Reciprocal<Minute>>>();
-  assert<Equals<PerHour, Reciprocal<Hour>>>();
-  assert<Equals<PerDay, Reciprocal<Day>>>();
-  assert<Equals<PerWeek, Reciprocal<Week>>>();
-  assert<Equals<PerYear, Reciprocal<Year>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Frequency", () => {
+    it("is reciprocal of time", () => {
+      assert<Equals<FrequencyUnitClass, BaseUnitClass<{ Second: -1 }>>>();
+      assert<Equals<Hertz, Reciprocal<Second>>>();
+      assert<Equals<PerSecond, Reciprocal<Second>>>();
+      assert<Equals<PerMinute, Reciprocal<Minute>>>();
+      assert<Equals<PerHour, Reciprocal<Hour>>>();
+      assert<Equals<PerDay, Reciprocal<Day>>>();
+      assert<Equals<PerWeek, Reciprocal<Week>>>();
+      assert<Equals<PerYear, Reciprocal<Year>>>();
+    });
+  });
 }

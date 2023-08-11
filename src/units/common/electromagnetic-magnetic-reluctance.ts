@@ -9,7 +9,7 @@ import {
 } from "#uom-types";
 
 import { type BaseUnitClass } from "../base-units";
-import { type ReciprocalUnitClass, type Reciprocal } from "../modifiers";
+import { type Reciprocal } from "../modifiers";
 
 import { type ElectricInductance, type ElectricInductanceUnitClass } from ".";
 
@@ -18,7 +18,7 @@ import { type ElectricInductance, type ElectricInductanceUnitClass } from ".";
  * @category Electromagnetic
  */
 export type MagneticReluctanceUnitClass =
-  ReciprocalUnitClass<ElectricInductanceUnitClass>;
+  Reciprocal<ElectricInductanceUnitClass>;
 
 /**
  * @group Abstract Units
@@ -43,17 +43,22 @@ export type MagneticReluctanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 >;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<
-      MagneticReluctanceUnitClass,
-      BaseUnitClass<{
-        Kilogram: -1;
-        Metre: -2;
-        Second: 2;
-        Ampere: 2;
-      }>
-    >
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("MagneticReluctanceUnitClass", () => {
+    it("has the right base units", () => {
+      assert<
+        Equals<
+          MagneticReluctanceUnitClass,
+          BaseUnitClass<{
+            Kilogram: -1;
+            Metre: -2;
+            Second: 2;
+            Ampere: 2;
+          }>
+        >
+      >();
+    });
+  });
 }

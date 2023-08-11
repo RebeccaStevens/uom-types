@@ -56,7 +56,12 @@ export type MagneticSusceptibilityUnitFrom<M extends UnknownUnitMeta> =
 export type MetrePerHenry = MagneticSusceptibilityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<MetrePerHenry, Divide<Metre, Henry>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("MetrePerHenry", () => {
+    it("is metres per henry", () => {
+      assert<Equals<MetrePerHenry, Divide<Metre, Henry>>>();
+    });
+  });
 }

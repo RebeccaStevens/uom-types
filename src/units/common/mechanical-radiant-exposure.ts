@@ -56,7 +56,12 @@ export type RadiantExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type JoulePerSquareMetre = RadiantExposureUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<JoulePerSquareMetre, Divide<Joule, Square<Metre>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("JoulePerSquareMetre", () => {
+    it("is joules per square metre", () => {
+      assert<Equals<JoulePerSquareMetre, Divide<Joule, Square<Metre>>>>();
+    });
+  });
 }

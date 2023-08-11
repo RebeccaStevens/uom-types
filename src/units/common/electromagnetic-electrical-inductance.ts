@@ -58,8 +58,16 @@ export type ElectricInductanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Henry = ElectricInductanceUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Henry, Divide<Weber, Ampere>>>();
-  assert<Equals<Henry, Multiply<Ohm, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Henry", () => {
+    it("is webers per ampere", () => {
+      assert<Equals<Henry, Divide<Weber, Ampere>>>();
+    });
+
+    it("is ohms per seconds", () => {
+      assert<Equals<Henry, Multiply<Ohm, Second>>>();
+    });
+  });
 }

@@ -55,7 +55,12 @@ export type ElectricLinearChargeDensityUnitFrom<M extends UnknownUnitMeta> =
 export type CoulombPerMetre = ElectricLinearChargeDensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<CoulombPerMetre, Divide<Coulomb, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("CoulombPerMetre", () => {
+    it("is coulombs per ampere", () => {
+      assert<Equals<CoulombPerMetre, Divide<Coulomb, Metre>>>();
+    });
+  });
 }

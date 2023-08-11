@@ -58,7 +58,12 @@ export type PermittivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type FaradPerMetre = PermittivityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<FaradPerMetre, Divide<Farad, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("FaradPerMetre", () => {
+    it("is farads per metre", () => {
+      assert<Equals<FaradPerMetre, Divide<Farad, Metre>>>();
+    });
+  });
 }

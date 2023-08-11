@@ -15,6 +15,7 @@ export type {
   UnknownAbstractUnit,
   UnknownUnit,
   UnknownUnitClass,
+  UnknownUnitConversionRate,
   UnknownUnitMeta,
 } from "./core";
 export type {

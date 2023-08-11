@@ -54,7 +54,12 @@ export type IntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type WattPerSquareMetre = IntensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<WattPerSquareMetre, Divide<Watt, Square<Metre>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("WattPerSquareMetre", () => {
+    it("is watts per square metre", () => {
+      assert<Equals<WattPerSquareMetre, Divide<Watt, Square<Metre>>>>();
+    });
+  });
 }

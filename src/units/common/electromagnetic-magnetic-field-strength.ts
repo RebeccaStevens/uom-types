@@ -56,7 +56,12 @@ export type MagneticFieldStrengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type AmperePerMetre = MagneticFieldStrengthUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<AmperePerMetre, Divide<Ampere, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("AmperePerMetre", () => {
+    it("is amperes per metre", () => {
+      assert<Equals<AmperePerMetre, Divide<Ampere, Metre>>>();
+    });
+  });
 }

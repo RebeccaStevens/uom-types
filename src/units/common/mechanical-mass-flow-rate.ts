@@ -57,7 +57,12 @@ export type MassFlowRateUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type KilogramPerSecond = MassFlowRateUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KilogramPerSecond, Divide<Kilo<Gram>, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("KilogramPerSecond", () => {
+    it("is kilograms per second", () => {
+      assert<Equals<KilogramPerSecond, Divide<Kilo<Gram>, Second>>>();
+    });
+  });
 }

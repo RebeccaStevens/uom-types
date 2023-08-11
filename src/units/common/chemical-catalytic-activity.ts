@@ -53,7 +53,12 @@ export type CatalyticActivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Katal = CatalyticActivityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Katal, Divide<Mole, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Katal", () => {
+    it("is moles per second", () => {
+      assert<Equals<Katal, Divide<Mole, Second>>>();
+    });
+  });
 }

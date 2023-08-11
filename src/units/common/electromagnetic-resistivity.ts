@@ -58,7 +58,12 @@ export type ResistivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type OhmMetre = ResistivityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<OhmMetre, Multiply<Ohm, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("OhmMetre", () => {
+    it("is ohms by metres", () => {
+      assert<Equals<OhmMetre, Multiply<Ohm, Metre>>>();
+    });
+  });
 }

@@ -62,8 +62,16 @@ export type PowerUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Watt = PowerUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Watt, Divide<Joule, Second>>>();
-  assert<Equals<Watt, Multiply<Ampere, Volt>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Watt", () => {
+    it("is joules per second", () => {
+      assert<Equals<Watt, Divide<Joule, Second>>>();
+    });
+
+    it("is ampere by volts", () => {
+      assert<Equals<Watt, Multiply<Ampere, Volt>>>();
+    });
+  });
 }

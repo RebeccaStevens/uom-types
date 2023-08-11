@@ -58,12 +58,17 @@ export type MomentOfInertiaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type KilogramSquareMetrePerSteradian = MomentOfInertiaUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<
-      KilogramSquareMetrePerSteradian,
-      Divide<Multiply<Kilo<Gram>, Square<Metre>>, Steradian>
-    >
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("KilogramSquareMetrePerSteradian", () => {
+    it("is kilograms by square metres per steradian", () => {
+      assert<
+        Equals<
+          KilogramSquareMetrePerSteradian,
+          Divide<Multiply<Kilo<Gram>, Square<Metre>>, Steradian>
+        >
+      >();
+    });
+  });
 }

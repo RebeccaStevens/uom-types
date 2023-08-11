@@ -9,7 +9,7 @@ import {
 } from "#uom-types";
 
 import { type BaseUnitClass } from "../base-units";
-import { type ReciprocalUnitClass, type Reciprocal } from "../modifiers";
+import { type Reciprocal } from "../modifiers";
 
 import { type PressureUnitClass, type Pressure } from ".";
 
@@ -17,7 +17,7 @@ import { type PressureUnitClass, type Pressure } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type CompressibilityUnitClass = ReciprocalUnitClass<PressureUnitClass>;
+export type CompressibilityUnitClass = Reciprocal<PressureUnitClass>;
 
 /**
  * @group Abstract Units
@@ -42,16 +42,21 @@ export type CompressibilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 >;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<
-      CompressibilityUnitClass,
-      BaseUnitClass<{
-        Kilogram: -1;
-        Metre: 1;
-        Second: 2;
-      }>
-    >
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("CompressibilityUnitClass", () => {
+    it("has the right base units", () => {
+      assert<
+        Equals<
+          CompressibilityUnitClass,
+          BaseUnitClass<{
+            Kilogram: -1;
+            Metre: 1;
+            Second: 2;
+          }>
+        >
+      >();
+    });
+  });
 }

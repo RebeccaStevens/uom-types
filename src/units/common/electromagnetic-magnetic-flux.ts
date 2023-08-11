@@ -69,9 +69,20 @@ export type MagneticFluxUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Weber = MagneticFluxUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Weber, Multiply<Volt, Second>>>();
-  assert<Equals<Weber, Multiply<Tesla, Square<Metre>>>>();
-  assert<Equals<Weber, Multiply<Henry, Ampere>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Weber", () => {
+    it("is volt second", () => {
+      assert<Equals<Weber, Multiply<Volt, Second>>>();
+    });
+
+    it("is tesla square metres", () => {
+      assert<Equals<Weber, Multiply<Tesla, Square<Metre>>>>();
+    });
+
+    it("is henry amperes", () => {
+      assert<Equals<Weber, Multiply<Henry, Ampere>>>();
+    });
+  });
 }

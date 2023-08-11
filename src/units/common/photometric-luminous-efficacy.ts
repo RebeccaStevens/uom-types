@@ -58,7 +58,12 @@ export type LuminousEfficacyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type LumenPerWatt = LuminousEfficacyUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<LumenPerWatt, Divide<Lumen, Watt>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("LumenPerWatt", () => {
+    it("is lumens per watt", () => {
+      assert<Equals<LumenPerWatt, Divide<Lumen, Watt>>>();
+    });
+  });
 }

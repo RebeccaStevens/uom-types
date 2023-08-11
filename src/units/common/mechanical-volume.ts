@@ -60,14 +60,28 @@ export type VolumeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Litre = VolumeUnit<{ scalar10: -3 }>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Cubic<Metre>, Multiply<Multiply<Metre, Metre>, Metre>>>();
-  assert<Equals<Cubic<Metre>, Multiply<Square<Metre>, Metre>>>();
+  const { describe, it } = import.meta.vitest;
 
-  assert<Equals<Cubic<Centi<Metre>>, Milli<Litre>>>();
+  describe("Cubic Metres", () => {
+    it("is metres by metres by metres", () => {
+      assert<Equals<Cubic<Metre>, Multiply<Multiply<Metre, Metre>, Metre>>>();
+      assert<Equals<Cubic<Metre>, Multiply<Square<Metre>, Metre>>>();
+    });
+  });
 
-  assert<
-    Equals<Litre, Multiply<Multiply<Deci<Metre>, Deci<Metre>>, Deci<Metre>>>
-  >();
+  describe("Cubic Centimetres", () => {
+    it("is a milli litre", () => {
+      assert<Equals<Cubic<Centi<Metre>>, Milli<Litre>>>();
+    });
+  });
+
+  describe("Litres", () => {
+    it("is milli cubic metre", () => {
+      assert<Equals<Litre, Milli<Cubic<Metre>>>>();
+      assert<
+        Equals<Litre, Multiply<Multiply<Deci<Metre>, Deci<Metre>>, Deci<Metre>>>
+      >();
+    });
+  });
 }

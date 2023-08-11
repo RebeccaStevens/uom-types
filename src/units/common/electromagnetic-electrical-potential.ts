@@ -69,10 +69,24 @@ export type ElectricPotentialUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Volt = ElectricPotentialUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Volt, Divide<Watt, Ampere>>>();
-  assert<Equals<Volt, Multiply<Ohm, Ampere>>>();
-  assert<Equals<Volt, Divide<Joule, Coulomb>>>();
-  assert<Equals<Volt, Divide<Weber, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Volt", () => {
+    it("is watts per ampere", () => {
+      assert<Equals<Volt, Divide<Watt, Ampere>>>();
+    });
+
+    it("is ohms by ampere", () => {
+      assert<Equals<Volt, Multiply<Ohm, Ampere>>>();
+    });
+
+    it("is joules per coulomb", () => {
+      assert<Equals<Volt, Divide<Joule, Coulomb>>>();
+    });
+
+    it("is weber per second", () => {
+      assert<Equals<Volt, Divide<Weber, Second>>>();
+    });
+  });
 }

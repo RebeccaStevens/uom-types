@@ -54,7 +54,12 @@ export type LuminousFluxUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Lumen = LuminousFluxUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Lumen, Multiply<Candela, Steradian>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Lumen", () => {
+    it("is candelas by steradians", () => {
+      assert<Equals<Lumen, Multiply<Candela, Steradian>>>();
+    });
+  });
 }

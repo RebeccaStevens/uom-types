@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { assert, type Equals } from "tsafe";
+
 import { type UnitSubvalues } from "./core";
 
 /**
@@ -41,3 +44,21 @@ export type FlatternAlias<T> = { [P in keyof T]: T[P] } & {};
 export type Exactify<T, U extends T> = T & {
   [K in keyof U]: K extends keyof T ? U[K] : never;
 };
+
+// Tests
+if (import.meta.vitest !== undefined) {
+  const { describe, it } = import.meta.vitest;
+
+  describe("Utils", () => {
+    describe("RemoveNeverValues", () => {
+      it("removes nevers", () => {
+        assert<
+          Equals<
+            { a: 1; c: "c" },
+            RemoveNeverValues<{ a: 1; b: never; c: "c" }>
+          >
+        >();
+      });
+    });
+  });
+}

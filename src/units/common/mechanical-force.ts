@@ -59,7 +59,12 @@ export type ForceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Newton = ForceUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Newton, Multiply<Kilo<Gram>, MetrePerSecondSquared>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Newton", () => {
+    it("is kilograms by metres per squared second", () => {
+      assert<Equals<Newton, Multiply<Kilo<Gram>, MetrePerSecondSquared>>>();
+    });
+  });
 }

@@ -56,7 +56,12 @@ export type TemperatureGradientUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type KelvinPerMetre = TemperatureGradientUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KelvinPerMetre, Divide<Kelvin, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("KelvinPerMetre", () => {
+    it("is kelvin per metre", () => {
+      assert<Equals<KelvinPerMetre, Divide<Kelvin, Metre>>>();
+    });
+  });
 }

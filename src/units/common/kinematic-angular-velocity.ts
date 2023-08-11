@@ -56,9 +56,18 @@ export type AngularVelocityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type RadianPerSecond = AngularVelocityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<RadianPerSecond, Divide<Radian, Second>>>();
+  const { describe, it } = import.meta.vitest;
 
-  assert<Equals<RadianPerSecond, Multiply<RadianPerSecondSquared, Second>>>();
+  describe("RadianPerSecond", () => {
+    it("is radian per seconds", () => {
+      assert<Equals<RadianPerSecond, Divide<Radian, Second>>>();
+    });
+
+    it("is radian per squared second by seconds", () => {
+      assert<
+        Equals<RadianPerSecond, Multiply<RadianPerSecondSquared, Second>>
+      >();
+    });
+  });
 }

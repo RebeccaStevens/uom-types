@@ -57,7 +57,12 @@ export type SpectralPowerUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type WattPerMetre = SpectralPowerUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<WattPerMetre, Divide<Watt, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("WattPerMetre", () => {
+    it("is watts per metre", () => {
+      assert<Equals<WattPerMetre, Divide<Watt, Metre>>>();
+    });
+  });
 }

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Extends } from "tsafe";
+import { assert, type Equals, type Extends } from "tsafe";
 
 import { type Exponent } from "./exponents";
 import { type RemoveNeverValues, type ExcludeUnitZeroSubvalues } from "./utils";
@@ -47,7 +47,7 @@ export type UnitFrom<
   M extends UnknownUnitMeta = UnitMeta<{}>,
 > = C extends UnitClass<infer A>
   ? M extends UnitMeta<infer B>
-    ? Unit<UnitSubvalues extends A ? {} : A, UnitSubvalues extends B ? {} : B>
+    ? Unit<A, B>
     : never
   : never;
 
@@ -58,7 +58,9 @@ export type UnitFrom<
  *
  * @group Unit Generators
  */
-export type UnitConversionRate<M extends UnitSubvalues> = Unit<{}, M>;
+export type UnitConversionRate<M extends UnitSubvalues> = number & {
+  readonly __uom_types__unit_meta: UnitMeta<M>;
+};
 
 /**
  * Create a {@link UnitConversionRate} from already existing {@link UnitMeta}.
@@ -66,9 +68,7 @@ export type UnitConversionRate<M extends UnitSubvalues> = Unit<{}, M>;
  * @group Unit Generators
  */
 export type UnitConversionRateFrom<M extends UnknownUnitMeta> =
-  M extends UnitMeta<infer A>
-    ? UnitConversionRate<UnitSubvalues extends A ? {} : A>
-    : never;
+  M extends UnitMeta<infer A> ? UnitConversionRate<A> : never;
 
 /**
  * Used to determine what a unit is of. For example, length, volume, mass etc.
@@ -105,6 +105,15 @@ export type UnknownUnit = UnknownAbstractUnit & {
  */
 export type UnknownAbstractUnit = number & {
   readonly __uom_types__unit_class: UnknownUnitClass;
+};
+
+/**
+ * An {@link UnitConversionRate} that we don't know anything about.
+ *
+ * @group Unknown Units
+ */
+export type UnknownUnitConversionRate = number & {
+  readonly __uom_types__unit_meta: UnknownUnitMeta;
 };
 
 /**
@@ -145,23 +154,118 @@ type UnknownUnitKeyValues = {
 export type UnitSubvalues = Record<string, Exponent>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Extends<Unit<{}>, UnknownUnit>>();
-  assert<Extends<AbstractUnit<{}>, UnknownAbstractUnit>>();
-  assert<Extends<UnitClass<{}>, UnknownUnitClass>>();
-  assert<Extends<UnitMeta<{}>, UnknownUnitMeta>>();
-  assert<Extends<UnitKeyValues<{}>, UnknownUnitKeyValues>>();
+  const { describe, it } = import.meta.vitest;
 
-  assert<Extends<Unit<{ a: 1 }>, UnknownUnit>>();
-  assert<Extends<AbstractUnit<{ a: 1 }>, UnknownAbstractUnit>>();
-  assert<Extends<UnitClass<{ a: 1 }>, UnknownUnitClass>>();
-  assert<Extends<UnitMeta<{ a: 1 }>, UnknownUnitMeta>>();
-  assert<Extends<UnitKeyValues<{ a: 1 }>, UnknownUnitKeyValues>>();
+  describe("Unit", () => {
+    it("is equivalent to UnitFrom", () => {
+      assert<Equals<Unit<{}>, UnitFrom<UnitClass<{}>>>>();
+      assert<Equals<Unit<{ a: 1 }>, UnitFrom<UnitClass<{ a: 1 }>>>>();
+      assert<Equals<Unit<UnitSubvalues>, UnitFrom<UnitClass<UnitSubvalues>>>>();
+    });
+  });
 
-  assert<Extends<Unit<UnitSubvalues>, UnknownUnit>>();
-  assert<Extends<AbstractUnit<UnitSubvalues>, UnknownAbstractUnit>>();
-  assert<Extends<UnitClass<UnitSubvalues>, UnknownUnitClass>>();
-  assert<Extends<UnitMeta<UnitSubvalues>, UnknownUnitMeta>>();
-  assert<Extends<UnitKeyValues<UnitSubvalues>, UnknownUnitKeyValues>>();
+  describe("AbstractUnit", () => {
+    it("a super type of Unit", () => {
+      assert<Extends<Unit<{}>, AbstractUnit<{}>>>();
+      assert<Extends<Unit<{ a: 1 }>, AbstractUnit<{ a: 1 }>>>();
+      assert<Extends<Unit<UnitSubvalues>, AbstractUnit<UnitSubvalues>>>();
+      assert<
+        Extends<UnitFrom<UnitClass<{}>>, AbstractUnitFrom<UnitClass<{}>>>
+      >();
+      assert<
+        Extends<
+          UnitFrom<UnitClass<{ a: 1 }>>,
+          AbstractUnitFrom<UnitClass<{ a: 1 }>>
+        >
+      >();
+      assert<
+        Extends<
+          UnitFrom<UnitClass<UnitSubvalues>>,
+          AbstractUnitFrom<UnitClass<UnitSubvalues>>
+        >
+      >();
+    });
+  });
+
+  describe("UnitConversionRate", () => {
+    it("a super type of Unit", () => {
+      assert<Extends<Unit<{}>, UnitConversionRate<{}>>>();
+      assert<Extends<Unit<{}, { a: 1 }>, UnitConversionRate<{ a: 1 }>>>();
+      assert<
+        Extends<Unit<{}, UnitSubvalues>, UnitConversionRate<UnitSubvalues>>
+      >();
+      assert<
+        Extends<UnitFrom<UnitClass<{}>>, UnitConversionRateFrom<UnitMeta<{}>>>
+      >();
+      assert<
+        Extends<
+          UnitFrom<UnitClass<{}>, UnitMeta<{ a: 1 }>>,
+          UnitConversionRateFrom<UnitMeta<{ a: 1 }>>
+        >
+      >();
+      assert<
+        Extends<
+          UnitFrom<UnitClass<{}>, UnitMeta<UnitSubvalues>>,
+          UnitConversionRateFrom<UnitMeta<UnitSubvalues>>
+        >
+      >();
+    });
+  });
+
+  describe("Unknown", () => {
+    const assignableToConcreteTypes = "is assignable to concrete types";
+
+    describe("Unit", () => {
+      it(assignableToConcreteTypes, () => {
+        assert<Extends<Unit<{}>, UnknownUnit>>();
+        assert<Extends<Unit<{ a: 1 }>, UnknownUnit>>();
+        assert<Extends<Unit<UnitSubvalues>, UnknownUnit>>();
+      });
+    });
+
+    describe("AbstractUnit", () => {
+      it(assignableToConcreteTypes, () => {
+        assert<Extends<AbstractUnit<{}>, UnknownAbstractUnit>>();
+        assert<Extends<AbstractUnit<{ a: 1 }>, UnknownAbstractUnit>>();
+        assert<Extends<AbstractUnit<UnitSubvalues>, UnknownAbstractUnit>>();
+      });
+    });
+
+    describe("UnitConversionRate", () => {
+      it(assignableToConcreteTypes, () => {
+        assert<Extends<UnitConversionRate<{}>, UnknownUnitConversionRate>>();
+        assert<
+          Extends<UnitConversionRate<{ a: 1 }>, UnknownUnitConversionRate>
+        >();
+        assert<
+          Extends<UnitConversionRate<UnitSubvalues>, UnknownUnitConversionRate>
+        >();
+      });
+    });
+
+    describe("UnitClass", () => {
+      it(assignableToConcreteTypes, () => {
+        assert<Extends<UnitClass<{}>, UnknownUnitClass>>();
+        assert<Extends<UnitClass<{ a: 1 }>, UnknownUnitClass>>();
+        assert<Extends<UnitClass<UnitSubvalues>, UnknownUnitClass>>();
+      });
+    });
+
+    describe("UnitMeta", () => {
+      it(assignableToConcreteTypes, () => {
+        assert<Extends<UnitMeta<{}>, UnknownUnitMeta>>();
+        assert<Extends<UnitMeta<{ a: 1 }>, UnknownUnitMeta>>();
+        assert<Extends<UnitMeta<UnitSubvalues>, UnknownUnitMeta>>();
+      });
+    });
+
+    describe("UnitKeyValues", () => {
+      it(assignableToConcreteTypes, () => {
+        assert<Extends<UnitKeyValues<{}>, UnknownUnitKeyValues>>();
+        assert<Extends<UnitKeyValues<{ a: 1 }>, UnknownUnitKeyValues>>();
+        assert<Extends<UnitKeyValues<UnitSubvalues>, UnknownUnitKeyValues>>();
+      });
+    });
+  });
 }

@@ -57,7 +57,12 @@ export type EnthalpyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Gray = EnthalpyUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Gray, Divide<Joule, Kilo<Gram>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("Gray", () => {
+    it("is jouls per kilogram", () => {
+      assert<Equals<Gray, Divide<Joule, Kilo<Gram>>>>();
+    });
+  });
 }

@@ -55,7 +55,12 @@ export type AbsorbedDoseRateUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type GrayPerSecond = AbsorbedDoseRateUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<GrayPerSecond, Divide<Gray, Second>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("GrayPerSecond", () => {
+    it("is grays per second", () => {
+      assert<Equals<GrayPerSecond, Divide<Gray, Second>>>();
+    });
+  });
 }

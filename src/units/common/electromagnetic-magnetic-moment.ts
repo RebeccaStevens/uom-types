@@ -57,7 +57,12 @@ export type MagneticMomentUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type WeberMetre = MagneticMomentUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<WeberMetre, Multiply<Weber, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("WeberMetre", () => {
+    it("is weber metres", () => {
+      assert<Equals<WeberMetre, Multiply<Weber, Metre>>>();
+    });
+  });
 }

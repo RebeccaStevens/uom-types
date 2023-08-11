@@ -59,12 +59,17 @@ export type RadianceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type WattPerSteradianquareMetre = RadianceUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<
-      WattPerSteradianquareMetre,
-      Divide<Watt, Multiply<Steradian, Square<Metre>>>
-    >
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("WattPerSteradianquareMetre", () => {
+    it("is watts per steradian square metre", () => {
+      assert<
+        Equals<
+          WattPerSteradianquareMetre,
+          Divide<Watt, Multiply<Steradian, Square<Metre>>>
+        >
+      >();
+    });
+  });
 }

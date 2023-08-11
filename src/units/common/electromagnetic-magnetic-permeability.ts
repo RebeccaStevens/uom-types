@@ -58,7 +58,12 @@ export type MagneticPermeabilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type HenryPerMetre = MagneticPermeabilityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<HenryPerMetre, Divide<Henry, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("HenryPerMetre", () => {
+    it("is henry per metre", () => {
+      assert<Equals<HenryPerMetre, Divide<Henry, Metre>>>();
+    });
+  });
 }

@@ -38,6 +38,14 @@
   },
   "overrides": [
     {
+      "files": ["src/*.ts", "src/units/**/*.ts"],
+      "rules": {
+        "functional/no-conditional-statements": "off",
+        "functional/no-expression-statements": "off",
+        "functional/no-return-void": "off"
+      }
+    },
+    {
       "files": ["src/functions"],
       "rules": {
         "functional/functional-parameters": [

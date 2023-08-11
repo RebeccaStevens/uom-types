@@ -53,7 +53,14 @@ export type SurfaceDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type KilogramPerSquareMetre = SurfaceDensityUnit<{}>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<KilogramPerSquareMetre, Divide<Kilo<Gram>, Square<Metre>>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("KilogramPerSquareMetre", () => {
+    it("is kilograms per square metre", () => {
+      assert<
+        Equals<KilogramPerSquareMetre, Divide<Kilo<Gram>, Square<Metre>>>
+      >();
+    });
+  });
 }

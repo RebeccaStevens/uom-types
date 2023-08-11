@@ -62,8 +62,16 @@ export type Are = AreaUnit<{ scalar10: 2 }>;
 export type Hectare = AreaUnit<{ scalar10: 4 }>;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<Equals<Square<Metre>, Multiply<Metre, Metre>>>();
-  assert<Equals<Square<Metre>, Divide<Cubic<Metre>, Metre>>>();
+  const { describe, it } = import.meta.vitest;
+
+  describe("SquareMetre", () => {
+    it("is metres by metres", () => {
+      assert<Equals<Square<Metre>, Multiply<Metre, Metre>>>();
+    });
+
+    it("is cubic metres per metre", () => {
+      assert<Equals<Square<Metre>, Divide<Cubic<Metre>, Metre>>>();
+    });
+  });
 }

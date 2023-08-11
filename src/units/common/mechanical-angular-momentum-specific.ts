@@ -74,21 +74,31 @@ export type NewtonMetreSecondPerRadianPerKilogram =
   JouleSecondPerRadianPerKilogram;
 
 // Tests
-// eslint-disable-next-line functional/no-conditional-statements
 if (import.meta.vitest !== undefined) {
-  assert<
-    Equals<
-      JouleSecondPerRadianPerKilogram,
-      Divide<Divide<Multiply<Joule, Second>, Radian>, Kilo<Gram>>
-    >
-  >();
-  assert<
-    Equals<
-      NewtonMetreSecondPerRadianPerKilogram,
-      Divide<
-        Divide<Multiply<Multiply<Newton, Metre>, Second>, Radian>,
-        Kilo<Gram>
-      >
-    >
-  >();
+  const { describe, it } = import.meta.vitest;
+
+  describe("JouleSecondPerRadianPerKilogram", () => {
+    it("is joules by second per radian per kilogram", () => {
+      assert<
+        Equals<
+          JouleSecondPerRadianPerKilogram,
+          Divide<Divide<Multiply<Joule, Second>, Radian>, Kilo<Gram>>
+        >
+      >();
+    });
+  });
+
+  describe("NewtonMetreSecondPerRadianPerKilogram", () => {
+    it("is newton metres by second by radian per kilogram", () => {
+      assert<
+        Equals<
+          NewtonMetreSecondPerRadianPerKilogram,
+          Divide<
+            Divide<Multiply<Multiply<Newton, Metre>, Second>, Radian>,
+            Kilo<Gram>
+          >
+        >
+      >();
+    });
+  });
 }
