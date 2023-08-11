@@ -64,14 +64,14 @@ function generateExponentsFile() {
 }
 
 function generateSiUnitPrefixesFile() {
-  const imports = `import { type Multiply, type Unit, type UnknownUnit } from "#uom-types";\n\n`;
+  const imports = `import { type Multiply, type UnknownUnit, type UnitConversionRate } from "#uom-types";\n\n`;
   const main = [...exponents.values()]
     .map((exponent) => {
       const name = scalar10ToName.get(exponent);
       if (name === undefined) {
         return null;
       }
-      return `/**\n * Binary prefix denoting an order of magnitude of 10^${exponent}.\n *\n * @group Modifiers\n * @category Metric Prefixes\n */\nexport type ${name}<T extends UnknownUnit> = Multiply<T, Unit<{}, { scalar10: ${exponent} }>>;`;
+      return `/**\n * Binary prefix denoting an order of magnitude of 10^${exponent}.\n *\n * @group Modifiers\n * @category Metric Prefixes\n */\nexport type ${name}<T extends UnknownUnit> = Multiply<T, UnitConversionRate<{ scalar10: ${exponent} }>>;`;
     })
     .filter(isNotNull)
     .join("\n\n");
