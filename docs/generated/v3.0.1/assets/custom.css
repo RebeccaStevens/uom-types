@@ -1,0 +1,13 @@
+@media (min-width: 1200px) {
+  .container-main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.5fr) minmax(0, 14rem);
+  }
+}
+
+.tsd-page-navigation ul {
+  padding-left: 1rem;
+}
+
+.tsd-page-navigation .tsd-accordion-details > ul {
+  padding-left: 0rem;
+}
