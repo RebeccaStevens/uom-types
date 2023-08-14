@@ -115,7 +115,7 @@
     "commitizen": "4.3.0",
     "cspell": "6.31.3",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.46.0",
+    "eslint": "8.47.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-typescript": "3.5.5",
     "eslint-plugin-eslint-comments": "3.2.0",
