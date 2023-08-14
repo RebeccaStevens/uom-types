@@ -132,7 +132,7 @@
     "eslint-plugin-vitest": "0.2.8",
     "http-serve": "1.0.1",
     "husky": "8.0.3",
-    "knip": "2.19.1",
+    "knip": "2.19.3",
     "lint-staged": "13.2.3",
     "markdownlint-cli": "0.35.0",
     "prettier": "3.0.1",
