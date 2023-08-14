@@ -63,8 +63,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  release_docs:
-    needs: release
-    if: needs.release.outputs.new_release_published == 'true'
-    uses: ./.github/workflows/release-docs.yml
