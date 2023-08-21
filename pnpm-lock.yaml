@@ -171,8 +171,8 @@ devDependencies:
     specifier: 2.1.0
     version: 2.1.0(typedoc@0.24.8)
   typedoc-plugin-versions:
-    specifier: 0.2.3
-    version: 0.2.3(typedoc@0.24.8)
+    specifier: 0.2.4
+    version: 0.2.4(typedoc@0.24.8)
   typescript:
     specifier: 5.1.6
     version: 5.1.6
@@ -7180,8 +7180,8 @@ packages:
       typedoc: 0.24.8(typescript@5.1.6)
     dev: true
 
-  /typedoc-plugin-versions@0.2.3(typedoc@0.24.8):
-    resolution: {integrity: sha512-SDbd+Q1ieHlSa5y3rCxuZH5Eg87Flgotx5qcpO3x2h/LaQ8i25oyiArXALm5wFXYr7CgSit4ODrVVlbA7SH2jA==}
+  /typedoc-plugin-versions@0.2.4(typedoc@0.24.8):
+    resolution: {integrity: sha512-mWJHl4oXyWMxrcxVWDvZvLSm+wr3SIEYH+pAiEcyQPJXiq59gLWdmiulqVz2OUG35plOpC5x7sOF5JsIa+plsw==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     peerDependencies:
       typedoc: ^0.23
