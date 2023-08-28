@@ -153,8 +153,8 @@ devDependencies:
     specifier: 1.4.3
     version: 1.4.3(ts-node@10.9.1)(tsconfig-paths@4.2.0)
   ts-plugin-type-coverage:
-    specifier: 2.26.0
-    version: 2.26.0(typescript@5.1.6)
+    specifier: 2.26.1
+    version: 2.26.1(typescript@5.1.6)
   tsafe:
     specifier: 1.6.4
     version: 1.6.4
@@ -7018,13 +7018,13 @@ packages:
       tsconfig-paths: 4.2.0
     dev: true
 
-  /ts-plugin-type-coverage@2.26.0(typescript@5.1.6):
-    resolution: {integrity: sha512-bISkIzdX8AtuwwNS8ardvAEYTAWuBGTi7/RDpvQ1YpYGlNFGYHONMOLOLyEBanQxvSVqL3pO3bNzmYe6AhFKmw==}
+  /ts-plugin-type-coverage@2.26.1(typescript@5.1.6):
+    resolution: {integrity: sha512-K35RnTjq5/UpucC5TPElWi8vyk7JiH5wMCgbaItxhTSqeei9YSr9AFQoWTiZjdK3FkYu/1ow1+ey/3W0me1DQA==}
     peerDependencies:
       typescript: 2 || 3 || 4 || 5
     dependencies:
       tslib: 2.5.0
-      type-coverage-core: 2.26.0(typescript@5.1.6)
+      type-coverage-core: 2.26.1(typescript@5.1.6)
       typescript: 5.1.6
     dev: true
 
@@ -7102,8 +7102,8 @@ packages:
       prelude-ls: 1.2.1
     dev: true
 
-  /type-coverage-core@2.26.0(typescript@5.1.6):
-    resolution: {integrity: sha512-/9VQ0ySU1CKbWd/BNnbVYMJ67oOt7qdXXxm4W5VIM07AUB5eelcDjrWG7qdIj0ZafnNkpv+v5qcD68ExOVK+Sw==}
+  /type-coverage-core@2.26.1(typescript@5.1.6):
+    resolution: {integrity: sha512-KoGejLimF+LPr/JKdgo6fmaHIn5FJ74xCzUt3lSbcoPVDLDbqBGQQ3rizkQJmSV0R6/35iIbE16ln0atkwNE+g==}
     peerDependencies:
       typescript: 2 || 3 || 4 || 5
     dependencies:
@@ -7120,7 +7120,7 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.8
-      type-coverage-core: 2.26.0(typescript@5.1.6)
+      type-coverage-core: 2.26.1(typescript@5.1.6)
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -7266,7 +7266,7 @@ packages:
       react-dom: 16.14.0(react@16.14.0)
       rimraf: 3.0.2
       semantic-ui-react: 0.88.2(react-dom@16.14.0)(react@16.14.0)
-      type-coverage-core: 2.26.0(typescript@5.1.6)
+      type-coverage-core: 2.26.1(typescript@5.1.6)
       typescript: 5.1.6
     dev: true
 
