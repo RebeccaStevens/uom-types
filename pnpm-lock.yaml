@@ -162,8 +162,8 @@ devDependencies:
     specifier: 0.28.1
     version: 0.28.1
   type-coverage:
-    specifier: 2.26.0
-    version: 2.26.0(typescript@5.1.6)
+    specifier: 2.26.1
+    version: 2.26.1(typescript@5.1.6)
   typedoc:
     specifier: 0.24.8
     version: 0.24.8(typescript@5.1.6)
@@ -7115,8 +7115,8 @@ packages:
       typescript: 5.1.6
     dev: true
 
-  /type-coverage@2.26.0(typescript@5.1.6):
-    resolution: {integrity: sha512-ZYtfBoifzuyiZteZeqBiauugvgIVV0orMqo2jZuOGOBCndLWhQF3Iv9bbFXyyUf/1lC/+k/ZN6Noqbh2afX3LQ==}
+  /type-coverage@2.26.1(typescript@5.1.6):
+    resolution: {integrity: sha512-+jAw8ppSb18zSYB5DttEn4IBcNXESNh1g8pyqajz8I0wUPauDDWx1cyTvSucmMfKaDSWMeK3HJW08WCQL9suaQ==}
     hasBin: true
     dependencies:
       minimist: 1.2.8
