@@ -144,7 +144,7 @@
     "semantic-release": "21.1.1",
     "ts-node": "10.9.1",
     "ts-paths-esm-loader": "1.4.3",
-    "ts-plugin-type-coverage": "2.26.1",
+    "ts-plugin-type-coverage": "2.26.2",
     "tsafe": "1.6.4",
     "tsd": "0.28.1",
     "type-coverage": "2.26.1",
