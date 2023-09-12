@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get gh-pages
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
 
@@ -39,7 +39,7 @@ jobs:
         run: cp ./docs/generated/stable/coverage.svg /tmp/coverage.svg
 
       - name: get gh-pages
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
 
