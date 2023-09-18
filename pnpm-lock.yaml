@@ -156,8 +156,8 @@ devDependencies:
     specifier: 2.26.3
     version: 2.26.3(typescript@5.2.2)
   tsafe:
-    specifier: 1.6.4
-    version: 1.6.4
+    specifier: 1.6.5
+    version: 1.6.5
   tsd:
     specifier: 0.29.0
     version: 0.29.0
@@ -7082,8 +7082,8 @@ packages:
       typescript: 5.2.2
     dev: true
 
-  /tsafe@1.6.4:
-    resolution: {integrity: sha512-l4Z54QFGHO8GF0gBpb3yPGHjkIkIirl8rwW+lMBmtEMzOJeRs8BdjkDEx6nU8Ak9PQVp/KNDtECxTja8MMIDoA==}
+  /tsafe@1.6.5:
+    resolution: {integrity: sha512-895zss8xqqHKTc28sHGIfZKnt3C5jrstB1DyPr/h3/flK0zojsZUMQL1/W4ytdDW6KI4Oth62nb9rrxmA3s3Iw==}
     dev: true
 
   /tsconfck@2.1.2(typescript@5.2.2):
