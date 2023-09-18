@@ -145,7 +145,7 @@
     "ts-node": "10.9.1",
     "ts-paths-esm-loader": "1.4.3",
     "ts-plugin-type-coverage": "2.26.3",
-    "tsafe": "1.6.4",
+    "tsafe": "1.6.5",
     "tsd": "0.29.0",
     "type-coverage": "2.26.2",
     "typedoc": "0.25.1",
