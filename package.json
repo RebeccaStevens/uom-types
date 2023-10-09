@@ -100,7 +100,7 @@
     "@cspell/dict-cryptocurrencies": "4.0.0",
     "@rebeccastevens/eslint-config": "2.0.6",
     "@rollup/plugin-replace": "5.0.3",
-    "@rollup/plugin-typescript": "11.1.4",
+    "@rollup/plugin-typescript": "11.1.5",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "11.0.0",
     "@semantic-release/git": "10.0.1",
