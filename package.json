@@ -98,7 +98,7 @@
     "@commitlint/cli": "17.7.2",
     "@commitlint/config-conventional": "17.7.0",
     "@cspell/dict-cryptocurrencies": "4.0.0",
-    "@rebeccastevens/eslint-config": "2.0.5",
+    "@rebeccastevens/eslint-config": "2.0.6",
     "@rollup/plugin-replace": "5.0.2",
     "@rollup/plugin-typescript": "11.1.4",
     "@semantic-release/changelog": "6.0.3",
