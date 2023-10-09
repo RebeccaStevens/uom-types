@@ -165,14 +165,14 @@ devDependencies:
     specifier: 2.26.3
     version: 2.26.3(typescript@5.2.2)
   typedoc:
-    specifier: 0.25.1
-    version: 0.25.1(typescript@5.2.2)
+    specifier: 0.25.2
+    version: 0.25.2(typescript@5.2.2)
   typedoc-plugin-coverage:
     specifier: 2.2.0
-    version: 2.2.0(typedoc@0.25.1)
+    version: 2.2.0(typedoc@0.25.2)
   typedoc-plugin-versions:
     specifier: 0.2.4
-    version: 0.2.4(typedoc@0.25.1)
+    version: 0.2.4(typedoc@0.25.2)
   typescript:
     specifier: 5.2.2
     version: 5.2.2
@@ -7319,16 +7319,16 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typedoc-plugin-coverage@2.2.0(typedoc@0.25.1):
+  /typedoc-plugin-coverage@2.2.0(typedoc@0.25.2):
     resolution: {integrity: sha512-/hq9nwSNBz2p7+VYfljT/zFSmaxN8tlfcIp6CCAaQN6VIxXCciYFIqR+pcckRhjmfHIeSJ5uy2OpCt5F683npA==}
     engines: {node: '>= 16'}
     peerDependencies:
       typedoc: ^0.22.12 || 0.23.x || 0.24.x || 0.25.x
     dependencies:
-      typedoc: 0.25.1(typescript@5.2.2)
+      typedoc: 0.25.2(typescript@5.2.2)
     dev: true
 
-  /typedoc-plugin-versions@0.2.4(typedoc@0.25.1):
+  /typedoc-plugin-versions@0.2.4(typedoc@0.25.2):
     resolution: {integrity: sha512-mWJHl4oXyWMxrcxVWDvZvLSm+wr3SIEYH+pAiEcyQPJXiq59gLWdmiulqVz2OUG35plOpC5x7sOF5JsIa+plsw==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     peerDependencies:
@@ -7336,11 +7336,11 @@ packages:
     dependencies:
       fs-extra: 10.1.0
       semver: 7.5.4
-      typedoc: 0.25.1(typescript@5.2.2)
+      typedoc: 0.25.2(typescript@5.2.2)
     dev: true
 
-  /typedoc@0.25.1(typescript@5.2.2):
-    resolution: {integrity: sha512-c2ye3YUtGIadxN2O6YwPEXgrZcvhlZ6HlhWZ8jQRNzwLPn2ylhdGqdR8HbyDRyALP8J6lmSANILCkkIdNPFxqA==}
+  /typedoc@0.25.2(typescript@5.2.2):
+    resolution: {integrity: sha512-286F7BeATBiWe/qC4PCOCKlSTwfnsLbC/4cZ68oGBbvAqb9vV33quEOXx7q176OXotD+JdEerdQ1OZGJ818lnA==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
