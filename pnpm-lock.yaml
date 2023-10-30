@@ -18,8 +18,8 @@ devDependencies:
     specifier: 2.0.6
     version: 2.0.6(@typescript-eslint/eslint-plugin@6.9.0)(@typescript-eslint/parser@6.9.0)(eslint-import-resolver-typescript@3.6.1)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-functional@6.0.0)(eslint-plugin-import@2.28.1)(eslint-plugin-jsdoc@46.8.2)(eslint-plugin-markdown@3.0.1)(eslint-plugin-n@16.2.0)(eslint-plugin-optimize-regex@1.2.1)(eslint-plugin-promise@6.1.1)(eslint-plugin-sonarjs@0.21.0)(eslint-plugin-unicorn@48.0.1)(eslint@8.52.0)
   '@rollup/plugin-replace':
-    specifier: 5.0.4
-    version: 5.0.4(rollup@4.1.4)
+    specifier: 5.0.5
+    version: 5.0.5(rollup@4.1.4)
   '@rollup/plugin-typescript':
     specifier: 11.1.5
     version: 11.1.5(rollup@4.1.4)(typescript@5.2.2)
@@ -273,6 +273,7 @@ packages:
   /@commitlint/config-validator@18.0.0:
     resolution: {integrity: sha512-PlXy5QZzQeMgQM7jb0odIhxsI6GWcbGgfy+Hkz5ap31KES/oJgtEvgD8pjg0Z9Ri296bT6zK3ts6brS0MAcMgg==}
     engines: {node: '>=v18'}
+    requiresBuild: true
     dependencies:
       '@commitlint/types': 18.0.0
       ajv: 8.12.0
@@ -293,6 +294,7 @@ packages:
   /@commitlint/execute-rule@18.0.0:
     resolution: {integrity: sha512-eNUSaHajb+g3sgZeIrfc6cXNnKIkYN2SXtDVXuiE+hOa055T0bLdZK29gSd945JCztxPVwdOkPLDeLg3NfDubg==}
     engines: {node: '>=v18'}
+    requiresBuild: true
     dev: true
 
   /@commitlint/format@18.0.0:
@@ -372,6 +374,7 @@ packages:
   /@commitlint/resolve-extends@18.0.0:
     resolution: {integrity: sha512-MD9+6GSiWvqgdJtfos+1gqz+zmy2vV7TbUVz2ETZzpfECgmUZSZSYzyivivBAQK6feS71KxmMLL8+YFF9+FFRQ==}
     engines: {node: '>=v18'}
+    requiresBuild: true
     dependencies:
       '@commitlint/config-validator': 18.0.0
       '@commitlint/types': 18.0.0
@@ -1287,8 +1290,8 @@ packages:
       eslint-plugin-unicorn: 48.0.1(eslint@8.52.0)
     dev: true
 
-  /@rollup/plugin-replace@5.0.4(rollup@4.1.4):
-    resolution: {integrity: sha512-E2hmRnlh09K8HGT0rOnnri9OTh+BILGr7NVJGB30S4E3cLRn3J0xjdiyOZ74adPs4NiAMgrjUMGAZNJDBgsdmQ==}
+  /@rollup/plugin-replace@5.0.5(rollup@4.1.4):
+    resolution: {integrity: sha512-rYO4fOi8lMaTg/z5Jb+hKnrHHVn8j2lwkqwyS4kTRhKyWOLf2wST2sWXr4WzWiTcoHTp2sTjqUbqIj2E39slKQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
@@ -2644,6 +2647,7 @@ packages:
   /cosmiconfig-typescript-loader@4.3.0(@types/node@18.18.6)(cosmiconfig@8.1.0)(ts-node@10.9.1)(typescript@5.2.2):
     resolution: {integrity: sha512-NTxV1MFfZDLPiBMjxbHRwSh5LaLcPMwNdCutmnHJCKoVnlvldPWlllonKwrsRJ5pYZBIBGRWWU2tfvzxgeSW5Q==}
     engines: {node: '>=12', npm: '>=6'}
+    requiresBuild: true
     peerDependencies:
       '@types/node': '*'
       cosmiconfig: '>=7'
