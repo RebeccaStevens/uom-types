@@ -165,14 +165,14 @@ devDependencies:
     specifier: 2.27.0
     version: 2.27.0(typescript@5.2.2)
   typedoc:
-    specifier: 0.25.3
-    version: 0.25.3(typescript@5.2.2)
+    specifier: 0.25.4
+    version: 0.25.4(typescript@5.2.2)
   typedoc-plugin-coverage:
     specifier: 2.2.0
-    version: 2.2.0(typedoc@0.25.3)
+    version: 2.2.0(typedoc@0.25.4)
   typedoc-plugin-versions:
     specifier: 0.2.4
-    version: 0.2.4(typedoc@0.25.3)
+    version: 0.2.4(typedoc@0.25.4)
   typescript:
     specifier: 5.2.2
     version: 5.2.2
@@ -7373,16 +7373,16 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typedoc-plugin-coverage@2.2.0(typedoc@0.25.3):
+  /typedoc-plugin-coverage@2.2.0(typedoc@0.25.4):
     resolution: {integrity: sha512-/hq9nwSNBz2p7+VYfljT/zFSmaxN8tlfcIp6CCAaQN6VIxXCciYFIqR+pcckRhjmfHIeSJ5uy2OpCt5F683npA==}
     engines: {node: '>= 16'}
     peerDependencies:
       typedoc: ^0.22.12 || 0.23.x || 0.24.x || 0.25.x
     dependencies:
-      typedoc: 0.25.3(typescript@5.2.2)
+      typedoc: 0.25.4(typescript@5.2.2)
     dev: true
 
-  /typedoc-plugin-versions@0.2.4(typedoc@0.25.3):
+  /typedoc-plugin-versions@0.2.4(typedoc@0.25.4):
     resolution: {integrity: sha512-mWJHl4oXyWMxrcxVWDvZvLSm+wr3SIEYH+pAiEcyQPJXiq59gLWdmiulqVz2OUG35plOpC5x7sOF5JsIa+plsw==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     peerDependencies:
@@ -7390,15 +7390,15 @@ packages:
     dependencies:
       fs-extra: 10.1.0
       semver: 7.5.4
-      typedoc: 0.25.3(typescript@5.2.2)
+      typedoc: 0.25.4(typescript@5.2.2)
     dev: true
 
-  /typedoc@0.25.3(typescript@5.2.2):
-    resolution: {integrity: sha512-Ow8Bo7uY1Lwy7GTmphRIMEo6IOZ+yYUyrc8n5KXIZg1svpqhZSWgni2ZrDhe+wLosFS8yswowUzljTAV/3jmWw==}
+  /typedoc@0.25.4(typescript@5.2.2):
+    resolution: {integrity: sha512-Du9ImmpBCw54bX275yJrxPVnjdIyJO/84co0/L9mwe0R3G4FSR6rQ09AlXVRvZEGMUg09+z/usc8mgygQ1aidA==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
-      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x
+      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x
     dependencies:
       lunr: 2.3.9
       marked: 4.3.0
