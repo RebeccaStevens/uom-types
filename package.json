@@ -142,7 +142,7 @@
     "rollup-plugin-auto-external": "2.0.0",
     "rollup-plugin-dts": "6.1.0",
     "semantic-release": "22.0.8",
-    "ts-node": "10.9.1",
+    "ts-node": "10.9.2",
     "ts-paths-esm-loader": "1.4.3",
     "ts-plugin-type-coverage": "2.26.4",
     "tsafe": "1.6.5",

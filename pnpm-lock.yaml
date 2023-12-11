@@ -147,11 +147,11 @@ devDependencies:
     specifier: 22.0.8
     version: 22.0.8(typescript@5.3.2)
   ts-node:
-    specifier: 10.9.1
-    version: 10.9.1(@types/node@18.19.3)(typescript@5.3.2)
+    specifier: 10.9.2
+    version: 10.9.2(@types/node@18.19.3)(typescript@5.3.2)
   ts-paths-esm-loader:
     specifier: 1.4.3
-    version: 1.4.3(ts-node@10.9.1)(tsconfig-paths@4.2.0)
+    version: 1.4.3(ts-node@10.9.2)(tsconfig-paths@4.2.0)
   ts-plugin-type-coverage:
     specifier: 2.26.4
     version: 2.26.4(typescript@5.3.2)
@@ -7246,8 +7246,8 @@ packages:
       typescript: 5.3.2
     dev: true
 
-  /ts-node@10.9.1(@types/node@18.19.3)(typescript@5.3.2):
-    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+  /ts-node@10.9.2(@types/node@18.19.3)(typescript@5.3.2):
+    resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
       '@swc/core': '>=1.2.50'
@@ -7277,13 +7277,13 @@ packages:
       yn: 3.1.1
     dev: true
 
-  /ts-paths-esm-loader@1.4.3(ts-node@10.9.1)(tsconfig-paths@4.2.0):
+  /ts-paths-esm-loader@1.4.3(ts-node@10.9.2)(tsconfig-paths@4.2.0):
     resolution: {integrity: sha512-e3zWtkkq6Bk51LNi3v3g/b4kW0/qYwthYN//36HPFFnIi9qHFccMgwo215tCtx1niK538gO10G3Lf+j8D8DUqg==}
     peerDependencies:
       ts-node: ^10.4.0
       tsconfig-paths: ^4.0.0 || ^3.12.0
     dependencies:
-      ts-node: 10.9.1(@types/node@18.19.3)(typescript@5.3.2)
+      ts-node: 10.9.2(@types/node@18.19.3)(typescript@5.3.2)
       tsconfig-paths: 4.2.0
     dev: true
 
