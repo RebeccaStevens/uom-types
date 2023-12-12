@@ -33,7 +33,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v3
 
       - name: Store Coverage Badge
         run: cp ./docs/generated/stable/coverage.svg /tmp/coverage.svg
