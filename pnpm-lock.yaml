@@ -153,8 +153,8 @@ devDependencies:
     specifier: 1.4.3
     version: 1.4.3(ts-node@10.9.2)(tsconfig-paths@4.2.0)
   ts-plugin-type-coverage:
-    specifier: 2.26.4
-    version: 2.26.4(typescript@5.3.3)
+    specifier: 2.27.1
+    version: 2.27.1(typescript@5.3.3)
   tsafe:
     specifier: 1.6.5
     version: 1.6.5
@@ -7327,8 +7327,8 @@ packages:
       tsconfig-paths: 4.2.0
     dev: true
 
-  /ts-plugin-type-coverage@2.26.4(typescript@5.3.3):
-    resolution: {integrity: sha512-6wdOCmEhkw3BkofRsjkri50hHwMQ45QZa96do8rqpOKjdQ9xtNWH1DO/H/JeHAcotbO7nfYTaEnB9iUuvtn5Yg==}
+  /ts-plugin-type-coverage@2.27.1(typescript@5.3.3):
+    resolution: {integrity: sha512-mf8F+KGAjXs7ijxB20B2oDBNHVyW//0vIn1Q2Qfouy/IUohIh1luDN0IKxCaN9qt5usw+zInQWzOiDowfOUILQ==}
     peerDependencies:
       typescript: 2 || 3 || 4 || 5
     dependencies:
