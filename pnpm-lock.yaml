@@ -162,8 +162,8 @@ devDependencies:
     specifier: 0.30.0
     version: 0.30.0
   type-coverage:
-    specifier: 2.27.0
-    version: 2.27.0(typescript@5.3.3)
+    specifier: 2.27.1
+    version: 2.27.1(typescript@5.3.3)
   typedoc:
     specifier: 0.25.4
     version: 0.25.4(typescript@5.3.3)
@@ -7324,7 +7324,7 @@ packages:
       typescript: 2 || 3 || 4 || 5
     dependencies:
       tslib: 2.6.2
-      type-coverage-core: 2.26.3(typescript@5.3.3)
+      type-coverage-core: 2.27.1(typescript@5.3.3)
       typescript: 5.3.3
     dev: true
 
@@ -7402,8 +7402,8 @@ packages:
       prelude-ls: 1.2.1
     dev: true
 
-  /type-coverage-core@2.26.3(typescript@5.3.3):
-    resolution: {integrity: sha512-rzNdW/tClHJvsUiy787b/UX53bNh1Dn7A5KqZDQjkL3j7iKFv/KnTolxDBBgTPcK4Zn9Ab7WLrik7cXw2oZZqw==}
+  /type-coverage-core@2.27.1(typescript@5.3.3):
+    resolution: {integrity: sha512-W+PMYbhUsq+UWkrb7UkmyO7zF3zt4qZuQukyDM6eaiCIkMJclcVmR3O02clDk4FKpKPbzHictOmoIu3fYp+53g==}
     peerDependencies:
       typescript: 2 || 3 || 4 || 5
     dependencies:
@@ -7415,12 +7415,12 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /type-coverage@2.27.0(typescript@5.3.3):
-    resolution: {integrity: sha512-Gs4HcUPrZ+Z7De/eqZfw60SOEjzN30CI94p/2luye0IUI1y9TsWVOkchrqArR3khpN+ACXXQyxsiqH0FdoN48Q==}
+  /type-coverage@2.27.1(typescript@5.3.3):
+    resolution: {integrity: sha512-KAL2BRRvEACnyh830WoazZ5YJTmFBHEk/mCrJlVxNqjbAPrusJN0c4u3IzRrFMq/yRKsVEvwMp/awQDF4RgLSQ==}
     hasBin: true
     dependencies:
       minimist: 1.2.8
-      type-coverage-core: 2.26.3(typescript@5.3.3)
+      type-coverage-core: 2.27.1(typescript@5.3.3)
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -7571,7 +7571,7 @@ packages:
       react-dom: 16.14.0(react@16.14.0)
       rimraf: 3.0.2
       semantic-ui-react: 0.88.2(react-dom@16.14.0)(react@16.14.0)
-      type-coverage-core: 2.26.3(typescript@5.3.3)
+      type-coverage-core: 2.27.1(typescript@5.3.3)
       typescript: 5.3.3
     dev: true
 
