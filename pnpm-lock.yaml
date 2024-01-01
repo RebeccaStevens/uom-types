@@ -159,8 +159,8 @@ devDependencies:
     specifier: 1.6.5
     version: 1.6.5
   tsd:
-    specifier: 0.30.0
-    version: 0.30.0
+    specifier: 0.30.1
+    version: 0.30.1
   type-coverage:
     specifier: 2.27.1
     version: 2.27.1(typescript@5.3.3)
@@ -7226,8 +7226,8 @@ packages:
       strip-bom: 3.0.0
     dev: true
 
-  /tsd@0.30.0:
-    resolution: {integrity: sha512-aHL4rEuf3wwRzKCH8yqsE1oMAJYn7SAQ2JfWSgjr1e5/fqr+ggohQazECMpSoRAqSQeM/iIFugoyL/0eFwdTcA==}
+  /tsd@0.30.1:
+    resolution: {integrity: sha512-OKyeWzTGuaidnYPcSCk/Jz6GY+3A4cNe0tLvJXT7V0vyQ8gy4ISNAetex6YodOkJw7b641B5vokmOZFeW/mpmQ==}
     engines: {node: '>=14.16'}
     hasBin: true
     dependencies:
