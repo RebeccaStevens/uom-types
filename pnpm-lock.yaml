@@ -42,8 +42,8 @@ devDependencies:
     specifier: 12.1.0
     version: 12.1.0(semantic-release@22.0.12)
   '@types/node':
-    specifier: 18.19.3
-    version: 18.19.3
+    specifier: 18.19.4
+    version: 18.19.4
   '@types/rollup-plugin-auto-external':
     specifier: 2.0.5
     version: 2.0.5
@@ -148,7 +148,7 @@ devDependencies:
     version: 22.0.12(typescript@5.3.3)
   ts-node:
     specifier: 10.9.2
-    version: 10.9.2(@types/node@18.19.3)(typescript@5.3.3)
+    version: 10.9.2(@types/node@18.19.4)(typescript@5.3.3)
   ts-paths-esm-loader:
     specifier: 1.4.3
     version: 1.4.3(ts-node@10.9.2)(tsconfig-paths@4.2.0)
@@ -184,7 +184,7 @@ devDependencies:
     version: 4.2.2(typescript@5.3.3)
   vitest:
     specifier: 1.1.0
-    version: 1.1.0(@types/node@18.19.3)
+    version: 1.1.0(@types/node@18.19.4)
 
 packages:
 
@@ -352,10 +352,10 @@ packages:
       '@commitlint/execute-rule': 18.4.3
       '@commitlint/resolve-extends': 18.4.3
       '@commitlint/types': 18.4.3
-      '@types/node': 18.19.3
+      '@types/node': 18.19.4
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.3.3)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@18.19.3)(cosmiconfig@8.3.6)(typescript@5.3.3)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@18.19.4)(cosmiconfig@8.3.6)(typescript@5.3.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -1710,8 +1710,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node@18.19.3:
-    resolution: {integrity: sha512-k5fggr14DwAytoA/t8rPrIz++lXK7/DqckthCmoZOKNsEbJkId4Z//BqgApXBUGrGddrigYa1oqheo/7YmW4rg==}
+  /@types/node@18.19.4:
+    resolution: {integrity: sha512-xNzlUhzoHotIsnFoXmJB+yWmBvFZgKCI9TtPIEdYIMM1KWfwuY8zh7wvc1u1OAXlC7dlf6mZVx/s+Y5KfFz19A==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -1888,7 +1888,7 @@ packages:
       std-env: 3.6.0
       test-exclude: 6.0.0
       v8-to-istanbul: 9.2.0
-      vitest: 1.1.0(@types/node@18.19.3)
+      vitest: 1.1.0(@types/node@18.19.4)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2685,7 +2685,7 @@ packages:
     engines: {node: '>= 0.4.0'}
     dev: true
 
-  /cosmiconfig-typescript-loader@5.0.0(@types/node@18.19.3)(cosmiconfig@8.3.6)(typescript@5.3.3):
+  /cosmiconfig-typescript-loader@5.0.0(@types/node@18.19.4)(cosmiconfig@8.3.6)(typescript@5.3.3):
     resolution: {integrity: sha512-+8cK7jRAReYkMwMiG+bxhcNKiHJDM6bR9FD/nGBXOWdMLuYawjF5cGrtLilJ+LGd3ZjCXnJjR5DkfWPoIVlqJA==}
     engines: {node: '>=v16'}
     requiresBuild: true
@@ -2694,7 +2694,7 @@ packages:
       cosmiconfig: '>=8.2'
       typescript: '>=4'
     dependencies:
-      '@types/node': 18.19.3
+      '@types/node': 18.19.4
       cosmiconfig: 8.3.6(typescript@5.3.3)
       jiti: 1.19.3
       typescript: 5.3.3
@@ -3563,7 +3563,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 6.16.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)(typescript@5.3.3)
       '@typescript-eslint/utils': 6.16.0(eslint@8.56.0)(typescript@5.3.3)
       eslint: 8.56.0
-      vitest: 1.1.0(@types/node@18.19.3)
+      vitest: 1.1.0(@types/node@18.19.4)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -7258,7 +7258,7 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /ts-node@10.9.2(@types/node@18.19.3)(typescript@5.3.3):
+  /ts-node@10.9.2(@types/node@18.19.4)(typescript@5.3.3):
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
@@ -7277,7 +7277,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 18.19.3
+      '@types/node': 18.19.4
       acorn: 8.10.0
       acorn-walk: 8.3.1
       arg: 4.1.3
@@ -7295,7 +7295,7 @@ packages:
       ts-node: ^10.4.0
       tsconfig-paths: ^4.0.0 || ^3.12.0
     dependencies:
-      ts-node: 10.9.2(@types/node@18.19.3)(typescript@5.3.3)
+      ts-node: 10.9.2(@types/node@18.19.4)(typescript@5.3.3)
       tsconfig-paths: 4.2.0
     dev: true
 
@@ -7691,7 +7691,7 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-node@1.1.0(@types/node@18.19.3):
+  /vite-node@1.1.0(@types/node@18.19.4):
     resolution: {integrity: sha512-jV48DDUxGLEBdHCQvxL1mEh7+naVy+nhUUUaPAZLd3FJgXuxQiewHcfeZebbJ6onDqNGkP4r3MhQ342PRlG81Q==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -7700,7 +7700,7 @@ packages:
       debug: 4.3.4
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 5.0.7(@types/node@18.19.3)
+      vite: 5.0.7(@types/node@18.19.4)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -7728,7 +7728,7 @@ packages:
       - typescript
     dev: true
 
-  /vite@5.0.7(@types/node@18.19.3):
+  /vite@5.0.7(@types/node@18.19.4):
     resolution: {integrity: sha512-B4T4rJCDPihrQo2B+h1MbeGL/k/GMAHzhQ8S0LjQ142s6/+l3hHTT095ORvsshj4QCkoWu3Xtmob5mazvakaOw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -7756,7 +7756,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.19.3
+      '@types/node': 18.19.4
       esbuild: 0.19.9
       postcss: 8.4.32
       rollup: 4.9.1
@@ -7764,7 +7764,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@1.1.0(@types/node@18.19.3):
+  /vitest@1.1.0(@types/node@18.19.4):
     resolution: {integrity: sha512-oDFiCrw7dd3Jf06HoMtSRARivvyjHJaTxikFxuqJjO76U436PqlVw1uLn7a8OSPrhSfMGVaRakKpA2lePdw79A==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -7789,7 +7789,7 @@ packages:
       jsdom:
         optional: true
     dependencies:
-      '@types/node': 18.19.3
+      '@types/node': 18.19.4
       '@vitest/expect': 1.1.0
       '@vitest/runner': 1.1.0
       '@vitest/snapshot': 1.1.0
@@ -7808,8 +7808,8 @@ packages:
       strip-literal: 1.3.0
       tinybench: 2.5.1
       tinypool: 0.8.1
-      vite: 5.0.7(@types/node@18.19.3)
-      vite-node: 1.1.0(@types/node@18.19.3)
+      vite: 5.0.7(@types/node@18.19.4)
+      vite-node: 1.1.0(@types/node@18.19.4)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
