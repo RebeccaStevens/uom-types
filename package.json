@@ -129,7 +129,7 @@
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-sonarjs": "0.23.0",
     "eslint-plugin-unicorn": "50.0.1",
-    "eslint-plugin-vitest": "0.3.21",
+    "eslint-plugin-vitest": "0.3.22",
     "http-serve": "1.0.1",
     "husky": "9.0.10",
     "knip": "2.20.2",
