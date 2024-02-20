@@ -123,8 +123,8 @@ devDependencies:
     specifier: 15.2.2
     version: 15.2.2
   markdownlint-cli:
-    specifier: 0.37.0
-    version: 0.37.0
+    specifier: 0.39.0
+    version: 0.39.0
   prettier:
     specifier: 3.0.3
     version: 3.0.3
@@ -988,7 +988,7 @@ packages:
       debug: 4.3.4
       espree: 9.6.1
       globals: 13.24.0
-      ignore: 5.2.4
+      ignore: 5.3.1
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       minimatch: 3.1.2
@@ -1618,7 +1618,7 @@ packages:
     hasBin: true
     dependencies:
       commander: 4.1.1
-      ignore: 5.2.4
+      ignore: 5.3.1
       p-map: 4.0.0
     dev: true
 
@@ -1741,7 +1741,7 @@ packages:
       debug: 4.3.4
       eslint: 8.56.0
       graphemer: 1.4.0
-      ignore: 5.2.4
+      ignore: 5.3.1
       natural-compare: 1.4.0
       semver: 7.6.0
       ts-api-utils: 1.0.1(typescript@5.3.3)
@@ -2589,11 +2589,6 @@ packages:
     engines: {node: '>=0.1.90'}
     dev: true
 
-  /commander@11.0.0:
-    resolution: {integrity: sha512-9HMlXtt/BNoYr8ooyjjNRdIilOTkVJXB+GhxMTtOKwk0R4j4lS4NpjuqmRxroBfnfTSHQIHQB7wryHhXarNjmQ==}
-    engines: {node: '>=16'}
-    dev: true
-
   /commander@11.1.0:
     resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
     engines: {node: '>=16'}
@@ -3170,8 +3165,8 @@ packages:
       tapable: 2.2.1
     dev: true
 
-  /entities@3.0.1:
-    resolution: {integrity: sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==}
+  /entities@4.5.0:
+    resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
     engines: {node: '>=0.12'}
     dev: true
 
@@ -3428,7 +3423,7 @@ packages:
     dependencies:
       escape-string-regexp: 1.0.5
       eslint: 8.56.0
-      ignore: 5.2.4
+      ignore: 5.3.1
     dev: true
 
   /eslint-plugin-functional@6.0.0(eslint@8.56.0)(typescript@5.3.3):
@@ -3532,7 +3527,7 @@ packages:
       eslint-plugin-es-x: 7.5.0(eslint@8.56.0)
       get-tsconfig: 4.7.0
       globals: 13.24.0
-      ignore: 5.2.4
+      ignore: 5.3.1
       is-builtin-module: 3.2.1
       is-core-module: 2.13.1
       minimatch: 3.1.2
@@ -3682,7 +3677,7 @@ packages:
       glob-parent: 6.0.2
       globals: 13.24.0
       graphemer: 1.4.0
-      ignore: 5.2.4
+      ignore: 5.3.1
       imurmurhash: 0.1.4
       is-glob: 4.0.3
       is-path-inside: 3.0.3
@@ -4243,7 +4238,7 @@ packages:
       array-union: 2.1.0
       dir-glob: 3.0.1
       fast-glob: 3.3.2
-      ignore: 5.2.4
+      ignore: 5.3.1
       merge2: 1.4.1
       slash: 3.0.0
     dev: true
@@ -4254,7 +4249,7 @@ packages:
     dependencies:
       dir-glob: 3.0.1
       fast-glob: 3.3.2
-      ignore: 5.2.4
+      ignore: 5.3.1
       merge2: 1.4.1
       slash: 4.0.0
     dev: true
@@ -4265,7 +4260,7 @@ packages:
     dependencies:
       '@sindresorhus/merge-streams': 1.0.0
       fast-glob: 3.3.2
-      ignore: 5.2.4
+      ignore: 5.3.1
       path-type: 5.0.0
       slash: 5.1.0
       unicorn-magic: 0.1.0
@@ -4492,8 +4487,8 @@ packages:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
     dev: true
 
-  /ignore@5.2.4:
-    resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
+  /ignore@5.3.1:
+    resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
     engines: {node: '>= 4'}
     dev: true
 
@@ -5040,8 +5035,8 @@ packages:
     hasBin: true
     dev: true
 
-  /jsonc-parser@3.2.0:
-    resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
+  /jsonc-parser@3.2.1:
+    resolution: {integrity: sha512-AilxAyFOAcK5wA1+LeaySVBrHsGQvUFCDWXKpZjzaL0PqW+xfBOttn8GNtWKFWqneyMZj41MWF9Kl6iPWLwgOA==}
     dev: true
 
   /jsonfile@6.1.0:
@@ -5114,10 +5109,10 @@ packages:
     requiresBuild: true
     dev: true
 
-  /linkify-it@4.0.1:
-    resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
+  /linkify-it@5.0.0:
+    resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
     dependencies:
-      uc.micro: 1.0.6
+      uc.micro: 2.0.0
     dev: true
 
   /lint-staged@15.2.2:
@@ -5365,44 +5360,45 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /markdown-it@13.0.1:
-    resolution: {integrity: sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q==}
+  /markdown-it@14.0.0:
+    resolution: {integrity: sha512-seFjF0FIcPt4P9U39Bq1JYblX0KZCjDLFFQPHpL5AzHpqPEKtosxmdq/LTVZnjfH7tjt9BxStm+wXcDBNuYmzw==}
     hasBin: true
     dependencies:
       argparse: 2.0.1
-      entities: 3.0.1
-      linkify-it: 4.0.1
-      mdurl: 1.0.1
-      uc.micro: 1.0.6
+      entities: 4.5.0
+      linkify-it: 5.0.0
+      mdurl: 2.0.0
+      punycode.js: 2.3.1
+      uc.micro: 2.0.0
     dev: true
 
-  /markdownlint-cli@0.37.0:
-    resolution: {integrity: sha512-hNKAc0bWBBuVhJbSWbUhRzavstiB4o1jh3JeSpwC4/dt6eJ54lRfYHRxVdzVp4qGWBKbeE6Pg490PFEfrKjqSg==}
-    engines: {node: '>=16'}
+  /markdownlint-cli@0.39.0:
+    resolution: {integrity: sha512-ZuFN7Xpsbn1Nbp0YYkeLOfXOMOfLQBik2lKRy8pVI/llmKQ2uW7x+8k5OMgF6o7XCsTDSYC/OOmeJ+3qplvnJQ==}
+    engines: {node: '>=18'}
     hasBin: true
     dependencies:
-      commander: 11.0.0
+      commander: 11.1.0
       get-stdin: 9.0.0
       glob: 10.3.10
-      ignore: 5.2.4
+      ignore: 5.3.1
       js-yaml: 4.1.0
-      jsonc-parser: 3.2.0
-      markdownlint: 0.31.1
+      jsonc-parser: 3.2.1
+      markdownlint: 0.33.0
       minimatch: 9.0.3
       run-con: 1.3.2
     dev: true
 
-  /markdownlint-micromark@0.1.7:
-    resolution: {integrity: sha512-BbRPTC72fl5vlSKv37v/xIENSRDYL/7X/XoFzZ740FGEbs9vZerLrIkFRY0rv7slQKxDczToYuMmqQFN61fi4Q==}
+  /markdownlint-micromark@0.1.8:
+    resolution: {integrity: sha512-1ouYkMRo9/6gou9gObuMDnvZM8jC/ly3QCFQyoSPCS2XV1ZClU0xpKbL1Ar3bWWRT1RnBZkWUEiNKrI2CwiBQA==}
     engines: {node: '>=16'}
     dev: true
 
-  /markdownlint@0.31.1:
-    resolution: {integrity: sha512-CKMR2hgcIBrYlIUccDCOvi966PZ0kJExDrUi1R+oF9PvqQmCrTqjOsgIvf2403OmJ+CWomuzDoylr6KbuMyvHA==}
-    engines: {node: '>=16'}
+  /markdownlint@0.33.0:
+    resolution: {integrity: sha512-4lbtT14A3m0LPX1WS/3d1m7Blg+ZwiLq36WvjQqFGsX3Gik99NV+VXp/PW3n+Q62xyPdbvGOCfjPqjW+/SKMig==}
+    engines: {node: '>=18'}
     dependencies:
-      markdown-it: 13.0.1
-      markdownlint-micromark: 0.1.7
+      markdown-it: 14.0.0
+      markdownlint-micromark: 0.1.8
     dev: true
 
   /marked-terminal@7.0.0(marked@12.0.0):
@@ -5448,8 +5444,8 @@ packages:
     resolution: {integrity: sha512-AW4DRS3QbBayY/jJmD8437V1Gombjf8RSOUCMFBuo5iHi58AGEgVCKQ+ezHkZZDpAQS75hcBMpLqjpJTjtUL7w==}
     dev: true
 
-  /mdurl@1.0.1:
-    resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
+  /mdurl@2.0.0:
+    resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
     dev: true
 
   /meow@12.1.1:
@@ -6195,7 +6191,7 @@ packages:
   /pkg-types@1.0.3:
     resolution: {integrity: sha512-nN7pYi0AQqJnoLPC9eHFQ8AcyaixBUOwvqc5TDnIKCMEE6I0y8P7OKA7fPexsXGCGxQDl/cmrLAp26LhcwxZ4A==}
     dependencies:
-      jsonc-parser: 3.2.0
+      jsonc-parser: 3.2.1
       mlly: 1.4.2
       pathe: 1.1.1
     dev: true
@@ -6295,6 +6291,11 @@ packages:
 
   /proto-list@1.2.4:
     resolution: {integrity: sha512-vtK/94akxsTMhe0/cbfpR+syPuszcuwhqVjJq26CuNDgFGj682oRBXOP5MJpv2r7JtE8MsiepGIqvvOTBwn2vA==}
+    dev: true
+
+  /punycode.js@2.3.1:
+    resolution: {integrity: sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==}
+    engines: {node: '>=6'}
     dev: true
 
   /punycode@2.3.0:
@@ -6791,7 +6792,7 @@ packages:
     resolution: {integrity: sha512-dNPAPrxSc87ua2sKJ3H5dQ/6ZaY8RNnaAqK+t0eG7p0Soi2ydiqbGOTaZCqaYvA/uZYfS1LJnemt3Q+mSfcPCg==}
     dependencies:
       ansi-sequence-parser: 1.1.1
-      jsonc-parser: 3.2.0
+      jsonc-parser: 3.2.1
       vscode-oniguruma: 1.7.0
       vscode-textmate: 8.0.0
     dev: true
@@ -7585,8 +7586,8 @@ packages:
     hasBin: true
     dev: true
 
-  /uc.micro@1.0.6:
-    resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
+  /uc.micro@2.0.0:
+    resolution: {integrity: sha512-DffL94LsNOccVn4hyfRe5rdKa273swqeA5DJpMOeFmEn1wCDc7nAbbB0gXlgBCL7TNzeTv6G7XVWzan7iJtfig==}
     dev: true
 
   /ufo@1.3.2:
