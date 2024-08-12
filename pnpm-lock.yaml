@@ -183,8 +183,8 @@ importers:
         specifier: 1.0.0
         version: 1.0.0(typescript@5.3.3)
       vite-tsconfig-paths:
-        specifier: 4.3.1
-        version: 4.3.1(typescript@5.3.3)(vite@5.0.7(@types/node@18.19.17))
+        specifier: 5.0.1
+        version: 5.0.1(typescript@5.3.3)(vite@5.0.7(@types/node@18.19.17))
       vitest:
         specifier: 1.6.0
         version: 1.6.0(@types/node@18.19.17)
@@ -4145,8 +4145,8 @@ packages:
   tsafe@1.6.6:
     resolution: {integrity: sha512-gzkapsdbMNwBnTIjgO758GujLCj031IgHK/PKr2mrmkCSJMhSOR5FeOuSxKLMUoYc0vAA4RGEYYbjt/v6afD3g==}
 
-  tsconfck@3.0.1:
-    resolution: {integrity: sha512-7ppiBlF3UEddCLeI1JRx5m2Ryq+xk4JrZuq4EuYXykipebaq1dV0Fhgr1hb7CkmHt32QSgOZlcqVLEtHBG4/mg==}
+  tsconfck@3.1.1:
+    resolution: {integrity: sha512-00eoI6WY57SvZEVjm13stEVE90VkEdJAFGgpFLTsZbJyW/LwFQ7uQxJHWpZ2hzSWgCPKc9AnBnNP+0X7o3hAmQ==}
     engines: {node: ^18 || >=20}
     hasBin: true
     peerDependencies:
@@ -4354,8 +4354,8 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
-  vite-tsconfig-paths@4.3.1:
-    resolution: {integrity: sha512-cfgJwcGOsIxXOLU/nELPny2/LUD/lcf1IbfyeKTv2bsupVbTH/xpFtdQlBmIP1GEK2CjjLxYhFfB+QODFAx5aw==}
+  vite-tsconfig-paths@5.0.1:
+    resolution: {integrity: sha512-yqwv+LstU7NwPeNqajZzLEBVpUFU6Dugtb2P84FXuvaoYA+/70l9MHE+GYfYAycVyPSDYZ7mjOFuYBRqlEpTig==}
     peerDependencies:
       vite: '*'
     peerDependenciesMeta:
@@ -8728,7 +8728,7 @@ snapshots:
 
   tsafe@1.6.6: {}
 
-  tsconfck@3.0.1(typescript@5.3.3):
+  tsconfck@3.1.1(typescript@5.3.3):
     optionalDependencies:
       typescript: 5.3.3
 
@@ -8942,11 +8942,11 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@4.3.1(typescript@5.3.3)(vite@5.0.7(@types/node@18.19.17)):
+  vite-tsconfig-paths@5.0.1(typescript@5.3.3)(vite@5.0.7(@types/node@18.19.17)):
     dependencies:
       debug: 4.3.4
       globrex: 0.1.2
-      tsconfck: 3.0.1(typescript@5.3.3)
+      tsconfck: 3.1.1(typescript@5.3.3)
     optionalDependencies:
       vite: 5.0.7(@types/node@18.19.17)
     transitivePeerDependencies:
