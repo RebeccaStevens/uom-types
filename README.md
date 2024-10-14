@@ -61,7 +61,7 @@ bunx jsr add @rebeccastevens/uom-types
 
 ## Documentation
 
-Check out [RebeccaStevens.github.io/uom-types](https://RebeccaStevens.github.io/uom-types/stable/) for the documentation.
+Check out [RebeccaStevens.github.io/uom-types](https://RebeccaStevens.github.io/uom-types/) for the documentation.
 
 ## Inspiration
 
