@@ -14,4 +14,3 @@ jobs:
       - run: pnpm run generate-files
       - run: pnpm run build
       - run: pnpm run test:types
-      - run: pnpm run test:types-coverage

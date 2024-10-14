@@ -10,9 +10,10 @@
     "importHelpers": false,
     "lib": ["ESNext"],
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "newLine": "LF",
     "noEmitOnError": true,
+    "noErrorTruncation": true,
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
@@ -21,20 +22,17 @@
     "preserveConstEnums": true,
     "pretty": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "sourceMap": false,
     "strict": true,
     "target": "ESNext",
     "useUnknownInCatchVariables": true,
-    "noErrorTruncation": true,
-    "skipLibCheck": true,
     "types": ["vitest/importMeta"],
-    "baseUrl": ".",
     "paths": {
       "#uom-types": ["./src/index.ts"],
       "#uom-types/math": ["./src/math.ts"],
       "#uom-types/units": ["./src/units/index.ts"],
       "#uom-types/units/converters": ["./src/units/converters/index.ts"]
     }
-  },
-  "exclude": ["dist/"]
+  }
 }

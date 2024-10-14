@@ -41,11 +41,7 @@ populateExponents();
 await generateFiles();
 
 function generateFiles() {
-  return Promise.all([
-    generateExponentsFile(),
-    generateSiUnitPrefixesFile(),
-    generateSiUnitPrefixesConvertionFile(),
-  ]);
+  return Promise.all([generateExponentsFile(), generateSiUnitPrefixesFile(), generateSiUnitPrefixesConvertionFile()]);
 }
 
 function generateExponentsFile() {
@@ -95,9 +91,7 @@ function generateSiUnitPrefixesConvertionFile() {
       const absExponent = Math.abs(exponent);
       const to = `/**\n * Convert \`X\` to \`${name.toLowerCase()}X\`.\n */\nexport function to${name}<T extends UnknownUnit>(value: T) {\n  return ${
         negativeExponent ? "div" : "mul"
-      }(value, ${
-        10 ** absExponent
-      } as UnitConversionRate<{ scalar10: ${-absExponent} }>);\n}`;
+      }(value, ${10 ** absExponent} as UnitConversionRate<{ scalar10: ${-absExponent} }>);\n}`;
       const from = `/**\n * Convert \`${name.toLowerCase()}X\` to \`X\`.\n */\nexport const from${name} = to${inverseName};`;
       return `${to}\n\n${from}`;
     })
@@ -138,23 +132,24 @@ function getExponentTypeDefintion() {
 
 function getNegativeExponentTypeDefintion() {
   const main = `/**\n * @group Exponent Functions\n */\nexport type NegateExponent<T extends Exponent> = MultiplyExponents<T, -1>`;
-  const depreated = `/**\n * @depreated Use {@link NegateExponent} instead.\n */\nexport type NegativeExponent<T extends Exponent> = NegateExponent<T>`;
-  return [main, depreated].join("\n\n");
+  const deprecated = `/**\n * @deprecated Use {@link NegateExponent} instead.\n */\nexport type NegativeExponent<T extends Exponent> = NegateExponent<T>`;
+  return [main, deprecated].join("\n\n");
 }
 
 function getSumExponentsTypeDefintion() {
   return `/**\n * @group Exponent Functions\n */\nexport type SumExponents<A extends Exponent, B extends Exponent> = ${[
     ...exponents.values(),
   ]
-    .map((a) => {
-      return `A extends ${a} ? ${[...exponents.values()]
-        .map((b) => {
-          const sum = a + b;
-          return exponents.has(sum) ? `B extends ${b} ? ${sum} :` : null;
-        })
-        .filter(isNotNull)
-        .join(" ")} never :`;
-    })
+    .map(
+      (a) =>
+        `A extends ${a} ? ${[...exponents.values()]
+          .map((b) => {
+            const sum = a + b;
+            return exponents.has(sum) ? `B extends ${b} ? ${sum} :` : null;
+          })
+          .filter(isNotNull)
+          .join(" ")} never :`,
+    )
     .join(" ")} never;`;
 }
 
@@ -166,17 +161,16 @@ function getMultiplyExponentsTypeDefintion() {
   return `/**\n * @group Exponent Functions\n */\nexport type MultiplyExponents<A extends Exponent, B extends Exponent> = ${[
     ...exponents.values(),
   ]
-    .map((a) => {
-      return `A extends ${a} ? ${[...exponents.values()]
-        .map((b) => {
-          const product = a * b;
-          return exponents.has(product)
-            ? `B extends ${b} ? ${product} :`
-            : null;
-        })
-        .filter(isNotNull)
-        .join(" ")} never :`;
-    })
+    .map(
+      (a) =>
+        `A extends ${a} ? ${[...exponents.values()]
+          .map((b) => {
+            const product = a * b;
+            return exponents.has(product) ? `B extends ${b} ? ${product} :` : null;
+          })
+          .filter(isNotNull)
+          .join(" ")} never :`,
+    )
     .join(" ")} never;`;
 }
 
@@ -184,15 +178,16 @@ function getDivideExponentsTypeDefintion() {
   return `/**\n * @group Exponent Functions\n */\nexport type DivideExponents<A extends Exponent, B extends Exponent> = ${[
     ...exponents.values(),
   ]
-    .map((b) => {
-      return `B extends ${b} ? ${[...exponents.values()]
-        .map((a) => {
-          const result = a / b;
-          return exponents.has(result) ? `A extends ${a} ? ${result} :` : null;
-        })
-        .filter(isNotNull)
-        .join(" ")} never :`;
-    })
+    .map(
+      (b) =>
+        `B extends ${b} ? ${[...exponents.values()]
+          .map((a) => {
+            const result = a / b;
+            return exponents.has(result) ? `A extends ${a} ? ${result} :` : null;
+          })
+          .filter(isNotNull)
+          .join(" ")} never :`,
+    )
     .join(" ")} never;`;
 }
 

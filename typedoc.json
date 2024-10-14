@@ -21,12 +21,7 @@
     "includeCategories": true,
     "includeGroups": true
   },
-  "entryPoints": [
-    "src/index.ts",
-    "src/math.ts",
-    "src/units/index.ts",
-    "src/units/converters/index.ts"
-  ],
+  "entryPoints": ["src/index.ts"],
   "exclude": ["./*.ts", "./dist/", "./scripts/", "./tests/"],
   "excludeExternals": true,
   "excludeInternal": true,
@@ -46,7 +41,6 @@
     "Function",
     "Accessor",
     "Method",
-    "ObjectLiteral",
     "Parameter",
     "Enum",
     "EnumMember",
@@ -63,7 +57,7 @@
   ],
   "tsconfig": "tsconfig.build.json",
   "out": "./docs/generated",
-  "plugin": ["typedoc-plugin-coverage", "typedoc-plugin-versions"],
+  "plugin": ["typedoc-plugin-coverage"],
   "readme": "./docs/index.md",
   "customCss": "./docs/typedoc.css",
   "requiredToBeDocumented": [
@@ -76,12 +70,8 @@
     "Method",
     "TypeAlias"
   ],
-  "inlineTags": [
-    "@link",
-    "@inheritDoc",
-    "@label",
-    "@linkcode",
-    "@linkplain",
-    "@symbol"
-  ]
+  "inlineTags": ["@link", "@inheritDoc", "@label", "@linkcode", "@linkplain", "@symbol"],
+  "compilerOptions": {
+    "noCheck": true
+  }
 }

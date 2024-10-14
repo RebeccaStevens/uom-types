@@ -1,98 +1,80 @@
 import rollupPluginReplace from "@rollup/plugin-replace";
 import rollupPluginTypescript from "@rollup/plugin-typescript";
-import {
-  type PreRenderedChunk,
-  type RollupOptions,
-  type ModuleFormat,
-} from "rollup";
-import rollupPluginAutoExternal from "rollup-plugin-auto-external";
-import rollupPluginDts from "rollup-plugin-dts";
+import type { RollupOptions } from "rollup";
+import rollupPluginDeassert from "rollup-plugin-deassert";
+import { generateDtsBundle } from "rollup-plugin-dts-bundle-generator";
 
-/**
- * Get the intended boolean value from the given string.
- */
-function getBoolean(value: unknown) {
-  if (value === undefined) {
-    return false;
-  }
-  const asNumber = Number(value);
-  return Number.isNaN(asNumber)
-    ? String(value).toLowerCase() === "false"
-      ? false
-      : Boolean(String(value))
-    : Boolean(asNumber);
-}
+import pkg from "./package.json" with { type: "json" };
 
-const buildTypesOnly = getBoolean(process.env["BUILD_TYPES_ONLY"]);
+type PackageJSON = typeof pkg & {
+  dependencies?: Record<string, string>;
+  peerDependencies?: Record<string, string>;
+};
 
-const formats = ["esm", "cjs"] as const satisfies ReadonlyArray<ModuleFormat>;
+const externalDependencies = [
+  ...Object.keys((pkg as PackageJSON).dependencies ?? {}),
+  ...Object.keys((pkg as PackageJSON).peerDependencies ?? {}),
+  "tsafe",
+];
 
-const common = {
-  input: "./src/index.ts",
-  output: {
-    sourcemap: false,
-    dir: "dist",
-  },
+export default {
+  input: "src/index.ts",
+
+  output: [
+    {
+      file: pkg.exports.import,
+      format: "esm",
+      sourcemap: false,
+      plugins: [
+        generateDtsBundle({
+          compilation: {
+            preferredConfigPath: "tsconfig.build.types.json",
+          },
+          outFile: pkg.exports.types.import,
+        }) as any,
+      ],
+    },
+    {
+      file: pkg.exports.require,
+      format: "cjs",
+      sourcemap: false,
+      plugins: [
+        generateDtsBundle({
+          compilation: {
+            preferredConfigPath: "tsconfig.build.types.json",
+          },
+          outFile: pkg.exports.types.require,
+        }) as any,
+      ],
+    },
+  ],
+
+  plugins: [
+    rollupPluginTypescript({
+      tsconfig: "tsconfig.build.json",
+    }),
+    rollupPluginReplace({
+      values: {
+        "import.meta.vitest": "undefined",
+      },
+      preventAssignment: true,
+    }),
+    rollupPluginDeassert({
+      include: ["**/*.{js,ts}"],
+    }),
+  ],
+
   treeshake: {
     annotations: true,
     moduleSideEffects: [],
     propertyReadSideEffects: false,
     unknownGlobalSideEffects: false,
   },
-} satisfies RollupOptions;
 
-const runtimes = {
-  ...common,
-
-  output: formats.map((format) => {
-    return {
-      ...common.output,
-      format,
-      entryFileNames: runtimeFileNamer,
-      chunkFileNames: runtimeFileNamer,
-    };
-
-    function runtimeFileNamer(info: Readonly<PreRenderedChunk>) {
-      return `${info.isEntry ? "" : "_"}${info.name}.${
-        format === "esm" ? "mjs" : "cjs"
-      }`;
+  external: (source) => {
+    if (source.startsWith("node:") || externalDependencies.some((dep) => source.startsWith(dep))) {
+      return true;
     }
-  }),
-  plugins: [
-    rollupPluginAutoExternal(),
-    rollupPluginTypescript({
-      tsconfig: "tsconfig.build.json",
-    }),
-    rollupPluginReplace({
-      "import.meta.vitest": "undefined",
-    }),
-  ],
+    return undefined;
+  },
 } satisfies RollupOptions;
-
-const types = {
-  ...common,
-
-  output: formats.map((format) => {
-    return {
-      ...common.output,
-      format,
-      entryFileNames: typesFileNamer,
-      chunkFileNames: typesFileNamer,
-    };
-
-    function typesFileNamer(info: Readonly<PreRenderedChunk>) {
-      return `${info.isEntry ? "" : "_"}${info.name}.d.${
-        format === "esm" ? "mts" : "cts"
-      }`;
-    }
-  }),
-  plugins: [
-    rollupPluginDts({
-      tsconfig: "tsconfig.build.json",
-    }),
-  ],
-} satisfies RollupOptions;
-
-const configs = buildTypesOnly ? [types] : [runtimes, types];
-
-export default configs;

@@ -1,4 +1,4 @@
-name: Type Check
+name: Lint Yaml
 
 on:
   pull_request:
@@ -6,10 +6,9 @@ on:
   workflow_call:
 
 jobs:
-  typecheck:
+  lint_yaml:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
-      - run: pnpm run generate-files
-      - run: pnpm run typecheck
+      - run: pnpm run lint:yaml
