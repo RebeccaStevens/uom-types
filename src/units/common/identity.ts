@@ -1,13 +1,13 @@
-import {
-  type AbstractUnitFrom,
-  type Unit,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Unit, // eslint-disable-line ts/no-unused-vars
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
@@ -22,17 +22,12 @@ export type Identity = AbstractUnitFrom<IdentityUnitClass>;
 /**
  * @group Unit Generators
  */
-export type IdentityUnit<M extends UnitSubvalues> = IdentityUnitFrom<
-  UnitMeta<M>
->;
+export type IdentityUnit<M extends UnitSubvalues> = IdentityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  */
-export type IdentityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  IdentityUnitClass,
-  M
->;
+export type IdentityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<IdentityUnitClass, M>;
 
 /**
  * A {@link Unit} with no units.

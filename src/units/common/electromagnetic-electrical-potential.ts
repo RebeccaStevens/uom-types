@@ -1,27 +1,19 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type Multiply,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import {
-  type Ampere,
-  type Coulomb,
-  type Joule,
-  type Ohm,
-  type Second,
-  type Watt,
-  type Weber,
-} from ".";
+import type { Ampere, Coulomb, Joule, Ohm, Second, Watt, Weber } from ".";
 
 /**
  * @group Unit Classes
@@ -44,17 +36,13 @@ export type ElectricPotential = AbstractUnitFrom<ElectricPotentialUnitClass>;
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricPotentialUnit<M extends UnitSubvalues> =
-  ElectricPotentialUnitFrom<UnitMeta<M>>;
+export type ElectricPotentialUnit<M extends UnitSubvalues> = ElectricPotentialUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricPotentialUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ElectricPotentialUnitClass,
-  M
->;
+export type ElectricPotentialUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ElectricPotentialUnitClass, M>;
 
 /**
  * A unit of {@link ElectricPotential}.

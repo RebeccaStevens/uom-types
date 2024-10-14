@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Multiply,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Multiply, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Kilo } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Kilo } from "../modifiers";
 
-import { type Gram, type MeterPerSecondSquared } from ".";
+import type { Gram, MeterPerSecondSquared } from ".";
 
 /**
  * @group Unit Classes
@@ -41,10 +34,7 @@ export type ForceUnit<M extends UnitSubvalues> = ForceUnitFrom<UnitMeta<M>>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type ForceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ForceUnitClass,
-  M
->;
+export type ForceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ForceUnitClass, M>;
 
 /**
  * A unit of {@link Force}.

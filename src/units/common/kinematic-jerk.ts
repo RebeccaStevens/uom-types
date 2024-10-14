@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Second, type MeterPerSecondSquared } from ".";
+import type { MeterPerSecondSquared, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -36,10 +29,7 @@ export type JerkUnit<M extends UnitSubvalues> = JerkUnitFrom<UnitMeta<M>>;
  * @group Unit Generators
  * @category Kinematic
  */
-export type JerkUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  JerkUnitClass,
-  M
->;
+export type JerkUnitFrom<M extends UnknownUnitMeta> = UnitFrom<JerkUnitClass, M>;
 
 /**
  * A unit of {@link Jerk}.
@@ -56,9 +46,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("MeterPerSecondCubed", () => {
     it("is meters per squared second per second", () => {
-      assert<
-        Equals<MeterPerSecondCubed, Divide<MeterPerSecondSquared, Second>>
-      >();
+      assert<Equals<MeterPerSecondCubed, Divide<MeterPerSecondSquared, Second>>>();
     });
   });
 }

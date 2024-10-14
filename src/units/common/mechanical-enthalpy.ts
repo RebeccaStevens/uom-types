@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Kilo } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Kilo } from "../modifiers";
 
-import { type Gram, type Joule } from ".";
+import type { Gram, Joule } from ".";
 
 /**
  * @group Unit Classes
@@ -31,18 +24,13 @@ export type Enthalpy = AbstractUnitFrom<EnthalpyUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type EnthalpyUnit<M extends UnitSubvalues> = EnthalpyUnitFrom<
-  UnitMeta<M>
->;
+export type EnthalpyUnit<M extends UnitSubvalues> = EnthalpyUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type EnthalpyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  EnthalpyUnitClass,
-  M
->;
+export type EnthalpyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<EnthalpyUnitClass, M>;
 
 /**
  * A unit of {@link Enthalpy}.

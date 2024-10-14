@@ -1,12 +1,6 @@
-import {
-  type UnknownUnitMeta,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
@@ -26,18 +20,13 @@ export type PlaneAngle = AbstractUnitFrom<PlaneAngleUnitClass>;
  * @group Unit Generators
  * @category Angle (Plane)
  */
-export type PlaneAngleUnit<M extends UnitSubvalues> = PlaneAngleUnitFrom<
-  UnitMeta<M>
->;
+export type PlaneAngleUnit<M extends UnitSubvalues> = PlaneAngleUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Angle (Plane)
  */
-export type PlaneAngleUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  PlaneAngleUnitClass,
-  M
->;
+export type PlaneAngleUnitFrom<M extends UnknownUnitMeta> = UnitFrom<PlaneAngleUnitClass, M>;
 
 /**
  * A unit of {@link PlaneAngle}.

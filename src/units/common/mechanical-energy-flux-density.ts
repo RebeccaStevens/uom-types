@@ -1,20 +1,20 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import { type Meter, type Joule, type Second } from ".";
+import type { Joule, Meter, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -35,17 +35,13 @@ export type EnergyFluxDensity = AbstractUnitFrom<EnergyFluxDensityUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type EnergyFluxDensityUnit<M extends UnitSubvalues> =
-  EnergyFluxDensityUnitFrom<UnitMeta<M>>;
+export type EnergyFluxDensityUnit<M extends UnitSubvalues> = EnergyFluxDensityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type EnergyFluxDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  EnergyFluxDensityUnitClass,
-  M
->;
+export type EnergyFluxDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<EnergyFluxDensityUnitClass, M>;
 
 /**
  * A unit of {@link EnergyFluxDensity}.
@@ -62,12 +58,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("JoulePerSquareMeterSecond", () => {
     it("is joules per (square meters by seconds)", () => {
-      assert<
-        Equals<
-          JoulePerSquareMeterSecond,
-          Divide<Joule, Multiply<Square<Meter>, Second>>
-        >
-      >();
+      assert<Equals<JoulePerSquareMeterSecond, Divide<Joule, Multiply<Square<Meter>, Second>>>>();
     });
   });
 }

@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import { type Meter, type Newton } from ".";
+import type { Meter, Newton } from ".";
 
 /**
  * @group Unit Classes
@@ -35,18 +28,13 @@ export type Pressure = AbstractUnitFrom<PressureUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type PressureUnit<M extends UnitSubvalues> = PressureUnitFrom<
-  UnitMeta<M>
->;
+export type PressureUnit<M extends UnitSubvalues> = PressureUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type PressureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  PressureUnitClass,
-  M
->;
+export type PressureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<PressureUnitClass, M>;
 
 /**
  * A unit of {@link Pressure}.

@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import { type Meter, type Second } from ".";
+import type { Meter, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -34,17 +27,13 @@ export type KinematicViscosity = AbstractUnitFrom<KinematicViscosityUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type KinematicViscosityUnit<M extends UnitSubvalues> =
-  KinematicViscosityUnitFrom<UnitMeta<M>>;
+export type KinematicViscosityUnit<M extends UnitSubvalues> = KinematicViscosityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type KinematicViscosityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  KinematicViscosityUnitClass,
-  M
->;
+export type KinematicViscosityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<KinematicViscosityUnitClass, M>;
 
 /**
  * A unit of {@link KinematicViscosity}.

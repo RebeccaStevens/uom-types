@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Multiply, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Second, type Pascal } from ".";
+import type { Pascal, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -34,17 +27,13 @@ export type DynamicViscosity = AbstractUnitFrom<DynamicViscosityUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type DynamicViscosityUnit<M extends UnitSubvalues> =
-  DynamicViscosityUnitFrom<UnitMeta<M>>;
+export type DynamicViscosityUnit<M extends UnitSubvalues> = DynamicViscosityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type DynamicViscosityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  DynamicViscosityUnitClass,
-  M
->;
+export type DynamicViscosityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<DynamicViscosityUnitClass, M>;
 
 /**
  * A unit of {@link DynamicViscosity}.

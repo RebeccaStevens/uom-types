@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import { type Meter, type Weber } from ".";
+import type { Meter, Weber } from ".";
 
 /**
  * @group Unit Classes
@@ -29,24 +22,19 @@ export type MagneticFluxDensityUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Electromagnetic
  */
-export type MagneticFluxDensity =
-  AbstractUnitFrom<MagneticFluxDensityUnitClass>;
+export type MagneticFluxDensity = AbstractUnitFrom<MagneticFluxDensityUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type MagneticFluxDensityUnit<M extends UnitSubvalues> =
-  MagneticFluxDensityUnitFrom<UnitMeta<M>>;
+export type MagneticFluxDensityUnit<M extends UnitSubvalues> = MagneticFluxDensityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type MagneticFluxDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  MagneticFluxDensityUnitClass,
-  M
->;
+export type MagneticFluxDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MagneticFluxDensityUnitClass, M>;
 
 /**
  * A unit of {@link MagneticFluxDensity}.

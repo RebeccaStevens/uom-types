@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Kilo, type Cubic } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Cubic, Kilo } from "../modifiers";
 
-import { type Gram, type Meter } from ".";
+import type { Gram, Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -31,17 +24,13 @@ export type SpecificVolume = AbstractUnitFrom<SpecificVolumeUnitClass>;
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type SpecificVolumeUnit<M extends UnitSubvalues> =
-  SpecificVolumeUnitFrom<UnitMeta<M>>;
+export type SpecificVolumeUnit<M extends UnitSubvalues> = SpecificVolumeUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type SpecificVolumeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  SpecificVolumeUnitClass,
-  M
->;
+export type SpecificVolumeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<SpecificVolumeUnitClass, M>;
 
 /**
  * A unit of {@link SpecificVolume}.

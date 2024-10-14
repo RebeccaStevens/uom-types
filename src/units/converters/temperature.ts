@@ -1,4 +1,4 @@
-import { type Kelvin, type Celsius } from "#uom-types/units";
+import type { Celsius, Kelvin } from "#uom-types/units";
 
 /**
  * Convert {@link Celsius} to {@link Kelvin}.

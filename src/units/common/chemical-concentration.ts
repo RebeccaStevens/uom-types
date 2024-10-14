@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Cubic } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Cubic } from "../modifiers";
 
-import { type Meter, type Liter, type Mole } from ".";
+import type { Liter, Meter, Mole } from ".";
 
 /**
  * @group Unit Classes
@@ -31,17 +24,13 @@ export type MolarConcentration = AbstractUnitFrom<MolarConcentrationUnitClass>;
  * @group Unit Generators
  * @category Chemical
  */
-export type MolarConcentrationUnit<M extends UnitSubvalues> =
-  MolarConcentrationUnitFrom<UnitMeta<M>>;
+export type MolarConcentrationUnit<M extends UnitSubvalues> = MolarConcentrationUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Chemical
  */
-export type MolarConcentrationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  MolarConcentrationUnitClass,
-  M
->;
+export type MolarConcentrationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MolarConcentrationUnitClass, M>;
 
 /**
  * A unit of {@link MolarConcentration}.

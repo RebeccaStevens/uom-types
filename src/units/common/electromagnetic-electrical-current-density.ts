@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import { type Meter, type Ampere } from ".";
+import type { Ampere, Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -28,22 +21,19 @@ export type ElectricCurrentDensityUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Electromagnetic
  */
-export type ElectricCurrentDensity =
-  AbstractUnitFrom<ElectricCurrentDensityUnitClass>;
+export type ElectricCurrentDensity = AbstractUnitFrom<ElectricCurrentDensityUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricCurrentDensityUnit<M extends UnitSubvalues> =
-  ElectricCurrentDensityUnitFrom<UnitMeta<M>>;
+export type ElectricCurrentDensityUnit<M extends UnitSubvalues> = ElectricCurrentDensityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricCurrentDensityUnitFrom<M extends UnknownUnitMeta> =
-  UnitFrom<ElectricCurrentDensityUnitClass, M>;
+export type ElectricCurrentDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ElectricCurrentDensityUnitClass, M>;
 
 /**
  * A unit of {@link ElectricCurrentDensity}.

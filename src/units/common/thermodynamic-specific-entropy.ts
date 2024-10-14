@@ -1,20 +1,20 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Kilo } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Kilo } from "../modifiers";
 
-import { type Gram, type Joule, type Kelvin } from ".";
+import type { Gram, Joule, Kelvin } from ".";
 
 /**
  * @group Unit Classes
@@ -36,17 +36,13 @@ export type SpecificEntropy = AbstractUnitFrom<SpecificEntropyUnitClass>;
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type SpecificEntropyUnit<M extends UnitSubvalues> =
-  SpecificEntropyUnitFrom<UnitMeta<M>>;
+export type SpecificEntropyUnit<M extends UnitSubvalues> = SpecificEntropyUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type SpecificEntropyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  SpecificEntropyUnitClass,
-  M
->;
+export type SpecificEntropyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<SpecificEntropyUnitClass, M>;
 
 /**
  * A unit of {@link SpecificEntropy}.
@@ -63,12 +59,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("JoulePerKilogramKelvin", () => {
     it("is joules per kelvin kilogram", () => {
-      assert<
-        Equals<
-          JoulePerKilogramKelvin,
-          Divide<Joule, Multiply<Kelvin, Kilo<Gram>>>
-        >
-      >();
+      assert<Equals<JoulePerKilogramKelvin, Divide<Joule, Multiply<Kelvin, Kilo<Gram>>>>>();
     });
   });
 }

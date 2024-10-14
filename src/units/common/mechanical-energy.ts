@@ -1,28 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Multiply, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Cubic } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Cubic } from "../modifiers";
 
-import {
-  type Pascal,
-  type Coulomb,
-  type Volt,
-  type Meter,
-  type Watt,
-  type Second,
-  type Hour,
-  type Minute,
-} from ".";
+import type { Coulomb, Hour, Meter, Minute, Pascal, Second, Volt, Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -50,10 +34,7 @@ export type EnergyUnit<M extends UnitSubvalues> = EnergyUnitFrom<UnitMeta<M>>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type EnergyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  EnergyUnitClass,
-  M
->;
+export type EnergyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<EnergyUnitClass, M>;
 
 /**
  * A unit of {@link Energy}.

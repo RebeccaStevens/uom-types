@@ -1,27 +1,20 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type Multiply,
-  type UnknownUnitMeta,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Kilo } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Kilo } from "../modifiers";
 
-import {
-  type Gram,
-  type Meter,
-  type Newton,
-  type Second,
-  type Joule,
-  type Radian,
-} from ".";
+import type { Gram, Joule, Meter, Newton, Radian, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -37,22 +30,19 @@ export type SpecificAngularMomentumUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Mechanical
  */
-export type SpecificAngularMomentum =
-  AbstractUnitFrom<SpecificAngularMomentumUnitClass>;
+export type SpecificAngularMomentum = AbstractUnitFrom<SpecificAngularMomentumUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type SpecificAngularMomentumUnit<M extends UnitSubvalues> =
-  SpecificAngularMomentumUnitFrom<UnitMeta<M>>;
+export type SpecificAngularMomentumUnit<M extends UnitSubvalues> = SpecificAngularMomentumUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type SpecificAngularMomentumUnitFrom<M extends UnknownUnitMeta> =
-  UnitFrom<SpecificAngularMomentumUnitClass, M>;
+export type SpecificAngularMomentumUnitFrom<M extends UnknownUnitMeta> = UnitFrom<SpecificAngularMomentumUnitClass, M>;
 
 /**
  * A unit of {@link SpecificAngularMomentum}.
@@ -70,8 +60,7 @@ export type JouleSecondPerRadianPerKilogram = SpecificAngularMomentumUnit<{}>;
  * @category Mechanical
  * @symbol `N⋅m⋅s/rad/kg`
  */
-export type NewtonMeterSecondPerRadianPerKilogram =
-  JouleSecondPerRadianPerKilogram;
+export type NewtonMeterSecondPerRadianPerKilogram = JouleSecondPerRadianPerKilogram;
 
 // Tests
 if (import.meta.vitest !== undefined) {
@@ -79,12 +68,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("JouleSecondPerRadianPerKilogram", () => {
     it("is joules by second per radian per kilogram", () => {
-      assert<
-        Equals<
-          JouleSecondPerRadianPerKilogram,
-          Divide<Divide<Multiply<Joule, Second>, Radian>, Kilo<Gram>>
-        >
-      >();
+      assert<Equals<JouleSecondPerRadianPerKilogram, Divide<Divide<Multiply<Joule, Second>, Radian>, Kilo<Gram>>>>();
     });
   });
 
@@ -93,10 +77,7 @@ if (import.meta.vitest !== undefined) {
       assert<
         Equals<
           NewtonMeterSecondPerRadianPerKilogram,
-          Divide<
-            Divide<Multiply<Multiply<Newton, Meter>, Second>, Radian>,
-            Kilo<Gram>
-          >
+          Divide<Divide<Multiply<Multiply<Newton, Meter>, Second>, Radian>, Kilo<Gram>>
         >
       >();
     });

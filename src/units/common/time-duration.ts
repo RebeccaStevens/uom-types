@@ -1,12 +1,6 @@
-import {
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
@@ -24,18 +18,13 @@ export type Duration = AbstractUnitFrom<DurationUnitClass>;
  * @group Unit Generators
  * @category Time
  */
-export type DurationUnit<M extends UnitSubvalues> = DurationUnitFrom<
-  UnitMeta<M>
->;
+export type DurationUnit<M extends UnitSubvalues> = DurationUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Time
  */
-export type DurationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  DurationUnitClass,
-  M
->;
+export type DurationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<DurationUnitClass, M>;
 
 /**
  * A unit of {@link Duration}.

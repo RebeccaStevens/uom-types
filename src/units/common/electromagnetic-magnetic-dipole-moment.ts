@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Joule, type Tesla } from ".";
+import type { Joule, Tesla } from ".";
 
 /**
  * @group Unit Classes
@@ -27,24 +20,19 @@ export type MagneticDipoleMomentUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Electromagnetic
  */
-export type MagneticDipoleMoment =
-  AbstractUnitFrom<MagneticDipoleMomentUnitClass>;
+export type MagneticDipoleMoment = AbstractUnitFrom<MagneticDipoleMomentUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type MagneticDipoleMomentUnit<M extends UnitSubvalues> =
-  MagneticDipoleMomentUnitFrom<UnitMeta<M>>;
+export type MagneticDipoleMomentUnit<M extends UnitSubvalues> = MagneticDipoleMomentUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type MagneticDipoleMomentUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  MagneticDipoleMomentUnitClass,
-  M
->;
+export type MagneticDipoleMomentUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MagneticDipoleMomentUnitClass, M>;
 
 /**
  * A unit of {@link MagneticDipoleMoment}.

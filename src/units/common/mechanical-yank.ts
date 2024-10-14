@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type UnknownUnitMeta,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Newton, type Second } from ".";
+import type { Newton, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -40,10 +33,7 @@ export type YankUnit<M extends UnitSubvalues> = YankUnitFrom<UnitMeta<M>>;
  * @group Unit Classes
  * @category Mechanical
  */
-export type YankUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  YankUnitClass,
-  M
->;
+export type YankUnitFrom<M extends UnknownUnitMeta> = UnitFrom<YankUnitClass, M>;
 
 /**
  * A unit of {@link Yank}.

@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Kelvin, type Watt } from ".";
+import type { Kelvin, Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -35,17 +28,13 @@ export type ThermalResistance = AbstractUnitFrom<ThermalResistanceUnitClass>;
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type ThermalResistanceUnit<M extends UnitSubvalues> =
-  ThermalResistanceUnitFrom<UnitMeta<M>>;
+export type ThermalResistanceUnit<M extends UnitSubvalues> = ThermalResistanceUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type ThermalResistanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ThermalResistanceUnitClass,
-  M
->;
+export type ThermalResistanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ThermalResistanceUnitClass, M>;
 
 /**
  * A unit of {@link ThermalResistance}.

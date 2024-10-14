@@ -1,12 +1,6 @@
-import {
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
@@ -26,17 +20,13 @@ export type ElectricCurrent = AbstractUnitFrom<ElectricCurrentUnitClass>;
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricCurrentUnit<M extends UnitSubvalues> =
-  ElectricCurrentUnitFrom<UnitMeta<M>>;
+export type ElectricCurrentUnit<M extends UnitSubvalues> = ElectricCurrentUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricCurrentUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ElectricCurrentUnitClass,
-  M
->;
+export type ElectricCurrentUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ElectricCurrentUnitClass, M>;
 
 /**
  * A unit of {@link ElectricCurrent}.

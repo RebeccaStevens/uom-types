@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Watt, type Steradian } from ".";
+import type { Steradian, Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -35,17 +28,13 @@ export type RadiantIntensity = AbstractUnitFrom<RadiantIntensityUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type RadiantIntensityUnit<M extends UnitSubvalues> =
-  RadiantIntensityUnitFrom<UnitMeta<M>>;
+export type RadiantIntensityUnit<M extends UnitSubvalues> = RadiantIntensityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type RadiantIntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  RadiantIntensityUnitClass,
-  M
->;
+export type RadiantIntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<RadiantIntensityUnitClass, M>;
 
 /**
  * A unit of {@link RadiantIntensity}.

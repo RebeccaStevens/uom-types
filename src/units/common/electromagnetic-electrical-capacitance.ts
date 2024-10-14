@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Coulomb, type Volt } from ".";
+import type { Coulomb, Volt } from ".";
 
 /**
  * @group Unit Classes
@@ -29,24 +22,19 @@ export type ElectricCapacitanceUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Electromagnetic
  */
-export type ElectricCapacitance =
-  AbstractUnitFrom<ElectricCapacitanceUnitClass>;
+export type ElectricCapacitance = AbstractUnitFrom<ElectricCapacitanceUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricCapacitanceUnit<M extends UnitSubvalues> =
-  ElectricCapacitanceUnitFrom<UnitMeta<M>>;
+export type ElectricCapacitanceUnit<M extends UnitSubvalues> = ElectricCapacitanceUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricCapacitanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ElectricCapacitanceUnitClass,
-  M
->;
+export type ElectricCapacitanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ElectricCapacitanceUnitClass, M>;
 
 /**
  * A unit of {@link ElectricCapacitance}.

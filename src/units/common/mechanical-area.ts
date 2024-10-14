@@ -1,20 +1,20 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type Multiply,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Cubic, type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Cubic, Square } from "../modifiers";
 
-import { type Meter } from ".";
+import type { Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -38,10 +38,7 @@ export type AreaUnit<M extends UnitSubvalues> = AreaUnitFrom<UnitMeta<M>>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type AreaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  AreaUnitClass,
-  M
->;
+export type AreaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<AreaUnitClass, M>;
 
 /**
  * A unit of {@link Area} equal to 100 {@link Square}<{@link Meter}>.

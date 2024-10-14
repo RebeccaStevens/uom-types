@@ -1,18 +1,9 @@
-import { expect, test } from "vitest";
+import { expect, it } from "vitest";
 
-import { add, mul, add as addHo, mul as mulHo } from "#uom-types/math";
-import {
-  type Cubic,
-  type VolumeUnit,
-  type Square,
-  type AreaUnit,
-  type Length,
-  type Meter,
-  type Centi,
-  type Milli,
-} from "#uom-types/units";
+import { add, add as addHo, mul, mul as mulHo } from "#uom-types/math";
+import type { AreaUnit, Centi, Cubic, Length, Meter, Milli, Square, VolumeUnit } from "#uom-types/units";
 
-test("unit by number", () => {
+it("unit by number", () => {
   const a = 3 as Meter;
   const b = 2;
   const expected = 6 as Meter;
@@ -22,7 +13,7 @@ test("unit by number", () => {
   expect(actual).equals(expected);
 });
 
-test("unit by unit", () => {
+it("unit by unit", () => {
   const a = 3 as Square<Meter>;
   const b = 2 as Meter;
   const expected = 6 as Cubic<Meter>;
@@ -32,7 +23,7 @@ test("unit by unit", () => {
   expect(actual).equals(expected);
 });
 
-test("unit by unit - different scalars", () => {
+it("unit by unit - different scalars", () => {
   const a = 3 as Square<Meter>;
   const b = 2 as Centi<Meter>;
   const expected = 6 as VolumeUnit<{ scalar10: -2 }>;
@@ -42,7 +33,7 @@ test("unit by unit - different scalars", () => {
   expect(actual).equals(expected);
 });
 
-test("generics", () => {
+it("generics", () => {
   function fnAdd<T extends Length>(a: T, b: T) {
     return add(a, b);
   }
@@ -69,7 +60,7 @@ test("generics", () => {
   expect(actualMul2).equals(expectedMul2);
 });
 
-test("generics - higher order", () => {
+it("generics - higher order", () => {
   function fnAdd<L extends Length>(a: L) {
     return addHo(a);
   }

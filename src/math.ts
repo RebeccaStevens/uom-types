@@ -1,21 +1,17 @@
-import {
-  type PosExponent,
-  type Exponent,
-  type Pow,
-  type Divide,
-  type Inverse,
-  type Multiply,
-  type Root,
-  type UnknownAbstractUnit,
-  type UnknownUnit,
+import type {
+  Divide,
+  Exponent,
+  Inverse,
+  Multiply,
+  PosExponent,
+  Pow,
+  Root,
+  UnknownAbstractUnit,
+  UnknownUnit,
 } from "#uom-types";
-import { type Radian, type Unitless } from "#uom-types/units";
+import type { Radian, Unitless } from "#uom-types/units";
 
-type OperationIO<T extends number> = [T] extends [
-  UnknownUnit | UnknownAbstractUnit,
-]
-  ? T
-  : number;
+type OperationIO<T extends number> = [T] extends [UnknownUnit | UnknownAbstractUnit] ? T : number;
 
 /**
  * Add two values with the same units together.
@@ -23,10 +19,7 @@ type OperationIO<T extends number> = [T] extends [
  * @category Math
  * @returns `a + b`
  */
-export function add<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): OperationIO<T>;
+export function add<T extends number>(a: OperationIO<T>, b: OperationIO<T>): OperationIO<T>;
 
 /**
  * Add two values with the same units together.
@@ -34,9 +27,7 @@ export function add<T extends number>(
  * @category Math
  * @returns `(a) => a + b`
  */
-export function add<T extends number>(
-  b: OperationIO<T>,
-): (a: OperationIO<T>) => OperationIO<T>;
+export function add<T extends number>(b: OperationIO<T>): (a: OperationIO<T>) => OperationIO<T>;
 
 export function add(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (a: number) => a + args[0] : args[0] + args[1];
@@ -48,10 +39,7 @@ export function add(...args: Readonly<[number, number] | [number]>) {
  * @category Math
  * @returns `a - b`
  */
-export function sub<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): OperationIO<T>;
+export function sub<T extends number>(a: OperationIO<T>, b: OperationIO<T>): OperationIO<T>;
 
 /**
  * Subtract one value from another with the same units.
@@ -59,9 +47,7 @@ export function sub<T extends number>(
  * @category Math
  * @returns `(a) => a - b`
  */
-export function sub<T extends number>(
-  b: OperationIO<T>,
-): (a: OperationIO<T>) => OperationIO<T>;
+export function sub<T extends number>(b: OperationIO<T>): (a: OperationIO<T>) => OperationIO<T>;
 
 export function sub(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (a: number) => a - args[0] : args[0] - args[1];
@@ -73,10 +59,7 @@ export function sub(...args: Readonly<[number, number] | [number]>) {
  * @category Math
  * @returns `a * b`
  */
-export function mul<A extends number, B extends number>(
-  a: A,
-  b: B,
-): Multiply<A, B>;
+export function mul<A extends number, B extends number>(a: A, b: B): Multiply<A, B>;
 
 /**
  * Multiple a value by the given value.
@@ -84,9 +67,7 @@ export function mul<A extends number, B extends number>(
  * @category Math
  * @returns `(a) => a * b`
  */
-export function mul<B extends number>(
-  b: B,
-): <A extends number>(a: A) => Multiply<A, B>;
+export function mul<B extends number>(b: B): <A extends number>(a: A) => Multiply<A, B>;
 
 export function mul(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (a: number) => a * args[0] : args[0] * args[1];
@@ -98,10 +79,7 @@ export function mul(...args: Readonly<[number, number] | [number]>) {
  * @category Math
  * @returns `a / b`
  */
-export function div<A extends number, B extends number>(
-  a: A,
-  b: B,
-): Divide<A, B>;
+export function div<A extends number, B extends number>(a: A, b: B): Divide<A, B>;
 
 /**
  * Divide one value by the given value.
@@ -109,9 +87,7 @@ export function div<A extends number, B extends number>(
  * @category Math
  * @returns `(a) => a / b`
  */
-export function div<B extends number>(
-  b: B,
-): <A extends number>(a: A) => Divide<A, B>;
+export function div<B extends number>(b: B): <A extends number>(a: A) => Divide<A, B>;
 
 export function div(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (a: number) => a / args[0] : args[0] / args[1];
@@ -125,10 +101,7 @@ export function div(...args: Readonly<[number, number] | [number]>) {
  * @param b - Must be an integer.
  * @returns `a % b`
  */
-export function mod<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): OperationIO<T>;
+export function mod<T extends number>(a: OperationIO<T>, b: OperationIO<T>): OperationIO<T>;
 
 /**
  * Modulo operator.
@@ -137,9 +110,7 @@ export function mod<T extends number>(
  * @param b - Must be an integer.
  * @returns `(a) => a % b`
  */
-export function mod<T extends number>(
-  b: OperationIO<T>,
-): (a: OperationIO<T>) => OperationIO<T>;
+export function mod<T extends number>(b: OperationIO<T>): (a: OperationIO<T>) => OperationIO<T>;
 
 export function mod(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (a: number) => a % args[0] : args[0] % args[1];
@@ -153,10 +124,7 @@ export function mod(...args: Readonly<[number, number] | [number]>) {
  * @param b - Must be a positive integer.
  * @returns An integer between zero (inclusive) and `b` (exclusive).
  */
-export function modSafe<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): OperationIO<T>;
+export function modSafe<T extends number>(a: OperationIO<T>, b: OperationIO<T>): OperationIO<T>;
 
 /**
  * Perform mathematic modular arithmetic.
@@ -165,9 +133,7 @@ export function modSafe<T extends number>(
  * @param b - Must be a positive integer.
  * @returns A function that takes a integer and returns an integer between zero (inclusive) and `b` (exclusive).
  */
-export function modSafe<T extends number>(
-  b: OperationIO<T>,
-): (a: OperationIO<T>) => OperationIO<T>;
+export function modSafe<T extends number>(b: OperationIO<T>): (a: OperationIO<T>) => OperationIO<T>;
 
 export function modSafe(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1
@@ -178,12 +144,12 @@ export function modSafe(...args: Readonly<[number, number] | [number]>) {
 type PowFunction<E extends number, B extends number> = E extends UnknownUnit
   ? never
   : E extends UnknownAbstractUnit
-  ? never
-  : E extends Exponent
-  ? (b: B) => Pow<B, E>
-  : E extends 0.5
-  ? (b: B) => Root<B, 2>
-  : (b: B) => number;
+    ? never
+    : E extends Exponent
+      ? (b: B) => Pow<B, E>
+      : E extends 0.5
+        ? (b: B) => Root<B, 2>
+        : (b: B) => number;
 
 /**
  * Raise a number to the power of another.
@@ -193,11 +159,7 @@ type PowFunction<E extends number, B extends number> = E extends UnknownUnit
  */
 export function pow<B extends number, E extends number>(
   base: B,
-  exponent: E extends UnknownUnit
-    ? never
-    : E extends UnknownAbstractUnit
-    ? never
-    : E,
+  exponent: E extends UnknownUnit ? never : E extends UnknownAbstractUnit ? never : E,
 ): E extends Exponent ? Pow<B, E> : number;
 
 /**
@@ -216,9 +178,7 @@ export function pow<B extends number>(base: B, exponent: 0.5): Root<B, 2>;
  */
 export function pow<E extends number>(
   exponent: E,
-): <B extends number>(
-  base: Parameters<PowFunction<E, B>>[0],
-) => ReturnType<PowFunction<E, B>>;
+): <B extends number>(base: Parameters<PowFunction<E, B>>[0]) => ReturnType<PowFunction<E, B>>;
 
 export function pow(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (b: number) => b ** args[0] : args[0] ** args[1];
@@ -227,10 +187,10 @@ export function pow(...args: Readonly<[number, number] | [number]>) {
 type RootFunction<E extends number, B extends number> = E extends UnknownUnit
   ? never
   : E extends UnknownAbstractUnit
-  ? never
-  : E extends PosExponent
-  ? (b: B) => Root<B, E>
-  : (b: B) => number;
+    ? never
+    : E extends PosExponent
+      ? (b: B) => Root<B, E>
+      : (b: B) => number;
 
 /**
  * Take the nth root of a number.
@@ -240,11 +200,7 @@ type RootFunction<E extends number, B extends number> = E extends UnknownUnit
  */
 export function root<B extends number, E extends number>(
   base: B,
-  exponent: E extends UnknownUnit
-    ? never
-    : E extends UnknownAbstractUnit
-    ? never
-    : E,
+  exponent: E extends UnknownUnit ? never : E extends UnknownAbstractUnit ? never : E,
 ): E extends PosExponent ? Root<B, E> : number;
 
 /**
@@ -255,14 +211,10 @@ export function root<B extends number, E extends number>(
  */
 export function root<E extends number>(
   exponent: E,
-): <B extends number>(
-  base: Parameters<RootFunction<E, B>>[0],
-) => ReturnType<RootFunction<E, B>>;
+): <B extends number>(base: Parameters<RootFunction<E, B>>[0]) => ReturnType<RootFunction<E, B>>;
 
 export function root(...args: Readonly<[number, number] | [number]>) {
-  return args.length === 1
-    ? (b: number) => b ** (1 / args[0])
-    : args[0] ** (1 / args[1]);
+  return args.length === 1 ? (b: number) => b ** (1 / args[0]) : args[0] ** (1 / args[1]);
 }
 
 /**
@@ -291,9 +243,7 @@ export function inverse<T extends number>(value: T): Inverse<T> {
  * @category Math
  * @returns `-value`
  */
-export function negate<T extends number>(
-  value: OperationIO<T>,
-): OperationIO<T> {
+export function negate<T extends number>(value: OperationIO<T>): OperationIO<T> {
   return -value as OperationIO<T>;
 }
 
@@ -373,10 +323,7 @@ export function sum<T extends number>(values: Iterable<T>): OperationIO<T> {
  * @category Math
  * @returns `a === b`
  */
-export function eq<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): boolean;
+export function eq<T extends number>(a: OperationIO<T>, b: OperationIO<T>): boolean;
 
 /**
  * Equal: Compare if a value is equal to the given value.
@@ -384,9 +331,7 @@ export function eq<T extends number>(
  * @category Math
  * @returns `(a) => a === b`
  */
-export function eq<T extends number>(
-  b: OperationIO<T>,
-): (a: OperationIO<T>) => boolean;
+export function eq<T extends number>(b: OperationIO<T>): (a: OperationIO<T>) => boolean;
 
 export function eq(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (a: number) => a === args[0] : args[0] === args[1];
@@ -398,10 +343,7 @@ export function eq(...args: Readonly<[number, number] | [number]>) {
  * @category Math
  * @returns `a > b`
  */
-export function gt<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): boolean;
+export function gt<T extends number>(a: OperationIO<T>, b: OperationIO<T>): boolean;
 
 /**
  * Greater Than: Compare if a value is greater than the given value.
@@ -409,9 +351,7 @@ export function gt<T extends number>(
  * @category Math
  * @returns `(a) => a > b`
  */
-export function gt<T extends number>(
-  b: OperationIO<T>,
-): (a: OperationIO<T>) => boolean;
+export function gt<T extends number>(b: OperationIO<T>): (a: OperationIO<T>) => boolean;
 
 export function gt(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (a: number) => a > args[0] : args[0] > args[1];
@@ -423,10 +363,7 @@ export function gt(...args: Readonly<[number, number] | [number]>) {
  * @category Math
  * @returns `a >= b`
  */
-export function gte<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): boolean;
+export function gte<T extends number>(a: OperationIO<T>, b: OperationIO<T>): boolean;
 
 /**
  * Greater Than or Equal: Compare if a value is greater than or equal to the given value.
@@ -434,9 +371,7 @@ export function gte<T extends number>(
  * @category Math
  * @returns `(a) => a >= b`
  */
-export function gte<T extends number>(
-  b: OperationIO<T>,
-): (a: OperationIO<T>) => boolean;
+export function gte<T extends number>(b: OperationIO<T>): (a: OperationIO<T>) => boolean;
 
 export function gte(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (a: number) => a >= args[0] : args[0] >= args[1];
@@ -448,10 +383,7 @@ export function gte(...args: Readonly<[number, number] | [number]>) {
  * @category Math
  * @returns `a < b`
  */
-export function lt<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): boolean;
+export function lt<T extends number>(a: OperationIO<T>, b: OperationIO<T>): boolean;
 
 /**
  * Less Than: Compare if a value is less than the given value.
@@ -459,9 +391,7 @@ export function lt<T extends number>(
  * @category Math
  * @returns `(a) => a < b`
  */
-export function lt<T extends number>(
-  b: OperationIO<T>,
-): (a: OperationIO<T>) => boolean;
+export function lt<T extends number>(b: OperationIO<T>): (a: OperationIO<T>) => boolean;
 
 export function lt(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (a: number) => a < args[0] : args[0] < args[1];
@@ -473,10 +403,7 @@ export function lt(...args: Readonly<[number, number] | [number]>) {
  * @category Math
  * @returns `a <= b`
  */
-export function lte<T extends number>(
-  a: OperationIO<T>,
-  b: OperationIO<T>,
-): boolean;
+export function lte<T extends number>(a: OperationIO<T>, b: OperationIO<T>): boolean;
 
 /**
  * Less Than or Equal: Compare if a value is less than or equal to the given value.
@@ -484,9 +411,7 @@ export function lte<T extends number>(
  * @category Math
  * @returns `(a) => a <= b`
  */
-export function lte<T extends number>(
-  b: OperationIO<T>,
-): (a: OperationIO<T>) => boolean;
+export function lte<T extends number>(b: OperationIO<T>): (a: OperationIO<T>) => boolean;
 
 export function lte(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (a: number) => a <= args[0] : args[0] <= args[1];

@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Multiply, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Tesla, type Meter } from ".";
+import type { Meter, Tesla } from ".";
 
 /**
  * @group Unit Classes
@@ -35,17 +28,13 @@ export type MagneticRigidity = AbstractUnitFrom<MagneticRigidityUnitClass>;
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type MagneticRigidityUnit<M extends UnitSubvalues> =
-  MagneticRigidityUnitFrom<UnitMeta<M>>;
+export type MagneticRigidityUnit<M extends UnitSubvalues> = MagneticRigidityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type MagneticRigidityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  MagneticRigidityUnitClass,
-  M
->;
+export type MagneticRigidityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MagneticRigidityUnitClass, M>;
 
 /**
  * A unit of {@link MagneticRigidity}.

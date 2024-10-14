@@ -1,20 +1,20 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import { type Meter, type Volt, type Second } from ".";
+import type { Meter, Second, Volt } from ".";
 
 /**
  * @group Unit Classes
@@ -36,17 +36,13 @@ export type ElectronMobility = AbstractUnitFrom<ElectronMobilityUnitClass>;
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectronMobilityUnit<M extends UnitSubvalues> =
-  ElectronMobilityUnitFrom<UnitMeta<M>>;
+export type ElectronMobilityUnit<M extends UnitSubvalues> = ElectronMobilityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectronMobilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ElectronMobilityUnitClass,
-  M
->;
+export type ElectronMobilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ElectronMobilityUnitClass, M>;
 
 /**
  * A unit of {@link ElectronMobility}.
@@ -63,12 +59,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("SquareMeterPerVoltSecond", () => {
     it("is square meters per volt second", () => {
-      assert<
-        Equals<
-          SquareMeterPerVoltSecond,
-          Divide<Square<Meter>, Multiply<Volt, Second>>
-        >
-      >();
+      assert<Equals<SquareMeterPerVoltSecond, Divide<Square<Meter>, Multiply<Volt, Second>>>>();
     });
   });
 }

@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Mole, type Second } from ".";
+import type { Mole, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -30,17 +23,13 @@ export type CatalyticActivity = AbstractUnitFrom<CatalyticActivityUnitClass>;
  * @group Unit Generators
  * @category Chemical
  */
-export type CatalyticActivityUnit<M extends UnitSubvalues> =
-  CatalyticActivityUnitFrom<UnitMeta<M>>;
+export type CatalyticActivityUnit<M extends UnitSubvalues> = CatalyticActivityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Chemical
  */
-export type CatalyticActivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  CatalyticActivityUnitClass,
-  M
->;
+export type CatalyticActivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<CatalyticActivityUnitClass, M>;
 
 /**
  * A unit of {@link CatalyticActivity}.

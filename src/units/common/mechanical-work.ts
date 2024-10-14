@@ -1,21 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { Multiply, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import {
-  type Joule,
-  type Energy,
-  type EnergyUnit,
-  type EnergyUnitClass,
-  type EnergyUnitFrom,
-  type Newton,
-  type Meter,
-} from ".";
+import type { Energy, EnergyUnit, EnergyUnitClass, EnergyUnitFrom, Joule, Meter, Newton } from ".";
 
 /**
  * @group Unit Classes

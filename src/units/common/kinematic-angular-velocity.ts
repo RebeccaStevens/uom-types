@@ -1,19 +1,19 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type Multiply,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Radian, type Second, type RadianPerSecondSquared } from ".";
+import type { Radian, RadianPerSecondSquared, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -34,17 +34,13 @@ export type AngularVelocity = AbstractUnitFrom<AngularVelocityUnitClass>;
  * @group Unit Generators
  * @category Kinematic
  */
-export type AngularVelocityUnit<M extends UnitSubvalues> =
-  AngularVelocityUnitFrom<UnitMeta<M>>;
+export type AngularVelocityUnit<M extends UnitSubvalues> = AngularVelocityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Kinematic
  */
-export type AngularVelocityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  AngularVelocityUnitClass,
-  M
->;
+export type AngularVelocityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<AngularVelocityUnitClass, M>;
 
 /**
  * A unit of {@link AngularVelocity}.
@@ -65,9 +61,7 @@ if (import.meta.vitest !== undefined) {
     });
 
     it("is radian per squared second by seconds", () => {
-      assert<
-        Equals<RadianPerSecond, Multiply<RadianPerSecondSquared, Second>>
-      >();
+      assert<Equals<RadianPerSecond, Multiply<RadianPerSecondSquared, Second>>>();
     });
   });
 }

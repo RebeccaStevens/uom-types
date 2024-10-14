@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Hertz, type Second } from ".";
+import type { Hertz, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -30,17 +23,13 @@ export type FrequencyDrift = AbstractUnitFrom<FrequencyDriftUnitClass>;
  * @group Unit Generators
  * @category Kinematic
  */
-export type FrequencyDriftUnit<M extends UnitSubvalues> =
-  FrequencyDriftUnitFrom<UnitMeta<M>>;
+export type FrequencyDriftUnit<M extends UnitSubvalues> = FrequencyDriftUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Kinematic
  */
-export type FrequencyDriftUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  FrequencyDriftUnitClass,
-  M
->;
+export type FrequencyDriftUnitFrom<M extends UnknownUnitMeta> = UnitFrom<FrequencyDriftUnitClass, M>;
 
 /**
  * A unit of {@link FrequencyDrift} equal to one hertz per second.

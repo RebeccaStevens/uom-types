@@ -1,19 +1,19 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type Multiply,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Meter, type Second, type MeterPerSecondSquared } from ".";
+import type { Meter, MeterPerSecondSquared, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -34,18 +34,13 @@ export type Velocity = AbstractUnitFrom<VelocityUnitClass>;
  * @group Unit Generators
  * @category Kinematic
  */
-export type VelocityUnit<M extends UnitSubvalues> = VelocityUnitFrom<
-  UnitMeta<M>
->;
+export type VelocityUnit<M extends UnitSubvalues> = VelocityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Kinematic
  */
-export type VelocityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  VelocityUnitClass,
-  M
->;
+export type VelocityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<VelocityUnitClass, M>;
 
 /**
  * A unit of {@link Velocity}.

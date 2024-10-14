@@ -1,24 +1,18 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Reciprocal } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Reciprocal } from "../modifiers";
 
-import { type TemperatureUnitClass, type Temperature } from ".";
+import type { Temperature, TemperatureUnitClass } from ".";
 
 /**
  * @group Unit Classes
  * @category Thermodynamic
  */
-export type ThermalExpansionCoefficientUnitClass =
-  Reciprocal<TemperatureUnitClass>;
+export type ThermalExpansionCoefficientUnitClass = Reciprocal<TemperatureUnitClass>;
 
 /**
  * @group Abstract Units
@@ -30,15 +24,16 @@ export type ThermalExpansionCoefficient = Reciprocal<Temperature>;
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type ThermalExpansionCoefficientUnit<M extends UnitSubvalues> =
-  ThermalExpansionCoefficientUnitFrom<UnitMeta<M>>;
+export type ThermalExpansionCoefficientUnit<M extends UnitSubvalues> = ThermalExpansionCoefficientUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type ThermalExpansionCoefficientUnitFrom<M extends UnknownUnitMeta> =
-  UnitFrom<ThermalExpansionCoefficientUnitClass, M>;
+export type ThermalExpansionCoefficientUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
+  ThermalExpansionCoefficientUnitClass,
+  M
+>;
 
 // Tests
 if (import.meta.vitest !== undefined) {

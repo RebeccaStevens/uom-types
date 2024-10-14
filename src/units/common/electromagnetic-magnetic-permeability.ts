@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Meter, type Henry } from ".";
+import type { Henry, Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -29,24 +22,19 @@ export type MagneticPermeabilityUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Electromagnetic
  */
-export type MagneticPermeability =
-  AbstractUnitFrom<MagneticPermeabilityUnitClass>;
+export type MagneticPermeability = AbstractUnitFrom<MagneticPermeabilityUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type MagneticPermeabilityUnit<M extends UnitSubvalues> =
-  MagneticPermeabilityUnitFrom<UnitMeta<M>>;
+export type MagneticPermeabilityUnit<M extends UnitSubvalues> = MagneticPermeabilityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type MagneticPermeabilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  MagneticPermeabilityUnitClass,
-  M
->;
+export type MagneticPermeabilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MagneticPermeabilityUnitClass, M>;
 
 /**
  * A unit of {@link MagneticPermeability}.

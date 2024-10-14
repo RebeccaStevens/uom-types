@@ -1,26 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Multiply,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Multiply, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import {
-  type Meter,
-  type Ampere,
-  type Henry,
-  type Second,
-  type Tesla,
-  type Volt,
-} from ".";
+import type { Ampere, Henry, Meter, Second, Tesla, Volt } from ".";
 
 /**
  * @group Unit Classes
@@ -43,18 +29,13 @@ export type MagneticFlux = AbstractUnitFrom<MagneticFluxUnitClass>;
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type MagneticFluxUnit<M extends UnitSubvalues> = MagneticFluxUnitFrom<
-  UnitMeta<M>
->;
+export type MagneticFluxUnit<M extends UnitSubvalues> = MagneticFluxUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type MagneticFluxUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  MagneticFluxUnitClass,
-  M
->;
+export type MagneticFluxUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MagneticFluxUnitClass, M>;
 
 /**
  * A unit of {@link MagneticFlux}.

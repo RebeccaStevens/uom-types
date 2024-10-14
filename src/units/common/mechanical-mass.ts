@@ -1,12 +1,6 @@
-import {
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
@@ -32,10 +26,7 @@ export type MassUnit<M extends UnitSubvalues> = MassUnitFrom<UnitMeta<M>>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type MassUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  MassUnitClass,
-  M
->;
+export type MassUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MassUnitClass, M>;
 
 /**
  * A unit of {@link Mass}.

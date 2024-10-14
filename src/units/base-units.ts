@@ -1,19 +1,15 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { type Equals, assert } from "tsafe";
 
-import { type Exponent, type Unit, type UnitClass } from "#uom-types";
+import type {
+  Exponent,
+  Unit, // eslint-disable-line ts/no-unused-vars
+  UnitClass,
+} from "#uom-types";
 
-import { type Exactify } from "../utils";
+import type { Exactify } from "../utils";
 
-type SiUnitKeys =
-  | "Second"
-  | "Meter"
-  | "Kilogram"
-  | "Mole"
-  | "Ampere"
-  | "Candela"
-  | "Kelvin"
-  | "Radian";
+type SiUnitKeys = "Second" | "Meter" | "Kilogram" | "Mole" | "Ampere" | "Candela" | "Kelvin" | "Radian";
 
 /**
  * The {@link UnitClass} that is the base of all {@link Unit}s defined by this library.
@@ -35,14 +31,10 @@ if (import.meta.vitest !== undefined) {
       assert<Equals<UnitClass<{}>, BaseUnitClass<{}>>>();
       assert<Equals<UnitClass<{ Second: 1 }>, BaseUnitClass<{ Second: 1 }>>>();
       assert<Equals<UnitClass<{ Meter: 1 }>, BaseUnitClass<{ Meter: 1 }>>>();
-      assert<
-        Equals<UnitClass<{ Kilogram: 1 }>, BaseUnitClass<{ Kilogram: 1 }>>
-      >();
+      assert<Equals<UnitClass<{ Kilogram: 1 }>, BaseUnitClass<{ Kilogram: 1 }>>>();
       assert<Equals<UnitClass<{ Mole: 1 }>, BaseUnitClass<{ Mole: 1 }>>>();
       assert<Equals<UnitClass<{ Ampere: 1 }>, BaseUnitClass<{ Ampere: 1 }>>>();
-      assert<
-        Equals<UnitClass<{ Candela: 1 }>, BaseUnitClass<{ Candela: 1 }>>
-      >();
+      assert<Equals<UnitClass<{ Candela: 1 }>, BaseUnitClass<{ Candela: 1 }>>>();
       assert<Equals<UnitClass<{ Kelvin: 1 }>, BaseUnitClass<{ Kelvin: 1 }>>>();
       assert<Equals<UnitClass<{ Radian: 1 }>, BaseUnitClass<{ Radian: 1 }>>>();
     });

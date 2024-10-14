@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Kilo } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Kilo } from "../modifiers";
 
-import { type Gram, type Coulomb } from ".";
+import type { Coulomb, Gram } from ".";
 
 /**
  * @group Unit Classes
@@ -35,18 +28,13 @@ export type Exposure = AbstractUnitFrom<ExposureUnitClass>;
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ExposureUnit<M extends UnitSubvalues> = ExposureUnitFrom<
-  UnitMeta<M>
->;
+export type ExposureUnit<M extends UnitSubvalues> = ExposureUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ExposureUnitClass,
-  M
->;
+export type ExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ExposureUnitClass, M>;
 
 /**
  * A unit of {@link Exposure}.

@@ -1,20 +1,20 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import { type Meter, type Watt, type Steradian } from ".";
+import type { Meter, Steradian, Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -36,18 +36,13 @@ export type Radiance = AbstractUnitFrom<RadianceUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type RadianceUnit<M extends UnitSubvalues> = RadianceUnitFrom<
-  UnitMeta<M>
->;
+export type RadianceUnit<M extends UnitSubvalues> = RadianceUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type RadianceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  RadianceUnitClass,
-  M
->;
+export type RadianceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<RadianceUnitClass, M>;
 
 /**
  * A unit of {@link Radiance}.
@@ -64,12 +59,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("WattPerSteradianSquareMeter", () => {
     it("is watts per steradian square meter", () => {
-      assert<
-        Equals<
-          WattPerSteradianSquareMeter,
-          Divide<Watt, Multiply<Steradian, Square<Meter>>>
-        >
-      >();
+      assert<Equals<WattPerSteradianSquareMeter, Divide<Watt, Multiply<Steradian, Square<Meter>>>>>();
     });
   });
 }
