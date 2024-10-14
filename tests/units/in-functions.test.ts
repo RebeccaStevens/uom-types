@@ -1,7 +1,6 @@
 import { expect, test } from "vitest";
 
-import { add, mul } from "#uom-types/functions";
-import { add as addHo, mul as mulHo } from "#uom-types/functions/higher-order";
+import { add, mul, add as addHo, mul as mulHo } from "#uom-types/math";
 import {
   type Cubic,
   type VolumeUnit,

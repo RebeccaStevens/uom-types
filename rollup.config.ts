@@ -43,8 +43,7 @@ const common = {
 const runtimes = {
   ...common,
   input: {
-    functions: "./src/functions/index.ts",
-    "functions-higher-order": "./src/functions-ho/index.ts",
+    math: "./src/math.ts",
     "units-converters": "./src/units/converters/index.ts",
   },
   output: formats.map((format) => {
@@ -76,8 +75,7 @@ const types = {
   ...common,
   input: {
     index: "./src/index.ts",
-    functions: "./src/functions/index.ts",
-    "functions-higher-order": "./src/functions-ho/index.ts",
+    math: "./src/math.ts",
     units: "./src/units/index.ts",
     "units-converters": "./src/units/converters/index.ts",
   },

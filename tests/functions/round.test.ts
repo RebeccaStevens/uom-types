@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
-import { round } from "#uom-types/functions";
+import { round } from "#uom-types/math";
 
 test("number", () => {
   expect(round(4.123)).equals(4);

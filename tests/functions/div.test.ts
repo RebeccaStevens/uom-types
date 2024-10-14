@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
-import { div } from "#uom-types/functions";
+import { div } from "#uom-types/math";
 
 test("numbers", () => {
   expect(div(1, 2)).equals(0.5);

@@ -1,6 +1,6 @@
 import { expectType } from "tsd";
 
-import { atan2 } from "#uom-types/functions";
+import { atan2 } from "#uom-types/math";
 import { type Meter, type Radian, type Unitless } from "#uom-types/units";
 
 declare const a: Unitless;

@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 
-import { atan2 } from "#uom-types/functions";
+import { atan2 } from "#uom-types/math";
 import { type Meter, type Radian } from "#uom-types/units";
 
 test("number", () => {

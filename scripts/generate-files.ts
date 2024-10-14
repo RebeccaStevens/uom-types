@@ -82,7 +82,7 @@ function generateSiUnitPrefixesFile() {
 }
 
 function generateSiUnitPrefixesConvertionFile() {
-  const imports = `import { type UnknownUnit, type UnitConversionRate } from "#uom-types";\nimport { mul, div } from "#uom-types/functions";\n\n`;
+  const imports = `import { type UnknownUnit, type UnitConversionRate } from "#uom-types";\nimport { mul, div } from "#uom-types/math";\n\n`;
   const main = [...exponents.values()]
     .map((exponent) => {
       const name = scalar10ToName.get(exponent);

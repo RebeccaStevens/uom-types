@@ -47,11 +47,8 @@ This library is split into several submodules.
 - `uom-types`\
   Defines the core types of this library. You'll only need to use if if you are defining your own custom types.
 
-- `uom-types/functions`\
+- `uom-types/math`\
   Defines runtime mathematical functions that are type-aware of this library's types.
-
-- `uom-types/functions/higher-order`\
-  Defines runtime higher order mathematical functions that are type-aware of this library's types.
 
 - `uom-types/units`\
   Defines common units.\

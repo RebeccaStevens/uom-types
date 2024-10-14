@@ -1,5 +1,5 @@
 import { type UnitConversionRate } from "#uom-types";
-import { div, mul } from "#uom-types/functions";
+import { div, mul } from "#uom-types/math";
 import { type Joule, type WattHour, type WattMinute } from "#uom-types/units";
 
 /**

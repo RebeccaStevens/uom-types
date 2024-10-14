@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
-import { root } from "#uom-types/functions";
+import { root } from "#uom-types/math";
 
 test("numbers", () => {
   expect(root(64, -1)).approximately(1 / 64, 1e-10);

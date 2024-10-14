@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
-import { gt } from "#uom-types/functions/higher-order";
+import { gt } from "#uom-types/math";
 
 test("number", () => {
   expect(gt(4)(4)).equals(false);
