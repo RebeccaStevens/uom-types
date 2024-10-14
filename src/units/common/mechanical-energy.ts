@@ -116,7 +116,7 @@ if (import.meta.vitest !== undefined) {
     });
   });
 
-  describe("other engery units", () => {
+  describe("other energy units", () => {
     it("is correct", () => {
       assert<Equals<WattMinute, Multiply<Watt, Minute>>>();
       assert<Equals<WattHour, Multiply<Watt, Hour>>>();

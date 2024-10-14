@@ -61,7 +61,7 @@ if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
   describe("Gray", () => {
-    it("is jouls per kilogram", () => {
+    it("is joules per kilogram", () => {
       assert<Equals<Gray, Divide<Joule, Kilo<Gram>>>>();
     });
   });
