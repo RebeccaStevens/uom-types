@@ -1,6 +1,8 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+## [4.0.1](https://github.com/RebeccaStevens/uom-types/compare/v4.0.0...v4.0.1) (2024-10-14)
+
 # [4.0.0](https://github.com/RebeccaStevens/uom-types/compare/v3.1.1...v4.0.0) (2024-10-14)
 
 
