@@ -19,7 +19,7 @@ import { type Gray, type Second } from ".";
  * @category Mechanical
  */
 export type AbsorbedDoseRateUnitClass = BaseUnitClass<{
-  Metre: 2;
+  Meter: 2;
   Second: -3;
 }>;
 

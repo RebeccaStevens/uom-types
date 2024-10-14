@@ -16,7 +16,7 @@ import { type Kilo } from "../modifiers";
 
 import {
   type Gram,
-  type Metre,
+  type Meter,
   type Newton,
   type Second,
   type Joule,
@@ -28,7 +28,7 @@ import {
  * @category Mechanical
  */
 export type SpecificAngularMomentumUnitClass = BaseUnitClass<{
-  Metre: 2;
+  Meter: 2;
   Second: -1;
   Radian: -1;
 }>;
@@ -70,7 +70,7 @@ export type JouleSecondPerRadianPerKilogram = SpecificAngularMomentumUnit<{}>;
  * @category Mechanical
  * @symbol `N⋅m⋅s/rad/kg`
  */
-export type NewtonMetreSecondPerRadianPerKilogram =
+export type NewtonMeterSecondPerRadianPerKilogram =
   JouleSecondPerRadianPerKilogram;
 
 // Tests
@@ -88,13 +88,13 @@ if (import.meta.vitest !== undefined) {
     });
   });
 
-  describe("NewtonMetreSecondPerRadianPerKilogram", () => {
-    it("is newton metres by second by radian per kilogram", () => {
+  describe("NewtonMeterSecondPerRadianPerKilogram", () => {
+    it("is newton meters by second by radian per kilogram", () => {
       assert<
         Equals<
-          NewtonMetreSecondPerRadianPerKilogram,
+          NewtonMeterSecondPerRadianPerKilogram,
           Divide<
-            Divide<Multiply<Multiply<Newton, Metre>, Second>, Radian>,
+            Divide<Multiply<Multiply<Newton, Meter>, Second>, Radian>,
             Kilo<Gram>
           >
         >

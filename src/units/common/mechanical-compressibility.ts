@@ -52,7 +52,7 @@ if (import.meta.vitest !== undefined) {
           CompressibilityUnitClass,
           BaseUnitClass<{
             Kilogram: -1;
-            Metre: 1;
+            Meter: 1;
             Second: 2;
           }>
         >

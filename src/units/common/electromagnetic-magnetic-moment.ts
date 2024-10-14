@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Metre, type Weber } from ".";
+import { type Meter, type Weber } from ".";
 
 /**
  * @group Unit Classes
@@ -20,7 +20,7 @@ import { type Metre, type Weber } from ".";
  */
 export type MagneticMomentUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 3;
+  Meter: 3;
   Second: -2;
   Ampere: -1;
 }>;
@@ -54,15 +54,15 @@ export type MagneticMomentUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Electromagnetic
  * @symbol `Wb⋅m`
  */
-export type WeberMetre = MagneticMomentUnit<{}>;
+export type WeberMeter = MagneticMomentUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("WeberMetre", () => {
-    it("is weber metres", () => {
-      assert<Equals<WeberMetre, Multiply<Weber, Metre>>>();
+  describe("WeberMeter", () => {
+    it("is weber meters", () => {
+      assert<Equals<WeberMeter, Multiply<Weber, Meter>>>();
     });
   });
 }

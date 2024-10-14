@@ -14,7 +14,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Joule, type Second } from ".";
+import { type Meter, type Joule, type Second } from ".";
 
 /**
  * @group Unit Classes
@@ -54,18 +54,18 @@ export type EnergyFluxDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `J/(m²⋅s)`
  */
-export type JoulePerSquareMetreSecond = EnergyFluxDensityUnit<{}>;
+export type JoulePerSquareMeterSecond = EnergyFluxDensityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("JoulePerSquareMetreSecond", () => {
-    it("is joules per (square metres by seconds)", () => {
+  describe("JoulePerSquareMeterSecond", () => {
+    it("is joules per (square meters by seconds)", () => {
       assert<
         Equals<
-          JoulePerSquareMetreSecond,
-          Divide<Joule, Multiply<Square<Metre>, Second>>
+          JoulePerSquareMeterSecond,
+          Divide<Joule, Multiply<Square<Meter>, Second>>
         >
       >();
     });

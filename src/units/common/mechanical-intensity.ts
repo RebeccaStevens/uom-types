@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Watt } from ".";
+import { type Meter, type Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -51,15 +51,15 @@ export type IntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `W/m²`
  */
-export type WattPerSquareMetre = IntensityUnit<{}>;
+export type WattPerSquareMeter = IntensityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("WattPerSquareMetre", () => {
-    it("is watts per square metre", () => {
-      assert<Equals<WattPerSquareMetre, Divide<Watt, Square<Metre>>>>();
+  describe("WattPerSquareMeter", () => {
+    it("is watts per square meter", () => {
+      assert<Equals<WattPerSquareMeter, Divide<Watt, Square<Meter>>>>();
     });
   });
 }

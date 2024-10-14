@@ -13,13 +13,13 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Kilo, type Cubic } from "../modifiers";
 
-import { type Gram, type Metre } from ".";
+import { type Gram, type Meter } from ".";
 
 /**
  * @group Unit Classes
  * @category Thermodynamic
  */
-export type SpecificVolumeUnitClass = BaseUnitClass<{ Kilogram: -1; Metre: 3 }>;
+export type SpecificVolumeUnitClass = BaseUnitClass<{ Kilogram: -1; Meter: 3 }>;
 
 /**
  * @group Abstract Units
@@ -50,15 +50,15 @@ export type SpecificVolumeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `m³/kg`
  */
-export type CubicMetrePerKilogram = SpecificVolumeUnit<{}>;
+export type CubicMeterPerKilogram = SpecificVolumeUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("CubicMetrePerKilogram", () => {
-    it("is cubic metre per kilogram", () => {
-      assert<Equals<CubicMetrePerKilogram, Divide<Cubic<Metre>, Kilo<Gram>>>>();
+  describe("CubicMeterPerKilogram", () => {
+    it("is cubic meter per kilogram", () => {
+      assert<Equals<CubicMeterPerKilogram, Divide<Cubic<Meter>, Kilo<Gram>>>>();
     });
   });
 }

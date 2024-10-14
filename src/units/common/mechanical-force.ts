@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Kilo } from "../modifiers";
 
-import { type Gram, type MetrePerSecondSquared } from ".";
+import { type Gram, type MeterPerSecondSquared } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Gram, type MetrePerSecondSquared } from ".";
  */
 export type ForceUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 1;
+  Meter: 1;
   Second: -2;
 }>;
 
@@ -49,7 +49,7 @@ export type ForceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 /**
  * A unit of {@link Force}.
  *
- * One newton is the force required to accelerate a mass of 1 kilogram at 1 metre per second per second.
+ * One newton is the force required to accelerate a mass of 1 kilogram at 1 meter per second per second.
  *
  * @group Units
  * @category Derived
@@ -63,8 +63,8 @@ if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
   describe("Newton", () => {
-    it("is kilograms by metres per squared second", () => {
-      assert<Equals<Newton, Multiply<Kilo<Gram>, MetrePerSecondSquared>>>();
+    it("is kilograms by meters per squared second", () => {
+      assert<Equals<Newton, Multiply<Kilo<Gram>, MeterPerSecondSquared>>>();
     });
   });
 }

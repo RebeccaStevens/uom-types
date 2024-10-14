@@ -1,17 +1,17 @@
 import { type UnitConversionRate } from "#uom-types";
 import { mul, div } from "#uom-types/functions";
-import { type Cubic, type Metre, type Litre } from "#uom-types/units";
+import { type Cubic, type Meter, type Liter } from "#uom-types/units";
 
 /**
- * Convert {@link Cubic}<{@link Metre}> to {@link Litre}.
+ * Convert {@link Cubic}<{@link Meter}> to {@link Liter}.
  */
-export function cubicMetresToLitres(volume: Cubic<Metre>): Litre {
+export function cubicMetersToLiters(volume: Cubic<Meter>): Liter {
   return mul(volume, 1000 as UnitConversionRate<{ scalar10: -3 }>);
 }
 
 /**
- * Convert {@link Litre} to {@link Cubic}<{@link Metre}>.
+ * Convert {@link Liter} to {@link Cubic}<{@link Meter}>.
  */
-export function litresToCubicMetres(volume: Litre): Cubic<Metre> {
+export function litersToCubicMeters(volume: Liter): Cubic<Meter> {
   return div(volume, 1000 as UnitConversionRate<{ scalar10: -3 }>);
 }

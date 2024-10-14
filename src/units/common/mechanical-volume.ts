@@ -19,14 +19,14 @@ import {
   type Deci,
 } from "../modifiers";
 
-import { type Metre } from ".";
+import { type Meter } from ".";
 
 /**
  * @group Unit Classes
  * @category Mechanical
  */
 export type VolumeUnitClass = BaseUnitClass<{
-  Metre: 3;
+  Meter: 3;
 }>;
 
 /**
@@ -57,30 +57,30 @@ export type VolumeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `l`
  */
-export type Litre = VolumeUnit<{ scalar10: -3 }>;
+export type Liter = VolumeUnit<{ scalar10: -3 }>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("Cubic Metres", () => {
-    it("is metres by metres by metres", () => {
-      assert<Equals<Cubic<Metre>, Multiply<Multiply<Metre, Metre>, Metre>>>();
-      assert<Equals<Cubic<Metre>, Multiply<Square<Metre>, Metre>>>();
+  describe("Cubic Meters", () => {
+    it("is meters by meters by meters", () => {
+      assert<Equals<Cubic<Meter>, Multiply<Multiply<Meter, Meter>, Meter>>>();
+      assert<Equals<Cubic<Meter>, Multiply<Square<Meter>, Meter>>>();
     });
   });
 
-  describe("Cubic Centimetres", () => {
-    it("is a milli litre", () => {
-      assert<Equals<Cubic<Centi<Metre>>, Milli<Litre>>>();
+  describe("Cubic Centimeters", () => {
+    it("is a milli liter", () => {
+      assert<Equals<Cubic<Centi<Meter>>, Milli<Liter>>>();
     });
   });
 
-  describe("Litres", () => {
-    it("is milli cubic metre", () => {
-      assert<Equals<Litre, Milli<Cubic<Metre>>>>();
+  describe("Liters", () => {
+    it("is milli cubic meter", () => {
+      assert<Equals<Liter, Milli<Cubic<Meter>>>>();
       assert<
-        Equals<Litre, Multiply<Multiply<Deci<Metre>, Deci<Metre>>, Deci<Metre>>>
+        Equals<Liter, Multiply<Multiply<Deci<Meter>, Deci<Meter>>, Deci<Meter>>>
       >();
     });
   });

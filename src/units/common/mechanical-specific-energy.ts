@@ -20,7 +20,7 @@ import { type Gram, type Joule } from ".";
  * @category Mechanical
  */
 export type SpecificEnergyUnitClass = BaseUnitClass<{
-  Metre: 2;
+  Meter: 2;
   Second: -2;
 }>;
 

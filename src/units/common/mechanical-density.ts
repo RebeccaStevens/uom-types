@@ -13,13 +13,13 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Kilo, type Cubic } from "../modifiers";
 
-import { type Gram, type Metre } from ".";
+import { type Gram, type Meter } from ".";
 
 /**
  * @group Unit Classes
  * @category Mechanical
  */
-export type DensityUnitClass = BaseUnitClass<{ Kilogram: 1; Metre: -3 }>;
+export type DensityUnitClass = BaseUnitClass<{ Kilogram: 1; Meter: -3 }>;
 
 /**
  * @group Abstract Units
@@ -49,15 +49,15 @@ export type DensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `kg/m³`
  */
-export type KilogramPerCubicMetre = DensityUnit<{}>;
+export type KilogramPerCubicMeter = DensityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("KilogramPerCubicMetre", () => {
-    it("is kilograms per cubic metre", () => {
-      assert<Equals<KilogramPerCubicMetre, Divide<Kilo<Gram>, Cubic<Metre>>>>();
+  describe("KilogramPerCubicMeter", () => {
+    it("is kilograms per cubic meter", () => {
+      assert<Equals<KilogramPerCubicMeter, Divide<Kilo<Gram>, Cubic<Meter>>>>();
     });
   });
 }

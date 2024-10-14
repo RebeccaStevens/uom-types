@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Tesla, type Metre } from ".";
+import { type Tesla, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Tesla, type Metre } from ".";
 export type MagneticRigidityUnitClass = BaseUnitClass<{
   Ampere: -1;
   Kilogram: 1;
-  Metre: 1;
+  Meter: 1;
   Second: -2;
 }>;
 
@@ -54,15 +54,15 @@ export type MagneticRigidityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Electromagnetic
  * @symbol `T⋅m`
  */
-export type TeslaMetre = MagneticRigidityUnit<{}>;
+export type TeslaMeter = MagneticRigidityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("TeslaMetre", () => {
-    it("is tesla by metre", () => {
-      assert<Equals<TeslaMetre, Multiply<Tesla, Metre>>>();
+  describe("TeslaMeter", () => {
+    it("is tesla by meter", () => {
+      assert<Equals<TeslaMeter, Multiply<Tesla, Meter>>>();
     });
   });
 }

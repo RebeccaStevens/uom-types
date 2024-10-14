@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Candela, type Metre } from ".";
+import { type Candela, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Candela, type Metre } from ".";
  */
 export type LuminanceUnitClass = BaseUnitClass<{
   Candela: 1;
-  Metre: -2;
+  Meter: -2;
 }>;
 
 /**
@@ -64,19 +64,19 @@ export type Lux = LuminanceUnit<{}>;
  * @category Photometric
  * @symbol `cd/m²`
  */
-export type CandelaPerSquareMetre = Lux;
+export type CandelaPerSquareMeter = Lux;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
   describe("Lux", () => {
-    it("is CandelaPerSquareMetre", () => {
-      assert<Equals<Lux, CandelaPerSquareMetre>>();
+    it("is CandelaPerSquareMeter", () => {
+      assert<Equals<Lux, CandelaPerSquareMeter>>();
     });
 
-    it("is candela per square metre", () => {
-      assert<Equals<Lux, Divide<Candela, Square<Metre>>>>();
+    it("is candela per square meter", () => {
+      assert<Equals<Lux, Divide<Candela, Square<Meter>>>>();
     });
   });
 }

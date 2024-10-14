@@ -21,7 +21,7 @@ import { type Second, type Joule, type Radian } from ".";
  */
 export type AngularMomentumUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 2;
+  Meter: 2;
   Second: -1;
   Radian: -1;
 }>;

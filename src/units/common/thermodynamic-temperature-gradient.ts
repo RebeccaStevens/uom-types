@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Kelvin, type Metre } from ".";
+import { type Kelvin, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -20,7 +20,7 @@ import { type Kelvin, type Metre } from ".";
  */
 export type TemperatureGradientUnitClass = BaseUnitClass<{
   Kelvin: 1;
-  Metre: -1;
+  Meter: -1;
 }>;
 
 /**
@@ -53,15 +53,15 @@ export type TemperatureGradientUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Thermodynamic
  * @symbol `K/m`
  */
-export type KelvinPerMetre = TemperatureGradientUnit<{}>;
+export type KelvinPerMeter = TemperatureGradientUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("KelvinPerMetre", () => {
-    it("is kelvin per metre", () => {
-      assert<Equals<KelvinPerMetre, Divide<Kelvin, Metre>>>();
+  describe("KelvinPerMeter", () => {
+    it("is kelvin per meter", () => {
+      assert<Equals<KelvinPerMeter, Divide<Kelvin, Meter>>>();
     });
   });
 }

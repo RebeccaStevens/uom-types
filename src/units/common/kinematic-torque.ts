@@ -13,7 +13,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Metre, type Newton, type NewtonMetre, type Radian } from ".";
+import { type Meter, type Newton, type NewtonMeter, type Radian } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Metre, type Newton, type NewtonMetre, type Radian } from ".";
  */
 export type TorqueUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 2;
+  Meter: 2;
   Second: -2;
   Radian: -1;
 }>;
@@ -70,13 +70,13 @@ if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
   describe("NewtonMeterPerRadian", () => {
-    it("is newton metres per radians", () => {
-      assert<Equals<NewtonMeterPerRadian, Divide<NewtonMetre, Radian>>>();
+    it("is newton meters per radians", () => {
+      assert<Equals<NewtonMeterPerRadian, Divide<NewtonMeter, Radian>>>();
     });
 
-    it("is newton by metres per radians", () => {
+    it("is newton by meters per radians", () => {
       assert<
-        Equals<NewtonMeterPerRadian, Divide<Multiply<Newton, Metre>, Radian>>
+        Equals<NewtonMeterPerRadian, Divide<Multiply<Newton, Meter>, Radian>>
       >();
     });
   });

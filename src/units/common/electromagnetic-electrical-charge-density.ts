@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Cubic } from "../modifiers";
 
-import { type Metre, type Coulomb } from ".";
+import { type Meter, type Coulomb } from ".";
 
 /**
  * @group Unit Classes
@@ -22,7 +22,7 @@ import { type Metre, type Coulomb } from ".";
 export type ElectricChargeDensityUnitClass = BaseUnitClass<{
   Ampere: 1;
   Second: 1;
-  Metre: -3;
+  Meter: -3;
 }>;
 
 /**
@@ -55,15 +55,15 @@ export type ElectricChargeDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Electromagnetic
  * @symbol `C/m³`
  */
-export type CoulombPerCubicMetre = ElectricChargeDensityUnit<{}>;
+export type CoulombPerCubicMeter = ElectricChargeDensityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("CoulombPerCubicMetre", () => {
-    it("is coulombs per cubic metre", () => {
-      assert<Equals<CoulombPerCubicMetre, Divide<Coulomb, Cubic<Metre>>>>();
+  describe("CoulombPerCubicMeter", () => {
+    it("is coulombs per cubic meter", () => {
+      assert<Equals<CoulombPerCubicMeter, Divide<Coulomb, Cubic<Meter>>>>();
     });
   });
 }

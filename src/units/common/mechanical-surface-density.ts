@@ -13,13 +13,13 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Kilo, type Square } from "../modifiers";
 
-import { type Gram, type Metre } from ".";
+import { type Gram, type Meter } from ".";
 
 /**
  * @group Unit Classes
  * @category Mechanical
  */
-export type SurfaceDensityUnitClass = BaseUnitClass<{ Kilogram: 1; Metre: -2 }>;
+export type SurfaceDensityUnitClass = BaseUnitClass<{ Kilogram: 1; Meter: -2 }>;
 
 /**
  * @group Abstract Units
@@ -50,16 +50,16 @@ export type SurfaceDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `kg/m²`
  */
-export type KilogramPerSquareMetre = SurfaceDensityUnit<{}>;
+export type KilogramPerSquareMeter = SurfaceDensityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("KilogramPerSquareMetre", () => {
-    it("is kilograms per square metre", () => {
+  describe("KilogramPerSquareMeter", () => {
+    it("is kilograms per square meter", () => {
       assert<
-        Equals<KilogramPerSquareMetre, Divide<Kilo<Gram>, Square<Metre>>>
+        Equals<KilogramPerSquareMeter, Divide<Kilo<Gram>, Square<Meter>>>
       >();
     });
   });

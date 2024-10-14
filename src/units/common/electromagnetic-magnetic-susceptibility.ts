@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Metre, type Henry } from ".";
+import { type Meter, type Henry } from ".";
 
 /**
  * @group Unit Classes
@@ -20,7 +20,7 @@ import { type Metre, type Henry } from ".";
  */
 export type MagneticSusceptibilityUnitClass = BaseUnitClass<{
   Kilogram: -1;
-  Metre: -1;
+  Meter: -1;
   Second: 2;
   Ampere: 2;
 }>;
@@ -53,15 +53,15 @@ export type MagneticSusceptibilityUnitFrom<M extends UnknownUnitMeta> =
  * @category Electromagnetic
  * @symbol `m/H`
  */
-export type MetrePerHenry = MagneticSusceptibilityUnit<{}>;
+export type MeterPerHenry = MagneticSusceptibilityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("MetrePerHenry", () => {
-    it("is metres per henry", () => {
-      assert<Equals<MetrePerHenry, Divide<Metre, Henry>>>();
+  describe("MeterPerHenry", () => {
+    it("is meters per henry", () => {
+      assert<Equals<MeterPerHenry, Divide<Meter, Henry>>>();
     });
   });
 }

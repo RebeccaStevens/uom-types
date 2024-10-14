@@ -12,13 +12,13 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Second, type MetrePerSecondSquared } from ".";
+import { type Second, type MeterPerSecondSquared } from ".";
 
 /**
  * @group Unit Classes
  * @category Kinematic
  */
-export type JerkUnitClass = BaseUnitClass<{ Metre: 1; Second: -3 }>;
+export type JerkUnitClass = BaseUnitClass<{ Meter: 1; Second: -3 }>;
 
 /**
  * @group Abstract Units
@@ -48,16 +48,16 @@ export type JerkUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Kinematic
  * @symbol `m/s³`
  */
-export type MetrePerSecondCubed = JerkUnit<{}>;
+export type MeterPerSecondCubed = JerkUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("MetrePerSecondCubed", () => {
-    it("is metres per squared second per second", () => {
+  describe("MeterPerSecondCubed", () => {
+    it("is meters per squared second per second", () => {
       assert<
-        Equals<MetrePerSecondCubed, Divide<MetrePerSecondSquared, Second>>
+        Equals<MeterPerSecondCubed, Divide<MeterPerSecondSquared, Second>>
       >();
     });
   });

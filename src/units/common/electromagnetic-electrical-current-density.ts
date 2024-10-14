@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Ampere } from ".";
+import { type Meter, type Ampere } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Metre, type Ampere } from ".";
  */
 export type ElectricCurrentDensityUnitClass = BaseUnitClass<{
   Ampere: 1;
-  Metre: -2;
+  Meter: -2;
 }>;
 
 /**
@@ -52,15 +52,15 @@ export type ElectricCurrentDensityUnitFrom<M extends UnknownUnitMeta> =
  * @category Electromagnetic
  * @symbol `A/m²`
  */
-export type AmperePerSquareMetre = ElectricCurrentDensityUnit<{}>;
+export type AmperePerSquareMeter = ElectricCurrentDensityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("AmperePerSquareMetre", () => {
-    it("is amperes per square metre", () => {
-      assert<Equals<AmperePerSquareMetre, Divide<Ampere, Square<Metre>>>>();
+  describe("AmperePerSquareMeter", () => {
+    it("is amperes per square meter", () => {
+      assert<Equals<AmperePerSquareMeter, Divide<Ampere, Square<Meter>>>>();
     });
   });
 }

@@ -20,7 +20,7 @@ import { type Ampere, type Volt } from ".";
  */
 export type ElectricConductanceUnitClass = BaseUnitClass<{
   Kilogram: -1;
-  Metre: -2;
+  Meter: -2;
   Second: 3;
   Ampere: 2;
 }>;

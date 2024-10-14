@@ -22,7 +22,7 @@ import { type Ampere, type Volt, type Joule, type Second } from ".";
  */
 export type PowerUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 2;
+  Meter: 2;
   Second: -3;
 }>;
 

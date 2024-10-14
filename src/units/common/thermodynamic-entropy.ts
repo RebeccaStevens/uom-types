@@ -20,7 +20,7 @@ import { type Joule, type Kelvin } from ".";
  */
 export type EntropyUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 2;
+  Meter: 2;
   Second: -2;
   Kelvin: -1;
 }>;

@@ -19,7 +19,7 @@ import { type Joule, type Tesla } from ".";
  * @category Electromagnetic
  */
 export type MagneticDipoleMomentUnitClass = BaseUnitClass<{
-  Metre: 2;
+  Meter: 2;
   Ampere: 1;
 }>;
 

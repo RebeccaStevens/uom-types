@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Coulomb } from ".";
+import { type Meter, type Coulomb } from ".";
 
 /**
  * @group Unit Classes
@@ -22,7 +22,7 @@ import { type Metre, type Coulomb } from ".";
 export type ElectricDisplacementFieldUnitClass = BaseUnitClass<{
   Ampere: 1;
   Second: 1;
-  Metre: -2;
+  Meter: -2;
 }>;
 
 /**
@@ -53,15 +53,15 @@ export type ElectricDisplacementFieldUnitFrom<M extends UnknownUnitMeta> =
  * @category Electromagnetic
  * @symbol `C/m²`
  */
-export type CoulombPerSquareMetre = ElectricDisplacementFieldUnit<{}>;
+export type CoulombPerSquareMeter = ElectricDisplacementFieldUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("CoulombPerSquareMetre", () => {
-    it("is coulombs per square metre", () => {
-      assert<Equals<CoulombPerSquareMetre, Divide<Coulomb, Square<Metre>>>>();
+  describe("CoulombPerSquareMeter", () => {
+    it("is coulombs per square meter", () => {
+      assert<Equals<CoulombPerSquareMeter, Divide<Coulomb, Square<Meter>>>>();
     });
   });
 }

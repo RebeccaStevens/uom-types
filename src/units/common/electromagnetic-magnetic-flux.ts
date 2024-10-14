@@ -14,7 +14,7 @@ import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
 import {
-  type Metre,
+  type Meter,
   type Ampere,
   type Henry,
   type Second,
@@ -28,7 +28,7 @@ import {
  */
 export type MagneticFluxUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 2;
+  Meter: 2;
   Second: -2;
   Ampere: -1;
 }>;
@@ -77,8 +77,8 @@ if (import.meta.vitest !== undefined) {
       assert<Equals<Weber, Multiply<Volt, Second>>>();
     });
 
-    it("is tesla square metres", () => {
-      assert<Equals<Weber, Multiply<Tesla, Square<Metre>>>>();
+    it("is tesla square meters", () => {
+      assert<Equals<Weber, Multiply<Tesla, Square<Meter>>>>();
     });
 
     it("is henry amperes", () => {

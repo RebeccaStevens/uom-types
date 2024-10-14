@@ -14,7 +14,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Kilo, type Square } from "../modifiers";
 
-import { type Gram, type Metre, type Steradian } from ".";
+import { type Gram, type Meter, type Steradian } from ".";
 
 /**
  * @group Unit Classes
@@ -22,7 +22,7 @@ import { type Gram, type Metre, type Steradian } from ".";
  */
 export type MomentOfInertiaUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 2;
+  Meter: 2;
   Radian: -2;
 }>;
 
@@ -55,18 +55,18 @@ export type MomentOfInertiaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `kg⋅m²/sr`
  */
-export type KilogramSquareMetrePerSteradian = MomentOfInertiaUnit<{}>;
+export type KilogramSquareMeterPerSteradian = MomentOfInertiaUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("KilogramSquareMetrePerSteradian", () => {
-    it("is kilograms by square metres per steradian", () => {
+  describe("KilogramSquareMeterPerSteradian", () => {
+    it("is kilograms by square meters per steradian", () => {
       assert<
         Equals<
-          KilogramSquareMetrePerSteradian,
-          Divide<Multiply<Kilo<Gram>, Square<Metre>>, Steradian>
+          KilogramSquareMeterPerSteradian,
+          Divide<Multiply<Kilo<Gram>, Square<Meter>>, Steradian>
         >
       >();
     });

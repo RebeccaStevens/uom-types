@@ -1,13 +1,13 @@
 import { expectType } from "tsd";
 
 import { atan2 } from "#uom-types/functions";
-import { type Metre, type Radian, type Unitless } from "#uom-types/units";
+import { type Meter, type Radian, type Unitless } from "#uom-types/units";
 
 declare const a: Unitless;
 
 expectType<Radian>(atan2(a, a));
 
-declare const b: Metre;
+declare const b: Meter;
 
 expectType<Radian>(atan2(b, b));
 

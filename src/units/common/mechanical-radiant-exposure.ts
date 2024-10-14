@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Joule } from ".";
+import { type Meter, type Joule } from ".";
 
 /**
  * @group Unit Classes
@@ -53,15 +53,15 @@ export type RadiantExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `J/m²`
  */
-export type JoulePerSquareMetre = RadiantExposureUnit<{}>;
+export type JoulePerSquareMeter = RadiantExposureUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("JoulePerSquareMetre", () => {
-    it("is joules per square metre", () => {
-      assert<Equals<JoulePerSquareMetre, Divide<Joule, Square<Metre>>>>();
+  describe("JoulePerSquareMeter", () => {
+    it("is joules per square meter", () => {
+      assert<Equals<JoulePerSquareMeter, Divide<Joule, Square<Meter>>>>();
     });
   });
 }

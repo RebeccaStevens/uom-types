@@ -21,7 +21,7 @@ import { type Gram, type Joule, type Kelvin } from ".";
  * @category Thermodynamic
  */
 export type SpecificEntropyUnitClass = BaseUnitClass<{
-  Metre: 2;
+  Meter: 2;
   Second: -2;
   Kelvin: -1;
 }>;

@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Weber } from ".";
+import { type Meter, type Weber } from ".";
 
 /**
  * @group Unit Classes
@@ -51,7 +51,7 @@ export type MagneticFluxDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 /**
  * A unit of {@link MagneticFluxDensity}.
  *
- * One Tesla is equal equal to one weber per square metre.
+ * One Tesla is equal equal to one weber per square meter.
  *
  * @group Units
  * @category Derived
@@ -64,8 +64,8 @@ if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
   describe("Tesla", () => {
-    it("is weber per square metre", () => {
-      assert<Equals<Tesla, Divide<Weber, Square<Metre>>>>();
+    it("is weber per square meter", () => {
+      assert<Equals<Tesla, Divide<Weber, Square<Meter>>>>();
     });
   });
 }

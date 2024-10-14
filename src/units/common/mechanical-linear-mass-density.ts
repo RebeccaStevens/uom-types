@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Kilo } from "../modifiers";
 
-import { type Gram, type Metre } from ".";
+import { type Gram, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Gram, type Metre } from ".";
  */
 export type LinearMassDensityUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: -1;
+  Meter: -1;
 }>;
 
 /**
@@ -53,15 +53,15 @@ export type LinearMassDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `kg/m`
  */
-export type KilogramPerMetre = LinearMassDensityUnit<{}>;
+export type KilogramPerMeter = LinearMassDensityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("KilogramPerMetre", () => {
-    it("is kilograms per metre", () => {
-      assert<Equals<KilogramPerMetre, Divide<Kilo<Gram>, Metre>>>();
+  describe("KilogramPerMeter", () => {
+    it("is kilograms per meter", () => {
+      assert<Equals<KilogramPerMeter, Divide<Kilo<Gram>, Meter>>>();
     });
   });
 }

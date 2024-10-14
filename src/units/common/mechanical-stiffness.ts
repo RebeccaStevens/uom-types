@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type JoulePerSquareMetre, type Newton, type Metre } from ".";
+import { type JoulePerSquareMeter, type Newton, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -53,18 +53,18 @@ export type StiffnessUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `N/m`
  */
-export type NewtonPerMetre = StiffnessUnit<{}>;
+export type NewtonPerMeter = StiffnessUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("NewtonPerMetre", () => {
-    it("is joules per square metre", () => {
-      assert<Equals<NewtonPerMetre, JoulePerSquareMetre>>();
+  describe("NewtonPerMeter", () => {
+    it("is joules per square meter", () => {
+      assert<Equals<NewtonPerMeter, JoulePerSquareMeter>>();
     });
-    it("is newtons per metre", () => {
-      assert<Equals<NewtonPerMetre, Divide<Newton, Metre>>>();
+    it("is newtons per meter", () => {
+      assert<Equals<NewtonPerMeter, Divide<Newton, Meter>>>();
     });
   });
 }
