@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Kilo } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Kilo } from "../modifiers";
 
-import { type Gram, type Second } from ".";
+import type { Gram, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -34,18 +27,13 @@ export type MassFlowRate = AbstractUnitFrom<MassFlowRateUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type MassFlowRateUnit<M extends UnitSubvalues> = MassFlowRateUnitFrom<
-  UnitMeta<M>
->;
+export type MassFlowRateUnit<M extends UnitSubvalues> = MassFlowRateUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type MassFlowRateUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  MassFlowRateUnitClass,
-  M
->;
+export type MassFlowRateUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MassFlowRateUnitClass, M>;
 
 /**
  * A unit of {@link MassFlowRate}.

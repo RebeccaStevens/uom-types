@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Multiply, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Lux, type Second } from ".";
+import type { Lux, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -34,17 +27,13 @@ export type LuminousExposure = AbstractUnitFrom<LuminousExposureUnitClass>;
  * @group Unit Generators
  * @category Photometric
  */
-export type LuminousExposureUnit<M extends UnitSubvalues> =
-  LuminousExposureUnitFrom<UnitMeta<M>>;
+export type LuminousExposureUnit<M extends UnitSubvalues> = LuminousExposureUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Photometric
  */
-export type LuminousExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  LuminousExposureUnitClass,
-  M
->;
+export type LuminousExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<LuminousExposureUnitClass, M>;
 
 /**
  * A unit of {@link LuminousExposure}.

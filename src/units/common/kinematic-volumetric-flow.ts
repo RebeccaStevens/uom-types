@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Cubic } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Cubic } from "../modifiers";
 
-import { type Meter, type Second } from ".";
+import type { Meter, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -34,17 +27,13 @@ export type VolumetricFlow = AbstractUnitFrom<VolumetricFlowUnitClass>;
  * @group Unit Classes
  * @category Kinematic
  */
-export type VolumetricFlowUnit<M extends UnitSubvalues> =
-  VolumetricFlowUnitFrom<UnitMeta<M>>;
+export type VolumetricFlowUnit<M extends UnitSubvalues> = VolumetricFlowUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Classes
  * @category Kinematic
  */
-export type VolumetricFlowUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  VolumetricFlowUnitClass,
-  M
->;
+export type VolumetricFlowUnitFrom<M extends UnknownUnitMeta> = UnitFrom<VolumetricFlowUnitClass, M>;
 
 /**
  * A unit of {@link VolumetricFlow}.

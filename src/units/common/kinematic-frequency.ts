@@ -1,26 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Reciprocal } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Reciprocal } from "../modifiers";
 
-import {
-  type Duration,
-  type DurationUnitClass,
-  type Day,
-  type Hour,
-  type Minute,
-  type Week,
-  type Year,
-  type Second,
-} from ".";
+import type { Day, Duration, DurationUnitClass, Hour, Minute, Second, Week, Year } from ".";
 
 /**
  * @group Unit Classes
@@ -38,18 +24,13 @@ export type Frequency = Reciprocal<Duration>;
  * @group Unit Generators
  * @category Kinematic
  */
-export type FrequencyUnit<M extends UnitSubvalues> = FrequencyUnitFrom<
-  UnitMeta<M>
->;
+export type FrequencyUnit<M extends UnitSubvalues> = FrequencyUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Kinematic
  */
-export type FrequencyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  FrequencyUnitClass,
-  M
->;
+export type FrequencyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<FrequencyUnitClass, M>;
 
 /**
  * A unit of {@link Frequency}.

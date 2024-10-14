@@ -1,17 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Reciprocal } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Reciprocal } from "../modifiers";
 
-import { type PressureUnitClass, type Pressure } from ".";
+import type { Pressure, PressureUnitClass } from ".";
 
 /**
  * @group Unit Classes
@@ -29,17 +24,13 @@ export type Compressibility = Reciprocal<Pressure>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type CompressibilityUnit<M extends UnitSubvalues> =
-  CompressibilityUnitFrom<UnitMeta<M>>;
+export type CompressibilityUnit<M extends UnitSubvalues> = CompressibilityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type CompressibilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  CompressibilityUnitClass,
-  M
->;
+export type CompressibilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<CompressibilityUnitClass, M>;
 
 // Tests
 if (import.meta.vitest !== undefined) {

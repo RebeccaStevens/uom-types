@@ -1,19 +1,19 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Meter, type Watt, type Kelvin } from ".";
+import type { Kelvin, Meter, Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -30,24 +30,19 @@ export type ThermalConductivityUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Thermodynamic
  */
-export type ThermalConductivity =
-  AbstractUnitFrom<ThermalConductivityUnitClass>;
+export type ThermalConductivity = AbstractUnitFrom<ThermalConductivityUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type ThermalConductivityUnit<M extends UnitSubvalues> =
-  ThermalConductivityUnitFrom<UnitMeta<M>>;
+export type ThermalConductivityUnit<M extends UnitSubvalues> = ThermalConductivityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type ThermalConductivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ThermalConductivityUnitClass,
-  M
->;
+export type ThermalConductivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ThermalConductivityUnitClass, M>;
 
 /**
  * A unit of {@link ThermalConductivity}.
@@ -64,9 +59,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("WattPerMeterKelvin", () => {
     it("is watts per meter kelvin", () => {
-      assert<
-        Equals<WattPerMeterKelvin, Divide<Watt, Multiply<Meter, Kelvin>>>
-      >();
+      assert<Equals<WattPerMeterKelvin, Divide<Watt, Multiply<Meter, Kelvin>>>>();
     });
   });
 }

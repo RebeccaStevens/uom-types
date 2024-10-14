@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import { type Radian, type Second, type RadianPerSecond } from ".";
+import type { Radian, RadianPerSecond, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -28,24 +21,19 @@ export type AngularAccelerationUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Kinematic
  */
-export type AngularAcceleration =
-  AbstractUnitFrom<AngularAccelerationUnitClass>;
+export type AngularAcceleration = AbstractUnitFrom<AngularAccelerationUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Kinematic
  */
-export type AngularAccelerationUnit<M extends UnitSubvalues> =
-  AngularAccelerationUnitFrom<UnitMeta<M>>;
+export type AngularAccelerationUnit<M extends UnitSubvalues> = AngularAccelerationUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Kinematic
  */
-export type AngularAccelerationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  AngularAccelerationUnitClass,
-  M
->;
+export type AngularAccelerationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<AngularAccelerationUnitClass, M>;
 
 /**
  * A unit of {@link AngularAcceleration}.

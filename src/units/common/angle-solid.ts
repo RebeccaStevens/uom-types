@@ -1,18 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import { type Radian } from ".";
+import type { Radian } from ".";
 
 /**
  * @group Unit Classes
@@ -32,18 +26,13 @@ export type SolidAngle = AbstractUnitFrom<SolidAngleUnitClass>;
  * @group Unit Generators
  * @category Angle (Solid)
  */
-export type SolidAngleUnit<M extends UnitSubvalues> = SolidAngleUnitFrom<
-  UnitMeta<M>
->;
+export type SolidAngleUnit<M extends UnitSubvalues> = SolidAngleUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Angle (Solid)
  */
-export type SolidAngleUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  SolidAngleUnitClass,
-  M
->;
+export type SolidAngleUnitFrom<M extends UnknownUnitMeta> = UnitFrom<SolidAngleUnitClass, M>;
 
 /**
  * A unit of {@link SolidAngle}.

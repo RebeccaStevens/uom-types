@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Ampere, type Volt } from ".";
+import type { Ampere, Volt } from ".";
 
 /**
  * @group Unit Classes
@@ -29,24 +22,19 @@ export type ElectricConductanceUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Electromagnetic
  */
-export type ElectricConductance =
-  AbstractUnitFrom<ElectricConductanceUnitClass>;
+export type ElectricConductance = AbstractUnitFrom<ElectricConductanceUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricConductanceUnit<M extends UnitSubvalues> =
-  ElectricConductanceUnitFrom<UnitMeta<M>>;
+export type ElectricConductanceUnit<M extends UnitSubvalues> = ElectricConductanceUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricConductanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ElectricConductanceUnitClass,
-  M
->;
+export type ElectricConductanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ElectricConductanceUnitClass, M>;
 
 /**
  * A unit of {@link ElectricConductance}.

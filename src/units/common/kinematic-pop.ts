@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type MeterPerSecondToTheFifth, type Second } from ".";
+import type { MeterPerSecondToTheFifth, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -53,12 +46,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("MeterPerSecondToTheSixth", () => {
     it("is MeterPerSecondToTheFifth per second", () => {
-      assert<
-        Equals<
-          MeterPerSecondToTheSixth,
-          Divide<MeterPerSecondToTheFifth, Second>
-        >
-      >();
+      assert<Equals<MeterPerSecondToTheSixth, Divide<MeterPerSecondToTheFifth, Second>>>();
     });
   });
 }

@@ -1,20 +1,20 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Kilo, type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Kilo, Square } from "../modifiers";
 
-import { type Gram, type Meter, type Steradian } from ".";
+import type { Gram, Meter, Steradian } from ".";
 
 /**
  * @group Unit Classes
@@ -36,17 +36,13 @@ export type MomentOfInertia = AbstractUnitFrom<MomentOfInertiaUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type MomentOfInertiaUnit<M extends UnitSubvalues> =
-  MomentOfInertiaUnitFrom<UnitMeta<M>>;
+export type MomentOfInertiaUnit<M extends UnitSubvalues> = MomentOfInertiaUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type MomentOfInertiaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  MomentOfInertiaUnitClass,
-  M
->;
+export type MomentOfInertiaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MomentOfInertiaUnitClass, M>;
 
 /**
  * A unit of {@link MomentOfInertia}.
@@ -63,12 +59,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("KilogramSquareMeterPerSteradian", () => {
     it("is kilograms by square meters per steradian", () => {
-      assert<
-        Equals<
-          KilogramSquareMeterPerSteradian,
-          Divide<Multiply<Kilo<Gram>, Square<Meter>>, Steradian>
-        >
-      >();
+      assert<Equals<KilogramSquareMeterPerSteradian, Divide<Multiply<Kilo<Gram>, Square<Meter>>, Steradian>>>();
     });
   });
 }

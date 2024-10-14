@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type MeterPerSecondCubed, type Second } from ".";
+import type { MeterPerSecondCubed, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -36,10 +29,7 @@ export type SnapUnit<M extends UnitSubvalues> = SnapUnitFrom<UnitMeta<M>>;
  * @group Unit Generators
  * @category Kinematic
  */
-export type SnapUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  SnapUnitClass,
-  M
->;
+export type SnapUnitFrom<M extends UnknownUnitMeta> = UnitFrom<SnapUnitClass, M>;
 
 /**
  * A unit of {@link Snap}.
@@ -56,9 +46,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("MeterPerSecondToTheFourth", () => {
     it("is MeterPerSecondCubed per second", () => {
-      assert<
-        Equals<MeterPerSecondToTheFourth, Divide<MeterPerSecondCubed, Second>>
-      >();
+      assert<Equals<MeterPerSecondToTheFourth, Divide<MeterPerSecondCubed, Second>>>();
     });
   });
 }

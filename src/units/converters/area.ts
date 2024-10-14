@@ -1,11 +1,6 @@
-import { type UnitConversionRate } from "#uom-types";
+import type { UnitConversionRate } from "#uom-types";
 import { div, mul } from "#uom-types/math";
-import {
-  type Meter,
-  type Are,
-  type Hectare,
-  type Square,
-} from "#uom-types/units";
+import type { Are, Hectare, Meter, Square } from "#uom-types/units";
 
 /**
  * Convert {@link Square}<{@link Meter}> to {@link Are}.

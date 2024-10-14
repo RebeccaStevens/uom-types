@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Meter, type Siemens } from ".";
+import type { Meter, Siemens } from ".";
 
 /**
  * @group Unit Classes
@@ -29,22 +22,19 @@ export type ElectricalConductivityUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Electromagnetic
  */
-export type ElectricalConductivity =
-  AbstractUnitFrom<ElectricalConductivityUnitClass>;
+export type ElectricalConductivity = AbstractUnitFrom<ElectricalConductivityUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricalConductivityUnit<M extends UnitSubvalues> =
-  ElectricalConductivityUnitFrom<UnitMeta<M>>;
+export type ElectricalConductivityUnit<M extends UnitSubvalues> = ElectricalConductivityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricalConductivityUnitFrom<M extends UnknownUnitMeta> =
-  UnitFrom<ElectricalConductivityUnitClass, M>;
+export type ElectricalConductivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ElectricalConductivityUnitClass, M>;
 
 /**
  * A unit of {@link ElectricalConductivity}.

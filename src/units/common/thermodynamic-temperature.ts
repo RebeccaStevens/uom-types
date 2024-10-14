@@ -1,12 +1,6 @@
-import {
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
 /**
  * @group Unit Classes
@@ -26,18 +20,13 @@ export type Temperature = AbstractUnitFrom<TemperatureUnitClass>;
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type TemperatureUnit<M extends UnitSubvalues> = TemperatureUnitFrom<
-  UnitMeta<M>
->;
+export type TemperatureUnit<M extends UnitSubvalues> = TemperatureUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type TemperatureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  TemperatureUnitClass,
-  M
->;
+export type TemperatureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<TemperatureUnitClass, M>;
 
 /**
  * A unit of {@link Temperature}.

@@ -1,11 +1,6 @@
 import { expectAssignable, expectType } from "tsd";
 
-import {
-  type AbstractUnitFrom,
-  type UnitClass,
-  type UnitFrom,
-  type Divide,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitClass, UnitFrom } from "#uom-types";
 
 type TestUnitClass1 = UnitClass<{ a: 1; b: 2 }>;
 type TestUnitClass2 = UnitClass<{ a: -2; b: 2 }>;
@@ -23,6 +18,4 @@ type TestAbstractUnit3 = AbstractUnitFrom<TestUnitClass3>;
 
 expectAssignable<TestAbstractUnit1>(0 as TestUnit1);
 
-expectType<TestAbstractUnit3>(
-  0 as Divide<TestAbstractUnit1, TestAbstractUnit2>,
-);
+expectType<TestAbstractUnit3>(0 as Divide<TestAbstractUnit1, TestAbstractUnit2>);

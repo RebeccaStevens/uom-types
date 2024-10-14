@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Farad, type Meter } from ".";
+import type { Farad, Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -35,18 +28,13 @@ export type Permittivity = AbstractUnitFrom<PermittivityUnitClass>;
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type PermittivityUnit<M extends UnitSubvalues> = PermittivityUnitFrom<
-  UnitMeta<M>
->;
+export type PermittivityUnit<M extends UnitSubvalues> = PermittivityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type PermittivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  PermittivityUnitClass,
-  M
->;
+export type PermittivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<PermittivityUnitClass, M>;
 
 /**
  * A unit of {@link Permittivity}.

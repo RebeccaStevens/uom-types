@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Multiply, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Ohm, type Meter } from ".";
+import type { Meter, Ohm } from ".";
 
 /**
  * @group Unit Classes
@@ -35,18 +28,13 @@ export type Resistivity = AbstractUnitFrom<ResistivityUnitClass>;
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ResistivityUnit<M extends UnitSubvalues> = ResistivityUnitFrom<
-  UnitMeta<M>
->;
+export type ResistivityUnit<M extends UnitSubvalues> = ResistivityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ResistivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ResistivityUnitClass,
-  M
->;
+export type ResistivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ResistivityUnitClass, M>;
 
 /**
  * A unit of {@link Resistivity}.

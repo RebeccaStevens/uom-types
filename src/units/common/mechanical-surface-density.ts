@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Kilo, type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Kilo, Square } from "../modifiers";
 
-import { type Gram, type Meter } from ".";
+import type { Gram, Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -31,17 +24,13 @@ export type SurfaceDensity = AbstractUnitFrom<SurfaceDensityUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type SurfaceDensityUnit<M extends UnitSubvalues> =
-  SurfaceDensityUnitFrom<UnitMeta<M>>;
+export type SurfaceDensityUnit<M extends UnitSubvalues> = SurfaceDensityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type SurfaceDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  SurfaceDensityUnitClass,
-  M
->;
+export type SurfaceDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<SurfaceDensityUnitClass, M>;
 
 /**
  * A unit of {@link SurfaceDensity}.
@@ -58,9 +47,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("KilogramPerSquareMeter", () => {
     it("is kilograms per square meter", () => {
-      assert<
-        Equals<KilogramPerSquareMeter, Divide<Kilo<Gram>, Square<Meter>>>
-      >();
+      assert<Equals<KilogramPerSquareMeter, Divide<Kilo<Gram>, Square<Meter>>>>();
     });
   });
 }

@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Watt, type Meter } from ".";
+import type { Meter, Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -34,18 +27,13 @@ export type SpectralPower = AbstractUnitFrom<SpectralPowerUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type SpectralPowerUnit<M extends UnitSubvalues> = SpectralPowerUnitFrom<
-  UnitMeta<M>
->;
+export type SpectralPowerUnit<M extends UnitSubvalues> = SpectralPowerUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type SpectralPowerUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  SpectralPowerUnitClass,
-  M
->;
+export type SpectralPowerUnitFrom<M extends UnknownUnitMeta> = UnitFrom<SpectralPowerUnitClass, M>;
 
 /**
  * A unit of {@link SpectralPower}.

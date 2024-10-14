@@ -1,19 +1,19 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Weber, type Second, type Ohm, type Ampere } from ".";
+import type { Ampere, Ohm, Second, Weber } from ".";
 
 /**
  * @group Unit Classes
@@ -36,17 +36,13 @@ export type ElectricInductance = AbstractUnitFrom<ElectricInductanceUnitClass>;
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricInductanceUnit<M extends UnitSubvalues> =
-  ElectricInductanceUnitFrom<UnitMeta<M>>;
+export type ElectricInductanceUnit<M extends UnitSubvalues> = ElectricInductanceUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricInductanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ElectricInductanceUnitClass,
-  M
->;
+export type ElectricInductanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ElectricInductanceUnitClass, M>;
 
 /**
  * A unit of {@link ElectricInductance}.

@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type JoulePerSquareMeter, type Newton, type Meter } from ".";
+import type { JoulePerSquareMeter, Meter, Newton } from ".";
 
 /**
  * @group Unit Classes
@@ -33,18 +26,13 @@ export type Stiffness = AbstractUnitFrom<StiffnessUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type StiffnessUnit<M extends UnitSubvalues> = StiffnessUnitFrom<
-  UnitMeta<M>
->;
+export type StiffnessUnit<M extends UnitSubvalues> = StiffnessUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type StiffnessUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  StiffnessUnitClass,
-  M
->;
+export type StiffnessUnitFrom<M extends UnknownUnitMeta> = UnitFrom<StiffnessUnitClass, M>;
 
 /**
  * A unit of {@link Stiffness}.

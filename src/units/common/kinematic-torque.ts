@@ -1,19 +1,19 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Meter, type Newton, type NewtonMeter, type Radian } from ".";
+import type { Meter, Newton, NewtonMeter, Radian } from ".";
 
 /**
  * @group Unit Classes
@@ -42,10 +42,7 @@ export type TorqueUnit<M extends UnitSubvalues> = TorqueUnitFrom<UnitMeta<M>>;
  * @group Unit Generators
  * @category Kinematic
  */
-export type TorqueUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  TorqueUnitClass,
-  M
->;
+export type TorqueUnitFrom<M extends UnknownUnitMeta> = UnitFrom<TorqueUnitClass, M>;
 
 /**
  * A unit of {@link Torque}.
@@ -75,9 +72,7 @@ if (import.meta.vitest !== undefined) {
     });
 
     it("is newton by meters per radians", () => {
-      assert<
-        Equals<NewtonMeterPerRadian, Divide<Multiply<Newton, Meter>, Radian>>
-      >();
+      assert<Equals<NewtonMeterPerRadian, Divide<Multiply<Newton, Meter>, Radian>>>();
     });
   });
 }

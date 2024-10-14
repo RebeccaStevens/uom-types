@@ -1,25 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Reciprocal } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Reciprocal } from "../modifiers";
 
-import {
-  type Ampere,
-  type Farad,
-  type Second,
-  type Siemens,
-  type Volt,
-} from ".";
+import type { Ampere, Farad, Second, Siemens, Volt } from ".";
 
 /**
  * @group Unit Classes
@@ -42,17 +29,13 @@ export type ElectricResistance = AbstractUnitFrom<ElectricResistanceUnitClass>;
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricResistanceUnit<M extends UnitSubvalues> =
-  ElectricResistanceUnitFrom<UnitMeta<M>>;
+export type ElectricResistanceUnit<M extends UnitSubvalues> = ElectricResistanceUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricResistanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ElectricResistanceUnitClass,
-  M
->;
+export type ElectricResistanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ElectricResistanceUnitClass, M>;
 
 /**
  * A unit of {@link ElectricResistance}.

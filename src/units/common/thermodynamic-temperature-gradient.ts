@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Kelvin, type Meter } from ".";
+import type { Kelvin, Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -27,24 +20,19 @@ export type TemperatureGradientUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Thermodynamic
  */
-export type TemperatureGradient =
-  AbstractUnitFrom<TemperatureGradientUnitClass>;
+export type TemperatureGradient = AbstractUnitFrom<TemperatureGradientUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type TemperatureGradientUnit<M extends UnitSubvalues> =
-  TemperatureGradientUnitFrom<UnitMeta<M>>;
+export type TemperatureGradientUnit<M extends UnitSubvalues> = TemperatureGradientUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type TemperatureGradientUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  TemperatureGradientUnitClass,
-  M
->;
+export type TemperatureGradientUnitFrom<M extends UnknownUnitMeta> = UnitFrom<TemperatureGradientUnitClass, M>;
 
 /**
  * A unit of {@link TemperatureGradient}.

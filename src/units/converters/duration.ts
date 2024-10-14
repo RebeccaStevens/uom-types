@@ -1,13 +1,6 @@
-import { type UnitConversionRate } from "#uom-types";
+import type { UnitConversionRate } from "#uom-types";
 import { div, mul } from "#uom-types/math";
-import {
-  type Second,
-  type Minute,
-  type Hour,
-  type Day,
-  type Week,
-  type Year,
-} from "#uom-types/units";
+import type { Day, Hour, Minute, Second, Week, Year } from "#uom-types/units";
 
 /**
  * Convert {@link Second} to {@link Minute}.

@@ -1,19 +1,19 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
+import type {
+  AbstractUnitFrom,
+  Divide,
+  Multiply,
+  UnitFrom,
+  UnitMeta,
+  UnitSubvalues,
+  UnknownUnitMeta,
 } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Second, type Joule, type Radian } from ".";
+import type { Joule, Radian, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -36,17 +36,13 @@ export type AngularMomentum = AbstractUnitFrom<AngularMomentumUnitClass>;
  * @group Unit Generators
  * @category Kinematic
  */
-export type AngularMomentumUnit<M extends UnitSubvalues> =
-  AngularMomentumUnitFrom<UnitMeta<M>>;
+export type AngularMomentumUnit<M extends UnitSubvalues> = AngularMomentumUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Kinematic
  */
-export type AngularMomentumUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  AngularMomentumUnitClass,
-  M
->;
+export type AngularMomentumUnitFrom<M extends UnknownUnitMeta> = UnitFrom<AngularMomentumUnitClass, M>;
 
 /**
  * A unit of {@link AngularMomentum}.
@@ -63,9 +59,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("JouleSecondPerRadian", () => {
     it("is joules by seconds per radian", () => {
-      assert<
-        Equals<JouleSecondPerRadian, Divide<Multiply<Joule, Second>, Radian>>
-      >();
+      assert<Equals<JouleSecondPerRadian, Divide<Multiply<Joule, Second>, Radian>>>();
     });
   });
 }

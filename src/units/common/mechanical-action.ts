@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-  type Multiply,
-} from "#uom-types";
+import type { AbstractUnitFrom, Multiply, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Joule, type Second } from ".";
+import type { Joule, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -40,10 +33,7 @@ export type ActionUnit<M extends UnitSubvalues> = ActionUnitFrom<UnitMeta<M>>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type ActionUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ActionUnitClass,
-  M
->;
+export type ActionUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ActionUnitClass, M>;
 
 /**
  * A unit of {@link Action}.

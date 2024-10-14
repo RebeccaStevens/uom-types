@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Multiply, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Newton, type Second } from ".";
+import type { Newton, Second } from ".";
 
 /**
  * @group Unit Classes
@@ -34,18 +27,13 @@ export type Momentum = AbstractUnitFrom<MomentumUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type MomentumUnit<M extends UnitSubvalues> = MomentumUnitFrom<
-  UnitMeta<M>
->;
+export type MomentumUnit<M extends UnitSubvalues> = MomentumUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type MomentumUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  MomentumUnitClass,
-  M
->;
+export type MomentumUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MomentumUnitClass, M>;
 
 /**
  * One newton second corresponds to a one newton of force applied for one second.

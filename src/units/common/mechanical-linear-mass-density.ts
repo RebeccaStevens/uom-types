@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Kilo } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Kilo } from "../modifiers";
 
-import { type Gram, type Meter } from ".";
+import type { Gram, Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -34,17 +27,13 @@ export type LinearMassDensity = AbstractUnitFrom<LinearMassDensityUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type LinearMassDensityUnit<M extends UnitSubvalues> =
-  LinearMassDensityUnitFrom<UnitMeta<M>>;
+export type LinearMassDensityUnit<M extends UnitSubvalues> = LinearMassDensityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type LinearMassDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  LinearMassDensityUnitClass,
-  M
->;
+export type LinearMassDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<LinearMassDensityUnitClass, M>;
 
 /**
  * A unit of {@link LinearMassDensity}.

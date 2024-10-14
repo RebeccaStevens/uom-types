@@ -1,25 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Multiply,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Multiply, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import {
-  type Milli,
-  type Cubic,
-  type Square,
-  type Centi,
-  type Deci,
-} from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Centi, Cubic, Deci, Milli, Square } from "../modifiers";
 
-import { type Meter } from ".";
+import type { Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -45,10 +32,7 @@ export type VolumeUnit<M extends UnitSubvalues> = VolumeUnitFrom<UnitMeta<M>>;
  * @group Unit Classes
  * @category Mechanical
  */
-export type VolumeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  VolumeUnitClass,
-  M
->;
+export type VolumeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<VolumeUnitClass, M>;
 
 /**
  * A unit of volume.
@@ -79,9 +63,7 @@ if (import.meta.vitest !== undefined) {
   describe("Liters", () => {
     it("is milli cubic meter", () => {
       assert<Equals<Liter, Milli<Cubic<Meter>>>>();
-      assert<
-        Equals<Liter, Multiply<Multiply<Deci<Meter>, Deci<Meter>>, Deci<Meter>>>
-      >();
+      assert<Equals<Liter, Multiply<Multiply<Deci<Meter>, Deci<Meter>>, Deci<Meter>>>>();
     });
   });
 }

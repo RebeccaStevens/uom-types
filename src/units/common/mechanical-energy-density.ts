@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type AbstractUnitFrom,
-  type Divide,
-  type UnitFrom,
-  type UnitMeta,
-  type UnitSubvalues,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Cubic } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Cubic } from "../modifiers";
 
-import { type Meter, type Joule } from ".";
+import type { Joule, Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -35,18 +28,13 @@ export type EnergyDensity = AbstractUnitFrom<EnergyDensityUnitClass>;
  * @group Unit Generators
  * @category Mechanical
  */
-export type EnergyDensityUnit<M extends UnitSubvalues> = EnergyDensityUnitFrom<
-  UnitMeta<M>
->;
+export type EnergyDensityUnit<M extends UnitSubvalues> = EnergyDensityUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Mechanical
  */
-export type EnergyDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  EnergyDensityUnitClass,
-  M
->;
+export type EnergyDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<EnergyDensityUnitClass, M>;
 
 /**
  * A unit of {@link EnergyDensity}.

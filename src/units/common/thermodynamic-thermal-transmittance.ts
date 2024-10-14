@@ -1,19 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
-import { type Square } from "../modifiers";
+import type { BaseUnitClass } from "../base-units";
+import type { Square } from "../modifiers";
 
-import { type Meter, type Kelvin, type Watt } from ".";
+import type { Kelvin, Meter, Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -29,24 +22,19 @@ export type ThermalTransmittanceUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Thermodynamic
  */
-export type ThermalTransmittance =
-  AbstractUnitFrom<ThermalTransmittanceUnitClass>;
+export type ThermalTransmittance = AbstractUnitFrom<ThermalTransmittanceUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type ThermalTransmittanceUnit<M extends UnitSubvalues> =
-  ThermalTransmittanceUnitFrom<UnitMeta<M>>;
+export type ThermalTransmittanceUnit<M extends UnitSubvalues> = ThermalTransmittanceUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Thermodynamic
  */
-export type ThermalTransmittanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ThermalTransmittanceUnitClass,
-  M
->;
+export type ThermalTransmittanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ThermalTransmittanceUnitClass, M>;
 
 /**
  * A unit of {@link ThermalTransmittance}.
@@ -62,12 +50,7 @@ if (import.meta.vitest !== undefined) {
 
   describe("WattPerSquareMeterPerKelvin", () => {
     it("is watt per square meter per kelvin", () => {
-      assert<
-        Equals<
-          WattPerSquareMeterPerKelvin,
-          Divide<Divide<Watt, Square<Meter>>, Kelvin>
-        >
-      >();
+      assert<Equals<WattPerSquareMeterPerKelvin, Divide<Divide<Watt, Square<Meter>>, Kelvin>>>();
     });
   });
 }

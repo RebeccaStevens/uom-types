@@ -1,18 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assert, type Equals } from "tsafe";
+import { type Equals, assert } from "tsafe";
 
-import {
-  type Divide,
-  type AbstractUnitFrom,
-  type UnitSubvalues,
-  type UnitFrom,
-  type UnitMeta,
-  type UnknownUnitMeta,
-} from "#uom-types";
+import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
 
-import { type BaseUnitClass } from "../base-units";
+import type { BaseUnitClass } from "../base-units";
 
-import { type Volt, type Meter } from ".";
+import type { Meter, Volt } from ".";
 
 /**
  * @group Unit Classes
@@ -29,24 +22,19 @@ export type ElectricFieldStrengthUnitClass = BaseUnitClass<{
  * @group Abstract Units
  * @category Electromagnetic
  */
-export type ElectricFieldStrength =
-  AbstractUnitFrom<ElectricFieldStrengthUnitClass>;
+export type ElectricFieldStrength = AbstractUnitFrom<ElectricFieldStrengthUnitClass>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricFieldStrengthUnit<M extends UnitSubvalues> =
-  ElectricFieldStrengthUnitFrom<UnitMeta<M>>;
+export type ElectricFieldStrengthUnit<M extends UnitSubvalues> = ElectricFieldStrengthUnitFrom<UnitMeta<M>>;
 
 /**
  * @group Unit Generators
  * @category Electromagnetic
  */
-export type ElectricFieldStrengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
-  ElectricFieldStrengthUnitClass,
-  M
->;
+export type ElectricFieldStrengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ElectricFieldStrengthUnitClass, M>;
 
 /**
  * A unit of {@link ElectricFieldStrength}.
