@@ -7,13 +7,7 @@ Typesafe units with no runtime overhead.
 Example:
 
 ```ts
-import {
-  type Metre,
-  type Length,
-  type Square,
-  type Cubic,
-  mul,
-} from "uom-types";
+import { type Cubic, type Length, type Metre, type Square, mul } from "uom-types";
 
 const width = 5 as Metre;
 const height = 3 as Metre;
@@ -36,16 +30,16 @@ function useVolume<V extends Cubic<Length>>(volume: V) {
 
 The core type of this library is `Unit`.
 
-A `Unit` is made up of two parts; a `UnitClass`, which is used to determine what a unit is of (for example, length, volume, mass etc.)
-and a `UnitMeta`, which states any extra information needed (such as the unit's scale factor).
+A `Unit` is made up of two parts; a `UnitClass`, which is used to determine what a unit is of (for example, length,
+volume, mass etc.) and a `UnitMeta`, which states any extra information needed (such as the unit's scale factor).
 
 A unit without a `UnitMeta` is known as an [`AbstractUnit`](#abstract-units).\
 A unit without a `UnitClass` is known as a `UnitConversionRate`.
 
 #### Base Units
 
-We define all our `Unit`s from 8 base units. They are the [7 base units of the SI units](https://en.wikipedia.org/wiki/International_System_of_Units#Base_units) as well as
-the `radian`.
+We define all our `Unit`s from 8 base units. They are the [7 base units of the SI
+units](https://en.wikipedia.org/wiki/International_System_of_Units#Base_units) as well as the `radian`.
 
 If you wish to create your own units from the same base units, you can use the `BaseUnitClass` type.
 
@@ -54,10 +48,10 @@ If you wish to create your own units from the same base units, you can use the `
 Example of defining and using a custom `Health` unit:
 
 ```ts
-import { type Unit, type Second, mul, sub } from "uom-types";
+import { type Second, type Unit, mul, sub } from "uom-types";
 
 type Health = Unit<{ HP: 1 }>;
-type HealthPerSecond = Unit<{ HP: 1; Second: -1 }>
+type HealthPerSecond = Unit<{ HP: 1; Second: -1 }>;
 
 let playerHealth = 100 as Health;
 const damageRate = 10 as HealthPerSecond;
@@ -136,5 +130,6 @@ Similarly, millimetres can be defined with `Milli<Metre>`.
 
 `uom-types` is available as part of the Tidelift Subscription.
 
-Tidelift is working with the maintainers of `uom-types` and a growing network of open source maintainers to ensure your open source software supply chain meets enterprise standards now and into the future.
-[Learn more.](https://tidelift.com/subscription/pkg/npm-uom-types?utm_source=npm-uom-types&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
+Tidelift is working with the maintainers of `uom-types` and a growing network of open source maintainers to ensure your
+open source software supply chain meets enterprise standards now and into the future. [Learn
+more.](https://tidelift.com/subscription/pkg/npm-uom-types?utm_source=npm-uom-types&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)

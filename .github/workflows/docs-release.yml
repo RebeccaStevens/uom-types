@@ -26,7 +26,7 @@ jobs:
 
       - uses: ./.github/actions/prepare
 
-      - name: Craete a pages artifact
+      - name: Create a pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs/generated

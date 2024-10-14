@@ -27,15 +27,6 @@ jobs:
         with:
           ref: gh-pages
 
-      - name: Save old docs
-        run: tar -cvf /tmp/old-docs.tar ./docs/generated
-
-      - name: Checkout tag
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
-          clean: false #  doesn't seem to work?? Hense use of tar.
-
       - name: Set Package Json Version
         env:
           TAG: ${{ github.ref_name }}
@@ -43,32 +34,30 @@ jobs:
 
       - uses: ./.github/actions/prepare
 
-      - name: Restore old docs
-        run: |
-          mkdir -p ./docs/generated
-          tar -xf /tmp/old-docs.tar ./docs/generated -C ./docs/generated
-
       - name: Build
         run: pnpm run build
 
       - name: Build docs
         run: pnpm run docs
 
-      - name: Save new docs
-        run: tar -cvf /tmp/new-docs.tar ./docs/generated
+      - name: Save docs
+        run: tar -cvf /tmp/docs.tar ./docs/generated
 
       - name: checkout the docs
         uses: actions/checkout@v4
         with:
           ref: gh-pages
-          clean: false #  doesn't seem to work?? Hense use of tar.
+          clean: false #  doesn't seem to work?? Hence use of tar.
 
       - uses: ./.github/actions/prepare
 
-      - name: Restore new docs
+      - name: Remove old docs
+        run: rm -rf ./docs/generated
+
+      - name: Restore docs
         run: |
           mkdir -p ./docs/generated
-          tar -xf /tmp/new-docs.tar ./docs/generated -C ./docs/generated
+          tar -xf /tmp/docs.tar ./docs/generated -C ./docs/generated
 
       - name: Commit
         run: |

@@ -1,12 +1,9 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "plugins": [
-      {
-        "name": "ts-plugin-type-coverage"
-      }
-    ]
+    "allowJs": true,
+    "noEmit": true,
+    "rootDir": "."
   },
-  "include": [".", "scripts", "src", "tests"]
+  "include": [".", ".*"]
 }

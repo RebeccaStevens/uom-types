@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  id-token: write
   issues: write
   pages: write
   pull-requests: write
@@ -19,31 +18,37 @@ concurrency:
 jobs:
   lint_js:
     uses: ./.github/workflows/lint-js.yml
+  lint_knip_dev:
+    uses: ./.github/workflows/lint-knip-dev.yml
   lint_knip_prod:
     uses: ./.github/workflows/lint-knip-prod.yml
   lint_markdown:
     uses: ./.github/workflows/lint-markdown.yml
+  lint_packages:
+    uses: ./.github/workflows/lint-packages.yml
   lint_spelling:
     uses: ./.github/workflows/lint-spelling.yml
-  lint_prettier:
-    uses: ./.github/workflows/lint-prettier.yml
+  lint_yaml:
+    uses: ./.github/workflows/lint-yaml.yml
   test_js:
     uses: ./.github/workflows/test-js.yml
   test_types:
     uses: ./.github/workflows/test-types.yml
-  type_check:
-    uses: ./.github/workflows/type-check.yml
+  typecheck:
+    uses: ./.github/workflows/typecheck.yml
 
   release:
     needs:
       - lint_js
+      - lint_knip_dev
       - lint_knip_prod
       - lint_markdown
+      - lint_packages
       - lint_spelling
-      - lint_prettier
+      - lint_yaml
       - test_js
       - test_types
-      - type_check
+      - typecheck
     runs-on: ubuntu-latest
     outputs:
       new_release_published: ${{ steps.semantic.outputs.new_release_published }}
