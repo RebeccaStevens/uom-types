@@ -5,7 +5,7 @@
 Typesafe units with no runtime overhead.
 
 [![npm version](https://img.shields.io/npm/v/uom-types.svg)](https://www.npmjs.com/package/uom-types)
-[![jsr Version](https://img.shields.io/jsr/v/@rebeccastevens/uom-types.svg)](https://jsr.io/uom-types)
+[![jsr Version](https://img.shields.io/jsr/v/@rebeccastevens/uom-types.svg)](https://jsr.io/@rebeccastevens/uom-types)
 [![CI](https://github.com/RebeccaStevens/template-typescript-node-package/actions/workflows/release.yml/badge.svg)](https://github.com/RebeccaStevens/template-typescript-node-package/actions/workflows/release.yml)
 [![Coverage Status](https://codecov.io/gh/RebeccaStevens/template-typescript-node-package/branch/main/graph/badge.svg?token=MVpR1oAbIT)](https://codecov.io/gh/RebeccaStevens/template-typescript-node-package)\
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
