@@ -1,6 +1,33 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+# [4.0.0](https://github.com/RebeccaStevens/uom-types/compare/v3.1.1...v4.0.0) (2024-10-14)
+
+
+### Bug Fixes
+
+* remove things labelled deprecated ([a74dd3d](https://github.com/RebeccaStevens/uom-types/commit/a74dd3d5b845ac550a09364c65bb0a704536ded1))
+* use US english spelling for units ([37d070f](https://github.com/RebeccaStevens/uom-types/commit/37d070f311389808683a37ba16b46167a3ea5c2a))
+* WattPerSteradianquareMeter => WattPerSteradianSquareMeter ([30639fe](https://github.com/RebeccaStevens/uom-types/commit/30639fe795ecc2357d59b67fdb774b23d98baf56))
+
+
+### Features
+
+* merge all subpackages into toplevel package ([90525a2](https://github.com/RebeccaStevens/uom-types/commit/90525a23537bb37fd97db08215aee2bb92bb79e5))
+* merge high-order functions into regular functions ([67ecca0](https://github.com/RebeccaStevens/uom-types/commit/67ecca0b8c6e83dbb932d026eaf3cdc30ab54816))
+
+
+### Performance Improvements
+
+* improve type speed ([10a86df](https://github.com/RebeccaStevens/uom-types/commit/10a86dfebce3fbb8fed0f13ca8d841191d4a4a83))
+
+
+### BREAKING CHANGES
+
+* remove things labelled deprecated
+* WattPerSteradianquareMeter => WattPerSteradianSquareMeter
+* Metre => Meter, Litre => Liter
+
 ## [3.1.1](https://github.com/RebeccaStevens/uom-types/compare/v3.1.0...v3.1.1) (2023-08-11)
 
 
