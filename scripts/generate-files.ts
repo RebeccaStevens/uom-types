@@ -78,7 +78,7 @@ function generateSiUnitPrefixesFile() {
 }
 
 function generateSiUnitPrefixesConvertionFile() {
-  const imports = `import type { UnknownUnit, UnitConversionRate } from "../../core";\nimport { mul, div } from "../../math";\n\n`;
+  const imports = `import type { UnknownUnit, UnitConversionRate } from "../../core";\nimport { mul, div } from "../../math";\nimport type { Divide, Multiply } from "../../units-operations";\n\n`;
   const main = [...exponents.values()]
     .map((exponent) => {
       const name = scalar10ToName.get(exponent);
@@ -89,7 +89,7 @@ function generateSiUnitPrefixesConvertionFile() {
       assert(inverseName !== undefined);
       const negativeExponent = exponent < 0;
       const absExponent = Math.abs(exponent);
-      const to = `/**\n * Convert \`X\` to \`${name.toLowerCase()}X\`.\n */\nexport function to${name}<T extends UnknownUnit>(value: T) {\n  return ${
+      const to = `/**\n * Convert \`X\` to \`${name.toLowerCase()}X\`.\n */\nexport function to${name}<T extends UnknownUnit>(value: T): ${negativeExponent ? "Divide" : "Multiply"}<T, UnitConversionRate<{ scalar10: ${-absExponent} }>> {\n  return ${
         negativeExponent ? "div" : "mul"
       }(value, ${10 ** absExponent} as UnitConversionRate<{ scalar10: ${-absExponent} }>);\n}`;
       const from = `/**\n * Convert \`${name.toLowerCase()}X\` to \`X\`.\n */\nexport const from${name} = to${inverseName};`;
