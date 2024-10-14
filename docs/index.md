@@ -7,15 +7,15 @@ Typesafe units with no runtime overhead.
 Example:
 
 ```ts
-import { type Cubic, type Length, type Metre, type Square, mul } from "uom-types";
+import { type Cubic, type Length, type Meter, type Square, mul } from "uom-types";
 
-const width = 5 as Metre;
-const height = 3 as Metre;
+const width = 5 as Meter;
+const height = 3 as Meter;
 const area = mul(width, height);
-// `area` will be of type `Square<Metre>` which is equivalent to `Unit<{ Metre: 2 }>`.
+// `area` will be of type `Square<Meter>` which is equivalent to `Unit<{ Meter: 2 }>`.
 
 useArea(area);
-useVolume(area); // type error - `Square<Metre>` is not assignable to `Cubic<Length>`.
+useVolume(area); // type error - `Square<Meter>` is not assignable to `Cubic<Length>`.
 
 function useArea<A extends Square<Length>>(area: A) {
   // ...
@@ -73,7 +73,7 @@ Note: These examples types may differ from ones defined in this library.
 ```ts
 // UnitClass
 type Time = UnitClass<{ Second: 1 }>; // second^1
-type Acceleration = UnitClass<{ Metre: 1; Second: -2 }>; // metre^1 / second^2
+type Acceleration = UnitClass<{ Meter: 1; Second: -2 }>; // meter^1 / second^2
 type Frequency = UnitClass<{ Second: -1 }>; // 1 / second^1
 
 // UnitMeta
@@ -82,7 +82,7 @@ type Milli = UnitMeta<{ scalar10: -3 }>; // 1 / 10^3
 
 // Unit (using UnitFrom)
 type Second = UnitFrom<Time>;
-type KiloMetresPerSecondSquared = UnitFrom<Acceleration, Kilo>;
+type KiloMetersPerSecondSquared = UnitFrom<Acceleration, Kilo>;
 ```
 
 ### Abstract Units
@@ -112,15 +112,15 @@ This library defines many standard units but other units need to be made using m
 
 #### General
 
-Square metres can be defined using the `Square` modifier on the `Metre` unit like so: `Square<Metre>`.
-Similarly, cubic metres can be defined with `Cubic<Metre>`.
+Square meters can be defined using the `Square` modifier on the `Meter` unit like so: `Square<Meter>`.
+Similarly, cubic meters can be defined with `Cubic<Meter>`.
 
 `Reciprocal` can be used to invert a unit. For example `Hertz` can be defined with `Reciprocal<Second>`.
 
 #### Metric
 
 Kilograms can be defined using the `Kilo` modifier on the `Gram` unit like so: `Kilo<Gram>`.
-Similarly, millimetres can be defined with `Milli<Metre>`.
+Similarly, millimeters can be defined with `Milli<Meter>`.
 
 ## Donate
 
