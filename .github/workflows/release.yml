@@ -16,6 +16,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  check_generated:
+    uses: ./.github/workflows/check-generated.yml
   lint_js:
     uses: ./.github/workflows/lint-js.yml
   lint_knip_dev:
@@ -39,6 +41,7 @@ jobs:
 
   release:
     needs:
+      - check_generated
       - lint_js
       - lint_knip_dev
       - lint_knip_prod
