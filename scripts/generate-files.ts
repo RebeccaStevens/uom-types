@@ -131,9 +131,7 @@ function getExponentTypeDefintion() {
 }
 
 function getNegativeExponentTypeDefintion() {
-  const main = `/**\n * @group Exponent Functions\n */\nexport type NegateExponent<T extends Exponent> = MultiplyExponents<T, -1>`;
-  const deprecated = `/**\n * @deprecated Use {@link NegateExponent} instead.\n */\nexport type NegativeExponent<T extends Exponent> = NegateExponent<T>`;
-  return [main, deprecated].join("\n\n");
+  return `/**\n * @group Exponent Functions\n */\nexport type NegateExponent<T extends Exponent> = MultiplyExponents<T, -1>`;
 }
 
 function getSumExponentsTypeDefintion() {
@@ -154,7 +152,7 @@ function getSumExponentsTypeDefintion() {
 }
 
 function getSubExponentsTypeDefintion() {
-  return `/**\n * @group Exponent Functions\n */\nexport type SubExponents<A extends Exponent, B extends Exponent> = SumExponents<A, NegativeExponent<B>>`;
+  return `/**\n * @group Exponent Functions\n */\nexport type SubExponents<A extends Exponent, B extends Exponent> = SumExponents<A, NegateExponent<B>>`;
 }
 
 function getMultiplyExponentsTypeDefintion() {

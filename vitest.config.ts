@@ -8,8 +8,8 @@ export default defineConfig({
     include: ["./**/*.test.ts"],
     includeSource: [
       "src/**/[!index]*.ts",
-      "!src/deprecated.ts",
       "!src/exponents.ts",
+      "!src/units/converters/prefixes.ts",
       "!src/units/modifiers/prefixes.ts",
     ],
     coverage: {

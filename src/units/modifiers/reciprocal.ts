@@ -31,13 +31,6 @@ export type Reciprocal<
       ? UnitMeta<InverseUnitSubvalues<T["__uom_types__value"]>>
       : never;
 
-/**
- * Invert the {@link UnitClass}.
- *
- * @deprecated Use {@link Reciprocal} instead.
- */
-export type ReciprocalUnitClass<T extends UnknownUnitClass> = UnitClass<InverseUnitSubvalues<T["__uom_types__value"]>>;
-
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;

@@ -19,13 +19,11 @@ export type {
   Exponent,
   MultiplyExponents,
   NegateExponent,
-  NegativeExponent,
   NegExponent,
   PosExponent,
   SubExponents,
   SumExponents,
 } from "./exponents";
-export type { DivideUnitExponents, MultiplyUnitExponents } from "./deprecated";
 export type {
   Divide,
   DivideUnitSubvalues,
