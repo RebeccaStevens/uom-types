@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 
-import { cosh } from "#uom-types/functions";
+import { cosh } from "#uom-types/math";
 import { type Unitless, type Radian } from "#uom-types/units";
 
 test("unit", () => {

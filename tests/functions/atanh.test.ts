@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 
-import { atanh } from "#uom-types/functions";
+import { atanh } from "#uom-types/math";
 import { type Radian, type Unitless } from "#uom-types/units";
 
 test("unit", () => {

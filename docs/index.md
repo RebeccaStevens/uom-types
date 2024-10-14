@@ -7,7 +7,7 @@ Typesafe units with no runtime overhead.
 Example:
 
 ```ts
-import { mul } from "uom-types/functions";
+import { mul } from "uom-types/math";
 import {
   type Metre,
   type Length,
@@ -55,7 +55,7 @@ Example of defining and using a custom `Health` unit:
 
 ```ts
 import { type Unit } from "uom-types";
-import { mul, sub } from "uom-types/functions";
+import { mul, sub } from "uom-types/math";
 import { type Second } from "uom-types/units";
 
 type Health = Unit<{ HP: 1 }>;

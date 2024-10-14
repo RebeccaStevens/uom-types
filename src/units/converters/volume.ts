@@ -1,5 +1,5 @@
 import { type UnitConversionRate } from "#uom-types";
-import { mul, div } from "#uom-types/functions";
+import { mul, div } from "#uom-types/math";
 import { type Cubic, type Meter, type Liter } from "#uom-types/units";
 
 /**

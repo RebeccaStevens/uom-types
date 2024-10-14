@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
-import { mul } from "#uom-types/functions/higher-order";
+import { mul } from "#uom-types/math";
 
 test("numbers", () => {
   expect(mul(1)(2)).equals(2);

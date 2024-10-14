@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 
 import { type Unit } from "#uom-types";
-import { pow } from "#uom-types/functions/higher-order";
+import { pow } from "#uom-types/math";
 
 test("numbers", () => {
   expect(pow(-1)(4)).equals(0.25);

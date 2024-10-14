@@ -1,7 +1,7 @@
 import { expectType } from "tsd";
 
 import { type Unit } from "#uom-types";
-import { modSafe } from "#uom-types/functions/higher-order";
+import { modSafe } from "#uom-types/math";
 
 declare const a: Unit<{ a: 1 }>;
 

@@ -23,8 +23,7 @@
   },
   "entryPoints": [
     "src/index.ts",
-    "src/functions/index.ts",
-    "src/functions-ho/index.ts",
+    "src/math.ts",
     "src/units/index.ts",
     "src/units/converters/index.ts"
   ],
