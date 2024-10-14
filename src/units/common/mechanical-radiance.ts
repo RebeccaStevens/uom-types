@@ -56,17 +56,17 @@ export type RadianceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `W/(sr⋅m²)`
  */
-export type WattPerSteradianquareMeter = RadianceUnit<{}>;
+export type WattPerSteradianSquareMeter = RadianceUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("WattPerSteradianquareMeter", () => {
+  describe("WattPerSteradianSquareMeter", () => {
     it("is watts per steradian square meter", () => {
       assert<
         Equals<
-          WattPerSteradianquareMeter,
+          WattPerSteradianSquareMeter,
           Divide<Watt, Multiply<Steradian, Square<Meter>>>
         >
       >();
