@@ -1,5 +1,5 @@
 import { type Exponent } from "./exponents";
-import { type Pow, type Root } from "./units";
+import { type Pow, type Root } from "./units-operations";
 
 /**
  * Multiple the exponent values of a unit by a number.

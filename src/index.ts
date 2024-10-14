@@ -1,7 +1,3 @@
-/**
- * @module uom-types
- */
-
 export type {
   AbstractUnit,
   AbstractUnitFrom,
@@ -41,4 +37,7 @@ export type {
   PowUnitSubvalues,
   Root,
   RootUnitSubvalues,
-} from "./units";
+} from "./units-operations";
+
+export * from "./math";
+export * from "./units";

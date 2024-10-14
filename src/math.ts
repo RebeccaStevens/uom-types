@@ -1,7 +1,3 @@
-/**
- * @module uom-types/math
- */
-
 import {
   type PosExponent,
   type Exponent,
