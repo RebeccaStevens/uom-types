@@ -1,10 +1,10 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { type Equals, assert } from "tsafe";
 
-import type { AbstractUnitFrom, Divide, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "#uom-types";
-
-import type { Cubic } from "..";
+import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core";
+import type { Divide } from "../../units-operations";
 import type { BaseUnitClass } from "../base-units";
+import type { Cubic } from "../modifiers";
 
 import type { Meter, Watt } from ".";
 

@@ -1,6 +1,7 @@
-import type { UnitConversionRate } from "#uom-types";
-import { div, mul } from "#uom-types/math";
-import type { Cubic, Liter, Meter } from "#uom-types/units";
+import type { UnitConversionRate } from "../../core";
+import { div, mul } from "../../math";
+import type { Liter, Meter } from "../common";
+import type { Cubic } from "../modifiers";
 
 /**
  * Convert {@link Cubic}<{@link Meter}> to {@link Liter}.

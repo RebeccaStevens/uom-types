@@ -1,7 +1,6 @@
 import { expect, it } from "vitest";
 
-import { atan } from "#uom-types/math";
-import type { Radian, Unitless } from "#uom-types/units";
+import { type Radian, type Unitless, atan } from "../../src";
 
 it("unit", () => {
   const expected = (Math.PI / 4) as Radian;

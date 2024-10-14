@@ -1,7 +1,6 @@
 import { expectType } from "tsd";
 
-import type { Unit } from "#uom-types";
-import { div } from "#uom-types/math";
+import { type Unit, div } from "../../src";
 
 declare const a: Unit<{ a: 1 }>;
 

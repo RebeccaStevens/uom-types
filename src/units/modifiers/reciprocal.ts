@@ -3,8 +3,6 @@ import { type Equals, assert } from "tsafe";
 
 import type {
   AbstractUnit,
-  Inverse,
-  InverseUnitSubvalues,
   Unit,
   UnitClass,
   UnitConversionRate,
@@ -14,7 +12,8 @@ import type {
   UnknownUnitClass,
   UnknownUnitConversionRate,
   UnknownUnitMeta,
-} from "#uom-types";
+} from "../../core";
+import type { Inverse, InverseUnitSubvalues } from "../../units-operations";
 
 /**
  * Invert the {@link Unit}.

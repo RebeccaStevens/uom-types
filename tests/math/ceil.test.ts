@@ -1,7 +1,6 @@
 import { expect, it } from "vitest";
 
-import type { Unit } from "#uom-types";
-import { ceil } from "#uom-types/math";
+import { type Unit, ceil } from "../../src";
 
 it("number", () => {
   expect(ceil(4.123)).equals(5);

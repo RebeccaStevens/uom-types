@@ -2,11 +2,10 @@
 import { type Equals, assert } from "tsafe";
 
 import type {
-  Exponent,
   Unit, // eslint-disable-line ts/no-unused-vars
   UnitClass,
-} from "#uom-types";
-
+} from "../core";
+import type { Exponent } from "../exponents";
 import type { Exactify } from "../utils";
 
 type SiUnitKeys = "Second" | "Meter" | "Kilogram" | "Mole" | "Ampere" | "Candela" | "Kelvin" | "Radian";

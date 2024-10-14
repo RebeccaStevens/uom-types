@@ -27,12 +27,6 @@
     "strict": true,
     "target": "ESNext",
     "useUnknownInCatchVariables": true,
-    "types": ["vitest/importMeta"],
-    "paths": {
-      "#uom-types": ["./src/index.ts"],
-      "#uom-types/math": ["./src/math.ts"],
-      "#uom-types/units": ["./src/units/index.ts"],
-      "#uom-types/units/converters": ["./src/units/converters/index.ts"]
-    }
+    "types": ["vitest/importMeta"]
   }
 }

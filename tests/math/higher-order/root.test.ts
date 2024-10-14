@@ -1,7 +1,6 @@
 import { expect, it } from "vitest";
 
-import type { Unit } from "#uom-types";
-import { root } from "#uom-types/math";
+import { type Unit, root } from "../../../src";
 
 it("numbers", () => {
   expect(root(0.5)(64)).equals(4096);

@@ -1,7 +1,6 @@
 import { expect, it } from "vitest";
 
-import type { Unit } from "#uom-types";
-import { sub } from "#uom-types/math";
+import { type Unit, sub } from "../../../src";
 
 it("numbers", () => {
   expect(sub(2)(1)).equals(-1);

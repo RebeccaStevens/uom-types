@@ -1,15 +1,7 @@
-import type {
-  Divide,
-  Exponent,
-  Inverse,
-  Multiply,
-  PosExponent,
-  Pow,
-  Root,
-  UnknownAbstractUnit,
-  UnknownUnit,
-} from "#uom-types";
-import type { Radian, Unitless } from "#uom-types/units";
+import type { UnknownAbstractUnit, UnknownUnit } from "./core";
+import type { Exponent, PosExponent } from "./exponents";
+import type { Radian, Unitless } from "./units";
+import type { Divide, Inverse, Multiply, Pow, Root } from "./units-operations";
 
 type OperationIO<T extends number> = [T] extends [UnknownUnit | UnknownAbstractUnit] ? T : number;
 

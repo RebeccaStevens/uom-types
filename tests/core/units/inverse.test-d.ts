@@ -1,6 +1,6 @@
 import { expectAssignable, expectType } from "tsd";
 
-import type { AbstractUnitFrom, Inverse, UnitClass, UnitFrom } from "#uom-types";
+import type { AbstractUnitFrom, Inverse, UnitClass, UnitFrom } from "../../../src";
 
 type TestUnitClass = UnitClass<{ a: 1 }>;
 type TestUnitClassInv = UnitClass<{ a: -1 }>;

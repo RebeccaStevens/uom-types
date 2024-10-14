@@ -1,6 +1,6 @@
-import type { UnitConversionRate } from "#uom-types";
-import { div, mul } from "#uom-types/math";
-import type { Degree, Gradian, Radian, Turn } from "#uom-types/units";
+import type { UnitConversionRate } from "../../core";
+import { div, mul } from "../../math";
+import type { Degree, Gradian, Radian, Turn } from "../common";
 
 /**
  * Convert {@link Radian} to {@link Degree}.

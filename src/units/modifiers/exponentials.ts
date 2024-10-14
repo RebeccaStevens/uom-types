@@ -3,8 +3,6 @@ import { type Equals, assert } from "tsafe";
 
 import type {
   AbstractUnit,
-  Pow,
-  PowUnitSubvalues,
   Unit,
   UnitClass,
   UnitConversionRate,
@@ -14,7 +12,8 @@ import type {
   UnknownUnitClass,
   UnknownUnitConversionRate,
   UnknownUnitMeta,
-} from "#uom-types";
+} from "../../core";
+import type { Pow, PowUnitSubvalues } from "../../units-operations";
 
 /**
  * Put the given {@link Unit} to the power of 2.

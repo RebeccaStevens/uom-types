@@ -1,7 +1,17 @@
 import { expect, it } from "vitest";
 
-import { add, add as addHo, mul, mul as mulHo } from "#uom-types/math";
-import type { AreaUnit, Centi, Cubic, Length, Meter, Milli, Square, VolumeUnit } from "#uom-types/units";
+import {
+  type AreaUnit,
+  type Centi,
+  type Cubic,
+  type Length,
+  type Meter,
+  type Milli,
+  type Square,
+  type VolumeUnit,
+  add,
+  mul,
+} from "../../src";
 
 it("unit by number", () => {
   const a = 3 as Meter;
@@ -62,11 +72,11 @@ it("generics", () => {
 
 it("generics - higher order", () => {
   function fnAdd<L extends Length>(a: L) {
-    return addHo(a);
+    return add(a);
   }
 
   function fnMul<L extends Length>(a: L) {
-    return mulHo(a);
+    return mul(a);
   }
 
   const a = 3 as Meter;

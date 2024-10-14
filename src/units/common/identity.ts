@@ -5,8 +5,7 @@ import type {
   UnitMeta,
   UnitSubvalues,
   UnknownUnitMeta,
-} from "#uom-types";
-
+} from "../../core";
 import type { BaseUnitClass } from "../base-units";
 
 /**

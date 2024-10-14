@@ -1,6 +1,6 @@
-import type { UnitConversionRate } from "#uom-types";
-import { div, mul } from "#uom-types/math";
-import type { Gram, Tonne } from "#uom-types/units";
+import type { UnitConversionRate } from "../../core";
+import { div, mul } from "../../math";
+import type { Gram, Tonne } from "../common";
 
 /**
  * Convert {@link Gram} to {@link Tonne}.

@@ -1,7 +1,6 @@
 import { expectType } from "tsd";
 
-import { acos } from "#uom-types/math";
-import type { Radian, Unitless } from "#uom-types/units";
+import { type Radian, type Unitless, acos } from "../../src";
 
 declare const a: Unitless;
 

@@ -1,7 +1,6 @@
 import { expect, it } from "vitest";
 
-import { acosh } from "#uom-types/math";
-import type { Radian, Unitless } from "#uom-types/units";
+import { type Radian, type Unitless, acosh } from "../../src";
 
 it("unit", () => {
   const expected = 0 as Radian;

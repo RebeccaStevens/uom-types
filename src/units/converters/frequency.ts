@@ -1,6 +1,6 @@
-import type { UnitConversionRate } from "#uom-types";
-import { div, mul } from "#uom-types/math";
-import type { Hertz, PerDay, PerHour, PerMinute, PerWeek, PerYear } from "#uom-types/units";
+import type { UnitConversionRate } from "../../core";
+import { div, mul } from "../../math";
+import type { Hertz, PerDay, PerHour, PerMinute, PerWeek, PerYear } from "../common";
 
 /**
  * Convert {@link Hertz} to {@link PerMinute}.

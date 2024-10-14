@@ -1,7 +1,6 @@
 import { expectType } from "tsd";
 
-import type { Unit } from "#uom-types";
-import { max } from "#uom-types/math";
+import { type Unit, max } from "../../src";
 
 declare const a: Array<Unit<{ a: 1 }>>;
 

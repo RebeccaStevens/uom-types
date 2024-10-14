@@ -1,7 +1,6 @@
 import { expect, it } from "vitest";
 
-import type { Unit } from "#uom-types";
-import { sum } from "#uom-types/math";
+import { type Unit, sum } from "../../src";
 
 it("number", () => {
   const list = [1, 3, 6, 4, -5, 2];
