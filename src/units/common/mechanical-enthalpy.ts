@@ -19,7 +19,7 @@ import { type Gram, type Joule } from ".";
  * @group Unit Classes
  * @category Mechanical
  */
-export type EnthalpyUnitClass = BaseUnitClass<{ Metre: 2; Second: -2 }>;
+export type EnthalpyUnitClass = BaseUnitClass<{ Meter: 2; Second: -2 }>;
 
 /**
  * @group Abstract Units

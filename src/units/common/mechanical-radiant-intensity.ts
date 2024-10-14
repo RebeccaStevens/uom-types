@@ -20,7 +20,7 @@ import { type Watt, type Steradian } from ".";
  */
 export type RadiantIntensityUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 2;
+  Meter: 2;
   Second: -3;
   Radian: -2;
 }>;

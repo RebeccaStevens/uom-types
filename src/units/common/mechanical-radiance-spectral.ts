@@ -14,7 +14,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Cubic } from "../modifiers";
 
-import { type Metre, type Steradian, type Watt } from ".";
+import { type Meter, type Steradian, type Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -22,7 +22,7 @@ import { type Metre, type Steradian, type Watt } from ".";
  */
 export type SpectralRadianceUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: -1;
+  Meter: -1;
   Radian: -2;
   Second: -3;
 }>;
@@ -56,18 +56,18 @@ export type SpectralRadianceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `W/(sr⋅m³)`
  */
-export type WattPerSteradianCubicMetre = SpectralRadianceUnit<{}>;
+export type WattPerSteradianCubicMeter = SpectralRadianceUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("WattPerSteradianCubicMetre", () => {
-    it("is watts per steradian cubic metre", () => {
+  describe("WattPerSteradianCubicMeter", () => {
+    it("is watts per steradian cubic meter", () => {
       assert<
         Equals<
-          WattPerSteradianCubicMetre,
-          Divide<Watt, Multiply<Steradian, Cubic<Metre>>>
+          WattPerSteradianCubicMeter,
+          Divide<Watt, Multiply<Steradian, Cubic<Meter>>>
         >
       >();
     });

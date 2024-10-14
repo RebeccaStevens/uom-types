@@ -14,7 +14,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Volt, type Second } from ".";
+import { type Meter, type Volt, type Second } from ".";
 
 /**
  * @group Unit Classes
@@ -55,18 +55,18 @@ export type ElectronMobilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Electromagnetic
  * @symbol `m²/(V⋅s)`
  */
-export type SquareMetrePerVoltSecond = ElectronMobilityUnit<{}>;
+export type SquareMeterPerVoltSecond = ElectronMobilityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("SquareMetrePerVoltSecond", () => {
-    it("is square metres per volt second", () => {
+  describe("SquareMeterPerVoltSecond", () => {
+    it("is square meters per volt second", () => {
       assert<
         Equals<
-          SquareMetrePerVoltSecond,
-          Divide<Square<Metre>, Multiply<Volt, Second>>
+          SquareMeterPerVoltSecond,
+          Divide<Square<Meter>, Multiply<Volt, Second>>
         >
       >();
     });

@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Cubic } from "../modifiers";
 
-import { type Metre, type Joule } from ".";
+import { type Meter, type Joule } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Metre, type Joule } from ".";
  */
 export type EnergyDensityUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: -1;
+  Meter: -1;
   Second: -2;
 }>;
 
@@ -55,15 +55,15 @@ export type EnergyDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `J/m³`
  */
-export type JoulePerCubicMetre = EnergyDensityUnit<{}>;
+export type JoulePerCubicMeter = EnergyDensityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("JoulePerCubicMetre", () => {
-    it("is joules per cubic metre", () => {
-      assert<Equals<JoulePerCubicMetre, Divide<Joule, Cubic<Metre>>>>();
+  describe("JoulePerCubicMeter", () => {
+    it("is joules per cubic meter", () => {
+      assert<Equals<JoulePerCubicMeter, Divide<Joule, Cubic<Meter>>>>();
     });
   });
 }

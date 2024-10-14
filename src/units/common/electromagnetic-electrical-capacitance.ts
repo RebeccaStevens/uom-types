@@ -22,7 +22,7 @@ export type ElectricCapacitanceUnitClass = BaseUnitClass<{
   Ampere: 2;
   Second: 4;
   Kilogram: -1;
-  Metre: -2;
+  Meter: -2;
 }>;
 
 /**

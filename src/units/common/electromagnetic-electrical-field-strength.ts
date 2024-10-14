@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Volt, type Metre } from ".";
+import { type Volt, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -20,7 +20,7 @@ import { type Volt, type Metre } from ".";
  */
 export type ElectricFieldStrengthUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 1;
+  Meter: 1;
   Second: -3;
   Ampere: -1;
 }>;
@@ -55,15 +55,15 @@ export type ElectricFieldStrengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Electromagnetic
  * @symbol `V/m`
  */
-export type VoltPerMetre = ElectricFieldStrengthUnit<{}>;
+export type VoltPerMeter = ElectricFieldStrengthUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("VoltPerMetre", () => {
-    it("is volts per metre", () => {
-      assert<Equals<VoltPerMetre, Divide<Volt, Metre>>>();
+  describe("VoltPerMeter", () => {
+    it("is volts per meter", () => {
+      assert<Equals<VoltPerMeter, Divide<Volt, Meter>>>();
     });
   });
 }

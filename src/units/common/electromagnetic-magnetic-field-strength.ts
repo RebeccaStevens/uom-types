@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Ampere, type Metre } from ".";
+import { type Ampere, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -20,7 +20,7 @@ import { type Ampere, type Metre } from ".";
  */
 export type MagneticFieldStrengthUnitClass = BaseUnitClass<{
   Ampere: 1;
-  Metre: -1;
+  Meter: -1;
 }>;
 
 /**
@@ -53,15 +53,15 @@ export type MagneticFieldStrengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Electromagnetic
  * @symbol `A/m`
  */
-export type AmperePerMetre = MagneticFieldStrengthUnit<{}>;
+export type AmperePerMeter = MagneticFieldStrengthUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("AmperePerMetre", () => {
-    it("is amperes per metre", () => {
-      assert<Equals<AmperePerMetre, Divide<Ampere, Metre>>>();
+  describe("AmperePerMeter", () => {
+    it("is amperes per meter", () => {
+      assert<Equals<AmperePerMeter, Divide<Ampere, Meter>>>();
     });
   });
 }

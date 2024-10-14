@@ -20,7 +20,7 @@ import { type Lux, type Second } from ".";
  */
 export type LuminousExposureUnitClass = BaseUnitClass<{
   Candela: 1;
-  Metre: -2;
+  Meter: -2;
   Second: 1;
 }>;
 

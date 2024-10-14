@@ -13,7 +13,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Metre, type Watt, type Kelvin } from ".";
+import { type Meter, type Watt, type Kelvin } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Metre, type Watt, type Kelvin } from ".";
  */
 export type ThermalConductivityUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 1;
+  Meter: 1;
   Second: -3;
   Kelvin: -1;
 }>;
@@ -56,16 +56,16 @@ export type ThermalConductivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Thermodynamic
  * @symbol `W/(m⋅K)`
  */
-export type WattPerMetreKelvin = ThermalConductivityUnit<{}>;
+export type WattPerMeterKelvin = ThermalConductivityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("WattPerMetreKelvin", () => {
-    it("is watts per metre kelvin", () => {
+  describe("WattPerMeterKelvin", () => {
+    it("is watts per meter kelvin", () => {
       assert<
-        Equals<WattPerMetreKelvin, Divide<Watt, Multiply<Metre, Kelvin>>>
+        Equals<WattPerMeterKelvin, Divide<Watt, Multiply<Meter, Kelvin>>>
       >();
     });
   });

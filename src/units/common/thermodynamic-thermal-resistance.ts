@@ -20,7 +20,7 @@ import { type Kelvin, type Watt } from ".";
  */
 export type ThermalResistanceUnitClass = BaseUnitClass<{
   Kilogram: -1;
-  Metre: -2;
+  Meter: -2;
   Second: 3;
   Kelvin: 1;
 }>;

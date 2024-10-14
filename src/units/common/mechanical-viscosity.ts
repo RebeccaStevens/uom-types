@@ -13,14 +13,14 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Second } from ".";
+import { type Meter, type Second } from ".";
 
 /**
  * @group Unit Classes
  * @category Mechanical
  */
 export type KinematicViscosityUnitClass = BaseUnitClass<{
-  Metre: 2;
+  Meter: 2;
   Second: -1;
 }>;
 
@@ -53,15 +53,15 @@ export type KinematicViscosityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `m²/s`
  */
-export type SquareMetrePerSecond = KinematicViscosityUnit<{}>;
+export type SquareMeterPerSecond = KinematicViscosityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("SquareMetrePerSecond", () => {
-    it("is square metres per second", () => {
-      assert<Equals<SquareMetrePerSecond, Divide<Square<Metre>, Second>>>();
+  describe("SquareMeterPerSecond", () => {
+    it("is square meters per second", () => {
+      assert<Equals<SquareMeterPerSecond, Divide<Square<Meter>, Second>>>();
     });
   });
 }

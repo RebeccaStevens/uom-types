@@ -55,7 +55,7 @@ export type HertzPerSecond = FrequencyDriftUnit<{}>;
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("MetrePerSecondToTheFifth", () => {
+  describe("MeterPerSecondToTheFifth", () => {
     it("is hertz per second", () => {
       assert<Equals<HertzPerSecond, Divide<Hertz, Second>>>();
     });

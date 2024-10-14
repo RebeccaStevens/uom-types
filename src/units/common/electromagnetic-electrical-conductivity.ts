@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Metre, type Siemens } from ".";
+import { type Meter, type Siemens } from ".";
 
 /**
  * @group Unit Classes
@@ -20,7 +20,7 @@ import { type Metre, type Siemens } from ".";
  */
 export type ElectricalConductivityUnitClass = BaseUnitClass<{
   Kilogram: -1;
-  Metre: -3;
+  Meter: -3;
   Second: 3;
   Ampere: 2;
 }>;
@@ -53,15 +53,15 @@ export type ElectricalConductivityUnitFrom<M extends UnknownUnitMeta> =
  * @category Electromagnetic
  * @symbol `S/m`
  */
-export type SiemensPerMetre = ElectricalConductivityUnit<{}>;
+export type SiemensPerMeter = ElectricalConductivityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("SiemensPerMetre", () => {
-    it("is siemens per metre", () => {
-      assert<Equals<SiemensPerMetre, Divide<Siemens, Metre>>>();
+  describe("SiemensPerMeter", () => {
+    it("is siemens per meter", () => {
+      assert<Equals<SiemensPerMeter, Divide<Siemens, Meter>>>();
     });
   });
 }

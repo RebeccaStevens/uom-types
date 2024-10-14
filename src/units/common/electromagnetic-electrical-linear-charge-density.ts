@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Coulomb, type Metre } from ".";
+import { type Coulomb, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Coulomb, type Metre } from ".";
 export type ElectricLinearChargeDensityUnitClass = BaseUnitClass<{
   Ampere: 1;
   Second: 1;
-  Metre: -1;
+  Meter: -1;
 }>;
 
 /**
@@ -52,15 +52,15 @@ export type ElectricLinearChargeDensityUnitFrom<M extends UnknownUnitMeta> =
  * @category Electromagnetic
  * @symbol `C/m`
  */
-export type CoulombPerMetre = ElectricLinearChargeDensityUnit<{}>;
+export type CoulombPerMeter = ElectricLinearChargeDensityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("CoulombPerMetre", () => {
+  describe("CoulombPerMeter", () => {
     it("is coulombs per ampere", () => {
-      assert<Equals<CoulombPerMetre, Divide<Coulomb, Metre>>>();
+      assert<Equals<CoulombPerMeter, Divide<Coulomb, Meter>>>();
     });
   });
 }

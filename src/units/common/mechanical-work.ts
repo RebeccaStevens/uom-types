@@ -14,7 +14,7 @@ import {
   type EnergyUnitClass,
   type EnergyUnitFrom,
   type Newton,
-  type Metre,
+  type Meter,
 } from ".";
 
 /**
@@ -48,15 +48,15 @@ export type WorkUnitFrom<M extends UnknownUnitMeta> = EnergyUnitFrom<M>;
  * @category Mechanical
  * @symbol `N⋅m`
  */
-export type NewtonMetre = Joule;
+export type NewtonMeter = Joule;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("NewtonMetre", () => {
-    it("is newtons by metres", () => {
-      assert<Equals<NewtonMetre, Multiply<Newton, Metre>>>();
+  describe("NewtonMeter", () => {
+    it("is newtons by meters", () => {
+      assert<Equals<NewtonMeter, Multiply<Newton, Meter>>>();
     });
   });
 }

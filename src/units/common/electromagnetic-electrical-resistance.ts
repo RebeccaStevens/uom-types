@@ -27,7 +27,7 @@ import {
  */
 export type ElectricResistanceUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 2;
+  Meter: 2;
   Second: -3;
   Ampere: -2;
 }>;

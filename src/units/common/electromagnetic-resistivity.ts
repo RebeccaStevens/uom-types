@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Ohm, type Metre } from ".";
+import { type Ohm, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Ohm, type Metre } from ".";
 export type ResistivityUnitClass = BaseUnitClass<{
   Ampere: -2;
   Kilogram: 1;
-  Metre: 3;
+  Meter: 3;
   Second: -3;
 }>;
 
@@ -55,15 +55,15 @@ export type ResistivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Electromagnetic
  * @symbol `Ωm`
  */
-export type OhmMetre = ResistivityUnit<{}>;
+export type OhmMeter = ResistivityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("OhmMetre", () => {
-    it("is ohms by metres", () => {
-      assert<Equals<OhmMetre, Multiply<Ohm, Metre>>>();
+  describe("OhmMeter", () => {
+    it("is ohms by meters", () => {
+      assert<Equals<OhmMeter, Multiply<Ohm, Meter>>>();
     });
   });
 }

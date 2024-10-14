@@ -13,14 +13,14 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Cubic } from "../modifiers";
 
-import { type Metre, type Second } from ".";
+import { type Meter, type Second } from ".";
 
 /**
  * @group Unit Classes
  * @category Kinematic
  */
 export type VolumetricFlowUnitClass = BaseUnitClass<{
-  Metre: 3;
+  Meter: 3;
   Second: -1;
 }>;
 
@@ -53,15 +53,15 @@ export type VolumetricFlowUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Kinematic
  * @symbol `m³/s`
  */
-export type CubicMetrePerSecond = VolumetricFlowUnit<{}>;
+export type CubicMeterPerSecond = VolumetricFlowUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("CubicMetrePerSecond", () => {
-    it("is cubic metres per second", () => {
-      assert<Equals<CubicMetrePerSecond, Divide<Cubic<Metre>, Second>>>();
+  describe("CubicMeterPerSecond", () => {
+    it("is cubic meters per second", () => {
+      assert<Equals<CubicMeterPerSecond, Divide<Cubic<Meter>, Second>>>();
     });
   });
 }

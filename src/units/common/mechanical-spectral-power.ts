@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Watt, type Metre } from ".";
+import { type Watt, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -20,7 +20,7 @@ import { type Watt, type Metre } from ".";
  */
 export type SpectralPowerUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 1;
+  Meter: 1;
   Second: -3;
 }>;
 
@@ -54,15 +54,15 @@ export type SpectralPowerUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `W/m`
  */
-export type WattPerMetre = SpectralPowerUnit<{}>;
+export type WattPerMeter = SpectralPowerUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("WattPerMetre", () => {
-    it("is watts per metre", () => {
-      assert<Equals<WattPerMetre, Divide<Watt, Metre>>>();
+  describe("WattPerMeter", () => {
+    it("is watts per meter", () => {
+      assert<Equals<WattPerMeter, Divide<Watt, Meter>>>();
     });
   });
 }

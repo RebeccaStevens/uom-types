@@ -17,7 +17,7 @@ import {
   type Pascal,
   type Coulomb,
   type Volt,
-  type Metre,
+  type Meter,
   type Watt,
   type Second,
   type Hour,
@@ -30,7 +30,7 @@ import {
  */
 export type EnergyUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 2;
+  Meter: 2;
   Second: -2;
 }>;
 
@@ -59,7 +59,7 @@ export type EnergyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * A unit of {@link Energy}.
  *
  * One joule is the amount of work done when an applied force of 1 newton moves
- * through a distance of 1 metre in the direction of the force.
+ * through a distance of 1 meter in the direction of the force.
  *
  * @group Units
  * @category Derived
@@ -108,8 +108,8 @@ if (import.meta.vitest !== undefined) {
       assert<Equals<Joule, WattSecond>>();
       assert<Equals<WattSecond, Multiply<Watt, Second>>>();
     });
-    it("is pascal cubic metres", () => {
-      assert<Equals<Joule, Multiply<Pascal, Cubic<Metre>>>>();
+    it("is pascal cubic meters", () => {
+      assert<Equals<Joule, Multiply<Pascal, Cubic<Meter>>>>();
     });
     it("is coulomb volts", () => {
       assert<Equals<Joule, Multiply<Coulomb, Volt>>>();

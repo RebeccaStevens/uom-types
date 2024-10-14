@@ -12,7 +12,7 @@ import { type BaseUnitClass } from "../base-units";
  * @group Unit Classes
  * @category Mechanical
  */
-export type LengthUnitClass = BaseUnitClass<{ Metre: 1 }>;
+export type LengthUnitClass = BaseUnitClass<{ Meter: 1 }>;
 
 /**
  * @group Abstract Units
@@ -43,4 +43,4 @@ export type LengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `m`
  */
-export type Metre = LengthUnit<{}>;
+export type Meter = LengthUnit<{}>;

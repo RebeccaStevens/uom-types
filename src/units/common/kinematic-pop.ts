@@ -12,13 +12,13 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type MetrePerSecondToTheFifth, type Second } from ".";
+import { type MeterPerSecondToTheFifth, type Second } from ".";
 
 /**
  * @group Unit Classes
  * @category Kinematic
  */
-export type PopUnitClass = BaseUnitClass<{ Metre: 1; Second: -6 }>;
+export type PopUnitClass = BaseUnitClass<{ Meter: 1; Second: -6 }>;
 
 /**
  * @group Abstract Units
@@ -45,18 +45,18 @@ export type PopUnitFrom<M extends UnknownUnitMeta> = UnitFrom<PopUnitClass, M>;
  * @category Kinematic
  * @symbol `m/s⁶`
  */
-export type MetrePerSecondToTheSixth = PopUnit<{}>;
+export type MeterPerSecondToTheSixth = PopUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("MetrePerSecondToTheSixth", () => {
-    it("is MetrePerSecondToTheFifth per second", () => {
+  describe("MeterPerSecondToTheSixth", () => {
+    it("is MeterPerSecondToTheFifth per second", () => {
       assert<
         Equals<
-          MetrePerSecondToTheSixth,
-          Divide<MetrePerSecondToTheFifth, Second>
+          MeterPerSecondToTheSixth,
+          Divide<MeterPerSecondToTheFifth, Second>
         >
       >();
     });

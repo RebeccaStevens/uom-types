@@ -22,7 +22,7 @@ export type LuminousEfficacyUnitClass = BaseUnitClass<{
   Candela: 1;
   Radian: 2;
   Kilogram: -1;
-  Metre: -2;
+  Meter: -2;
   Second: 3;
 }>;
 

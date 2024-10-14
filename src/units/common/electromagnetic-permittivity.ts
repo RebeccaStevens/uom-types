@@ -12,7 +12,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Farad, type Metre } from ".";
+import { type Farad, type Meter } from ".";
 
 /**
  * @group Unit Classes
@@ -22,7 +22,7 @@ export type PermittivityUnitClass = BaseUnitClass<{
   Ampere: 2;
   Second: 4;
   Kilogram: -1;
-  Metre: -3;
+  Meter: -3;
 }>;
 
 /**
@@ -55,15 +55,15 @@ export type PermittivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Electromagnetic
  * @symbol `F/m`
  */
-export type FaradPerMetre = PermittivityUnit<{}>;
+export type FaradPerMeter = PermittivityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("FaradPerMetre", () => {
-    it("is farads per metre", () => {
-      assert<Equals<FaradPerMetre, Divide<Farad, Metre>>>();
+  describe("FaradPerMeter", () => {
+    it("is farads per meter", () => {
+      assert<Equals<FaradPerMeter, Divide<Farad, Meter>>>();
     });
   });
 }

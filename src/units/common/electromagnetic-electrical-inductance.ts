@@ -21,7 +21,7 @@ import { type Weber, type Second, type Ohm, type Ampere } from ".";
  */
 export type ElectricInductanceUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 2;
+  Meter: 2;
   Second: -2;
   Ampere: -2;
 }>;

@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Newton } from ".";
+import { type Meter, type Newton } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Metre, type Newton } from ".";
  */
 export type PressureUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: -1;
+  Meter: -1;
   Second: -2;
 }>;
 
@@ -51,7 +51,7 @@ export type PressureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 /**
  * A unit of {@link Pressure}.
  *
- * One pascal is equal to one newton per square metre.
+ * One pascal is equal to one newton per square meter.
  *
  * @group Units
  * @category Derived
@@ -65,8 +65,8 @@ if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
   describe("Pascal", () => {
-    it("is newtons per square metre", () => {
-      assert<Equals<Pascal, Divide<Newton, Square<Metre>>>>();
+    it("is newtons per square meter", () => {
+      assert<Equals<Pascal, Divide<Newton, Square<Meter>>>>();
     });
   });
 }

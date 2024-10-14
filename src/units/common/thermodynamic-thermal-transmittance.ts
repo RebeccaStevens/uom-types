@@ -13,7 +13,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Kelvin, type Watt } from ".";
+import { type Meter, type Kelvin, type Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -54,18 +54,18 @@ export type ThermalTransmittanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @group Units
  * @category Thermodynamic
  */
-export type WattPerSquareMetrePerKelvin = ThermalTransmittanceUnit<{}>;
+export type WattPerSquareMeterPerKelvin = ThermalTransmittanceUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("WattPerSquareMetrePerKelvin", () => {
-    it("is watt per square metre per kelvin", () => {
+  describe("WattPerSquareMeterPerKelvin", () => {
+    it("is watt per square meter per kelvin", () => {
       assert<
         Equals<
-          WattPerSquareMetrePerKelvin,
-          Divide<Divide<Watt, Square<Metre>>, Kelvin>
+          WattPerSquareMeterPerKelvin,
+          Divide<Divide<Watt, Square<Meter>>, Kelvin>
         >
       >();
     });

@@ -13,14 +13,14 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Metre, type Second, type MetrePerSecondSquared } from ".";
+import { type Meter, type Second, type MeterPerSecondSquared } from ".";
 
 /**
  * @group Unit Classes
  * @category Kinematic
  */
 export type VelocityUnitClass = BaseUnitClass<{
-  Metre: 1;
+  Meter: 1;
   Second: -1;
 }>;
 
@@ -54,20 +54,20 @@ export type VelocityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Kinematic
  * @symbol `m/s`
  */
-export type MetrePerSecond = VelocityUnit<{}>;
+export type MeterPerSecond = VelocityUnit<{}>;
 
 // Tests
 
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("MetrePerSecond", () => {
-    it("is metres per second", () => {
-      assert<Equals<MetrePerSecond, Divide<Metre, Second>>>();
+  describe("MeterPerSecond", () => {
+    it("is meters per second", () => {
+      assert<Equals<MeterPerSecond, Divide<Meter, Second>>>();
     });
 
-    it("is metres per second squared by seconds", () => {
-      assert<Equals<MetrePerSecond, Multiply<MetrePerSecondSquared, Second>>>();
+    it("is meters per second squared by seconds", () => {
+      assert<Equals<MeterPerSecond, Multiply<MeterPerSecondSquared, Second>>>();
     });
   });
 }

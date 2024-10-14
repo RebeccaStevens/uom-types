@@ -13,7 +13,7 @@ import {
 
 import { type BaseUnitClass } from "../base-units";
 
-import { type Metre, type Steradian, type Watt } from ".";
+import { type Meter, type Steradian, type Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Metre, type Steradian, type Watt } from ".";
  */
 export type SpectralIntensityUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 1;
+  Meter: 1;
   Second: -3;
   Radian: -2;
 }>;
@@ -55,16 +55,16 @@ export type SpectralIntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `W/(sr⋅m)`
  */
-export type WattPerSteradianMetre = SpectralIntensityUnit<{}>;
+export type WattPerSteradianMeter = SpectralIntensityUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("WattPerSteradianMetre", () => {
-    it("is watts per steradian metre", () => {
+  describe("WattPerSteradianMeter", () => {
+    it("is watts per steradian meter", () => {
       assert<
-        Equals<WattPerSteradianMetre, Divide<Watt, Multiply<Steradian, Metre>>>
+        Equals<WattPerSteradianMeter, Divide<Watt, Multiply<Steradian, Meter>>>
       >();
     });
   });

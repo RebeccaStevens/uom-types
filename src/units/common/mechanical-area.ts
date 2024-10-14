@@ -14,13 +14,13 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Cubic, type Square } from "../modifiers";
 
-import { type Metre } from ".";
+import { type Meter } from ".";
 
 /**
  * @group Unit Classes
  * @category Mechanical
  */
-export type AreaUnitClass = BaseUnitClass<{ Metre: 2 }>;
+export type AreaUnitClass = BaseUnitClass<{ Meter: 2 }>;
 
 /**
  * @group Abstract Units
@@ -44,7 +44,7 @@ export type AreaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 >;
 
 /**
- * A unit of {@link Area} equal to 100 {@link Square}<{@link Metre}>.
+ * A unit of {@link Area} equal to 100 {@link Square}<{@link Meter}>.
  *
  * @group Units
  * @category Mechanical
@@ -53,7 +53,7 @@ export type AreaUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 export type Are = AreaUnit<{ scalar10: 2 }>;
 
 /**
- * A unit of {@link Area} equal to 10,000 {@link Square}<{@link Metre}>.
+ * A unit of {@link Area} equal to 10,000 {@link Square}<{@link Meter}>.
  *
  * @group Units
  * @category Mechanical
@@ -65,13 +65,13 @@ export type Hectare = AreaUnit<{ scalar10: 4 }>;
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("SquareMetre", () => {
-    it("is metres by metres", () => {
-      assert<Equals<Square<Metre>, Multiply<Metre, Metre>>>();
+  describe("SquareMeter", () => {
+    it("is meters by meters", () => {
+      assert<Equals<Square<Meter>, Multiply<Meter, Meter>>>();
     });
 
-    it("is cubic metres per metre", () => {
-      assert<Equals<Square<Metre>, Divide<Cubic<Metre>, Metre>>>();
+    it("is cubic meters per meter", () => {
+      assert<Equals<Square<Meter>, Divide<Cubic<Meter>, Meter>>>();
     });
   });
 }

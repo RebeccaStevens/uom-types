@@ -13,7 +13,7 @@ import {
 import { type Cubic } from "..";
 import { type BaseUnitClass } from "../base-units";
 
-import { type Metre, type Watt } from ".";
+import { type Meter, type Watt } from ".";
 
 /**
  * @group Unit Classes
@@ -21,7 +21,7 @@ import { type Metre, type Watt } from ".";
  */
 export type SpectralIrradianceUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: -1;
+  Meter: -1;
   Second: -3;
 }>;
 
@@ -54,15 +54,15 @@ export type SpectralIrradianceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `W/m³`
  */
-export type WattPerCubicMetre = SpectralIrradianceUnit<{}>;
+export type WattPerCubicMeter = SpectralIrradianceUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("WattPerCubicMetre", () => {
-    it("is watts per cubic metre", () => {
-      assert<Equals<WattPerCubicMetre, Divide<Watt, Cubic<Metre>>>>();
+  describe("WattPerCubicMeter", () => {
+    it("is watts per cubic meter", () => {
+      assert<Equals<WattPerCubicMeter, Divide<Watt, Cubic<Meter>>>>();
     });
   });
 }

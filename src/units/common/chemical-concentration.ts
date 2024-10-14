@@ -13,13 +13,13 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Cubic } from "../modifiers";
 
-import { type Metre, type Litre, type Mole } from ".";
+import { type Meter, type Liter, type Mole } from ".";
 
 /**
  * @group Unit Classes
  * @category Chemical
  */
-export type MolarConcentrationUnitClass = BaseUnitClass<{ Mole: 1; Metre: -3 }>;
+export type MolarConcentrationUnitClass = BaseUnitClass<{ Mole: 1; Meter: -3 }>;
 
 /**
  * @group Abstract Units
@@ -46,7 +46,7 @@ export type MolarConcentrationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
 /**
  * A unit of {@link MolarConcentration}.
  *
- * Equivalent to {@link MolePerCubicMetre}.
+ * Equivalent to {@link MolePerCubicMeter}.
  *
  * @group Units
  * @category Chemical
@@ -63,7 +63,7 @@ export type Concentration = MolarConcentrationUnit<{}>;
  * @category Chemical
  * @symbol `mol/m³`
  */
-export type MolePerCubicMetre = Concentration;
+export type MolePerCubicMeter = Concentration;
 
 /**
  * A unit of {@link MolarConcentration}.
@@ -78,15 +78,15 @@ export type MolePerLiter = MolarConcentrationUnit<{ scalar10: 3 }>;
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("MolePerCubicMetre", () => {
-    it("is moles per cubic metre", () => {
-      assert<Equals<MolePerCubicMetre, Divide<Mole, Cubic<Metre>>>>();
+  describe("MolePerCubicMeter", () => {
+    it("is moles per cubic meter", () => {
+      assert<Equals<MolePerCubicMeter, Divide<Mole, Cubic<Meter>>>>();
     });
   });
 
   describe("MolePerLiter", () => {
-    it("is moles per litre", () => {
-      assert<Equals<MolePerLiter, Divide<Mole, Litre>>>();
+    it("is moles per liter", () => {
+      assert<Equals<MolePerLiter, Divide<Mole, Liter>>>();
     });
   });
 }

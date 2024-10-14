@@ -14,7 +14,7 @@ import {
 import { type BaseUnitClass } from "../base-units";
 import { type Square } from "../modifiers";
 
-import { type Metre, type Watt, type Steradian } from ".";
+import { type Meter, type Watt, type Steradian } from ".";
 
 /**
  * @group Unit Classes
@@ -56,18 +56,18 @@ export type RadianceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @category Mechanical
  * @symbol `W/(sr⋅m²)`
  */
-export type WattPerSteradianquareMetre = RadianceUnit<{}>;
+export type WattPerSteradianquareMeter = RadianceUnit<{}>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
   const { describe, it } = import.meta.vitest;
 
-  describe("WattPerSteradianquareMetre", () => {
-    it("is watts per steradian square metre", () => {
+  describe("WattPerSteradianquareMeter", () => {
+    it("is watts per steradian square meter", () => {
       assert<
         Equals<
-          WattPerSteradianquareMetre,
-          Divide<Watt, Multiply<Steradian, Square<Metre>>>
+          WattPerSteradianquareMeter,
+          Divide<Watt, Multiply<Steradian, Square<Meter>>>
         >
       >();
     });

@@ -20,7 +20,7 @@ import { type Newton, type Second } from ".";
  */
 export type YankUnitClass = BaseUnitClass<{
   Kilogram: 1;
-  Metre: 1;
+  Meter: 1;
   Second: -3;
 }>;
 
