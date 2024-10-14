@@ -23,15 +23,15 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: checkout the docs
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          ref: gh-pages
+          fetch-depth: 0
+          persist-credentials: false
 
       - name: Set Package Json Version
         env:
           TAG: ${{ github.ref_name }}
-        run: npm version --no-git-tag-version "${TAG#v}"
+        run: npm version --no-git-tag-version "$(git describe --tags --abbrev=0)"
 
       - uses: ./.github/actions/prepare
 
@@ -50,8 +50,6 @@ jobs:
           ref: gh-pages
           clean: false #  doesn't seem to work?? Hence use of tar.
 
-      - uses: ./.github/actions/prepare
-
       - name: Remove old docs
         run: rm -rf ./docs/generated
 
@@ -66,3 +64,5 @@ jobs:
           git commit -m "docs: update documentation"
           git push
         continue-on-error: true
+
+      - uses: actions/checkout@v4
