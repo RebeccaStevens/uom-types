@@ -40,23 +40,6 @@ pnpm add -D uom-types
 yarn add -D uom-types
 ```
 
-### Library Structure
-
-This library is split into several submodules.
-
-- `uom-types`\
-  Defines the core types of this library. You'll only need to use if if you are defining your own custom types.
-
-- `uom-types/math`\
-  Defines runtime mathematical functions that are type-aware of this library's types.
-
-- `uom-types/units`\
-  Defines common units.\
-  Note: does not currently define any imperial types.
-
-- `uom-types/units/converters`\
-  Defines runtime functions for converting between different units of the same `UnitClass`.
-
 ## Documentation
 
 Check out [RebeccaStevens.github.io/uom-types](https://RebeccaStevens.github.io/uom-types/stable/) for the documentation.

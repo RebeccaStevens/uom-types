@@ -28,6 +28,7 @@ const buildTypesOnly = getBoolean(process.env["BUILD_TYPES_ONLY"]);
 const formats = ["esm", "cjs"] as const satisfies ReadonlyArray<ModuleFormat>;
 
 const common = {
+  input: "./src/index.ts",
   output: {
     sourcemap: false,
     dir: "dist",
@@ -42,10 +43,7 @@ const common = {
 
 const runtimes = {
   ...common,
-  input: {
-    math: "./src/math.ts",
-    "units-converters": "./src/units/converters/index.ts",
-  },
+
   output: formats.map((format) => {
     return {
       ...common.output,
@@ -73,12 +71,7 @@ const runtimes = {
 
 const types = {
   ...common,
-  input: {
-    index: "./src/index.ts",
-    math: "./src/math.ts",
-    units: "./src/units/index.ts",
-    "units-converters": "./src/units/converters/index.ts",
-  },
+
   output: formats.map((format) => {
     return {
       ...common.output,
