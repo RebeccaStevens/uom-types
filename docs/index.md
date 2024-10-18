@@ -127,7 +127,7 @@ Similarly, millimeters can be defined with `Milli<Meter>`.
 We provide a `Brand` interface that can be extended to make `uom-types` brands
 compatible with 3rd party brands via interface merging.
 
-Here's an example of make `uom-types` compatible with [`effect`](https://www.npmjs.com/package/effect):
+Here's an example of making `uom-types` compatible with [`effect`](https://www.npmjs.com/package/effect):
 
 ```ts
 import { Brand } from "effect";
