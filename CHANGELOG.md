@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+## [4.1.2](https://github.com/RebeccaStevens/uom-types/compare/v4.1.1...v4.1.2) (2024-10-18)
+
+
+### Bug Fixes
+
+* extend branding interface to unit-keys-value ([165603c](https://github.com/RebeccaStevens/uom-types/commit/165603c1fe9beaf2c523218e78778ee152fc7c87))
+
 ## [4.1.1](https://github.com/RebeccaStevens/uom-types/compare/v4.1.0...v4.1.1) (2024-10-18)
 
 
