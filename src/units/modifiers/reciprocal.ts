@@ -26,9 +26,9 @@ export type Reciprocal<
 > = T extends number
   ? Inverse<T>
   : T extends UnknownUnitClass
-    ? UnitClass<InverseUnitSubvalues<T["__uom_types__value"]>>
+    ? UnitClass<InverseUnitSubvalues<T["__uom_types"]["value"]>>
     : T extends UnknownUnitMeta
-      ? UnitMeta<InverseUnitSubvalues<T["__uom_types__value"]>>
+      ? UnitMeta<InverseUnitSubvalues<T["__uom_types"]["value"]>>
       : never;
 
 // Tests

@@ -28,9 +28,9 @@ export type Square<
 > = T extends number
   ? Pow<T, 2>
   : T extends UnknownUnitClass
-    ? UnitClass<PowUnitSubvalues<T["__uom_types__value"], 2>>
+    ? UnitClass<PowUnitSubvalues<T["__uom_types"]["value"], 2>>
     : T extends UnknownUnitMeta
-      ? UnitMeta<PowUnitSubvalues<T["__uom_types__value"], 2>>
+      ? UnitMeta<PowUnitSubvalues<T["__uom_types"]["value"], 2>>
       : never;
 
 /**
@@ -46,9 +46,9 @@ export type Cubic<
 > = T extends number
   ? Pow<T, 3>
   : T extends UnknownUnitClass
-    ? UnitClass<PowUnitSubvalues<T["__uom_types__value"], 3>>
+    ? UnitClass<PowUnitSubvalues<T["__uom_types"]["value"], 3>>
     : T extends UnknownUnitMeta
-      ? UnitMeta<PowUnitSubvalues<T["__uom_types__value"], 3>>
+      ? UnitMeta<PowUnitSubvalues<T["__uom_types"]["value"], 3>>
       : never;
 
 // Tests

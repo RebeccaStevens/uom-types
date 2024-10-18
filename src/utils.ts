@@ -37,6 +37,17 @@ export type BrandUnitClassType = Brand & {
 };
 
 /**
+ * Brand with the unit keys and value.
+ */
+export type BrandUnitKeyValues<K, V> = Brand &
+  Readonly<{
+    __uom_types: {
+      keys: K;
+      value: V;
+    };
+  }>;
+
+/**
  * Remove all key from the object that are `never`.
  */
 export type RemoveNeverValues<T extends object> = {

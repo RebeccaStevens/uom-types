@@ -5,6 +5,7 @@ import type { Exponent } from "./exponents";
 import type {
   BrandUnitClass,
   BrandUnitClassType,
+  BrandUnitKeyValues,
   BrandUnitMeta,
   ExcludeUnitZeroSubvalues,
   RemoveNeverValues,
@@ -115,15 +116,12 @@ export type UnknownUnitMeta = UnknownUnitKeyValues &
     __uno_types__unit_meta_type: true;
   }>;
 
-type UnitKeyValues<T extends UnitSubvalues> = Readonly<{
-  __uom_types__keys: keyof ExcludeUnitZeroSubvalues<T> extends string ? keyof ExcludeUnitZeroSubvalues<T> : never;
-  __uom_types__value: RemoveNeverValues<T>;
-}>;
+type UnitKeyValues<T extends UnitSubvalues> = BrandUnitKeyValues<
+  keyof ExcludeUnitZeroSubvalues<T> extends string ? keyof ExcludeUnitZeroSubvalues<T> : never,
+  RemoveNeverValues<T>
+>;
 
-type UnknownUnitKeyValues = Readonly<{
-  __uom_types__keys: string;
-  __uom_types__value: {};
-}>;
+type UnknownUnitKeyValues = BrandUnitKeyValues<string, {}>;
 
 /**
  * A mapping of subvalue of a unit its magnitude.
