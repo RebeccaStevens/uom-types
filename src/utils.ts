@@ -7,7 +7,7 @@ import type { UnitSubvalues, UnknownUnitClass, UnknownUnitMeta } from "./core";
  * Available for providing custom branding.
  */
 // eslint-disable-next-line ts/no-empty-interface, ts/consistent-type-definitions
-export interface Brand<> {}
+export interface Brand {}
 
 /**
  * Brand with the unit meta.
