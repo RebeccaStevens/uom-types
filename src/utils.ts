@@ -1,7 +1,40 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { type Equals, assert } from "tsafe";
 
-import type { UnitSubvalues } from "./core";
+import type { UnitSubvalues, UnknownUnitClass, UnknownUnitMeta } from "./core";
+
+/**
+ * Available for providing custom branding.
+ */
+// eslint-disable-next-line ts/no-empty-interface, ts/consistent-type-definitions
+export interface Brand<> {}
+
+/**
+ * Brand with the unit meta.
+ */
+export type BrandUnitMeta<UM extends UnknownUnitMeta> = Brand & {
+  __uom_types: {
+    unitMeta: UM;
+  };
+};
+
+/**
+ * Brand with the unit class.
+ */
+export type BrandUnitClass<UC extends UnknownUnitClass> = Brand & {
+  __uom_types: {
+    unitClass: UC;
+  };
+};
+
+/**
+ * Brand that it is a unit class.
+ */
+export type BrandUnitClassType = Brand & {
+  __uom_types: {
+    unitClassType: true;
+  };
+};
 
 /**
  * Remove all key from the object that are `never`.

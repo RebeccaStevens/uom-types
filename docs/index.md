@@ -122,6 +122,35 @@ Similarly, cubic meters can be defined with `Cubic<Meter>`.
 Kilograms can be defined using the `Kilo` modifier on the `Gram` unit like so: `Kilo<Gram>`.
 Similarly, millimeters can be defined with `Milli<Meter>`.
 
+#### Branding Compatibility
+
+We provide a `Brand` interface that can be extended to make `uom-types` brands
+compatible with 3rd party brands via interface merging.
+
+Here's an example of make `uom-types` compatible with [`effect`](https://www.npmjs.com/package/effect):
+
+```ts
+import { Brand } from "effect";
+
+type UomBrand = Brand.Brand<"uom">;
+declare module "uom-types" {
+  interface Brand extends UomBrand {}
+}
+```
+
+You can the use `uom-types` types just like `effect`'s branded types.
+
+```ts
+import { Brand } from "effect";
+import type * as uom from "uom-types";
+
+export type Unitless = uom.Unitless;
+export const Unitless = Brand.refined<Unitless>(
+  (n) => typeof n === "number",
+  (n) => Brand.error(`Expected ${n} to be a number`),
+);
+```
+
 ## Donate
 
 [Any donations would be much appreciated](https://github.com/RebeccaStevens/uom-types/blob/main/DONATIONS.md). 😄

@@ -2,17 +2,20 @@
 import { type Equals, type Extends, assert } from "tsafe";
 
 import type { Exponent } from "./exponents";
-import type { ExcludeUnitZeroSubvalues, RemoveNeverValues } from "./utils";
+import type {
+  BrandUnitClass,
+  BrandUnitClassType,
+  BrandUnitMeta,
+  ExcludeUnitZeroSubvalues,
+  RemoveNeverValues,
+} from "./utils";
 
 /**
  * A unit without any meta data.
  *
  * @group Abstract Unit Generators
  */
-export type AbstractUnit<C extends UnitSubvalues> = number &
-  Readonly<{
-    __uom_types__unit_class: UnitClass<C>;
-  }>;
+export type AbstractUnit<C extends UnitSubvalues> = number & BrandUnitClass<UnitClass<C>>;
 
 /**
  * Create a unit without meta data from an already existing {@link UnitClass}.
@@ -28,10 +31,8 @@ export type AbstractUnitFrom<C extends UnknownUnitClass> =
  * @group Unit Generators
  */
 export type Unit<C extends UnitSubvalues, M extends UnitSubvalues = {}> = number &
-  Readonly<{
-    __uom_types__unit_class: UnitClass<C>;
-    __uom_types__unit_meta: UnitMeta<M>;
-  }>;
+  BrandUnitClass<UnitClass<C>> &
+  BrandUnitMeta<UnitMeta<M>>;
 
 /**
  * Create a {@link Unit} from already existing {@link UnitClass} and {@link UnitMeta}.
@@ -48,10 +49,7 @@ export type UnitFrom<C extends UnknownUnitClass, M extends UnknownUnitMeta = Uni
  *
  * @group Unit Generators
  */
-export type UnitConversionRate<M extends UnitSubvalues> = number &
-  Readonly<{
-    __uom_types__unit_meta: UnitMeta<M>;
-  }>;
+export type UnitConversionRate<M extends UnitSubvalues> = number & BrandUnitMeta<UnitMeta<M>>;
 
 /**
  * Create a {@link UnitConversionRate} from already existing {@link UnitMeta}.
@@ -66,10 +64,7 @@ export type UnitConversionRateFrom<M extends UnknownUnitMeta> =
  *
  * @group Unit Components
  */
-export type UnitClass<T extends UnitSubvalues> = UnitKeyValues<T> &
-  Readonly<{
-    __uno_types__unit_class_type: true;
-  }>;
+export type UnitClass<T extends UnitSubvalues> = UnitKeyValues<T> & BrandUnitClassType;
 
 /**
  * Used to state how units of the same {@link UnitClass} differ from one another.
@@ -87,40 +82,28 @@ export type UnitMeta<T extends UnitSubvalues> = UnitKeyValues<T> &
  *
  * @group Unknown Units
  */
-export type UnknownUnit = UnknownAbstractUnit &
-  Readonly<{
-    __uom_types__unit_meta: UnknownUnitMeta;
-  }>;
+export type UnknownUnit = UnknownAbstractUnit & BrandUnitMeta<UnknownUnitMeta>;
 
 /**
  * An {@link AbstractUnit} that we don't know anything about.
  *
  * @group Unknown Units
  */
-export type UnknownAbstractUnit = number &
-  Readonly<{
-    __uom_types__unit_class: UnknownUnitClass;
-  }>;
+export type UnknownAbstractUnit = number & BrandUnitClass<UnknownUnitClass>;
 
 /**
  * An {@link UnitConversionRate} that we don't know anything about.
  *
  * @group Unknown Units
  */
-export type UnknownUnitConversionRate = number &
-  Readonly<{
-    __uom_types__unit_meta: UnknownUnitMeta;
-  }>;
+export type UnknownUnitConversionRate = number & BrandUnitMeta<UnknownUnitMeta>;
 
 /**
  * A {@link UnitClass} that we don't know anything about.
  *
  * @group Unknown Units
  */
-export type UnknownUnitClass = UnknownUnitKeyValues &
-  Readonly<{
-    __uno_types__unit_class_type: true;
-  }>;
+export type UnknownUnitClass = UnknownUnitKeyValues & BrandUnitClassType;
 
 /**
  * A {@link UnitMeta} that we don't know anything about.
