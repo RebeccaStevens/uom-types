@@ -1,5 +1,5 @@
 import type { UnknownAbstractUnit, UnknownUnit } from "./core";
-import type { Exponent, PosExponent } from "./exponents";
+import type { Exponent } from "./exponents";
 import type { Radian, Unitless } from "./units";
 import type { Divide, Inverse, Multiply, Pow, Root } from "./units-operations";
 
@@ -133,15 +133,37 @@ export function modSafe(...args: Readonly<[number, number] | [number]>) {
     : ((args[0] % args[1]) + args[1]) % args[1];
 }
 
-type PowFunction<E extends number, B extends number> = E extends UnknownUnit
-  ? never
-  : E extends UnknownAbstractUnit
+type PowResult<B extends number, E extends number> = E extends Unitless
+  ? PowResult<B, number>
+  : E extends UnknownUnit
     ? never
-    : E extends Exponent
-      ? (b: B) => Pow<B, E>
-      : E extends 0.5
-        ? (b: B) => Root<B, 2>
-        : (b: B) => number;
+    : E extends UnknownAbstractUnit
+      ? never
+      : E extends Exponent
+        ? Pow<B, E>
+        : E extends 0.5
+          ? Root<B, 2>
+          : B extends Unitless
+            ? B
+            : number;
+
+type PowFunction<B extends number, E extends number> = (b: B) => PowResult<B, E>;
+
+type RootResult<B extends number, E extends number> = E extends Unitless
+  ? RootResult<B, number>
+  : E extends UnknownUnit
+    ? never
+    : E extends UnknownAbstractUnit
+      ? never
+      : E extends Exponent
+        ? Root<B, E>
+        : E extends 0.5
+          ? Pow<B, 2>
+          : B extends Unitless
+            ? B
+            : number;
+
+type RootFunction<B extends number, E extends number> = (b: B) => RootResult<B, E>;
 
 /**
  * Raise a number to the power of another.
@@ -149,18 +171,7 @@ type PowFunction<E extends number, B extends number> = E extends UnknownUnit
  * @category Math
  * @returns `base ** exponent`
  */
-export function pow<B extends number, E extends number>(
-  base: B,
-  exponent: E extends UnknownUnit ? never : E extends UnknownAbstractUnit ? never : E,
-): E extends Exponent ? Pow<B, E> : number;
-
-/**
- * Put a number to the power of 1/2.
- *
- * @category Math
- * @returns `base ** 0.5`
- */
-export function pow<B extends number>(base: B, exponent: 0.5): Root<B, 2>;
+export function pow<B extends number, E extends number>(base: B, exponent: E): PowResult<B, E>;
 
 /**
  * Put a number to the power of the given value.
@@ -170,19 +181,11 @@ export function pow<B extends number>(base: B, exponent: 0.5): Root<B, 2>;
  */
 export function pow<E extends number>(
   exponent: E,
-): <B extends number>(base: Parameters<PowFunction<E, B>>[0]) => ReturnType<PowFunction<E, B>>;
+): <B extends number>(base: Parameters<PowFunction<B, E>>[0]) => ReturnType<PowFunction<B, E>>;
 
 export function pow(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (b: number) => b ** args[0] : args[0] ** args[1];
 }
-
-type RootFunction<E extends number, B extends number> = E extends UnknownUnit
-  ? never
-  : E extends UnknownAbstractUnit
-    ? never
-    : E extends PosExponent
-      ? (b: B) => Root<B, E>
-      : (b: B) => number;
 
 /**
  * Take the nth root of a number.
@@ -190,10 +193,7 @@ type RootFunction<E extends number, B extends number> = E extends UnknownUnit
  * @category Math
  * @returns `base ** (1 / exponent)`
  */
-export function root<B extends number, E extends number>(
-  base: B,
-  exponent: E extends UnknownUnit ? never : E extends UnknownAbstractUnit ? never : E,
-): E extends PosExponent ? Root<B, E> : number;
+export function root<B extends number, E extends number>(base: B, exponent: E): RootResult<B, E>;
 
 /**
  * Take the nth root of a number.
@@ -203,7 +203,7 @@ export function root<B extends number, E extends number>(
  */
 export function root<E extends number>(
   exponent: E,
-): <B extends number>(base: Parameters<RootFunction<E, B>>[0]) => ReturnType<RootFunction<E, B>>;
+): <B extends number>(base: Parameters<RootFunction<B, E>>[0]) => ReturnType<RootFunction<B, E>>;
 
 export function root(...args: Readonly<[number, number] | [number]>) {
   return args.length === 1 ? (b: number) => b ** (1 / args[0]) : args[0] ** (1 / args[1]);

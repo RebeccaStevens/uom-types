@@ -122,13 +122,13 @@ export type DivideUnitSubvalues<A extends UnitSubvalues, B extends UnitSubvalues
  *
  * @group Unit Functions
  */
-export type Pow<T extends number, N extends Exponent> =
-  T extends Unit<infer Class, infer Meta>
-    ? Unit<FlatternAlias<PowUnitSubvalues<Class, N>>, FlatternAlias<PowUnitSubvalues<Meta, N>>>
-    : T extends AbstractUnit<infer Class>
-      ? AbstractUnit<FlatternAlias<PowUnitSubvalues<Class, N>>>
-      : T extends UnitConversionRate<infer Meta>
-        ? UnitConversionRate<FlatternAlias<PowUnitSubvalues<Meta, N>>>
+export type Pow<B extends number, E extends Exponent> =
+  B extends Unit<infer Class, infer Meta>
+    ? Unit<FlatternAlias<PowUnitSubvalues<Class, E>>, FlatternAlias<PowUnitSubvalues<Meta, E>>>
+    : B extends AbstractUnit<infer Class>
+      ? AbstractUnit<FlatternAlias<PowUnitSubvalues<Class, E>>>
+      : B extends UnitConversionRate<infer Meta>
+        ? UnitConversionRate<FlatternAlias<PowUnitSubvalues<Meta, E>>>
         : number;
 
 /**
@@ -136,8 +136,8 @@ export type Pow<T extends number, N extends Exponent> =
  *
  * @group Unit Subvalue Functions
  */
-export type PowUnitSubvalues<T extends UnitSubvalues, E extends Exponent> = ExcludeUnitZeroSubvalues<{
-  [S in keyof T]: MultiplyExponents<GetExponent<T, S>, E>;
+export type PowUnitSubvalues<B extends UnitSubvalues, E extends Exponent> = ExcludeUnitZeroSubvalues<{
+  [S in keyof B]: MultiplyExponents<GetExponent<B, S>, E>;
 }>;
 
 /**
@@ -145,13 +145,13 @@ export type PowUnitSubvalues<T extends UnitSubvalues, E extends Exponent> = Excl
  *
  * @group Unit Functions
  */
-export type Root<T extends number, N extends Exponent> =
-  T extends Unit<infer Class, infer Meta>
-    ? Unit<FlatternAlias<RootUnitSubvalues<Class, N>>, FlatternAlias<RootUnitSubvalues<Meta, N>>>
-    : T extends AbstractUnit<infer Class>
-      ? AbstractUnit<FlatternAlias<RootUnitSubvalues<Class, N>>>
-      : T extends UnitConversionRate<infer Meta>
-        ? UnitConversionRate<FlatternAlias<RootUnitSubvalues<Meta, N>>>
+export type Root<B extends number, E extends Exponent> =
+  B extends Unit<infer Class, infer Meta>
+    ? Unit<FlatternAlias<RootUnitSubvalues<Class, E>>, FlatternAlias<RootUnitSubvalues<Meta, E>>>
+    : B extends AbstractUnit<infer Class>
+      ? AbstractUnit<FlatternAlias<RootUnitSubvalues<Class, E>>>
+      : B extends UnitConversionRate<infer Meta>
+        ? UnitConversionRate<FlatternAlias<RootUnitSubvalues<Meta, E>>>
         : number;
 
 /**
@@ -159,8 +159,8 @@ export type Root<T extends number, N extends Exponent> =
  *
  * @group Unit Subvalue Functions
  */
-export type RootUnitSubvalues<T extends UnitSubvalues, E extends Exponent> = ExcludeUnitZeroSubvalues<{
-  [S in keyof T]: DivideExponents<GetExponent<T, S>, E>;
+export type RootUnitSubvalues<B extends UnitSubvalues, E extends Exponent> = ExcludeUnitZeroSubvalues<{
+  [S in keyof B]: DivideExponents<GetExponent<B, S>, E>;
 }>;
 
 // Tests
