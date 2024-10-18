@@ -148,7 +148,7 @@ export type Unitless = uom.Unitless;
 export const Unitless = Brand.refined<Unitless>(
   (n) => typeof n === "number",
   (n) => Brand.error(`Expected ${n} to be a number`),
-);
+) as unknown as (value: number) => Unitless;
 ```
 
 ## Donate
