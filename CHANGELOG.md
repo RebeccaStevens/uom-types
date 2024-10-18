@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+# [4.1.0](https://github.com/RebeccaStevens/uom-types/compare/v4.0.1...v4.1.0) (2024-10-18)
+
+
+### Features
+
+* add ability to make brands compatible with 3rd party brands ([9f7d4cd](https://github.com/RebeccaStevens/uom-types/commit/9f7d4cd4c85bd534db93d4f4457217a43511dc0f))
+
 ## [4.0.1](https://github.com/RebeccaStevens/uom-types/compare/v4.0.0...v4.0.1) (2024-10-14)
 
 # [4.0.0](https://github.com/RebeccaStevens/uom-types/compare/v3.1.1...v4.0.0) (2024-10-14)
