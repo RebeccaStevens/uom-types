@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+## [4.1.1](https://github.com/RebeccaStevens/uom-types/compare/v4.1.0...v4.1.1) (2024-10-18)
+
+
+### Bug Fixes
+
+* improve handling of unitless with pow/root functions ([ad44cf3](https://github.com/RebeccaStevens/uom-types/commit/ad44cf3accf48207391c2d55b7c10f723b0dad19))
+
 # [4.1.0](https://github.com/RebeccaStevens/uom-types/compare/v4.0.1...v4.1.0) (2024-10-18)
 
 
