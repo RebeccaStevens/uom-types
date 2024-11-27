@@ -1,5 +1,9 @@
 {
   "name": "@rebeccastevens/uom-types",
   "version": "0.0.0-development",
-  "exports": "./src/index.ts"
+  "exports": "./src/index.ts",
+  "publish": {
+    "include": ["LICENSE", "README.md", "src/**/*.ts"],
+    "exclude": ["**/*.test.ts"]
+  }
 }
