@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+# [5.0.0](https://github.com/RebeccaStevens/uom-types/compare/v4.1.2...v5.0.0) (2024-11-27)
+
+
+### Features
+
+* drop support for node 16 ([c701cf3](https://github.com/RebeccaStevens/uom-types/commit/c701cf37a8b433bf5daa3269a6c5c00a66f8361a))
+
+
+### BREAKING CHANGES
+
+* drop support for node 16
+
 ## [4.1.2](https://github.com/RebeccaStevens/uom-types/compare/v4.1.1...v4.1.2) (2024-10-18)
 
 
