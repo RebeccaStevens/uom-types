@@ -6,6 +6,7 @@
     "include": ["LICENSE", "README.md", "src/**/*.ts"],
     "exclude": [
       "**/*.test.ts",
+      "**/*.test-d.ts",
       "!src/exponents.ts",
       "!src/units/converters/prefixes.ts",
       "!src/units/modifiers/prefixes.ts"
