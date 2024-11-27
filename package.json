@@ -72,7 +72,7 @@
     "lint:spelling": "cspell lint --no-progress --show-suggestions --show-context --dot \"**\" \".github/**/*\"",
     "lint:yaml": "eslint \"**/*.y?(a)ml\"",
     "lint:yaml-fix": "eslint \"**/*.y?(a)ml\" --fix",
-    "prepare": "husky",
+    "prepare": "husky && pnpm run generate-files",
     "release": "semantic-release",
     "test": "pnpm run test:js-run && pnpm run test:types",
     "test:js": "vitest --coverage",

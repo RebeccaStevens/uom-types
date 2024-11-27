@@ -22,3 +22,5 @@ runs:
         cache: "pnpm"
     - run: pnpm install --frozen-lockfile --ignore-scripts
       shell: bash
+    - run: pnpm run generate-files
+      shell: bash
