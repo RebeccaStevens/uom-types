@@ -12,8 +12,8 @@ import type {
   UnknownUnitClass,
   UnknownUnitConversionRate,
   UnknownUnitMeta,
-} from "../../core";
-import type { Pow, PowUnitSubvalues } from "../../units-operations";
+} from "../../core.ts";
+import type { Pow, PowUnitSubvalues } from "../../units-operations.ts";
 
 /**
  * Put the given {@link Unit} to the power of 2.

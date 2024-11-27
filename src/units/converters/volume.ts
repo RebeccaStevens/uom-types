@@ -1,7 +1,7 @@
-import type { UnitConversionRate } from "../../core";
-import { div, mul } from "../../math";
-import type { Liter, Meter } from "../common";
-import type { Cubic } from "../modifiers";
+import type { UnitConversionRate } from "../../core.ts";
+import { div, mul } from "../../math.ts";
+import type { Liter, Meter } from "../common/index.ts";
+import type { Cubic } from "../modifiers/index.ts";
 
 /**
  * Convert {@link Cubic}<{@link Meter}> to {@link Liter}.

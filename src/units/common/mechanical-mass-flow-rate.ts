@@ -1,12 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { type Equals, assert } from "tsafe";
 
-import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core";
-import type { Divide } from "../../units-operations";
-import type { BaseUnitClass } from "../base-units";
-import type { Kilo } from "../modifiers";
+import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
+import type { Divide } from "../../units-operations.ts";
+import type { BaseUnitClass } from "../base-units.ts";
+import type { Kilo } from "../modifiers/index.ts";
 
-import type { Gram, Second } from ".";
+import type { Gram, Second } from "./index.ts";
 
 /**
  * @group Unit Classes

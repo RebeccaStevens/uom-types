@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Unit, root } from "../../../src";
+import { type Unit, root } from "../../../src/index.ts";
 
 it("numbers", () => {
   expect(root(0.5)(64)).equals(4096);

@@ -13,7 +13,7 @@ export type {
   UnknownUnitClass,
   UnknownUnitConversionRate,
   UnknownUnitMeta,
-} from "./core";
+} from "./core.ts";
 export type {
   DivideExponents,
   Exponent,
@@ -23,7 +23,7 @@ export type {
   PosExponent,
   SubExponents,
   SumExponents,
-} from "./exponents";
+} from "./exponents.ts";
 export type {
   Divide,
   DivideUnitSubvalues,
@@ -35,7 +35,7 @@ export type {
   PowUnitSubvalues,
   Root,
   RootUnitSubvalues,
-} from "./units-operations";
+} from "./units-operations.ts";
 
-export * from "./math";
-export * from "./units";
+export * from "./math.ts";
+export * from "./units/index.ts";

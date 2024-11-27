@@ -1,6 +1,6 @@
 import { expectType } from "tsd";
 
-import { type Radian, type Unitless, asin } from "../../src";
+import { type Radian, type Unitless, asin } from "../../src/index.ts";
 
 declare const a: Unitless;
 

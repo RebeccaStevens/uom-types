@@ -1,6 +1,6 @@
 import { expectType } from "tsd";
 
-import { type Unit, min } from "../../src";
+import { type Unit, min } from "../../src/index.ts";
 
 declare const a: Array<Unit<{ a: 1 }>>;
 

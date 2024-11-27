@@ -1,6 +1,6 @@
 import { expectType } from "tsd";
 
-import { type Unit, sum } from "../../src";
+import { type Unit, sum } from "../../src/index.ts";
 
 declare const a: Array<Unit<{ a: 1 }>>;
 

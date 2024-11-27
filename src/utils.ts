@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { type Equals, assert } from "tsafe";
 
-import type { UnitSubvalues, UnknownUnitClass, UnknownUnitMeta } from "./core";
+import type { UnitSubvalues, UnknownUnitClass, UnknownUnitMeta } from "./core.ts";
 
 /**
  * Available for providing custom branding.

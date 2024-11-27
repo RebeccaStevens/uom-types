@@ -1,7 +1,7 @@
-import type { UnknownAbstractUnit, UnknownUnit } from "./core";
-import type { Exponent } from "./exponents";
-import type { Radian, Unitless } from "./units";
-import type { Divide, Inverse, Multiply, Pow, Root } from "./units-operations";
+import type { UnknownAbstractUnit, UnknownUnit } from "./core.ts";
+import type { Exponent } from "./exponents.ts";
+import type { Radian, Unitless } from "./units/index.ts";
+import type { Divide, Inverse, Multiply, Pow, Root } from "./units-operations.ts";
 
 type OperationIO<T extends number> = [T] extends [UnknownUnit | UnknownAbstractUnit] ? T : number;
 

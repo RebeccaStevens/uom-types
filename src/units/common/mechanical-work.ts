@@ -1,10 +1,10 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { type Equals, assert } from "tsafe";
 
-import type { UnitSubvalues, UnknownUnitMeta } from "../../core";
-import type { Multiply } from "../../units-operations";
+import type { UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
+import type { Multiply } from "../../units-operations.ts";
 
-import type { Energy, EnergyUnit, EnergyUnitClass, EnergyUnitFrom, Joule, Meter, Newton } from ".";
+import type { Energy, EnergyUnit, EnergyUnitClass, EnergyUnitFrom, Joule, Meter, Newton } from "./index.ts";
 
 /**
  * @group Unit Classes

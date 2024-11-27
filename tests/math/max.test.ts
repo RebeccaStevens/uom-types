@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Unit, max } from "../../src";
+import { type Unit, max } from "../../src/index.ts";
 
 it("number", () => {
   const list = [1, 3, 6, 4, -5, 2];

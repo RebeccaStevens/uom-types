@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Unit, mul } from "../../src";
+import { type Unit, mul } from "../../src/index.ts";
 
 it("numbers", () => {
   expect(mul(1, 2)).equals(2);

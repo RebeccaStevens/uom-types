@@ -1,6 +1,6 @@
 import { expectAssignable, expectType } from "tsd";
 
-import type { AbstractUnitFrom, Inverse, UnitClass, UnitFrom } from "../../../src";
+import type { AbstractUnitFrom, Inverse, UnitClass, UnitFrom } from "../../../src/index.ts";
 
 type TestUnitClass = UnitClass<{ a: 1 }>;
 type TestUnitClassInv = UnitClass<{ a: -1 }>;

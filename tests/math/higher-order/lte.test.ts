@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Unit, lte } from "../../../src";
+import { type Unit, lte } from "../../../src/index.ts";
 
 it("number", () => {
   expect(lte(4)(4)).equals(true);

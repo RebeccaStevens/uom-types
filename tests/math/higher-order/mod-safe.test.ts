@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Unit, modSafe } from "../../../src";
+import { type Unit, modSafe } from "../../../src/index.ts";
 
 it("numbers", () => {
   expect(modSafe(3)(10)).equals(1);

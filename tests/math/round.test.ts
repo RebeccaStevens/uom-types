@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Unit, round } from "../../src";
+import { type Unit, round } from "../../src/index.ts";
 
 it("number", () => {
   expect(round(4.123)).equals(4);

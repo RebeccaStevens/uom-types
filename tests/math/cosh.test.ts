@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Radian, type Unitless, cosh } from "../../src";
+import { type Radian, type Unitless, cosh } from "../../src/index.ts";
 
 it("unit", () => {
   const expected = 11.592 as Unitless;

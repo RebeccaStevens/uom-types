@@ -12,8 +12,8 @@ import type {
   UnknownUnitClass,
   UnknownUnitConversionRate,
   UnknownUnitMeta,
-} from "../../core";
-import type { Inverse, InverseUnitSubvalues } from "../../units-operations";
+} from "../../core.ts";
+import type { Inverse, InverseUnitSubvalues } from "../../units-operations.ts";
 
 /**
  * Invert the {@link Unit}.

@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { type Equals, type Extends, assert } from "tsafe";
 
-import type { Exponent } from "./exponents";
+import type { Exponent } from "./exponents.ts";
 import type {
   BrandUnitClass,
   BrandUnitClassType,
@@ -9,7 +9,7 @@ import type {
   BrandUnitMeta,
   ExcludeUnitZeroSubvalues,
   RemoveNeverValues,
-} from "./utils";
+} from "./utils.ts";
 
 /**
  * A unit without any meta data.
