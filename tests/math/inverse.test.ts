@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Unit, inverse } from "../../src";
+import { type Unit, inverse } from "../../src/index.ts";
 
 it("number", () => {
   expect(inverse(4)).equals(0.25);

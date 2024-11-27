@@ -11,7 +11,7 @@ import {
   type VolumeUnit,
   add,
   mul,
-} from "../../src";
+} from "../../src/index.ts";
 
 it("unit by number", () => {
   const a = 3 as Meter;

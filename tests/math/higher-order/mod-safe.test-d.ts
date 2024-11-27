@@ -1,6 +1,6 @@
 import { expectType } from "tsd";
 
-import { type Unit, modSafe } from "../../../src";
+import { type Unit, modSafe } from "../../../src/index.ts";
 
 declare const a: Unit<{ a: 1 }>;
 

@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Unit, ceil } from "../../src";
+import { type Unit, ceil } from "../../src/index.ts";
 
 it("number", () => {
   expect(ceil(4.123)).equals(5);

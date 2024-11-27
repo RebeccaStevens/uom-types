@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Meter, type Radian, atan2 } from "../../src";
+import { type Meter, type Radian, atan2 } from "../../src/index.ts";
 
 it("number", () => {
   const expected = (Math.PI / 4) as Radian;

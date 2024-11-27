@@ -1,6 +1,6 @@
 import { expectType } from "tsd";
 
-import { type Unit, pow } from "../../../src";
+import { type Unit, pow } from "../../../src/index.ts";
 
 declare const a: Unit<{ a: 2 }>;
 

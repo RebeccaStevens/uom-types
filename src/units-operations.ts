@@ -9,9 +9,9 @@ import type {
   UnknownAbstractUnit,
   UnknownUnit,
   UnknownUnitConversionRate,
-} from "./core";
-import type { DivideExponents, Exponent, MultiplyExponents, SumExponents } from "./exponents";
-import type { ExcludeUnitZeroSubvalues, FlatternAlias, GetExponent } from "./utils";
+} from "./core.ts";
+import type { DivideExponents, Exponent, MultiplyExponents, SumExponents } from "./exponents.ts";
+import type { ExcludeUnitZeroSubvalues, FlatternAlias, GetExponent } from "./utils.ts";
 
 /**
  * Take the inverse of a unit.

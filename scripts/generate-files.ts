@@ -60,7 +60,7 @@ function generateExponentsFile() {
 }
 
 function generateSiUnitPrefixesFile() {
-  const imports = `import type { UnknownUnit, UnitConversionRate } from "../../core";\nimport type { Multiply } from "../../units-operations";\n\n`;
+  const imports = `import type { UnknownUnit, UnitConversionRate } from "../../core.ts";\nimport type { Multiply } from "../../units-operations.ts";\n\n`;
   const main = [...exponents.values()]
     .map((exponent) => {
       const name = scalar10ToName.get(exponent);
@@ -78,7 +78,7 @@ function generateSiUnitPrefixesFile() {
 }
 
 function generateSiUnitPrefixesConvertionFile() {
-  const imports = `import type { UnknownUnit, UnitConversionRate } from "../../core";\nimport { mul, div } from "../../math";\nimport type { Divide, Multiply } from "../../units-operations";\n\n`;
+  const imports = `import type { UnknownUnit, UnitConversionRate } from "../../core.ts";\nimport { mul, div } from "../../math.ts";\nimport type { Divide, Multiply } from "../../units-operations.ts";\n\n`;
   const main = [...exponents.values()]
     .map((exponent) => {
       const name = scalar10ToName.get(exponent);

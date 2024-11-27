@@ -1,11 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { type Equals, assert } from "tsafe";
 
-import type { UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core";
-import type { BaseUnitClass } from "../base-units";
-import type { Reciprocal } from "../modifiers";
+import type { UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
+import type { BaseUnitClass } from "../base-units.ts";
+import type { Reciprocal } from "../modifiers/index.ts";
 
-import type { Pressure, PressureUnitClass } from ".";
+import type { Pressure, PressureUnitClass } from "./index.ts";
 
 /**
  * @group Unit Classes

@@ -1,12 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { type Equals, assert } from "tsafe";
 
-import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core";
-import type { Divide } from "../../units-operations";
-import type { BaseUnitClass } from "../base-units";
-import type { Reciprocal } from "../modifiers";
+import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
+import type { Divide } from "../../units-operations.ts";
+import type { BaseUnitClass } from "../base-units.ts";
+import type { Reciprocal } from "../modifiers/index.ts";
 
-import type { Ampere, Farad, Second, Siemens, Volt } from ".";
+import type { Ampere, Farad, Second, Siemens, Volt } from "./index.ts";
 
 /**
  * @group Unit Classes

@@ -23,6 +23,16 @@ export default rsEslint(
   },
   {
     rules: {
+      // Use non-sloppy imports. See: https://jsr.io/docs/publishing-packages#relative-imports
+      "import/extensions": [
+        "error",
+        "always",
+        {
+          checkTypeImports: true,
+          ignorePackages: true,
+        },
+      ],
+      "import/no-useless-path-segments": ["error", { noUselessIndex: false }],
       "ts/naming-convention": "off",
     },
   },

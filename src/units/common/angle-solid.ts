@@ -1,11 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { type Equals, assert } from "tsafe";
 
-import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core";
-import type { BaseUnitClass } from "../base-units";
-import type { Square } from "../modifiers";
+import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
+import type { BaseUnitClass } from "../base-units.ts";
+import type { Square } from "../modifiers/index.ts";
 
-import type { Radian } from ".";
+import type { Radian } from "./index.ts";
 
 /**
  * @group Unit Classes

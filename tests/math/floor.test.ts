@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { type Unit, floor } from "../../src";
+import { type Unit, floor } from "../../src/index.ts";
 
 it("number", () => {
   expect(floor(4.123)).equals(4);

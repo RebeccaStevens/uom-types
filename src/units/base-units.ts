@@ -4,9 +4,9 @@ import { type Equals, assert } from "tsafe";
 import type {
   Unit, // eslint-disable-line ts/no-unused-vars
   UnitClass,
-} from "../core";
-import type { Exponent } from "../exponents";
-import type { Exactify } from "../utils";
+} from "../core.ts";
+import type { Exponent } from "../exponents.ts";
+import type { Exactify } from "../utils.ts";
 
 type SiUnitKeys = "Second" | "Meter" | "Kilogram" | "Mole" | "Ampere" | "Candela" | "Kelvin" | "Radian";
 

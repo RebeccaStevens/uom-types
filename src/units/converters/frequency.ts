@@ -1,6 +1,6 @@
-import type { UnitConversionRate } from "../../core";
-import { div, mul } from "../../math";
-import type { Hertz, PerDay, PerHour, PerMinute, PerWeek, PerYear } from "../common";
+import type { UnitConversionRate } from "../../core.ts";
+import { div, mul } from "../../math.ts";
+import type { Hertz, PerDay, PerHour, PerMinute, PerWeek, PerYear } from "../common/index.ts";
 
 /**
  * Convert {@link Hertz} to {@link PerMinute}.

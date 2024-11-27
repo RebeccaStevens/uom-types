@@ -5,8 +5,8 @@ import type {
   UnitMeta,
   UnitSubvalues,
   UnknownUnitMeta,
-} from "../../core";
-import type { BaseUnitClass } from "../base-units";
+} from "../../core.ts";
+import type { BaseUnitClass } from "../base-units.ts";
 
 /**
  * @group Unit Classes

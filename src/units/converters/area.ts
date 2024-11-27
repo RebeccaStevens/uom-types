@@ -1,7 +1,7 @@
-import type { UnitConversionRate } from "../../core";
-import { div, mul } from "../../math";
-import type { Are, Hectare, Meter } from "../common";
-import type { Square } from "../modifiers";
+import type { UnitConversionRate } from "../../core.ts";
+import { div, mul } from "../../math.ts";
+import type { Are, Hectare, Meter } from "../common/index.ts";
+import type { Square } from "../modifiers/index.ts";
 
 /**
  * Convert {@link Square}<{@link Meter}> to {@link Are}.
