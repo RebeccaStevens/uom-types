@@ -17,9 +17,7 @@ type SiUnitKeys = "Second" | "Meter" | "Kilogram" | "Mole" | "Ampere" | "Candela
  */
 export type BaseUnitClass<T extends Exactify<SiUnitConfig, T>> = UnitClass<T>;
 
-type SiUnitConfig = {
-  [K in SiUnitKeys]?: Exponent;
-};
+type SiUnitConfig = Partial<Record<SiUnitKeys, Exponent>>;
 
 // Tests
 if (import.meta.vitest !== undefined) {
