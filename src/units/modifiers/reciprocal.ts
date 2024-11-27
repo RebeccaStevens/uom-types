@@ -1,11 +1,6 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type {
-  AbstractUnit,
-  Unit,
+  Unit, // eslint-disable-line ts/no-unused-vars
   UnitClass,
-  UnitConversionRate,
   UnitMeta,
   UnknownAbstractUnit,
   UnknownUnit,
@@ -13,7 +8,7 @@ import type {
   UnknownUnitConversionRate,
   UnknownUnitMeta,
 } from "../../core.ts";
-import type { Inverse, InverseUnitSubvalues } from "../../units-operations.ts";
+import type { Inverse, InverseUnitSubvalues } from "../../units-operations/index.ts";
 
 /**
  * Invert the {@link Unit}.
@@ -30,18 +25,3 @@ export type Reciprocal<
     : T extends UnknownUnitMeta
       ? UnitMeta<InverseUnitSubvalues<T["__uom_types"]["value"]>>
       : never;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("Reciprocal", () => {
-    it("reciprocals a unit", () => {
-      assert<Equals<Reciprocal<Unit<{ a: 1 }, { b: 2 }>>, Unit<{ a: -1 }, { b: -2 }>>>();
-      assert<Equals<Reciprocal<AbstractUnit<{ a: 1 }>>, AbstractUnit<{ a: -1 }>>>();
-      assert<Equals<Reciprocal<UnitConversionRate<{ a: 1 }>>, UnitConversionRate<{ a: -1 }>>>();
-    });
-    assert<Equals<Reciprocal<UnitClass<{ a: 1; b: 2 }>>, UnitClass<{ a: -1; b: -2 }>>>();
-    assert<Equals<Reciprocal<UnitMeta<{ a: 1; b: 2 }>>, UnitMeta<{ a: -1; b: -2 }>>>();
-  });
-}

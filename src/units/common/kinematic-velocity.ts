@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide, Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Meter, MeterPerSecondSquared, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -42,19 +36,3 @@ export type VelocityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<VelocityUnitC
  * @symbol `m/s`
  */
 export type MeterPerSecond = VelocityUnit<{}>;
-
-// Tests
-
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("MeterPerSecond", () => {
-    it("is meters per second", () => {
-      assert<Equals<MeterPerSecond, Divide<Meter, Second>>>();
-    });
-
-    it("is meters per second squared by seconds", () => {
-      assert<Equals<MeterPerSecond, Multiply<MeterPerSecondSquared, Second>>>();
-    });
-  });
-}

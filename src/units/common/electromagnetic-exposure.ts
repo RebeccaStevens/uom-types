@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Kilo } from "../modifiers/index.ts";
-
-import type { Coulomb, Gram } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,14 +37,3 @@ export type ExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ExposureUnitC
  * @symbol `C/kg`
  */
 export type CoulombPerKilogram = ExposureUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("CoulombPerKilogram", () => {
-    it("is coulombs per kilogram", () => {
-      assert<Equals<CoulombPerKilogram, Divide<Coulomb, Kilo<Gram>>>>();
-    });
-  });
-}

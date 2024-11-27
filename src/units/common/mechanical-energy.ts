@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Cubic } from "../modifiers/index.ts";
-
-import type { Coulomb, Hour, Meter, Minute, Pascal, Second, Volt, Watt } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -79,28 +72,3 @@ export type WattMinute = EnergyUnit<{
 export type WattHour = EnergyUnit<{
   scalar60: 2;
 }>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("Joule", () => {
-    it("is watt seconds", () => {
-      assert<Equals<Joule, WattSecond>>();
-      assert<Equals<WattSecond, Multiply<Watt, Second>>>();
-    });
-    it("is pascal cubic meters", () => {
-      assert<Equals<Joule, Multiply<Pascal, Cubic<Meter>>>>();
-    });
-    it("is coulomb volts", () => {
-      assert<Equals<Joule, Multiply<Coulomb, Volt>>>();
-    });
-  });
-
-  describe("other energy units", () => {
-    it("is correct", () => {
-      assert<Equals<WattMinute, Multiply<Watt, Minute>>>();
-      assert<Equals<WattHour, Multiply<Watt, Hour>>>();
-    });
-  });
-}

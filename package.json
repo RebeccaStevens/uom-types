@@ -77,7 +77,7 @@
     "test": "pnpm run test:js-run && pnpm run test:types",
     "test:js": "vitest --coverage",
     "test:js-run": "vitest run --coverage",
-    "test:types": "pnpm run test:types-pre && tsd -t './dist/index.d.mts' -f 'tests/**/*.test-d.ts'",
+    "test:types": "pnpm run test:types-pre && tsd -t './dist/index.d.mts' -f 'src/**/*.test-d.ts'",
     "test:types-pre": "pnpm run build",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },
@@ -90,7 +90,6 @@
     "@cspell/dict-cryptocurrencies": "5.0.3",
     "@eslint/compat": "1.2.3",
     "@rebeccastevens/eslint-config": "3.3.3",
-    "@rollup/plugin-replace": "6.0.1",
     "@rollup/plugin-typescript": "12.1.1",
     "@sebbo2002/semantic-release-jsr": "2.0.2",
     "@semantic-release/changelog": "6.0.3",

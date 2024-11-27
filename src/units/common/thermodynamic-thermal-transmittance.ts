@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Square } from "../modifiers/index.ts";
-
-import type { Kelvin, Meter, Watt } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -43,14 +36,3 @@ export type ThermalTransmittanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<T
  * @category Thermodynamic
  */
 export type WattPerSquareMeterPerKelvin = ThermalTransmittanceUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("WattPerSquareMeterPerKelvin", () => {
-    it("is watt per square meter per kelvin", () => {
-      assert<Equals<WattPerSquareMeterPerKelvin, Divide<Divide<Watt, Square<Meter>>, Kelvin>>>();
-    });
-  });
-}

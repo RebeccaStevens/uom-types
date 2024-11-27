@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Kelvin, Watt } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,14 +38,3 @@ export type ThermalResistanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Ther
  * @symbol `K/W`
  */
 export type KelvinPerWatt = ThermalResistanceUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("KelvinPerWatt", () => {
-    it("is kelvin per watt", () => {
-      assert<Equals<KelvinPerWatt, Divide<Kelvin, Watt>>>();
-    });
-  });
-}

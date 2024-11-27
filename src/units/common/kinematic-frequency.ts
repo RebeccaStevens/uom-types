@@ -1,11 +1,7 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { BaseUnitClass } from "../base-units.ts";
 import type { Reciprocal } from "../modifiers/index.ts";
 
-import type { Day, Duration, DurationUnitClass, Hour, Minute, Second, Week, Year } from "./index.ts";
+import type { Duration, DurationUnitClass } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -104,21 +100,3 @@ export type PerYear = FrequencyUnit<{
   scalar24: -1;
   scalarDayInYear: -1;
 }>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("Frequency", () => {
-    it("is reciprocal of time", () => {
-      assert<Equals<FrequencyUnitClass, BaseUnitClass<{ Second: -1 }>>>();
-      assert<Equals<Hertz, Reciprocal<Second>>>();
-      assert<Equals<PerSecond, Reciprocal<Second>>>();
-      assert<Equals<PerMinute, Reciprocal<Minute>>>();
-      assert<Equals<PerHour, Reciprocal<Hour>>>();
-      assert<Equals<PerDay, Reciprocal<Day>>>();
-      assert<Equals<PerWeek, Reciprocal<Week>>>();
-      assert<Equals<PerYear, Reciprocal<Year>>>();
-    });
-  });
-}

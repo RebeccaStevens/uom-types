@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Square } from "../modifiers/index.ts";
-
-import type { Radian } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -46,14 +40,3 @@ export type SolidAngleUnitFrom<M extends UnknownUnitMeta> = UnitFrom<SolidAngleU
  * @symbol `sr`
  */
 export type Steradian = SolidAngleUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("Steradian", () => {
-    it("is radians squared", () => {
-      assert<Equals<Steradian, Square<Radian>>>();
-    });
-  });
-}

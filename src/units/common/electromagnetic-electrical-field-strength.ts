@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Meter, Volt } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,14 +38,3 @@ export type ElectricFieldStrengthUnitFrom<M extends UnknownUnitMeta> = UnitFrom<
  * @symbol `V/m`
  */
 export type VoltPerMeter = ElectricFieldStrengthUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("VoltPerMeter", () => {
-    it("is volts per meter", () => {
-      assert<Equals<VoltPerMeter, Divide<Volt, Meter>>>();
-    });
-  });
-}

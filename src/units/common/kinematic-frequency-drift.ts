@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Hertz, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -39,14 +33,3 @@ export type FrequencyDriftUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Frequen
  * @symbol `Hz/s`
  */
 export type HertzPerSecond = FrequencyDriftUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("MeterPerSecondToTheFifth", () => {
-    it("is hertz per second", () => {
-      assert<Equals<HertzPerSecond, Divide<Hertz, Second>>>();
-    });
-  });
-}

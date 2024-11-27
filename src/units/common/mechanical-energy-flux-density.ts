@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide, Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Square } from "../modifiers/index.ts";
-
-import type { Joule, Meter, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -43,14 +36,3 @@ export type EnergyFluxDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Ener
  * @symbol `J/(m²⋅s)`
  */
 export type JoulePerSquareMeterSecond = EnergyFluxDensityUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("JoulePerSquareMeterSecond", () => {
-    it("is joules per (square meters by seconds)", () => {
-      assert<Equals<JoulePerSquareMeterSecond, Divide<Joule, Multiply<Square<Meter>, Second>>>>();
-    });
-  });
-}

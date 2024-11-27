@@ -1,11 +1,9 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide, Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Cubic, Square } from "../modifiers/index.ts";
+// eslint-disable-next-line ts/no-unused-vars
+import type { Square } from "../modifiers/index.ts";
 
+// eslint-disable-next-line ts/no-unused-vars
 import type { Meter } from "./index.ts";
 
 /**
@@ -49,18 +47,3 @@ export type Are = AreaUnit<{ scalar10: 2 }>;
  * @symbol `ha`
  */
 export type Hectare = AreaUnit<{ scalar10: 4 }>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("SquareMeter", () => {
-    it("is meters by meters", () => {
-      assert<Equals<Square<Meter>, Multiply<Meter, Meter>>>();
-    });
-
-    it("is cubic meters per meter", () => {
-      assert<Equals<Square<Meter>, Divide<Cubic<Meter>, Meter>>>();
-    });
-  });
-}

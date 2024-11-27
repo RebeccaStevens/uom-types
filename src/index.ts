@@ -35,7 +35,7 @@ export type {
   PowUnitSubvalues,
   Root,
   RootUnitSubvalues,
-} from "./units-operations.ts";
+} from "./units-operations/index.ts";
 
-export * from "./math.ts";
+export * from "./math/index.ts";
 export * from "./units/index.ts";

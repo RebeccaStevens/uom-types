@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Joule, Kelvin } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,14 +38,3 @@ export type EntropyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<EntropyUnitCla
  * @symbol `J/K`
  */
 export type JoulePerKelvin = EntropyUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("JoulePerKelvin", () => {
-    it("is joules per kelvin", () => {
-      assert<Equals<JoulePerKelvin, Divide<Joule, Kelvin>>>();
-    });
-  });
-}

@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Pascal, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -43,14 +37,3 @@ export type DynamicViscosityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Dynam
  * @symbol `Pa⋅s`
  */
 export type PascalSecond = DynamicViscosityUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("PascalSecond", () => {
-    it("is pascals by seconds", () => {
-      assert<Equals<PascalSecond, Multiply<Pascal, Second>>>();
-    });
-  });
-}

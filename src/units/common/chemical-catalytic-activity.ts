@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Mole, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -40,14 +34,3 @@ export type CatalyticActivityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Cata
  * @symbol `kat`
  */
 export type Katal = CatalyticActivityUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("Katal", () => {
-    it("is moles per second", () => {
-      assert<Equals<Katal, Divide<Mole, Second>>>();
-    });
-  });
-}

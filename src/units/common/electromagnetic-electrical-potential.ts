@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide, Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Ampere, Coulomb, Joule, Ohm, Second, Watt, Weber } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -47,26 +41,3 @@ export type ElectricPotentialUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Elec
  * @symbol `V`
  */
 export type Volt = ElectricPotentialUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("Volt", () => {
-    it("is watts per ampere", () => {
-      assert<Equals<Volt, Divide<Watt, Ampere>>>();
-    });
-
-    it("is ohms by ampere", () => {
-      assert<Equals<Volt, Multiply<Ohm, Ampere>>>();
-    });
-
-    it("is joules per coulomb", () => {
-      assert<Equals<Volt, Divide<Joule, Coulomb>>>();
-    });
-
-    it("is weber per second", () => {
-      assert<Equals<Volt, Divide<Weber, Second>>>();
-    });
-  });
-}

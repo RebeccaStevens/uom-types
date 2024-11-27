@@ -1,10 +1,6 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Multiply } from "../../units-operations.ts";
 
-import type { Energy, EnergyUnit, EnergyUnitClass, EnergyUnitFrom, Joule, Meter, Newton } from "./index.ts";
+import type { Energy, EnergyUnit, EnergyUnitClass, EnergyUnitFrom, Joule } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -38,14 +34,3 @@ export type WorkUnitFrom<M extends UnknownUnitMeta> = EnergyUnitFrom<M>;
  * @symbol `N⋅m`
  */
 export type NewtonMeter = Joule;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("NewtonMeter", () => {
-    it("is newtons by meters", () => {
-      assert<Equals<NewtonMeter, Multiply<Newton, Meter>>>();
-    });
-  });
-}

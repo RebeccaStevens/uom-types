@@ -6,16 +6,10 @@ export default defineConfig({
 
   test: {
     include: ["./**/*.test.ts"],
-    includeSource: [
-      "src/**/[!index]*.ts",
-      "!src/exponents.ts",
-      "!src/units/converters/prefixes.ts",
-      "!src/units/modifiers/prefixes.ts",
-    ],
     coverage: {
       all: true,
-      include: ["src/**/*"],
-      exclude: ["src/*.ts", "src/units/**/*.ts", "src/units/[!converters]*/*.ts"],
+      include: ["**/*.ts"],
+      exclude: ["**/*.test.ts", "**/*.test-d.ts"],
       reporter: ["lcov", "text"],
       watermarks: {
         lines: [80, 95],

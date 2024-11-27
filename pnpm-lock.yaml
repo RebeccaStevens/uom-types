@@ -26,9 +26,6 @@ importers:
       '@rebeccastevens/eslint-config':
         specifier: 3.3.3
         version: 3.3.3(dcqym2jrfk5o5h2xmpdik2xs3m)
-      '@rollup/plugin-replace':
-        specifier: 6.0.1
-        version: 6.0.1(rollup@4.27.4)
       '@rollup/plugin-typescript':
         specifier: 12.1.1
         version: 12.1.1(rollup@4.27.4)(tslib@2.7.0)(typescript@5.7.2)
@@ -1771,15 +1768,6 @@ packages:
       vue-eslint-parser:
         optional: true
       yaml-eslint-parser:
-        optional: true
-
-  '@rollup/plugin-replace@6.0.1':
-    resolution: {integrity: sha512-2sPh9b73dj5IxuMmDAsQWVFT7mR+yoHweBaXG2W/R8vQ+IWZlnaI7BR7J6EguVQUp1hd8Z7XuozpDjEKQAAC2Q==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
-    peerDependenciesMeta:
-      rollup:
         optional: true
 
   '@rollup/plugin-typescript@12.1.1':
@@ -7450,13 +7438,6 @@ snapshots:
       sort-package-json: 2.10.1
       vue-eslint-parser: 9.4.3(eslint@9.15.0(jiti@2.4.0))
       yaml-eslint-parser: 1.2.3
-
-  '@rollup/plugin-replace@6.0.1(rollup@4.27.4)':
-    dependencies:
-      '@rollup/pluginutils': 5.1.2(rollup@4.27.4)
-      magic-string: 0.30.12
-    optionalDependencies:
-      rollup: 4.27.4
 
   '@rollup/plugin-typescript@12.1.1(rollup@4.27.4)(tslib@2.7.0)(typescript@5.7.2)':
     dependencies:

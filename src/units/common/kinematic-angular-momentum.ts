@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide, Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Joule, Radian, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,14 +38,3 @@ export type AngularMomentumUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Angula
  * @symbol `J⋅s/rad`
  */
 export type JouleSecondPerRadian = AngularMomentumUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("JouleSecondPerRadian", () => {
-    it("is joules by seconds per radian", () => {
-      assert<Equals<JouleSecondPerRadian, Divide<Multiply<Joule, Second>, Radian>>>();
-    });
-  });
-}

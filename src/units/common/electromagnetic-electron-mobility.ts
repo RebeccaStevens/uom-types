@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide, Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Square } from "../modifiers/index.ts";
-
-import type { Meter, Second, Volt } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,14 +37,3 @@ export type ElectronMobilityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Elect
  * @symbol `m²/(V⋅s)`
  */
 export type SquareMeterPerVoltSecond = ElectronMobilityUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("SquareMeterPerVoltSecond", () => {
-    it("is square meters per volt second", () => {
-      assert<Equals<SquareMeterPerVoltSecond, Divide<Square<Meter>, Multiply<Volt, Second>>>>();
-    });
-  });
-}

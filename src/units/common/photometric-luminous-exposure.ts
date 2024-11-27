@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Lux, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -43,14 +37,3 @@ export type LuminousExposureUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Lumin
  * @symbol `lx⋅s`
  */
 export type LuxSecond = LuminousExposureUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("LuxSecond", () => {
-    it("is lux by seconds", () => {
-      assert<Equals<LuxSecond, Multiply<Lux, Second>>>();
-    });
-  });
-}

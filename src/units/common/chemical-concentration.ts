@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Cubic } from "../modifiers/index.ts";
-
-import type { Liter, Meter, Mole } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -62,20 +55,3 @@ export type MolePerCubicMeter = Concentration;
  * @symbol `mol/l`
  */
 export type MolePerLiter = MolarConcentrationUnit<{ scalar10: 3 }>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("MolePerCubicMeter", () => {
-    it("is moles per cubic meter", () => {
-      assert<Equals<MolePerCubicMeter, Divide<Mole, Cubic<Meter>>>>();
-    });
-  });
-
-  describe("MolePerLiter", () => {
-    it("is moles per liter", () => {
-      assert<Equals<MolePerLiter, Divide<Mole, Liter>>>();
-    });
-  });
-}

@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Kilo } from "../modifiers/index.ts";
-
-import type { Gram, Meter } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -43,14 +36,3 @@ export type LinearMassDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Line
  * @symbol `kg/m`
  */
 export type KilogramPerMeter = LinearMassDensityUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("KilogramPerMeter", () => {
-    it("is kilograms per meter", () => {
-      assert<Equals<KilogramPerMeter, Divide<Kilo<Gram>, Meter>>>();
-    });
-  });
-}

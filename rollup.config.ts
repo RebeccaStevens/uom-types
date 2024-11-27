@@ -1,4 +1,3 @@
-import rollupPluginReplace from "@rollup/plugin-replace";
 import rollupPluginTypescript from "@rollup/plugin-typescript";
 import type { RollupOptions } from "rollup";
 import rollupPluginDeassert from "rollup-plugin-deassert";
@@ -52,12 +51,6 @@ export default {
   plugins: [
     rollupPluginTypescript({
       tsconfig: "tsconfig.build.json",
-    }),
-    rollupPluginReplace({
-      values: {
-        "import.meta.vitest": "undefined",
-      },
-      preventAssignment: true,
     }),
     rollupPluginDeassert({
       include: ["**/*.{js,ts}"],

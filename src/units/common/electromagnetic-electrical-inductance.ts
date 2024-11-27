@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide, Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Ampere, Ohm, Second, Weber } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,18 +38,3 @@ export type ElectricInductanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Ele
  * @symbol `H`
  */
 export type Henry = ElectricInductanceUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("Henry", () => {
-    it("is webers per ampere", () => {
-      assert<Equals<Henry, Divide<Weber, Ampere>>>();
-    });
-
-    it("is ohms per seconds", () => {
-      assert<Equals<Henry, Multiply<Ohm, Second>>>();
-    });
-  });
-}

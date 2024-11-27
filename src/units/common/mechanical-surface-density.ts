@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Kilo, Square } from "../modifiers/index.ts";
-
-import type { Gram, Meter } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -40,14 +33,3 @@ export type SurfaceDensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Surface
  * @symbol `kg/m²`
  */
 export type KilogramPerSquareMeter = SurfaceDensityUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("KilogramPerSquareMeter", () => {
-    it("is kilograms per square meter", () => {
-      assert<Equals<KilogramPerSquareMeter, Divide<Kilo<Gram>, Square<Meter>>>>();
-    });
-  });
-}

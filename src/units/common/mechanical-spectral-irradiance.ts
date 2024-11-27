@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Cubic } from "../modifiers/index.ts";
-
-import type { Meter, Watt } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,14 +37,3 @@ export type SpectralIrradianceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Spe
  * @symbol `W/m³`
  */
 export type WattPerCubicMeter = SpectralIrradianceUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("WattPerCubicMeter", () => {
-    it("is watts per cubic meter", () => {
-      assert<Equals<WattPerCubicMeter, Divide<Watt, Cubic<Meter>>>>();
-    });
-  });
-}

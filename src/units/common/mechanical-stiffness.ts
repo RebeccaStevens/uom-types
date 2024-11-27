@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { JoulePerSquareMeter, Meter, Newton } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -42,17 +36,3 @@ export type StiffnessUnitFrom<M extends UnknownUnitMeta> = UnitFrom<StiffnessUni
  * @symbol `N/m`
  */
 export type NewtonPerMeter = StiffnessUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("NewtonPerMeter", () => {
-    it("is joules per square meter", () => {
-      assert<Equals<NewtonPerMeter, JoulePerSquareMeter>>();
-    });
-    it("is newtons per meter", () => {
-      assert<Equals<NewtonPerMeter, Divide<Newton, Meter>>>();
-    });
-  });
-}

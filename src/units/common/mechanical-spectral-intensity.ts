@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide, Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Meter, Steradian, Watt } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,14 +38,3 @@ export type SpectralIntensityUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Spec
  * @symbol `W/(sr⋅m)`
  */
 export type WattPerSteradianMeter = SpectralIntensityUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("WattPerSteradianMeter", () => {
-    it("is watts per steradian meter", () => {
-      assert<Equals<WattPerSteradianMeter, Divide<Watt, Multiply<Steradian, Meter>>>>();
-    });
-  });
-}

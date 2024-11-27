@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Square } from "../modifiers/index.ts";
-
-import type { Ampere, Henry, Meter, Second, Tesla, Volt } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -48,22 +41,3 @@ export type MagneticFluxUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MagneticF
  * @symbol `Wb`
  */
 export type Weber = MagneticFluxUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("Weber", () => {
-    it("is volt second", () => {
-      assert<Equals<Weber, Multiply<Volt, Second>>>();
-    });
-
-    it("is tesla square meters", () => {
-      assert<Equals<Weber, Multiply<Tesla, Square<Meter>>>>();
-    });
-
-    it("is henry amperes", () => {
-      assert<Equals<Weber, Multiply<Henry, Ampere>>>();
-    });
-  });
-}

@@ -1,5 +1,5 @@
 import type { UnitConversionRate } from "../../core.ts";
-import { div, mul } from "../../math.ts";
+import { div, mul } from "../../math/index.ts";
 import type { Liter, Meter } from "../common/index.ts";
 import type { Cubic } from "../modifiers/index.ts";
 

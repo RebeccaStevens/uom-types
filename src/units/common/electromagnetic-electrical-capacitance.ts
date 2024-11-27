@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Coulomb, Volt } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -48,14 +42,3 @@ export type ElectricCapacitanceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<El
  * @symbol `F`
  */
 export type Farad = ElectricCapacitanceUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("Farad", () => {
-    it("is coulombs per volt", () => {
-      assert<Equals<Farad, Divide<Coulomb, Volt>>>();
-    });
-  });
-}

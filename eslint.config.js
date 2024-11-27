@@ -36,4 +36,10 @@ export default rsEslint(
       "ts/naming-convention": "off",
     },
   },
+  {
+    files: ["**/*.test-d.ts"],
+    rules: {
+      "import/no-extraneous-dependencies": "off",
+    },
+  },
 );

@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Ampere, Radian } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -42,14 +36,3 @@ export type MagnetomotiveForceUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Mag
  * @symbol `A⋅rad`
  */
 export type AmpereRadian = MagnetomotiveForceUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("AmpereRadian", () => {
-    it("is amperes by radians", () => {
-      assert<Equals<AmpereRadian, Multiply<Ampere, Radian>>>();
-    });
-  });
-}

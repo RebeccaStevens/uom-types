@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Lumen, Watt } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -45,14 +39,3 @@ export type LuminousEfficacyUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Lumin
  * @symbol `lm/W`
  */
 export type LumenPerWatt = LuminousEfficacyUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("LumenPerWatt", () => {
-    it("is lumens per watt", () => {
-      assert<Equals<LumenPerWatt, Divide<Lumen, Watt>>>();
-    });
-  });
-}

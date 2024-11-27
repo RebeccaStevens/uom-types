@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Meter, Weber } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,14 +38,3 @@ export type MagneticVectorPotentialUnitFrom<M extends UnknownUnitMeta> = UnitFro
  * @symbol `Wb/m`
  */
 export type WeberPerMeter = MagneticVectorPotentialUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("WeberPerMeter", () => {
-    it("is webers per meter", () => {
-      assert<Equals<WeberPerMeter, Divide<Weber, Meter>>>();
-    });
-  });
-}

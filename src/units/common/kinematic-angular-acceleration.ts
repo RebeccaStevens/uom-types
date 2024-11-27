@@ -1,12 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Divide } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-import type { Square } from "../modifiers/index.ts";
-
-import type { Radian, RadianPerSecond, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -43,18 +36,3 @@ export type AngularAccelerationUnitFrom<M extends UnknownUnitMeta> = UnitFrom<An
  * @symbol `rad/s²`
  */
 export type RadianPerSecondSquared = AngularAccelerationUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("RadianPerSecondSquared", () => {
-    it("is radians per squared second", () => {
-      assert<Equals<RadianPerSecondSquared, Divide<Radian, Square<Second>>>>();
-    });
-
-    it("is radians per second per second", () => {
-      assert<Equals<RadianPerSecondSquared, Divide<RadianPerSecond, Second>>>();
-    });
-  });
-}

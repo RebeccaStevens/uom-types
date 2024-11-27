@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Joule, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -43,14 +37,3 @@ export type ActionUnitFrom<M extends UnknownUnitMeta> = UnitFrom<ActionUnitClass
  * @symbol `Js`
  */
 export type JouleSecond = ActionUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("GrayPerSecond", () => {
-    it("is joules per second", () => {
-      assert<Equals<JouleSecond, Multiply<Joule, Second>>>();
-    });
-  });
-}

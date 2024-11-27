@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Newton, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -43,14 +37,3 @@ export type MomentumUnitFrom<M extends UnknownUnitMeta> = UnitFrom<MomentumUnitC
  * @symbol `N⋅s`
  */
 export type NewtonSecond = MomentumUnit<{}>;
-
-// Tests
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("NewtonSecond", () => {
-    it("is newtons by seconds", () => {
-      assert<Equals<NewtonSecond, Multiply<Newton, Second>>>();
-    });
-  });
-}

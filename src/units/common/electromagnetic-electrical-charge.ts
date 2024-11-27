@@ -1,11 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type Equals, assert } from "tsafe";
-
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
-import type { Multiply } from "../../units-operations.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-
-import type { Ampere, Second } from "./index.ts";
 
 /**
  * @group Unit Classes
@@ -44,15 +38,3 @@ export type ElectricChargeUnitFrom<M extends UnknownUnitMeta> = UnitFrom<Electri
  * @symbol `C`
  */
 export type Coulomb = ElectricChargeUnit<{}>;
-
-// Tests
-
-if (import.meta.vitest !== undefined) {
-  const { describe, it } = import.meta.vitest;
-
-  describe("Coulomb", () => {
-    it("is amperes by seconds", () => {
-      assert<Equals<Coulomb, Multiply<Ampere, Second>>>();
-    });
-  });
-}
