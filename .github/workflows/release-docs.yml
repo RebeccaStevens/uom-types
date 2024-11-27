@@ -1,10 +1,8 @@
 name: Release Docs
 
 on:
+  workflow_call:
   workflow_dispatch:
-  push:
-    branches:
-      - gh-pages
 
 permissions:
   contents: write
@@ -16,16 +14,14 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy_docs:
+  release_docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
 
-      - name: get gh-pages
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
+      - name: Generate Docs
+        run: pnpm run docs
 
       - name: Create a pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -36,16 +32,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Store Coverage Badge
-        run: cp ./docs/generated/coverage.svg /tmp/coverage.svg
-
-      - name: get gh-pages
-        uses: actions/checkout@v4
-        with:
-          ref: main
-
       - name: Update Coverage Badge
-        run: cp /tmp/coverage.svg ./docs/coverage.svg
+        run: cp ./docs/generated/coverage.svg ./docs/coverage.svg
 
       - id: coverage_changed
         run: echo "coverage_changed=$(git status --porcelain -u | grep -c docs/coverage.svg)" >> "$GITHUB_OUTPUT"
@@ -60,5 +48,3 @@ jobs:
           git add docs/coverage.svg
           git commit -m "docs: update documentation coverage badge"
           git push
-
-      - uses: actions/checkout@v4
