@@ -13,4 +13,4 @@ jobs:
       - uses: ./.github/actions/prepare
       - run: pnpm run generate-files
       - run: pnpm run test:js
-      - uses: codecov/codecov-action@v4
+      - uses: codecov/codecov-action@v5
