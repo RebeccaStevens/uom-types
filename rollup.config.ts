@@ -2,6 +2,8 @@ import rollupPluginTypescript from "@rollup/plugin-typescript";
 import type { RollupOptions } from "rollup";
 import rollupPluginDeassert from "rollup-plugin-deassert";
 import generateDtsBundle from "rollup-plugin-dts-bundle-generator-2";
+import rollupPluginNoEmit from "rollup-plugin-no-emit";
+import rollupPluginTreeShakeable from "rollup-plugin-tree-shakeable";
 
 import pkg from "./package.json" with { type: "json" };
 
@@ -16,19 +18,31 @@ const externalDependencies = [
 ];
 
 export default {
-  input: "src/index.ts",
+  input: {
+    converters: "src/converters.ts",
+    math: "src/math.ts",
+    types: "src/types.ts",
+    units: "src/units.ts",
+    index: "src/index.ts",
+  },
 
   output: [
     {
-      file: pkg.exports.import,
+      entryFileNames: "[name].mjs",
+      chunkFileNames: "chunks/[hash:8].mjs",
+      dir: "dist",
       format: "esm",
       sourcemap: false,
       importAttributesKey: "with",
+      experimentalMinChunkSize: 0,
     },
     {
-      file: pkg.exports.require,
+      entryFileNames: "[name].cjs",
+      chunkFileNames: "chunks/[hash:8].cjs",
+      dir: "dist",
       format: "cjs",
       sourcemap: false,
+      experimentalMinChunkSize: 0,
     },
   ],
 
@@ -40,6 +54,7 @@ export default {
     rollupPluginDeassert({
       include: ["**/*.{js,ts}"],
     }),
+    rollupPluginTreeShakeable(),
     generateDtsBundle({
       compilation: {
         preferredConfigPath: "src/tsconfig.build.json",
@@ -47,6 +62,11 @@ export default {
       output: {
         exportReferencedTypes: false,
         inlineDeclareExternals: true,
+      },
+    }),
+    rollupPluginNoEmit({
+      match(_, output) {
+        return output.type === "chunk" && ["types", "units"].includes(output.name);
       },
     }),
   ],
