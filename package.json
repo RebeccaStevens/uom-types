@@ -34,12 +34,46 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "types": {
-      "import": "./dist/index.d.mts",
-      "require": "./dist/index.d.cts"
+    ".": {
+      "types": {
+        "import": "./dist/index.d.mts",
+        "require": "./dist/index.d.cts"
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
+    "./converters": {
+      "converters": {
+        "import": "./dist/converters.d.mts",
+        "require": "./dist/converters.d.cts"
+      },
+      "import": "./dist/converters.mjs",
+      "require": "./dist/converters.cjs"
+    },
+    "./math": {
+      "math": {
+        "import": "./dist/math.d.mts",
+        "require": "./dist/math.d.cts"
+      },
+      "import": "./dist/math.mjs",
+      "require": "./dist/math.cjs"
+    },
+    "./types": {
+      "types": {
+        "import": "./dist/types.d.mts",
+        "require": "./dist/types.d.cts"
+      },
+      "import": "./dist/types.mjs",
+      "require": "./dist/types.cjs"
+    },
+    "./units": {
+      "units": {
+        "import": "./dist/units.d.mts",
+        "require": "./dist/units.d.cts"
+      },
+      "import": "./dist/units.mjs",
+      "require": "./dist/units.cjs"
+    }
   },
   "files": [
     "dist/",

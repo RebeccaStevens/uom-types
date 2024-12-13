@@ -1,14 +1,20 @@
 {
   "name": "@rebeccastevens/uom-types",
   "version": "0.0.0-development",
-  "exports": "./src/index.ts",
+  "exports": {
+    ".": "src/index.ts",
+    "./converters": "src/converters.ts",
+    "./math": "src/math.ts",
+    "./types": "src/types.ts",
+    "./units": "src/units.ts"
+  },
   "publish": {
     "include": ["LICENSE", "README.md", "src/**/*.ts"],
     "exclude": [
       "**/*.test.ts",
       "**/*.test-d.ts",
       "!src/exponents.ts",
-      "!src/units/converters/prefixes.ts",
+      "!src/converters/prefixes.ts",
       "!src/units/modifiers/prefixes.ts"
     ]
   }
