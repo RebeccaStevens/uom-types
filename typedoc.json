@@ -55,7 +55,7 @@
     "GetSignature",
     "SetSignature"
   ],
-  "tsconfig": "tsconfig.build.json",
+  "tsconfig": "src/tsconfig.json",
   "out": "./docs/generated",
   "plugin": ["typedoc-plugin-coverage"],
   "readme": "./docs/index.md",

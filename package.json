@@ -51,7 +51,7 @@
   "scripts": {
     "build": "pnpm run build-pre && pnpm run build:js",
     "build-pre": "pnpm run generate-files",
-    "build:js": "rimraf dist && rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "build:js": "rimraf dist && rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript --configImportAttributesKey with",
     "cz": "git-cz",
     "docs": "typedoc",
     "docs:serve": "http-serve docs/generated",
@@ -79,7 +79,7 @@
     "test:js-run": "vitest run --coverage",
     "test:types": "pnpm run test:types-pre && tsd -t './dist/index.d.mts' -f 'src/**/*.test-d.ts'",
     "test:types-pre": "pnpm run build",
-    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+    "typecheck": "tsc -p src/tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@commitlint/cli": "19.6.0",

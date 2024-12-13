@@ -92,7 +92,7 @@ function generateSiUnitPrefixesConvertionFile() {
       const to = `/**\n * Convert \`X\` to \`${name.toLowerCase()}X\`.\n */\nexport function to${name}<T extends UnknownUnit>(value: T): ${negativeExponent ? "Divide" : "Multiply"}<T, UnitConversionRate<{ scalar10: ${-absExponent} }>> {\n  return ${
         negativeExponent ? "div" : "mul"
       }(value, ${10 ** absExponent} as UnitConversionRate<{ scalar10: ${-absExponent} }>);\n}`;
-      const from = `/**\n * Convert \`${name.toLowerCase()}X\` to \`X\`.\n */\nexport const from${name} = to${inverseName};`;
+      const from = `/**\n * Convert \`${name.toLowerCase()}X\` to \`X\`.\n */\nexport const from${name}: typeof to${inverseName} = to${inverseName};`;
       return `${to}\n\n${from}`;
     })
     .filter(isNotNull)
