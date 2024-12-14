@@ -11,5 +11,5 @@ node_modules/
 /docs/generated/
 /docs/coverage.svg
 /src/exponents.ts
-/src/units/converters/prefixes.ts
+/src/converters/prefixes.ts
 /src/units/modifiers/prefixes.ts
