@@ -40,7 +40,12 @@ export default {
       include: ["**/*.{js,ts}"],
     }),
     generateDtsBundle({
-      preferredConfigPath: "src/tsconfig.build.json",
+      compilation: {
+        preferredConfigPath: "src/tsconfig.build.json",
+      },
+      output: {
+        exportReferencedTypes: false,
+      },
     }),
   ],
 

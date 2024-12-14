@@ -168,8 +168,8 @@ importers:
         specifier: 1.3.0
         version: 1.3.0(acorn@8.14.0)(rollup@4.28.1)
       rollup-plugin-dts-bundle-generator-2:
-        specifier: 1.0.2
-        version: 1.0.2(dts-bundle-generator@9.5.1)
+        specifier: 2.0.0
+        version: 2.0.0(dts-bundle-generator@9.5.1)
       semantic-release:
         specifier: 24.2.0
         version: 24.2.0(typescript@5.7.2)
@@ -4781,8 +4781,8 @@ packages:
       acorn: ^8.12.1
       rollup: ^4.20.0
 
-  rollup-plugin-dts-bundle-generator-2@1.0.2:
-    resolution: {integrity: sha512-QNQz447BqWOHjMl5ZfGGGaNSMOQrCYh+1FF77bX+LMyshrgYV1mv6subFnwe/A6AKQEBsP3/oKZntreSQZHF7A==}
+  rollup-plugin-dts-bundle-generator-2@2.0.0:
+    resolution: {integrity: sha512-C2HYbZVH9/mlOkGcQUniuCEpKHCPaUEVdmzlt328Nnjq+8s+VYQIukudbclhqDSjTdAhrdUtxG23G0sbq5b0lQ==}
     peerDependencies:
       dts-bundle-generator: ^9.0.0
 
@@ -10476,7 +10476,7 @@ snapshots:
       deassert: 1.3.2
       rollup: 4.28.1
 
-  rollup-plugin-dts-bundle-generator-2@1.0.2(dts-bundle-generator@9.5.1):
+  rollup-plugin-dts-bundle-generator-2@2.0.0(dts-bundle-generator@9.5.1):
     dependencies:
       dts-bundle-generator: 9.5.1
 
