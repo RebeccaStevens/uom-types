@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+## [5.0.1](https://github.com/RebeccaStevens/uom-types/compare/v5.0.0...v5.0.1) (2024-12-14)
+
+
+### Bug Fixes
+
+* dist types ([a01ca42](https://github.com/RebeccaStevens/uom-types/commit/a01ca429263a5752edf554a739318cdeb155a940)), closes [#437](https://github.com/RebeccaStevens/uom-types/issues/437)
+
 # [5.0.0](https://github.com/RebeccaStevens/uom-types/compare/v4.1.2...v5.0.0) (2024-11-27)
 
 
