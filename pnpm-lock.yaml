@@ -22,7 +22,7 @@ importers:
         version: 1.2.4(eslint@9.19.0(jiti@2.4.2))
       '@rebeccastevens/eslint-config':
         specifier: 3.5.1
-        version: 3.5.1(eoriaigkq6mgo3sgwntp4d5n4i)
+        version: 3.5.1(z3nq66nkj3roik2lnwtyooo4ay)
       '@rollup/plugin-typescript':
         specifier: 12.1.2
         version: 12.1.2(rollup@4.29.1)(tslib@2.7.0)(typescript@5.7.2)
@@ -78,8 +78,8 @@ importers:
         specifier: 9.19.0
         version: 9.19.0(jiti@2.4.2)
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@9.19.0(jiti@2.4.2))
+        specifier: 10.0.1
+        version: 10.0.1(eslint@9.19.0(jiti@2.4.2))
       eslint-flat-config-utils:
         specifier: 0.4.0
         version: 0.4.0
@@ -121,7 +121,7 @@ importers:
         version: 1.2.1
       eslint-plugin-prettier:
         specifier: 5.2.1
-        version: 5.2.1(eslint-config-prettier@9.1.0(eslint@9.19.0(jiti@2.4.2)))(eslint@9.19.0(jiti@2.4.2))(prettier@3.4.2)
+        version: 5.2.1(eslint-config-prettier@10.0.1(eslint@9.19.0(jiti@2.4.2)))(eslint@9.19.0(jiti@2.4.2))(prettier@3.4.2)
       eslint-plugin-promise:
         specifier: 7.2.1
         version: 7.2.1(eslint@9.19.0(jiti@2.4.2))
@@ -2827,8 +2827,8 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  eslint-config-prettier@9.1.0:
-    resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
+  eslint-config-prettier@10.0.1:
+    resolution: {integrity: sha512-lZBts941cyJyeaooiKxAtzoPHTN+GbQTJFAIdQbRhA4/8whaAraEh47Whw/ZFfrjNSnlAxqfm9i0XVAEkULjCw==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -7125,7 +7125,7 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@rebeccastevens/eslint-config@3.5.1(eoriaigkq6mgo3sgwntp4d5n4i)':
+  '@rebeccastevens/eslint-config@3.5.1(z3nq66nkj3roik2lnwtyooo4ay)':
     dependencies:
       '@antfu/install-pkg': 0.5.0
       '@clack/prompts': 0.8.2
@@ -7138,7 +7138,7 @@ snapshots:
       '@typescript-eslint/parser': 8.22.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.2)
       '@typescript-eslint/utils': 8.22.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.2)
       '@vitest/eslint-plugin': 1.1.22(@typescript-eslint/utils@8.22.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.2))(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.2)(vitest@2.1.8(@types/node@18.19.69))
-      eslint-config-prettier: 9.1.0(eslint@9.19.0(jiti@2.4.2))
+      eslint-config-prettier: 10.0.1(eslint@9.19.0(jiti@2.4.2))
       eslint-flat-config-utils: 0.4.0
       eslint-formatting-reporter: 0.0.0(eslint@9.19.0(jiti@2.4.2))
       eslint-import-resolver-typescript: 3.7.0(eslint-plugin-import-x@4.6.1(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.2))(eslint-plugin-import@2.31.0)(eslint@9.19.0(jiti@2.4.2))
@@ -7154,7 +7154,7 @@ snapshots:
       eslint-plugin-n: 17.15.1(eslint@9.19.0(jiti@2.4.2))
       eslint-plugin-no-only-tests: 3.3.0
       eslint-plugin-optimize-regex: 1.2.1
-      eslint-plugin-prettier: 5.2.1(eslint-config-prettier@9.1.0(eslint@9.19.0(jiti@2.4.2)))(eslint@9.19.0(jiti@2.4.2))(prettier@3.4.2)
+      eslint-plugin-prettier: 5.2.1(eslint-config-prettier@10.0.1(eslint@9.19.0(jiti@2.4.2)))(eslint@9.19.0(jiti@2.4.2))(prettier@3.4.2)
       eslint-plugin-promise: 7.2.1(eslint@9.19.0(jiti@2.4.2))
       eslint-plugin-regexp: 2.7.0(eslint@9.19.0(jiti@2.4.2))
       eslint-plugin-sonarjs: 3.0.1(eslint@9.19.0(jiti@2.4.2))
@@ -8541,7 +8541,7 @@ snapshots:
       eslint: 9.19.0(jiti@2.4.2)
       semver: 7.6.3
 
-  eslint-config-prettier@9.1.0(eslint@9.19.0(jiti@2.4.2)):
+  eslint-config-prettier@10.0.1(eslint@9.19.0(jiti@2.4.2)):
     dependencies:
       eslint: 9.19.0(jiti@2.4.2)
 
@@ -8779,14 +8779,14 @@ snapshots:
     dependencies:
       regexp-tree: 0.1.27
 
-  eslint-plugin-prettier@5.2.1(eslint-config-prettier@9.1.0(eslint@9.19.0(jiti@2.4.2)))(eslint@9.19.0(jiti@2.4.2))(prettier@3.4.2):
+  eslint-plugin-prettier@5.2.1(eslint-config-prettier@10.0.1(eslint@9.19.0(jiti@2.4.2)))(eslint@9.19.0(jiti@2.4.2))(prettier@3.4.2):
     dependencies:
       eslint: 9.19.0(jiti@2.4.2)
       prettier: 3.4.2
       prettier-linter-helpers: 1.0.0
       synckit: 0.9.2
     optionalDependencies:
-      eslint-config-prettier: 9.1.0(eslint@9.19.0(jiti@2.4.2))
+      eslint-config-prettier: 10.0.1(eslint@9.19.0(jiti@2.4.2))
 
   eslint-plugin-promise@7.2.1(eslint@9.19.0(jiti@2.4.2)):
     dependencies:
