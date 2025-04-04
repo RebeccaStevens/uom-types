@@ -1,6 +1,6 @@
-import type { UnitConversionRate } from "../../core.ts";
-import { div, mul } from "../../math/index.ts";
-import type { Gram, Tonne } from "../common/index.ts";
+import type { UnitConversionRate } from "../core.ts";
+import { div, mul } from "../math/index.ts";
+import type { Gram, Tonne } from "../units/common/index.ts";
 
 /**
  * Convert {@link Gram} to {@link Tonne}.
