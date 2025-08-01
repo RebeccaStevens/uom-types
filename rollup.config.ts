@@ -16,17 +16,25 @@ const externalDependencies = [
 ];
 
 export default {
-  input: "src/index.ts",
+  input: {
+    converters: "src/converters.ts",
+    math: "src/math.ts",
+    types: "src/types.ts",
+    units: "src/units.ts",
+    index: "src/index.ts",
+  },
 
   output: [
     {
-      file: pkg.exports.import,
+      entryFileNames: "[name].mjs",
+      dir: "dist",
       format: "esm",
       sourcemap: false,
       importAttributesKey: "with",
     },
     {
-      file: pkg.exports.require,
+      entryFileNames: "[name].cjs",
+      dir: "dist",
       format: "cjs",
       sourcemap: false,
     },
