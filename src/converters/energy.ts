@@ -1,6 +1,6 @@
-import type { UnitConversionRate } from "../../core.ts";
-import { div, mul } from "../../math/index.ts";
-import type { Joule, WattHour, WattMinute } from "../common/index.ts";
+import type { UnitConversionRate } from "../core.ts";
+import { div, mul } from "../math/index.ts";
+import type { Joule, WattHour, WattMinute } from "../units/common/index.ts";
 
 /**
  * Convert {@link Joule} to {@link WattMinute}.
