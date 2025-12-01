@@ -85,7 +85,7 @@
     "@commitlint/cli": "20.1.0",
     "@commitlint/config-conventional": "20.0.0",
     "@cspell/dict-cryptocurrencies": "5.0.4",
-    "@eslint/compat": "1.2.4",
+    "@eslint/compat": "2.0.0",
     "@rebeccastevens/eslint-config": "3.5.1",
     "@rollup/plugin-typescript": "12.1.2",
     "@sebbo2002/semantic-release-jsr": "3.0.0",
