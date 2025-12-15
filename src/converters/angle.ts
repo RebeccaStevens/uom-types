@@ -1,6 +1,6 @@
-import type { UnitConversionRate } from "../../core.ts";
-import { div, mul } from "../../math/index.ts";
-import type { Degree, Gradian, Radian, Turn } from "../common/index.ts";
+import type { UnitConversionRate } from "../core.ts";
+import { div, mul } from "../math/index.ts";
+import type { Degree, Gradian, Radian, Turn } from "../units/common/index.ts";
 
 /**
  * Convert {@link Radian} to {@link Degree}.

@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/knip/schema-jsonc.json",
-  "entry": ["src/index.ts!"],
+  "entry": ["src/index.ts!", "src/converters.ts!", "src/math.ts!", "src/types.ts!", "src/units.ts!"],
   "project": ["src/**/*.ts!", "!src/**/*.test-d.ts"],
   "ignoreDependencies": ["@eslint/compat", "tsc-files"],
   "exclude": ["exports", "nsExports", "types", "nsTypes", "duplicates"],

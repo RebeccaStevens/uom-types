@@ -1,6 +1,6 @@
-import type { UnitConversionRate } from "../../core.ts";
-import { div, mul } from "../../math/index.ts";
-import type { Day, Hour, Minute, Second, Week, Year } from "../common/index.ts";
+import type { UnitConversionRate } from "../core.ts";
+import { div, mul } from "../math/index.ts";
+import type { Day, Hour, Minute, Second, Week, Year } from "../units/common/index.ts";
 
 /**
  * Convert {@link Second} to {@link Minute}.

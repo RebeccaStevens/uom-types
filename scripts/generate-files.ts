@@ -78,7 +78,7 @@ function generateSiUnitPrefixesFile() {
 }
 
 function generateSiUnitPrefixesConvertionFile() {
-  const imports = `import type { UnknownUnit, UnitConversionRate } from "../../core.ts";\nimport { mul, div } from "../../math/index.ts";\nimport type { Divide, Multiply } from "../../units-operations/index.ts";\n\n`;
+  const imports = `import type { UnknownUnit, UnitConversionRate } from "../core.ts";\nimport { mul, div } from "../math/index.ts";\nimport type { Divide, Multiply } from "../units-operations/index.ts";\n\n`;
   const main = [...exponents.values()]
     .map((exponent) => {
       const name = scalar10ToName.get(exponent);
@@ -98,7 +98,7 @@ function generateSiUnitPrefixesConvertionFile() {
     .filter(isNotNull)
     .join("\n\n");
   const content = `${autogenHeader}${imports}${main}\n`;
-  return fs.writeFile("src/units/converters/prefixes.ts", content, {
+  return fs.writeFile("src/converters/prefixes.ts", content, {
     encoding: "utf8",
   });
 }
