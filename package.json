@@ -146,7 +146,7 @@
     "typescript": "5.7.2",
     "vite-tsconfig-paths": "6.0.5",
     "vitest": "3.2.4",
-    "yaml-eslint-parser": "1.2.3"
+    "yaml-eslint-parser": "2.0.0"
   },
   "packageManager": "pnpm@10.5.2",
   "engines": {

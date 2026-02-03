@@ -22,7 +22,7 @@ importers:
         version: 2.0.0(eslint@9.39.2(jiti@2.4.2))
       '@rebeccastevens/eslint-config':
         specifier: 3.5.1
-        version: 3.5.1(93a5700cee9954d9ef417ab57c338ecf)
+        version: 3.5.1(058e0142396b44f0768271a359ccc809)
       '@rollup/plugin-typescript':
         specifier: 12.1.2
         version: 12.1.2(rollup@4.29.1)(tslib@2.7.0)(typescript@5.7.2)
@@ -201,8 +201,8 @@ importers:
         specifier: 3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@types/node@18.19.69)
       yaml-eslint-parser:
-        specifier: 1.2.3
-        version: 1.2.3
+        specifier: 2.0.0
+        version: 2.0.0
 
 packages:
 
@@ -5848,10 +5848,6 @@ packages:
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  yaml-eslint-parser@1.2.3:
-    resolution: {integrity: sha512-4wZWvE398hCP7O8n3nXKu/vdq1HcH01ixYlCREaJL5NUMwQ0g3MaGFUBNSlmBtKmhbtVG/Cm6lyYmSVTEVil8A==}
-    engines: {node: ^14.17.0 || >=16.0.0}
-
   yaml-eslint-parser@2.0.0:
     resolution: {integrity: sha512-h0uDm97wvT2bokfwwTmY6kJ1hp6YDFL0nRHwNKz8s/VD1FH/vvZjAKoMUE+un0eaYBSG7/c6h+lJTP+31tjgTw==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
@@ -7394,7 +7390,7 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@rebeccastevens/eslint-config@3.5.1(93a5700cee9954d9ef417ab57c338ecf)':
+  '@rebeccastevens/eslint-config@3.5.1(058e0142396b44f0768271a359ccc809)':
     dependencies:
       '@antfu/install-pkg': 0.5.0
       '@clack/prompts': 0.8.2
@@ -7433,7 +7429,7 @@ snapshots:
       prettier: 3.4.2
       sort-package-json: 2.10.1
       vue-eslint-parser: 9.4.3(eslint@9.39.2(jiti@2.4.2))
-      yaml-eslint-parser: 1.2.3
+      yaml-eslint-parser: 2.0.0
 
   '@rollup/plugin-typescript@12.1.2(rollup@4.29.1)(tslib@2.7.0)(typescript@5.7.2)':
     dependencies:
@@ -12050,12 +12046,6 @@ snapshots:
   yallist@3.1.1: {}
 
   yallist@4.0.0: {}
-
-  yaml-eslint-parser@1.2.3:
-    dependencies:
-      eslint-visitor-keys: 3.4.3
-      lodash: 4.17.21
-      yaml: 2.8.2
 
   yaml-eslint-parser@2.0.0:
     dependencies:
