@@ -22,7 +22,7 @@ importers:
         version: 2.0.0(eslint@9.39.3(jiti@2.4.2))
       '@rebeccastevens/eslint-config':
         specifier: 3.5.1
-        version: 3.5.1(fc4482141d55c99f4cd05163bd49c377)
+        version: 3.5.1(0812d242aead78c43c9c0fca3d4f0a3e)
       '@rollup/plugin-typescript':
         specifier: 12.1.2
         version: 12.1.2(rollup@4.59.0)(tslib@2.7.0)(typescript@5.7.2)
@@ -132,8 +132,8 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(eslint@9.39.3(jiti@2.4.2))
       eslint-plugin-unicorn:
-        specifier: 62.0.0
-        version: 62.0.0(eslint@9.39.3(jiti@2.4.2))
+        specifier: 63.0.0
+        version: 63.0.0(eslint@9.39.3(jiti@2.4.2))
       eslint-plugin-yml:
         specifier: 3.0.0
         version: 3.0.0(eslint@9.39.3(jiti@2.4.2))
@@ -3341,8 +3341,8 @@ packages:
     peerDependencies:
       eslint: ^8.0.0 || ^9.0.0
 
-  eslint-plugin-unicorn@62.0.0:
-    resolution: {integrity: sha512-HIlIkGLkvf29YEiS/ImuDZQbP12gWyx5i3C6XrRxMvVdqMroCI9qoVYCoIl17ChN+U89pn9sVwLxhIWj5nEc7g==}
+  eslint-plugin-unicorn@63.0.0:
+    resolution: {integrity: sha512-Iqecl9118uQEXYh7adylgEmGfkn5es3/mlQTLLkd4pXkIk9CTGrAbeUux+YljSa2ohXCBmQQ0+Ej1kZaFgcfkA==}
     engines: {node: ^20.10.0 || >=21.0.0}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -7666,7 +7666,7 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@rebeccastevens/eslint-config@3.5.1(fc4482141d55c99f4cd05163bd49c377)':
+  '@rebeccastevens/eslint-config@3.5.1(0812d242aead78c43c9c0fca3d4f0a3e)':
     dependencies:
       '@antfu/install-pkg': 0.5.0
       '@clack/prompts': 0.8.2
@@ -7699,7 +7699,7 @@ snapshots:
       eslint-plugin-promise: 7.2.1(eslint@9.39.3(jiti@2.4.2))
       eslint-plugin-regexp: 3.0.0(eslint@9.39.3(jiti@2.4.2))
       eslint-plugin-sonarjs: 3.0.1(eslint@9.39.3(jiti@2.4.2))
-      eslint-plugin-unicorn: 62.0.0(eslint@9.39.3(jiti@2.4.2))
+      eslint-plugin-unicorn: 63.0.0(eslint@9.39.3(jiti@2.4.2))
       eslint-plugin-yml: 3.0.0(eslint@9.39.3(jiti@2.4.2))
       jsonc-eslint-parser: 2.4.0
       prettier: 3.4.2
@@ -9469,17 +9469,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-unicorn@62.0.0(eslint@9.39.3(jiti@2.4.2)):
+  eslint-plugin-unicorn@63.0.0(eslint@9.39.3(jiti@2.4.2)):
     dependencies:
       '@babel/helper-validator-identifier': 7.28.5
       '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.3(jiti@2.4.2))
-      '@eslint/plugin-kit': 0.4.1
       change-case: 5.4.4
       ci-info: 4.3.1
       clean-regexp: 1.0.0
       core-js-compat: 3.47.0
       eslint: 9.39.3(jiti@2.4.2)
-      esquery: 1.7.0
       find-up-simple: 1.0.1
       globals: 16.5.0
       indent-string: 5.0.0
