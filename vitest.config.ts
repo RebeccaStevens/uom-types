@@ -6,10 +6,10 @@ export default defineConfig({
 
   test: {
     include: ["./**/*.test.ts"],
+    exclude: ["dist", "node_modules"],
     coverage: {
-      all: true,
-      include: ["**/*.ts"],
-      exclude: ["**/*.test.ts", "**/*.test-d.ts"],
+      include: ["src"],
+      exclude: ["dist"],
       reporter: ["lcov", "text"],
       watermarks: {
         lines: [80, 95],

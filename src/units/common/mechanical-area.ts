@@ -1,9 +1,7 @@
 import type { AbstractUnitFrom, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
 import type { BaseUnitClass } from "../base-units.ts";
-// eslint-disable-next-line ts/no-unused-vars
 import type { Square } from "../modifiers/index.ts";
 
-// eslint-disable-next-line ts/no-unused-vars
 import type { Meter } from "./index.ts";
 
 /**

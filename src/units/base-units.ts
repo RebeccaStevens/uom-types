@@ -1,7 +1,4 @@
-import type {
-  Unit, // eslint-disable-line ts/no-unused-vars
-  UnitClass,
-} from "../core.ts";
+import type { Unit, UnitClass } from "../core.ts";
 import type { Exponent } from "../exponents.ts";
 import type { Exactify } from "../utils.ts";
 

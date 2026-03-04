@@ -3,7 +3,7 @@ import type { UnitSubvalues, UnknownUnitClass, UnknownUnitMeta } from "./core.ts
 /**
  * Available for providing custom branding.
  */
-// eslint-disable-next-line ts/no-empty-interface, ts/consistent-type-definitions
+// eslint-disable-next-line ts/consistent-type-definitions
 export interface Brand {}
 
 /**

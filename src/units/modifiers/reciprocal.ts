@@ -1,5 +1,5 @@
 import type {
-  Unit, // eslint-disable-line ts/no-unused-vars
+  Unit,
   UnitClass,
   UnitMeta,
   UnknownAbstractUnit,

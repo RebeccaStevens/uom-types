@@ -1,11 +1,4 @@
-import type {
-  AbstractUnitFrom,
-  Unit, // eslint-disable-line ts/no-unused-vars
-  UnitFrom,
-  UnitMeta,
-  UnitSubvalues,
-  UnknownUnitMeta,
-} from "../../core.ts";
+import type { AbstractUnitFrom, Unit, UnitFrom, UnitMeta, UnitSubvalues, UnknownUnitMeta } from "../../core.ts";
 import type { BaseUnitClass } from "../base-units.ts";
 
 /**
