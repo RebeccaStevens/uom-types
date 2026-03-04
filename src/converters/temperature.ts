@@ -1,4 +1,4 @@
-import type { Celsius, Kelvin } from "../common/index.ts";
+import type { Celsius, Kelvin } from "../units/common/index.ts";
 
 /**
  * Convert {@link Celsius} to {@link Kelvin}.
