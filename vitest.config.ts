@@ -9,7 +9,7 @@ export default defineConfig({
     exclude: ["dist", "node_modules"],
     coverage: {
       include: ["src"],
-      exclude: ["dist"],
+      exclude: ["dist", "**/*.test-d.ts"],
       reporter: ["lcov", "text"],
       watermarks: {
         lines: [80, 95],
