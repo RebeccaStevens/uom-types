@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+## [5.1.1](https://github.com/RebeccaStevens/uom-types/compare/v5.1.0...v5.1.1) (2026-03-04)
+
+
+### Bug Fixes
+
+* docs fixup ([8adac4f](https://github.com/RebeccaStevens/uom-types/commit/8adac4ffd169a734fa85732f2b22bbc26fddf3b8))
+
 # [5.1.0](https://github.com/RebeccaStevens/uom-types/compare/v5.0.1...v5.1.0) (2026-03-04)
 
 
