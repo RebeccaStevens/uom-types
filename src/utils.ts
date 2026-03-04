@@ -1,3 +1,9 @@
+/**
+ * This module contains utility types that are exported by the library.
+ *
+ * @module
+ */
+
 import type { UnitSubvalues, UnknownUnitClass, UnknownUnitMeta } from "./core.ts";
 
 /**
