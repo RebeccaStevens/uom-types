@@ -49,7 +49,7 @@ jobs:
       - typecheck
     runs-on: ubuntu-latest
     outputs:
-      new_release_published: ${{ steps.semantic.outputs.new_release_published }}
+      released_version: ${{ steps.package-version.outputs.current-version }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -61,12 +61,18 @@ jobs:
         run: pnpm run build
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v3
-        id: semantic
+        run: pnpm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: package-version
+        name: Get Released Version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
 
   release_docs:
     needs:
       - release
+    if: ${{ needs.release.outputs.released_version != '' }}
     uses: ./.github/workflows/release-docs.yml
+    with:
+      version: ${{ needs.release.outputs.released_version }}
