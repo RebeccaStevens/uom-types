@@ -27,8 +27,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3
       '@rebeccastevens/eslint-config':
-        specifier: 3.10.0
-        version: 3.10.0(f00244875c9fdd2825fca66416488195)
+        specifier: 4.0.3
+        version: 4.0.3(f00244875c9fdd2825fca66416488195)
       '@rollup/plugin-typescript':
         specifier: 12.3.0
         version: 12.3.0(rollup@4.63.1)(tslib@2.8.1)(typescript@6.0.3)
@@ -188,8 +188,8 @@ importers:
 
 packages:
 
-  '@antfu/install-pkg@1.1.0':
-    resolution: {integrity: sha512-MGQsmw10ZyI+EJo45CdSER4zEb+p31LpDAFp2Z3gkSd1yqVZGi0Ebx++YTEMonJy4oChEMLsxZ64j8FH6sSqtQ==}
+  '@antfu/install-pkg@2.0.1':
+    resolution: {integrity: sha512-iCKVQcIC0e3oDxEfs3SHQGW+ovhBMZmS1TE+bTk50rVyMCBmCfClv7Qi3HQKlumYwvjb/iIMeWCW2i67q6kFfQ==}
 
   '@babel/code-frame@7.29.0':
     resolution: {integrity: sha512-9NhCeYjq9+3uxgdtp20LSiJXJvN0FeCtNGpJxuMFZ1Kv3cWUNb6DOhJwUvcVCzKGR66cw4njwM6hrJLqgOwbcw==}
@@ -216,11 +216,13 @@ packages:
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
 
-  '@clack/core@1.1.0':
-    resolution: {integrity: sha512-SVcm4Dqm2ukn64/8Gub2wnlA5nS2iWJyCkdNHcvNHPIeBTGojpdJ+9cZKwLfmqy7irD4N5qLteSilJlE0WLAtA==}
+  '@clack/core@1.4.3':
+    resolution: {integrity: sha512-/kr3UWNtdJfxZtPgDqUOmG2pvwlmcLGheex5yiZKdwbzZJxhV+HMNR9QNmyY5cGwTNV6LrR7Jtp+KjhUAP1qBQ==}
+    engines: {node: '>= 20.12.0'}
 
-  '@clack/prompts@1.1.0':
-    resolution: {integrity: sha512-pkqbPGtohJAvm4Dphs2M8xE29ggupihHdy1x84HNojZuMtFsHiUlRvqD24tM2+XmI+61LlfNceM3Wr7U5QES5g==}
+  '@clack/prompts@1.7.0':
+    resolution: {integrity: sha512-y7/yvZ2TPAnR9+jnc00klvNNLkJiXFFrQA/hlLCcxA9a2A4zQIOimyFQ9XfwYKiGD1fb5GY8vbKIIgO8d5Tb2A==}
+    engines: {node: '>= 20.12.0'}
 
   '@commitlint/cli@21.2.2':
     resolution: {integrity: sha512-a+6hQxIxnpdvSvS2apvttPNbEliYsVC3PqFYDiiB2kjbwIsQsj1urvQ4Tkf70pKYozPalKAuRQmm/GHwndduqA==}
@@ -1352,13 +1354,14 @@ packages:
     resolution: {integrity: sha512-4EDEmvxWtgsCnnVeBvtFIFZtUhPPt1+bA9JrSwU4Sa//6oKtzCSlGGXYJr44OD9aGISymbieJ4mCKHUygUDU+g==}
     engines: {node: '>=18'}
 
-  '@rebeccastevens/eslint-config@3.10.0':
-    resolution: {integrity: sha512-W0n/ef6bVkPSKnlE5HrI1rY8A8VmmVWuaMggydLDdxkQuwvBj2/RFp+5WmhugD4TEFYQCa/8is4nrNOFNr21yg==}
-    engines: {node: '>=20.0.0'}
+  '@rebeccastevens/eslint-config@4.0.3':
+    resolution: {integrity: sha512-D3fU4zPAXM9Cdg69HVJqQrzDcufEjPdxQ1l69uB0GSaAjgdZ5mSWtgNgmFn1VE3ENTlu25C7OuCC6Uh7RPRIQA==}
+    engines: {node: '>=24.0.0'}
     peerDependencies:
       '@eslint-community/eslint-plugin-eslint-comments': '*'
       '@eslint-react/eslint-plugin': '*'
       '@eslint/markdown': '*'
+      '@intlify/eslint-plugin-vue-i18n': '*'
       '@stylistic/eslint-plugin': '*'
       '@typescript-eslint/eslint-plugin': '*'
       '@typescript-eslint/parser': '*'
@@ -1372,6 +1375,8 @@ packages:
       eslint-import-resolver-typescript: '*'
       eslint-merge-processors: '*'
       eslint-plugin-better-tailwindcss: '*'
+      eslint-plugin-command: '*'
+      eslint-plugin-erasable-syntax-only: '*'
       eslint-plugin-format: '*'
       eslint-plugin-functional: '*'
       eslint-plugin-i18next: '*'
@@ -1382,14 +1387,18 @@ packages:
       eslint-plugin-n: '*'
       eslint-plugin-no-only-tests: '*'
       eslint-plugin-optimize-regex: '*'
+      eslint-plugin-perfectionist: '*'
+      eslint-plugin-pnpm: '*'
       eslint-plugin-prettier: '*'
       eslint-plugin-promise: '*'
       eslint-plugin-react-hooks: '*'
       eslint-plugin-react-refresh: '*'
       eslint-plugin-regexp: '*'
+      eslint-plugin-security: '*'
       eslint-plugin-sonarjs: '*'
       eslint-plugin-toml: '*'
       eslint-plugin-unicorn: '*'
+      eslint-plugin-unused-imports: '*'
       eslint-plugin-vue: '*'
       eslint-plugin-yml: '*'
       eslint-processor-vue-blocks: '*'
@@ -1405,6 +1414,8 @@ packages:
       '@eslint-react/eslint-plugin':
         optional: true
       '@eslint/markdown':
+        optional: true
+      '@intlify/eslint-plugin-vue-i18n':
         optional: true
       '@stylistic/eslint-plugin':
         optional: true
@@ -1430,6 +1441,10 @@ packages:
         optional: true
       eslint-plugin-better-tailwindcss:
         optional: true
+      eslint-plugin-command:
+        optional: true
+      eslint-plugin-erasable-syntax-only:
+        optional: true
       eslint-plugin-format:
         optional: true
       eslint-plugin-functional:
@@ -1450,6 +1465,10 @@ packages:
         optional: true
       eslint-plugin-optimize-regex:
         optional: true
+      eslint-plugin-perfectionist:
+        optional: true
+      eslint-plugin-pnpm:
+        optional: true
       eslint-plugin-prettier:
         optional: true
       eslint-plugin-promise:
@@ -1460,11 +1479,15 @@ packages:
         optional: true
       eslint-plugin-regexp:
         optional: true
+      eslint-plugin-security:
+        optional: true
       eslint-plugin-sonarjs:
         optional: true
       eslint-plugin-toml:
         optional: true
       eslint-plugin-unicorn:
+        optional: true
+      eslint-plugin-unused-imports:
         optional: true
       eslint-plugin-vue:
         optional: true
@@ -2929,8 +2952,17 @@ packages:
   fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
 
+  fast-string-truncated-width@3.0.3:
+    resolution: {integrity: sha512-0jjjIEL6+0jag3l2XWWizO64/aZVtpiGE3t0Zgqxv0DPuxiMjvB3M24fCyhZUO4KomJQPj3LTSUnDP3GpdwC0g==}
+
+  fast-string-width@3.0.2:
+    resolution: {integrity: sha512-gX8LrtNEI5hq8DVUfRQMbr5lpaS4nMIWV+7XEbXk2b8kiQIizgnlr12B4dA3ZEx3308ze0O4Q1R+cHts8kyUJg==}
+
   fast-uri@3.1.0:
     resolution: {integrity: sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==}
+
+  fast-wrap-ansi@0.2.2:
+    resolution: {integrity: sha512-7F2Fl+TjRSenLqlU3UjSH0iyqopqoZIu7eZVpEirP2g1GtWa2G/ecEmBdgz31+Mxr+ELclgg6sokpSFIQiZ02Q==}
 
   fastq@1.20.1:
     resolution: {integrity: sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw==}
@@ -3111,8 +3143,8 @@ packages:
     resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
     engines: {node: '>=18'}
 
-  globals@17.7.0:
-    resolution: {integrity: sha512-Czmyns5dUsq4seFBR/Kdydhmo8y9kC79hiSkPn0YcGtNnYWnrgt0vjrSjx9tspoDGWm2CMarffRuLjM4xUz8xg==}
+  globals@17.12.0:
+    resolution: {integrity: sha512-cezEd/DTyyht9cvSSURyygXPfy04GtWO/5e6ZPvH7fCtjKz9PYOmuawphw1Ctd1f6C+5JypXfGD7ahNMXvevBA==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -3581,8 +3613,8 @@ packages:
     engines: {node: '>=22.22.1'}
     hasBin: true
 
-  local-pkg@1.1.2:
-    resolution: {integrity: sha512-arhlxbFRmoQHl33a0Zkle/YWlmNwoyt6QNZEIJcqNbdrsix5Lvc4HyyI3EnwxTYlZYc32EbYrQ8SzEZ7dqgg9A==}
+  local-pkg@1.2.1:
+    resolution: {integrity: sha512-++gUqRDEvcnN6Zhqrr+y/CkVEHhlrR96vZn3nZZPYzMcBUyBtTKzB9NadClFIsIVSsu+3i9tfk/erqy9kAmt7Q==}
     engines: {node: '>=14'}
 
   locate-path@5.0.0:
@@ -4907,7 +4939,7 @@ packages:
 
 snapshots:
 
-  '@antfu/install-pkg@1.1.0':
+  '@antfu/install-pkg@2.0.1':
     dependencies:
       package-manager-detector: 1.8.0
       tinyexec: 1.3.0
@@ -4933,13 +4965,16 @@ snapshots:
 
   '@bcoe/v8-coverage@1.0.2': {}
 
-  '@clack/core@1.1.0':
+  '@clack/core@1.4.3':
     dependencies:
+      fast-wrap-ansi: 0.2.2
       sisteransi: 1.0.5
 
-  '@clack/prompts@1.1.0':
+  '@clack/prompts@1.7.0':
     dependencies:
-      '@clack/core': 1.1.0
+      '@clack/core': 1.4.3
+      fast-string-width: 3.0.2
+      fast-wrap-ansi: 0.2.2
       sisteransi: 1.0.5
 
   '@commitlint/cli@21.2.2(@types/node@20.19.43)(typescript@6.0.3)':
@@ -5778,13 +5813,13 @@ snapshots:
     dependencies:
       tinyexec: 1.3.0
 
-  '@rebeccastevens/eslint-config@3.10.0(f00244875c9fdd2825fca66416488195)':
+  '@rebeccastevens/eslint-config@4.0.3(f00244875c9fdd2825fca66416488195)':
     dependencies:
-      '@antfu/install-pkg': 1.1.0
-      '@clack/prompts': 1.1.0
+      '@antfu/install-pkg': 2.0.1
+      '@clack/prompts': 1.7.0
       eslint: 10.9.1(jiti@2.7.0)
-      globals: 17.7.0
-      local-pkg: 1.1.2
+      globals: 17.12.0
+      local-pkg: 1.2.1
     optionalDependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.7.2(eslint@10.9.1(jiti@2.7.0))
       '@eslint/markdown': 8.0.3
@@ -7362,7 +7397,7 @@ snapshots:
       bytes: 3.1.2
       eslint: 10.9.1(jiti@2.7.0)
       functional-red-black-tree: 1.0.1
-      globals: 17.7.0
+      globals: 17.12.0
       jsx-ast-utils-x: 0.1.0
       lodash.merge: 4.6.2
       minimatch: 10.2.5
@@ -7382,7 +7417,7 @@ snapshots:
       core-js-compat: 3.49.0
       eslint: 10.9.1(jiti@2.7.0)
       find-up-simple: 1.0.1
-      globals: 17.7.0
+      globals: 17.12.0
       indent-string: 5.0.0
       is-builtin-module: 5.0.0
       jsesc: 3.1.0
@@ -7528,7 +7563,17 @@ snapshots:
 
   fast-levenshtein@2.0.6: {}
 
+  fast-string-truncated-width@3.0.3: {}
+
+  fast-string-width@3.0.2:
+    dependencies:
+      fast-string-truncated-width: 3.0.3
+
   fast-uri@3.1.0: {}
+
+  fast-wrap-ansi@0.2.2:
+    dependencies:
+      fast-string-width: 3.0.2
 
   fastq@1.20.1:
     dependencies:
@@ -7725,7 +7770,7 @@ snapshots:
 
   globals@15.15.0: {}
 
-  globals@17.7.0: {}
+  globals@17.12.0: {}
 
   globalthis@1.0.4:
     dependencies:
@@ -8242,7 +8287,7 @@ snapshots:
     optionalDependencies:
       yaml: 2.9.0
 
-  local-pkg@1.1.2:
+  local-pkg@1.2.1:
     dependencies:
       mlly: 1.8.0
       pkg-types: 2.3.0
