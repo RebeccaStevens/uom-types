@@ -143,7 +143,7 @@
     "eslint-plugin-promise": "7.3.0",
     "eslint-plugin-regexp": "3.2.0",
     "eslint-plugin-sonarjs": "4.2.0",
-    "eslint-plugin-unicorn": "64.0.0",
+    "eslint-plugin-unicorn": "74.0.0",
     "eslint-plugin-yml": "3.8.1",
     "http-serve": "1.0.1",
     "husky": "9.1.7",
